@@ -1,4 +1,13 @@
-import { findIssues, Issue } from '../src/qaassist';
+import { IssueInstance, findIssues } from '../src/qaassist';
+import { IssueId, issues } from '../src/data';
+
+function ids(issues: IssueInstance[]): IssueId[] {
+  const issueIds: IssueId[] = [];
+  for (const issue of issues) {
+    issueIds.push(issue.id);
+  }
+  return issueIds;
+}
 
 test("00000: number of occurrences", () => {
   const result = findIssues("'''");

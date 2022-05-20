@@ -1,7 +1,7 @@
-import { DATA } from "./data";
+import { issues, IssueId } from "./data";
 
-export interface Issue {
-  id: string,
+export interface IssueInstance {
+  id: IssueId,
   occurrences: number,
 }
 
@@ -13,11 +13,10 @@ interface UiIssue {
   checkTypes: any,
 }
 
-export function findIssues(text: string): Issue[] {
-  const result : Issue[] = [];
-  for (let i = 0; i < DATA.length; i++) {
-    const issue = DATA[i];
-    const issueId = issue.id;
+export function findIssues(text: string) {
+  const result : IssueInstance[] = [];
+  for (const issue of Object.values(issues)) {
+    const issueId = issue.id as IssueId;
     const regex = issue.regex;
 
     const numMatches = (text.match(regex) || []).length;
