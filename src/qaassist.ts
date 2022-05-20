@@ -1,6 +1,6 @@
 import { DATA } from "./data";
 
-interface Issue {
+export interface Issue {
   id: string,
   occurrences: number,
 }
@@ -13,7 +13,7 @@ interface UiIssue {
   checkTypes: any,
 }
 
-export function findIssues(text: string) {
+export function findIssues(text: string): Issue[] {
   const result : Issue[] = [];
   for (let i = 0; i < DATA.length; i++) {
     const issue = DATA[i];

@@ -161,7 +161,7 @@ export const DATA: IssueData[] = [
   { id: "00138", regex: /tete-a-tete/ig, ui: { label: "tete-a-tete → tête-à-tête", copy: "", checkTypes: [], }, },
   { id: "00139", regex: /ly-/ig, ui: { label: "hyphenated averbs (ly-)", copy: "", checkTypes: [], }, },
   { id: "00140", regex: /towards/ig, ui: { label: "towards", copy: "", checkTypes: [], }, },
-  { id: "00141", regex: /toward[^s]/ig, ui: { label: "toward", copy: "", checkTypes: [], }, },
+  { id: "00141", regex: /toward($|[^s])/ig, ui: { label: "toward", copy: "", checkTypes: [], }, },
   { id: "00142", regex: /afterwards/ig, ui: { label: "afterwards", copy: "", checkTypes: [], }, },
-  { id: "00143", regex: /afterward[^s]/ig, ui: { label: "afterward", copy: "", checkTypes: [], }, },
+  { id: "00143", regex: /afterward($|[^s])/ig, ui: { label: "afterward", copy: "", checkTypes: [], }, },
 ]
