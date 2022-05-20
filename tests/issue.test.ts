@@ -1,4 +1,4 @@
-const findIssues = require('../qaassist');
+import { findIssues } from '../qaassist';
 
 test("00000: number of occurrences", () => {
   const result = findIssues("'''");

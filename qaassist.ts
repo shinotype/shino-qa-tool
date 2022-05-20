@@ -31,5 +31,3 @@ export function findIssues(text: string) {
   }
   return result;
 }
-
-module.exports = findIssues;
