@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+  <!-- The CSS package above applies Google styling to buttons and other elements. -->
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Fredoka:100,200,300,400,500,600,700,800');
+    @import url('https://fonts.googleapis.com/css?family=Source%20Code%20Pro:100,200,300,400,500,600,700,800');
+    @import url('https://fonts.googleapis.com/css?family=Share%20Tech%20Mono:100,200,300,400,500,600,700,800');
+
+    .container {
+      font-family: 'Source Code Pro', sans-serif;
+      font-size: 14px;
+    }
+
+    .nothingHere {
+      display: none;
+      margin: 0 8px;
+    }
+
+    .container.empty .nothingHere {
+      display: block;
+    }
+    
+    .errors {
+      font-color: red;
+      font-weight: bold;
+    }
+
+    .header {
+      font-weight: bold;
+      grid-column: 1 / 3;
+      margin-top: 12px;
+      margin-bottom: 2px;
+    }
+
+    .item {
+      display: none;
+      grid-template-columns: 1fr 40px;
+    }
+
+    .label {
+      grid-column: 1;
+      padding: 2px 0;
+      margin: 2px 0;
+    }
+    
+    .count {
+      border-radius: 6px;
+      font-family: 'Share Tech Mono', monospace;
+      grid-column: 2;
+      padding: 4px;
+      text-align: right;
+      margin: 2px 4px;
+    }
+    .item.red {
+      display: grid;
+    }
+
+    #run-assistant {
+      display: flex;
+      font-size: 16px;
+      margin: 12px auto;
+      text-transform: uppercase;
+    }
+
+    .white {
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    .copy-button {
+      margin: 0 8px 0 4px;
+      min-width: auto;
+      width: 32px;
+      position: relative;
+    }
+
+    .copy-button:hover::after {
+      background: #FFF;
+      border: 1px solid black;
+      border-radius: 4px;
+      content: "Copy text";
+      font-family: 'Fredoka', sans-serif;
+      font-size: 12px;
+      font-weight: normal;
+      padding: 0 8px;
+      position: absolute;
+      top: 0;
+      left: 32px;
+    }
+
+    .copy-button.is-regex:hover::after {
+      content: "Copy regex";
+    }
+
+    .copy-button.is-regex.case-sensitive:hover::after {
+      content: "Copy case-sensitive regex";
+    }
+
+
+  </style>
+  <title></title>
+</head>
+<body>
+<div>
+  <div id="checks" class="container"></div>
+  <!-- <div id="hyphens" class="container"></div>
+  <div id="spaces" class="container"></div>
+  <div id="spelling" class="container"></div>
+  <div id="british-spelling" class="container"></div>
+  <div id="spelling2" class="container"></div>
+  <div id="numbers" class="container"></div>
+  <div id="fancy" class="container"></div>
+  <div id="misc" class="container"></div> -->
+
+  <!-- Errors are not actually handled right now. -->
+  <div id="errors" class="container errors"></div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+  /**
+   * On document load, assign click handlers to each button and try to load the
+   * user's origin and destination language preferences if previously set.
+   */
+  $(function() {
+    const Punctuation = Symbol("punctuation");
+    const Hyphens = Symbol("hyphens");
+    const Spaces = Symbol("spaces");
+    const Spelling = Symbol("spelling");
+    const BritSpelling = Symbol("britspelling");
+    const WordsToCheck = Symbol("wordstocheck");
+    const NumberWords = Symbol("numberwords");
+    const FancyWords = Symbol("fancywords");
+    const Misc = Symbol("misc");
+
+    populateUi({
+      items: [
+        { id: "space", label: "Double spaces", maybe: true, findRegex: /[ ]{2}/g, copyRegex: "  ", checkTypes: [Punctuation] },
+        { id: "apostrophe", label: "'", findRegex: /'/g, isRegex: true, copyRegex: "\\\'", checkTypes: [Punctuation] },
+        { id: "quote", label: "\"", findRegex: /"/g, isRegex: true, copyRegex: "\\\"", checkTypes: [Punctuation] },
+        { id: "too", label: ", too", maybe: true, findRegex: /, too/ig, copyRegex: ", too", checkTypes: [Punctuation] },
+        { id: "either", label: ", either", maybe: true, findRegex: /, either/ig, copyRegex: ", either", checkTypes: [Punctuation] },
+        { id: "bang", label: "!? → ?!", findRegex: /!\?/g, copyRegex: "!?", checkTypes: [Punctuation] },
+        { id: "bang2", label: "!! → ! or !!!", findRegex: /([^!]|^)!!([^!]|$)/g, copyRegex: "!!", checkTypes: [Punctuation] },
+        { id: "ellipsis1", label: "....", findRegex: /\.\.\.\./g, copyRegex: "....", checkTypes: [Punctuation] },
+        { id: "ellipsis2", label: "... a", maybe: true, isRegex: true, isCaseSensitive: true, findRegex: /\.\.\. [a-z]/g, copyRegex: "\\.\\.\\. [a-z]", checkTypes: [Punctuation] },
+        { id: "ellipsis3", label: "...A", maybe: true, isRegex: true, isCaseSensitive: true, findRegex: /\.\.\.[A-Z]/g, copyRegex: "\\.\\.\\.[A-Z]", checkTypes: [Punctuation] },
+        { id: "ellipsis4", label: "… (symbol)", findRegex: /…/g, copyRegex: "…", checkTypes: [Punctuation] },
+        { id: "emdash1", label: "—[space]", maybe: true, findRegex: /— /g, copyRegex: "— ", checkTypes: [Punctuation] },
+        { id: "emdash2", label: "[space]—", maybe: true, findRegex: / —/g, copyRegex: " —", checkTypes: [Punctuation] },
+        { id: "causepos", label: "‘cause → ’cause", findRegex: /‘cause/ig, copyRegex: "‘cause", checkTypes: [Punctuation] },
+        { id: "suppos", label: "‘sup → ’sup", findRegex: /‘sup/ig, copyRegex: "‘sup", checkTypes: [Punctuation] },
+        { id: "empos", label: "‘em → ’em", findRegex: /‘em/ig, copyRegex: "‘em", checkTypes: [Punctuation] },
+        { id: "startquote", label: "Missing start quotes", isRegex: true, findRegex: /”[^“]*?”/g, copyRegex: "”[^“]*?”", checkTypes: [Punctuation] },
+        { id: "endquote", label: "Missing end quotes", isRegex: true, findRegex: /“[^”]*?“/g, copyRegex: "“[^”]*?“", checkTypes: [Punctuation] },
+        { id: "absent", label: "absent-minded → absentminded", findRegex: /absent-minded/ig, copyRegex: "absent-minded", checkTypes: [Hyphens] },
+        { id: "blood", label: "blood-red → bloodred", findRegex: /blood-red/ig, copyRegex: "blood-red", checkTypes: [Hyphens] },
+        { id: "bloodsucking", label: "blood-sucking → bloodsucking", findRegex: /blood-sucking/ig, copyRegex: "blood-sucking", checkTypes: [Hyphens] },
+        { id: "crossdress", label: "crossdress → cross-dress", findRegex: /crossdress/ig, copyRegex: "crossdress", checkTypes: [Hyphens] },
+        { id: "cross-section", label: "cross-section → cross section", findRegex: /cross-section/ig, copyRegex: "cross-section", checkTypes: [Hyphens] },
+        { id: "crystalclear", label: "crystal-clear → crystal clear", findRegex: /crystal-clear/ig, copyRegex: "crystal-clear", checkTypes: [Hyphens] },
+        { id: "deadset", label: "dead-set → dead set", findRegex: /dead-set/ig, copyRegex: "dead-set", checkTypes: [Hyphens] },
+        { id: "dealbreaker", label: "dealbreaker → deal-breaker", findRegex: /dealbreaker/ig, copyRegex: "dealbreaker", checkTypes: [Hyphens] },
+        { id: "dutybound", label: "duty-bound → duty bound", findRegex: /duty-bound/ig, copyRegex: "duty-bound", checkTypes: [Hyphens] },
+        { id: "hand-pick", label: "hand-pick → handpick", findRegex: /hand-pick/ig, copyRegex: "hand-pick", checkTypes: [Hyphens] },
+        { id: "hardpressed", label: "hardpressed → hard-pressed", findRegex: /hardpressed/ig, copyRegex: "hardpressed", checkTypes: [Hyphens] },
+        { id: "hard-working", label: "hard-working → hardworking", findRegex: /hard-working/ig, copyRegex: "hard-working", checkTypes: [Hyphens] },
+        { id: "iron-fisted", label: "iron-fisted → ironfisted", findRegex: /iron-fisted/ig, copyRegex: "iron-fisted", checkTypes: [Hyphens] },
+        { id: "kind-hearted", label: "kind-hearted → kindhearted", findRegex: /kind-hearted/ig, copyRegex: "kind-hearted", checkTypes: [Hyphens] },
+        { id: "knowhow", label: "knowhow → know-how", findRegex: /knowhow/ig, copyRegex: "knowhow", checkTypes: [Hyphens] },
+        { id: "laidback", label: "laidback → laid-back", findRegex: /laidback/ig, copyRegex: "laidback", checkTypes: [Hyphens] },
+        { id: "massproduce", label: "mass produce → mass-produce", findRegex: /mass produce/ig, copyRegex: "mass produce", checkTypes: [Hyphens] },
+        { id: "massproduct", label: "mass-production → mass production", findRegex: /mass-production/ig, copyRegex: "mass-production", checkTypes: [Hyphens] },
+        { id: "mid-morning", label: "mid-morning → midmorning", findRegex: /mid-morning/ig, copyRegex: "mid-morning", checkTypes: [Hyphens] },
+        { id: "midsentence", label: "mid-sentence → midsentence", findRegex: /mid-sentence/ig, copyRegex: "mid-sentence", checkTypes: [Hyphens] },
+        { id: "offhanded", label: "off-handed → offhanded", findRegex: /off-handed/ig, copyRegex: "off-handed", checkTypes: [Hyphens] },
+        { id: "onstage", label: "on-stage → onstage", findRegex: /on-stage/ig, copyRegex: "on-stage", checkTypes: [Hyphens] },
+        { id: "re-examine", label: "re-examine → reexamine", findRegex: /re-examine/ig, copyRegex: "re-examine", checkTypes: [Hyphens] },
+        { id: "roleplay", label: "roleplay → role-play", findRegex: /roleplay/ig, copyRegex: "roleplay", checkTypes: [Hyphens] },
+        { id: "semicircle", label: "semi-circle → semicircle", findRegex: /semi-circle/ig, copyRegex: "semi-circle", checkTypes: [Hyphens] },
+        { id: "singlehanded", label: "singlehanded → single-handed", findRegex: /singlehanded/ig, copyRegex: "singlehanded", checkTypes: [Hyphens] },
+        { id: "singleminded", label: "singleminded → single-minded", findRegex: /singleminded/ig, copyRegex: "singleminded", checkTypes: [Hyphens] },
+        { id: "slip-up", label: "slip-up → slipup", findRegex: /slip-up/ig, copyRegex: "slip-up", checkTypes: [Hyphens] },
+        { id: "tipoff", label: "tipoff → tip-off", findRegex: /tipoff/ig, copyRegex: "tipoff", checkTypes: [Hyphens] },
+        { id: "vice-versa", label: "vice-versa → vice versa", findRegex: /vice-versa/ig, copyRegex: "vice-versa", checkTypes: [Hyphens] },
+        { id: "alright", label: "alright → all right", findRegex: /alright/ig, copyRegex: "alright", checkTypes: [Spaces] },
+        { id: "bathhouse", label: "bath house → bathhouse", findRegex: /bath house/ig, copyRegex: "bath house", checkTypes: [Spaces] },
+        { id: "flipside", label: "flipside → flip side", findRegex: /flipside/ig, copyRegex: "flipside", checkTypes: [Spaces] },
+        { id: "frontlines", label: "frontlines → front lines", findRegex: /frontlines/ig, copyRegex: "frontlines", checkTypes: [Spaces] },
+        { id: "goodwill", label: "good will → goodwill", findRegex: /good will/ig, copyRegex: "good will", checkTypes: [Spaces] },
+        { id: "laugh1", label: "haha → ha ha", findRegex: /haha/ig, copyRegex: "haha", checkTypes: [Spaces] },
+        { id: "laugh2", label: "heehee → hee hee", findRegex: /heehee/ig, copyRegex: "heehee", checkTypes: [Spaces] },
+        { id: "keychain", label: "keychain → key chain", findRegex: /keychain/ig, copyRegex: "keychain", checkTypes: [Spaces] },
+        { id: "lightbulb", label: "lightbulb → light bulb", findRegex: /lightbulb/ig, copyRegex: "lightbulb", checkTypes: [Spaces] },
+        { id: "nm", label: "nevermind → never mind", findRegex: /nevermind/ig, copyRegex: "nevermind", checkTypes: [Spaces] },
+        { id: "photoshoot", label: "photoshoot → photo shoot", findRegex: /photoshoot/ig, copyRegex: "photoshoot", checkTypes: [Spaces] },
+        { id: "shockwave", label: "shockwave → shock wave", findRegex: /shockwave/ig, copyRegex: "shockwave", checkTypes: [Spaces] },
+        { id: "skillset", label: "skillset → skill set", findRegex: /skillset/ig, copyRegex: "skillset", checkTypes: [Spaces] },
+        { id: "soul", label: "soulmate → soul mate", findRegex: /soulmate/ig, copyRegex: "soulmate", checkTypes: [Spaces] },
+        { id: "tastebud", label: "tastebud → taste bud", findRegex: /tastebud/ig, copyRegex: "tastebud", checkTypes: [Spaces] },
+        { id: "timeframe", label: "timeframe → time frame", findRegex: /timeframe/ig, copyRegex: "timeframe", checkTypes: [Spaces] },
+        { id: "wishlist", label: "wishlist → wish list", findRegex: /wishlist/ig, copyRegex: "wishlist", checkTypes: [Spaces] },
+        { id: "ack", label: "acknowledgement → acknowledgment", findRegex: /acknowledgement/ig, copyRegex: "acknowledgement", checkTypes: [Spelling] },
+        { id: "accidently", label: "accidently → accidentally", findRegex: /accidently/ig, copyRegex: "accidently", checkTypes: [Spelling] },
+        { id: "ambiance", label: "ambiance → ambience", findRegex: /ambiance/ig, copyRegex: "ambiance", checkTypes: [Spelling] },
+        { id: "axe", label: "ax → axe", isRegex: true, findRegex: /\bax\b/ig, copyRegex: "\\bax\\b", checkTypes: [Spelling] },
+        { id: "cafe", label: "cafe → café", findRegex: /\bcafe\b/ig, copyRegex: "cafe", checkTypes: [Spelling] },
+        { id: "concensus", label: "concensus → consensus", findRegex: /concensus/ig, copyRegex: "concensus", checkTypes: [Spelling] },
+        { id: "crystalized", label: "crystalized → crystallized", findRegex: /crystalized/ig, copyRegex: "crystalized", checkTypes: [Spelling] },
+        { id: "dieing", label: "dieing → dying", findRegex: /dieing/ig, copyRegex: "dieing", checkTypes: [Spelling] },
+        { id: "forsaw", label: "forsaw → foresaw", findRegex: /forsaw/ig, copyRegex: "forsaw", checkTypes: [Spelling] },
+        { id: "forsee", label: "forsee → foresee", findRegex: /forsee/ig, copyRegex: "forsee", checkTypes: [Spelling] },
+        { id: "geez", label: "geez → jeez", findRegex: /\bgeez\b/ig, copyRegex: "geez", checkTypes: [Spelling] },
+        { id: "grevious", label: "grevious → grievous", findRegex: /grevious/ig, copyRegex: "grevious", checkTypes: [Spelling] },
+        { id: "grinded", label: "grinded → ground", findRegex: /grinded/ig, copyRegex: "grinded", checkTypes: [Spelling] },
+        { id: "guerrila", label: "guerrila → guerrilla", findRegex: /guerrila/ig, copyRegex: "guerrila", checkTypes: [Spelling] },
+        { id: "guerilla", label: "guerilla → guerrilla", findRegex: /guerilla/ig, copyRegex: "guerilla", checkTypes: [Spelling] },
+        { id: "judge", label: "judgement → judgment", findRegex: /judgement/ig, copyRegex: "judgement", checkTypes: [Spelling] },
+        { id: "mischevious", label: "mischevious → mischievous", findRegex: /mischevious/ig, copyRegex: "mischevious", checkTypes: [Spelling] },
+        { id: "ocher", label: "ochre → ocher", findRegex: /ochre/ig, copyRegex: "ochre", checkTypes: [Spelling] },
+        { id: "omelette", label: "omelette → omelet", findRegex: /omelette/ig, copyRegex: "omelette", checkTypes: [Spelling] },
+        { id: "publically", label: "publically → publicly", findRegex: /publically/ig, copyRegex: "publically", checkTypes: [Spelling] },
+        { id: "strait", label: "straightlaced → straitlaced", findRegex: /straightlaced/ig, copyRegex: "straightlaced", checkTypes: [Spelling] },
+        { id: "underaged", label: "underaged → underage", findRegex: /underaged/ig, copyRegex: "underaged", checkTypes: [Spelling] },
+        { id: "kempt", label: "well-kempt → well-kept", findRegex: /well-kempt/ig, copyRegex: "well-kempt", checkTypes: [Spelling] },
+        { id: "woah", label: "woah → whoa", findRegex: /woah/ig, copyRegex: "woah", checkTypes: [Spelling] },
+        { id: "worshiping", label: "worshiping → worshipping", findRegex: /worshiping/ig, copyRegex: "worshiping", checkTypes: [Spelling] },
+        { id: "worshiper", label: "worshiper → worshipper", findRegex: /worshiper/ig, copyRegex: "worshiper", checkTypes: [Spelling] },
+        { id: "aircon", label: "aircon → AC or air conditioning", findRegex: /aircon/ig, copyRegex: "aircon", checkTypes: [BritSpelling] },
+        { id: "apologise", label: "apologise → apologize", findRegex: /apologise/ig, copyRegex: "apologise", checkTypes: [BritSpelling] },
+        { id: "cancelled", label: "cancelled → canceled", findRegex: /cancelled/ig, copyRegex: "cancelled", checkTypes: [BritSpelling] },
+        { id: "cancelling", label: "cancelling → canceling", findRegex: /cancelling/ig, copyRegex: "cancelling", checkTypes: [BritSpelling] },
+        { id: "cancelation", label: "cancelation → cancellation", findRegex: /cancelation/ig, copyRegex: "cancelation", checkTypes: [BritSpelling] },
+        { id: "colour", label: "colour → color", findRegex: /colour/ig, copyRegex: "colour", checkTypes: [BritSpelling] },
+        { id: "centre", label: "centre → center", findRegex: /centre/ig, copyRegex: "centre", checkTypes: [BritSpelling] },
+        { id: "defence", label: "defence → defense", findRegex: /defence/ig, copyRegex: "defence", checkTypes: [BritSpelling] },
+        { id: "emphasise", label: "emphasise → emphasize", findRegex: /emphasise/ig, copyRegex: "emphasise", checkTypes: [BritSpelling] },
+        { id: "grey", label: "grey → gray", findRegex: /grey/ig, copyRegex: "grey", checkTypes: [BritSpelling] },
+        { id: "meagre", label: "meagre → meager", findRegex: /meagre/ig, copyRegex: "meagre", checkTypes: [BritSpelling] },
+        { id: "miniscule", label: "miniscule → minuscule", findRegex: /miniscule/ig, copyRegex: "miniscule", checkTypes: [BritSpelling] },
+        { id: "moustache", label: "moustache → mustache", findRegex: /moustache/ig, copyRegex: "moustache", checkTypes: [BritSpelling] },
+        { id: "offence", label: "offence → offense", findRegex: /offence/ig, copyRegex: "offence", checkTypes: [BritSpelling] },
+        { id: "plough", label: "plough → plow", findRegex: /plough/ig, copyRegex: "plough", checkTypes: [BritSpelling] },
+        { id: "signalling", label: "signalling → signaling", findRegex: /signalling/ig, copyRegex: "signalling", checkTypes: [BritSpelling] },
+        { id: "sizeable", label: "sizeable → sizable", findRegex: /sizeable/ig, copyRegex: "sizeable", checkTypes: [BritSpelling] },
+        { id: "smoulder", label: "smoulder → smolder", findRegex: /smoulder/ig, copyRegex: "smoulder", checkTypes: [BritSpelling] },
+        { id: "travelling", label: "travelling → traveling", findRegex: /travelling/ig, copyRegex: "travelling", checkTypes: [BritSpelling] },
+        { id: "traveller", label: "traveller → traveler", findRegex: /traveller/ig, copyRegex: "traveller", checkTypes: [BritSpelling] },
+        { id: "frontline1", label: "frontline (adjective)", maybe: true, findRegex: /frontline/ig, copyRegex: "frontline", checkTypes: [WordsToCheck] },
+        { id: "frontline2", label: "front line (noun)", maybe: true, findRegex: /front line/ig, copyRegex: "front line", checkTypes: [WordsToCheck] },
+        { id: "grit", label: "grit (should be gritted, past tense?)", maybe: true, findRegex: /\bgrit\b/ig, copyRegex: "grit", checkTypes: [WordsToCheck] },
+        { id: "heroin", label: "heroin (heroine?)", maybe: true, isRegex: true, findRegex: /heroin[^e]/ig, copyRegex: "heroin[^e]", checkTypes: [WordsToCheck] },
+        { id: "lead", label: "lead (should be led, past tense?)", isRegex: true, maybe: true, findRegex: /\blead\b/ig, copyRegex: "\\blead\\b", checkTypes: [WordsToCheck] },
+        { id: "principal", label: "principal (head of a school)", maybe: true, findRegex: /principal/ig, copyRegex: "principal", checkTypes: [WordsToCheck] },
+        { id: "principle", label: "principle (concept)", maybe: true, findRegex: /principle/ig, copyRegex: "principle", checkTypes: [WordsToCheck] },
+        { id: "psych", label: "psych (verb)", maybe: true, isRegex: true, findRegex: /psych[^e]\b/ig, copyRegex: "\\bpsych[^e]", checkTypes: [WordsToCheck] },
+        { id: "psyche", label: "psyche (noun)", maybe: true, isRegex: true, findRegex: /\bpsyche/ig, copyRegex: "\\bpsyche", checkTypes: [WordsToCheck] },
+        { id: "pubic", label: "pubic (public?)", maybe: true, findRegex: /pubic/ig, copyRegex: "pubic", checkTypes: [WordsToCheck] },
+        { id: "sheath", label: "sheath (noun)", maybe: true, isRegex: true, findRegex: /sheath[^e]/ig, copyRegex: "sheath[^e]", checkTypes: [WordsToCheck] },
+        { id: "sheathe", label: "sheathe (verb)", maybe: true, findRegex: /sheathe/ig, copyRegex: "sheathe", checkTypes: [WordsToCheck] },
+        { id: "first-hand", label: "first-hand → firsthand", findRegex: /first-hand/ig, copyRegex: "first-hand", checkTypes: [NumberWords] },
+        { id: "mid-twenties", label: "mid-twenties → midtwenties", findRegex: /mid-twenties/ig, copyRegex: "mid-twenties", checkTypes: [NumberWords] },
+        { id: "mid-thirties", label: "mid-thirties → midthirties", findRegex: /mid-thirties/ig, copyRegex: "mid-thirties", checkTypes: [NumberWords] },
+        { id: "mid-forties", label: "mid-forties → midforties", findRegex: /mid-forties/ig, copyRegex: "mid-forties", checkTypes: [NumberWords] },
+        { id: "onetime", label: "one-time → onetime", findRegex: /one-time/ig, copyRegex: "one-time", checkTypes: [NumberWords] },
+        { id: "second-hand", label: "second-hand → secondhand", findRegex: /second-hand/ig, copyRegex: "second-hand", checkTypes: [NumberWords] },
+        { id: "twentyfourseven", label: "twenty-four-seven → twenty-four seven", findRegex: /twenty-four-seven/ig, copyRegex: "twenty-four-seven", checkTypes: [NumberWords] },
+        { id: "coup", label: "coup d’etat →  coup d’état", findRegex: /coup d’etat/ig, copyRegex: "coup d'etat", checkTypes: [FancyWords] },
+        { id: "dejavu", label: "deja vu → déjà vu", findRegex: /deja vu/ig, copyRegex: "deja vu", checkTypes: [FancyWords] },
+        { id: "gatling", label: "gatling gun → Gatling gun", isCaseSensitive: true, findRegex: /gatling gun/g, copyRegex: "gatling gun", checkTypes: [FancyWords] },
+        { id: "fiance", label: "fiance → fiancé", isRegex: true, findRegex: /\bfiance[^e]/ig, copyRegex: "\\bfiance[^e]", checkTypes: [FancyWords] },
+        { id: "fiancee", label: "fiancee → fiancée", findRegex: /fiancee/ig, copyRegex: "fiancee", checkTypes: [FancyWords] },
+        { id: "mache", label: "paper mache → paper-mache or papier mâché", findRegex: /paper mache/ig, copyRegex: "paper mache", checkTypes: [FancyWords] },
+        { id: "swiss", label: "swiss cheese → Swiss cheese", isCaseSensitive: true, findRegex: /swiss cheese/g, copyRegex: "swiss cheese", checkTypes: [FancyWords] },
+        { id: "tete-a-tete", label: "tete-a-tete → tête-à-tête", findRegex: /tete-a-tete/ig, copyRegex: "tete-a-tete", checkTypes: [FancyWords] },
+        { id: "adverb", label: "hyphenated adverbs (ly-)", maybe: true, findRegex: /ly-/ig, copyRegex: "ly-", checkTypes: [Misc] },
+        { id: "toward", label: "towards", maybe: true, findRegex: /towards/ig, copyRegex: "towards", checkTypes: [Misc] },
+        { id: "towards", label: "toward", maybe: true, isRegex: true, findRegex: /toward[^s]/ig, copyRegex: "toward[^s]", checkTypes: [Misc] },
+        { id: "afterward", label: "afterwards", maybe: true, findRegex: /afterwards/ig, copyRegex: "afterwards", checkTypes: [Misc] },
+        { id: "afterwards", label: "afterward", maybe: true, isRegex: true, findRegex: /afterward[^s]/ig, copyRegex: "afterward[^s]", checkTypes: [Misc] },
+      ]
+    });
+
+  });
+
+  function populateUi(uiObject) {
+    const container = $('#checks');
+
+    const runButton = $('<button class="white" id="run-assistant">Run checks</button>');
+    runButton.click(() => {
+      findText(items);
+    });
+    container.append(runButton);
+
+    const emptyNotice = $('<div class="nothingHere">No issues found! :)</div>');
+    container.append(emptyNotice);
+
+    const items = uiObject["items"];
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+
+      const itemId = item["id"];
+      const itemLabel = item["label"];
+      const itemMaybe = item["maybe"] || false;
+      const copyItemId = "copy-" + itemId;
+      const copyRegex = item["copyRegex"];
+      const isRegex = item["isRegex"];
+      const isCaseSensitive = item["isCaseSensitive"];
+
+      const itemElement = $('<div class="item"' + ' id="' + itemId + '"><div class="label"><button class="copy-button' + (isRegex ? ' is-regex' : '') + (isCaseSensitive ? ' case-sensitive' : '')  + '" id="' + copyItemId + '">✔️</button>' +  itemLabel + '</div><div class="count' + (itemMaybe ? ' maybe"' : '"') + '"></div></div>');
+      container.append(itemElement);
+
+      $('#' + copyItemId).click(() => {
+        // nested function is necessary here or function is immediately invoked
+        copyText(copyRegex);
+      });
+    }
+  }
+
+  function copyText(text) {
+    navigator.clipboard.writeText(text);
+  }
+
+  function findText(items) {
+    this.disabled = true;
+    $("#checks").removeClass('empty');
+    google.script.run
+      .withSuccessHandler(function(text, element) {
+        let totalCount = 0;
+        for (let i = 0; i < items.length; i++) {
+          const item = items[i];
+          const itemId = item["id"];
+          const findRegex = item["findRegex"];
+
+          const numMatches = (text.match(findRegex) || []).length;
+          totalCount += numMatches;
+          displayHasText(numMatches, $('#' + itemId));
+        }
+
+        console.log(totalCount);
+        console.log($("#checks"));
+        if (totalCount == 0) {
+          $("#checks").addClass('empty');
+        }
+
+        element.disabled = false;
+      })
+      .withFailureHandler(function(msg, element) {
+        // Error handling has not actually been tested.
+        showError(msg, $('#errors'));
+        element.disabled = false;
+      })
+      .withUserObject(this)
+      .getText();
+  }
+
+  /* Error handling hasn't been tested. */
+  let errors = 0;
+
+  /**
+   * Inserts a div that contains an error message after a given element.
+   *
+   * @param {string} msg The error message to display.
+   * @param {DOMElement} element The element after which to display the error.
+   */
+  function showError(msg, element) {
+    errors++;
+    $(element).textContent = errors;
+  }
+
+  /**
+   * Applies a color class to the given element based on the number of matches.
+   * 
+   * @param {number} numMatches
+   * @param {DOMElement} element The element to apply the class to.
+   */
+  function displayHasText(numMatches, element) {
+    $(element).removeClass('green');
+    $(element).removeClass('red');
+    if (numMatches > 0) {
+      $(element).addClass('red');
+    } else {
+      $(element).addClass('green');
+    }
+    $(element).find(".count").text(numMatches);
+  }
+</script>
+</body>
+</html>
