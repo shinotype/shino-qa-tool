@@ -1,14 +1,6 @@
 import { IssueInstance, findIssues } from '../src/qaassist';
 import { IssueId, issues } from '../src/data';
 
-function ids(issues: IssueInstance[]): IssueId[] {
-  const issueIds: IssueId[] = [];
-  for (const issue of issues) {
-    issueIds.push(issue.id);
-  }
-  return issueIds;
-}
-
 test("00000: number of occurrences", () => {
   const result = findIssues("'''");
   expect(result).toHaveLength(1);
@@ -621,11 +613,19 @@ test("00143: afterward", () => {
   expectResult(findIssues("aftErWard"), "00143");
 });
 
-function expectResult(actualResult: Issue[], expectedResult: string) {
+function expectResult(actualResult: IssueInstance[], expectedResult: string) {
   expect(actualResult).toHaveLength(1);
   expect(actualResult[0].id).toBe(expectedResult);
 }
 
-function expectNoResult(actualResult: Issue[]) {
+function expectNoResult(actualResult: IssueInstance[]) {
   expect(actualResult).toHaveLength(0);
+}
+
+function ids(issues: IssueInstance[]): IssueId[] {
+  const issueIds: IssueId[] = [];
+  for (const issue of issues) {
+    issueIds.push(issue.id);
+  }
+  return issueIds;
 }
