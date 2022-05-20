@@ -16,7 +16,7 @@ interface UiIssue {
 export function findIssues(text: string) {
   const result : IssueInstance[] = [];
   for (const issue of Object.values(issues)) {
-    const issueId = issue.id as IssueId;
+    const issueId = issue.id;
     const regex = issue.regex;
 
     const numMatches = (text.match(regex) || []).length;
