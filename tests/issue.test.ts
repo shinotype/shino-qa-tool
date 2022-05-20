@@ -1,4 +1,4 @@
-import { findIssues } from '../qaassist';
+import { findIssues } from '../src/qaassist';
 
 test("00000: number of occurrences", () => {
   const result = findIssues("'''");
