@@ -21,7 +21,7 @@ export function findIssues(text: string) {
     const regex = issue.regex;
 
     const numMatches = (text.match(regex) || []).length;
-    
+
     if (numMatches > 0) {
       result.push({
         id: issueId,
@@ -31,5 +31,3 @@ export function findIssues(text: string) {
   }
   return result;
 }
-
-module.exports = findIssues;
