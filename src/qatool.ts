@@ -1,7 +1,8 @@
 import { issues, IssueId, IssueInstance, UiIssue } from "./data";
 
 export function findIssues(text: string) {
-  return countIssues(text);
+  const issues = countIssues(text);
+  return renderIssues(issues);
 }
 
 export function countIssues(text: string): IssueInstance[] {

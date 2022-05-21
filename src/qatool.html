@@ -6,9 +6,9 @@
   <!-- The CSS package above applies Google styling to buttons and other elements. -->
 
   <style>
-    /* @import url('https://fonts.googleapis.com/css?family=Fredoka:100,200,300,400,500,600,700,800');
+    @import url('https://fonts.googleapis.com/css?family=Fredoka:100,200,300,400,500,600,700,800');
     @import url('https://fonts.googleapis.com/css?family=Source%20Code%20Pro:100,200,300,400,500,600,700,800');
-    @import url('https://fonts.googleapis.com/css?family=Share%20Tech%20Mono:100,200,300,400,500,600,700,800'); */
+    @import url('https://fonts.googleapis.com/css?family=Share%20Tech%20Mono:100,200,300,400,500,600,700,800');
 
     body {
       background-color: #333;
@@ -19,16 +19,22 @@
   <title></title>
 </head>
 <body>
+  
   <button id="runButton" onclick="runChecks()">Run checks</button>
-  <div id="checks" class="container"></div>
+  <textarea id="inputBox"></textarea>
+  <div id="issueContainer" class="container"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="../dist/qatool.js"></script>
 
 <script>
 
+const inputBox = document.getElementById("inputBox");
+const issueContainer = document.getElementById("issueContainer");
+
 function runChecks() {
-  
+  // findIssues("hi");
+  issueContainer.innerHTML = "";
 }
 
 </script>
