@@ -5,6 +5,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'qatool.js',
+    library: 'qatool',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
