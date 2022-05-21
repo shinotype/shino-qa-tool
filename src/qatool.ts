@@ -22,6 +22,17 @@ export function countIssues(text: string): IssueInstance[] {
   return result;
 }
 
-export function renderIssues(issues: IssueInstance[]): UiIssue[] {
-
+export function renderIssues(issueInstances: IssueInstance[]): UiIssue[] {
+  const result : UiIssue[] = [];
+  for (let i = 0; i < issueInstances.length; i++) {
+    const issueInstance = issueInstances[i];
+    const issueData = issues[issueInstance.id];
+    result.push({
+      label: issueData.ui.label,
+      occurrences: issueInstance.occurrences,
+      copy: issueData.ui.copy || "",
+      paste: issueData.ui.paste || "",
+    });
+  }
+  return result;
 }

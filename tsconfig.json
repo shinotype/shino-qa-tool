@@ -4,7 +4,8 @@
     "lib": ["es2021"],
     "module": "commonjs",
     "target": "es2021",
-
+    
+    "moduleResolution": "Node",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -12,5 +13,5 @@
     "outDir": "./dist"
   },
   "compileOnSave": true,
-  "include": ["."]
+  "include": ["src/"]
 }

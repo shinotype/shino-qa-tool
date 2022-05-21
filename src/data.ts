@@ -1,7 +1,6 @@
 const Punctuation = Symbol("punctuation");
 const Spelling = Symbol("spelling");
 const WordsToCheck = Symbol("wordstocheck");
-const Misc = Symbol("misc");
 
 export type IssueId = keyof typeof idlessIssues;
 export type Issues = { [key in IssueId]: Issue };
@@ -195,5 +194,4 @@ export interface UiIssue {
   occurrences: number,
   copy?: string,
   paste?: string,
-  checkTypes: any,
 }
