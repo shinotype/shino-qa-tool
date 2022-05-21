@@ -1,5 +1,5 @@
-import { IssueInstance, findIssues } from '../src/qatool';
-import { IssueId, issues } from '../src/data';
+import { findIssues } from '../src/qatool';
+import { IssueId, IssueInstance, issues } from '../src/data';
 
 test("number of occurrences is incremented for multiple of the same issue", () => {
   const result = findIssues("'''");
@@ -542,7 +542,7 @@ test("mid-forties", () => {
 });
 
 test("one-time", () => {
-  expectResult(findIssues("ONE-time"), issues.onetime.id);
+  expectResult(findIssues("ONE-time"), issues.one_time.id);
 });
 
 test("second-hand", () => {
