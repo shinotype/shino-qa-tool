@@ -9,5 +9,8 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "dependencies": {
+    "@tsconfig/node16": "^1.0.2"
   }
 }
