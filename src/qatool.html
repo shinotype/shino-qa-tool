@@ -25,6 +25,13 @@
       margin: 10px 0;
     }
 
+    .copyPasteButton {
+      margin: 0 8px 0 4px;
+      min-width: auto;
+      width: 32px;
+      position: relative;
+    }
+
     .resultContainer {
       width: 500px;
     }
@@ -47,7 +54,7 @@
 
     .issue {
       display: grid;
-      grid-template-columns: 1fr 40px;
+      grid-template-columns: 1fr 40px 30px 30px;
     }
 
     .label {
@@ -69,7 +76,7 @@
   <title></title>
 </head>
 <body>
-  <textarea id="inputBox" class="inputBox">" ' ugly-made</textarea>
+  <textarea id="inputBox" class="inputBox">" ' ugly-made towards toward moustache colour</textarea>
   <button id="runButton" class="runButton" onclick="runChecks()">Run checks</button>
 
   <div id="resultContainer" class="resultContainer">
@@ -102,9 +109,37 @@ function runChecks() {
     const label = issue.label;
     const occurrences = issue.occurrences;
 
-    const issueElement = $('<div class="issue"><div class="label">' + label + '</div><div class="count">' + occurrences + '</div></div>');
+    const copy = issue.copy || "";
+    const hasCopy = copy.length > 0;
+    const copyId = "copy-" + issue.id;
+
+    const paste = issue.paste || "";
+    const hasPaste = paste.length > 0;
+    const pasteId = "paste-" + issue.id;
+
+    const issueElement = $('<div class="issue"><div class="label">' + label + '</div><div class="count">' + occurrences + '</div>' +
+        (hasCopy ? '<button class="copyPasteButton" id="' + copyId + '">🔍</button>' : '') +
+        (hasPaste ? '<button class="copyPasteButton" id="' + pasteId + '">📋</button>' : '') +
+        '</div>');
     issueContainer.append(issueElement);
+
+    if (hasCopy) {
+      $('#' + copyId).click(() => {
+        // nested function is necessary here or function is immediately invoked
+        copyText(copy);
+      });
+    }
+    if (hasPaste) {
+      $('#' + pasteId).click(() => {
+        // nested function is necessary here or function is immediately invoked
+        copyText(paste);
+      });
+    }
   }
+}
+
+function copyText(text) {
+  navigator.clipboard.writeText(text);
 }
 
 </script>
