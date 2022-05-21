@@ -168,55 +168,55 @@ test("00038: mid-sentence", () => {
 });
 
 test("00039: off-handed", () => {
-  expectResult(findIssues("OFF-handed"), "00039");
+  expectResult(findIssues("OFF-handed"), issues.offhanded.id);
 });
 
 test("00040: on-stage", () => {
-  expectResult(findIssues("on-STAGE"), "00040");
+  expectResult(findIssues("on-STAGE"), issues.onstage.id);
 });
 
 test("00041: re-examine", () => {
-  expectResult(findIssues("rE-eXaMiNe"), "00041");
+  expectResult(findIssues("rE-eXaMiNe"), issues.re_examine.id);
 });
 
 test("00042: roleplay", () => {
-  expectResult(findIssues("rOlePlaY"), "00042");
+  expectResult(findIssues("rOlePlaY"), issues.roleplay.id);
 });
 
 test("00043: semi-circle", () => {
-  expectResult(findIssues("SEMI-circle"), "00043");
+  expectResult(findIssues("SEMI-circle"), issues.semicircle.id);
 });
 
 test("00044: singlehanded", () => {
-  expectResult(findIssues("sinGlEHanDeD"), "00044");
+  expectResult(findIssues("sinGlEHanDeD"), issues.singlehanded.id);
 });
 
 test("00045: singleminded", () => {
-  expectResult(findIssues("SiNglEmiNdeD"), "00045");
+  expectResult(findIssues("SiNglEmiNdeD"), issues.singleminded.id);
 });
 
 test("00046: slip-up", () => {
-  expectResult(findIssues("SLIP-up"), "00046");
+  expectResult(findIssues("SLIP-up"), issues.slip_up.id);
 });
 
 test("00047: tipoff", () => {
-  expectResult(findIssues("TIPoff"), "00047");
+  expectResult(findIssues("TIPoff"), issues.tipoff.id);
 });
 
 test("00048: vice-versa ", () => {
-  expectResult(findIssues("vice-VERSA"), "00048");
+  expectResult(findIssues("vice-VERSA"), issues.vice_versa.id);
 });
 
 test("00049: alright", () => {
-  expectResult(findIssues("ALright"), "00049");
+  expectResult(findIssues("ALright"), issues.alright.id);
 });
 
 test("00050: bath house", () => {
-  expectResult(findIssues("the BATH house is big"), "00050");
+  expectResult(findIssues("the BATH house is big"), issues.bathhouse.id);
 });
 
 test("00051: flipside", () => {
-  expectResult(findIssues("on the FLIPside,"), "00051");
+  expectResult(findIssues("on the FLIPside,"), issues.flipside.id);
 });
 
 test("00052: frontlines", () => {
@@ -226,71 +226,71 @@ test("00052: frontlines", () => {
 });
 
 test("00053: good will", () => {
-  expectResult(findIssues("GOOD wilL hunting"), "00053");
+  expectResult(findIssues("GOOD wilL hunting"), issues.goodwill.id);
 });
 
 test("00054: haha", () => {
-  expectResult(findIssues("hahah! he laughed"), "00054");
+  expectResult(findIssues("hahah! he laughed"), issues.laugh1.id);
 });
 
 test("00055: heehee", () => {
-  expectResult(findIssues("heehee! he giggled"), "00055");
+  expectResult(findIssues("heehee! he giggled"), issues.laugh2.id);
 });
 
 test("00056: keychain", () => {
-  expectResult(findIssues("KeYChain"), "00056");
+  expectResult(findIssues("KeYChain"), issues.keychain.id);
 });
 
 test("00057: lightbulb", () => {
-  expectResult(findIssues("LIGHTbulb"), "00057");
+  expectResult(findIssues("LIGHTbulb"), issues.lightbulb.id);
 });
 
 test("00058: nevermind", () => {
-  expectResult(findIssues("neverMind"), "00058");
+  expectResult(findIssues("neverMind"), issues.nm.id);
 });
 
 test("00059: photoshoot: ", () => {
-  expectResult(findIssues("photoSHOOT"), "00059");
+  expectResult(findIssues("photoSHOOT"), issues.photoshoot.id);
 });
 
 test("00060: shockwave", () => {
-  expectResult(findIssues("SHOCKwave"), "00060");
+  expectResult(findIssues("SHOCKwave"), issues.shockwave.id);
 });
 
 test("00061: skillset", () => {
-  expectResult(findIssues("skillSET"), "00061");
+  expectResult(findIssues("skillSET"), issues.skillset.id);
 });
 
 test("00062: soulmate", () => {
-  expectResult(findIssues("soulMATE"), "00062");
+  expectResult(findIssues("soulMATE"), issues.soul.id);
 });
 
 test("00063: tastebud", () => {
-  expectResult(findIssues("tasteBUD"), "00063");
+  expectResult(findIssues("tasteBUD"), issues.tastebud.id);
 });
 
 test("00064: timeframe", () => {
-  expectResult(findIssues("timeFrame"), "00064");
+  expectResult(findIssues("timeFrame"), issues.timeframe.id);
 });
 
 test("00065: wishlist", () => {
-  expectResult(findIssues("WISHlist"), "00065");
+  expectResult(findIssues("WISHlist"), issues.wishlist.id);
 });
 
 test("00066: acknowledgement", () => {
-  expectResult(findIssues("acKNowlEdgEment"), "00066");
+  expectResult(findIssues("acKNowlEdgEment"), issues.ack.id);
 });
 
 test("00067: accidently", () => {
-  expectResult(findIssues("acciDentLy"), "00067");
+  expectResult(findIssues("acciDentLy"), issues.accidently.id);
 });
 
 test("00068: ambiance", () => {
-  expectResult(findIssues("AMBiance"), "00068");
+  expectResult(findIssues("AMBiance"), issues.ambiance.id);
 });
 
 test("00069: ax", () => {
-  expectResult(findIssues("an AX chops wood"), "00069");
+  expectResult(findIssues("an AX chops wood"), issues.axe.id);
 });
 
 test("00069: ax respects word boundaries", () => {
@@ -298,7 +298,7 @@ test("00069: ax respects word boundaries", () => {
 });
 
 test("00070: cafe", () => {
-  expectResult(findIssues("trendy cafe there"), "00070");
+  expectResult(findIssues("trendy cafe there"), issues.cafe.id);
 });
 
 test("00070: cafe respects word boundaries", () => {
@@ -306,27 +306,27 @@ test("00070: cafe respects word boundaries", () => {
 });
 
 test("00071: concensus", () => {
-  expectResult(findIssues("ConCensus"), "00071");
+  expectResult(findIssues("ConCensus"), issues.concensus.id);
 });
 
 test("00072: crystalized", () => {
-  expectResult(findIssues("CRYstalIzed"), "00072");
+  expectResult(findIssues("CRYstalIzed"), issues.crystalized.id);
 });
 
 test("00073: dieing ", () => {
-  expectResult(findIssues("DIeing"), "00073");
+  expectResult(findIssues("DIeing"), issues.dieing.id);
 });
 
 test("00074: forsaw", () => {
-  expectResult(findIssues("ForSaw"), "00074");
+  expectResult(findIssues("ForSaw"), issues.forsaw.id);
 });
 
 test("00075: forsee", () => {
-  expectResult(findIssues("foRsEE"), "00075");
+  expectResult(findIssues("foRsEE"), issues.forsee.id);
 });
 
 test("00076: geez", () => {
-  expectResult(findIssues("GeeZ"), "00076");
+  expectResult(findIssues("GeeZ"), issues.geez.id);
 });
 
 test("00076: geez respects word boundaries", () => {
@@ -334,231 +334,231 @@ test("00076: geez respects word boundaries", () => {
 });
 
 test("00077: grevious", () => {
-  expectResult(findIssues("gReVioUs"), "00077");
+  expectResult(findIssues("gReVioUs"), issues.grevious.id);
 });
 
 test("00078: grinded", () => {
-  expectResult(findIssues("grindED"), "00078");
+  expectResult(findIssues("grindED"), issues.grinded.id);
 });
 
 test("00079: guerrila", () => {
-  expectResult(findIssues("GUERrila"), "00079");
+  expectResult(findIssues("GUERrila"), issues.guerrila.id);
 });
 
 test("00080: guerilla", () => {
-  expectResult(findIssues("GUeRilla"), "00080");
+  expectResult(findIssues("GUeRilla"), issues.guerilla.id);
 });
 
 test("00081: judgement", () => {
-  expectResult(findIssues("juDgeMENT"), "00081");
+  expectResult(findIssues("juDgeMENT"), issues.judge.id);
 });
 
 test("00082: mischevious: ", () => {
-  expectResult(findIssues("MISCheviouS"), "00082");
+  expectResult(findIssues("MISCheviouS"), issues.mischevious.id);
 });
 
 test("00083: ochre: ", () => {
-  expectResult(findIssues("OCHre"), "00083");
+  expectResult(findIssues("OCHre"), issues.ocher.id);
 });
 
 test("00084: omelette", () => {
-  expectResult(findIssues("OMElette"), "00084");
+  expectResult(findIssues("OMElette"), issues.omelette.id);
 });
 
 test("00085: publically", () => {
-  expectResult(findIssues("PUBlicaLly"), "00085");
+  expectResult(findIssues("PUBlicaLly"), issues.publically.id);
 });
 
 test("00086: straightlaced", () => {
-  expectResult(findIssues("STRAIGHTlaced"), "00086");
+  expectResult(findIssues("STRAIGHTlaced"), issues.strait.id);
 });
 
 test("00087: underaged", () => {
-  expectResult(findIssues("underAGED"), "00087");
+  expectResult(findIssues("underAGED"), issues.underaged.id);
 });
 
 test("00088: well-kempt ", () => {
-  expectResult(findIssues("WELL-kempt"), "00088");
+  expectResult(findIssues("WELL-kempt"), issues.kempt.id);
 });
 
 test("00089: woah: ", () => {
-  expectResult(findIssues("WOAh!"), "00089");
+  expectResult(findIssues("WOAh!"), issues.woah.id);
 });
 
 test("00090: worshiping ", () => {
-  expectResult(findIssues("WORShiping"), "00090");
+  expectResult(findIssues("WORShiping"), issues.worshiping.id);
 });
 
 test("00091: worshiper", () => {
-  expectResult(findIssues("woRshipEr"), "00091");
+  expectResult(findIssues("woRshipEr"), issues.worshiper.id);
 });
 
 test("00092: aircon", () => {
-  expectResult(findIssues("AirCon"), "00092");
+  expectResult(findIssues("AirCon"), issues.aircon.id);
 });
 
 test("00093: apologise", () => {
-  expectResult(findIssues("APOLOgise"), "00093");
+  expectResult(findIssues("APOLOgise"), issues.apologise.id);
 });
 
 test("00094: cancelled", () => {
-  expectResult(findIssues("CANcelled"), "00094");
+  expectResult(findIssues("CANcelled"), issues.cancelled.id);
 });
 
 test("00095: cancelling", () => {
-  expectResult(findIssues("CANcelling"), "00095");
+  expectResult(findIssues("CANcelling"), issues.cancelling.id);
 });
 
 test("00096: cancelation ", () => {
-  expectResult(findIssues("canCElation"), "00096");
+  expectResult(findIssues("canCElation"), issues.cancelation.id);
 });
 
 test("00097: colour", () => {
-  expectResult(findIssues("colOurfuL"), "00097");
+  expectResult(findIssues("colOurfuL"), issues.colour.id);
 });
 
 test("00098: centre", () => {
-  expectResult(findIssues("CEntRe"), "00098");
+  expectResult(findIssues("CEntRe"), issues.centre.id);
 });
 
 test("00099: defence", () => {
-  expectResult(findIssues("deFence"), "00099");
+  expectResult(findIssues("deFence"), issues.defence.id);
 });
 
 test("00100: emphasise", () => {
-  expectResult(findIssues("emphaSise"), "00100");
+  expectResult(findIssues("emphaSise"), issues.emphasise.id);
 });
 
 test("00101: grey", () => {
-  expectResult(findIssues("greying hair"), "00101");
+  expectResult(findIssues("greying hair"), issues.grey.id);
 });
 
 test("00102: meagre", () => {
-  expectResult(findIssues("meAgrE"), "00102");
+  expectResult(findIssues("meAgrE"), issues.meagre.id);
 });
 
 test("00103: miniscule", () => {
-  expectResult(findIssues("miNisCule"), "00103");
+  expectResult(findIssues("miNisCule"), issues.miniscule.id);
 });
 
 test("00104: moustache", () => {
-  expectResult(findIssues("MOUSTache"), "00104");
+  expectResult(findIssues("MOUSTache"), issues.moustache.id);
 });
 
 test("00105: offence", () => {
-  expectResult(findIssues("take OFfence"), "00105");
+  expectResult(findIssues("take OFfence"), issues.offence.id);
 });
 
 test("00106: plough", () => {
-  expectResult(findIssues("PloUghing"), "00106");
+  expectResult(findIssues("PloUghing"), issues.plough.id);
 });
 
 test("00107: signalling", () => {
-  expectResult(findIssues("SIGNAlling"), "00107");
+  expectResult(findIssues("SIGNAlling"), issues.signalling.id);
 });
 
 test("00108: sizeable", () => {
-  expectResult(findIssues("SIZEable"), "00108");
+  expectResult(findIssues("SIZEable"), issues.sizeable.id);
 });
 
 test("00109: smoulder: ", () => {
-  expectResult(findIssues("SMOULder"), "00109");
+  expectResult(findIssues("SMOULder"), issues.smoulder.id);
 });
 
 test("00110: travelling", () => {
-  expectResult(findIssues("travelLIng"), "00110");
+  expectResult(findIssues("travelLIng"), issues.travelling.id);
 });
 
 test("00111: traveller", () => {
-  expectResult(findIssues("TRAVELler"), "00111");
+  expectResult(findIssues("TRAVELler"), issues.traveller.id);
 });
 
 test("00112: frontline", () => {
-  expectResult(findIssues("frontline warrior"), "00112");
+  expectResult(findIssues("frontline warrior"), issues.frontline1.id);
 });
 
 test("00113: front line", () => {
-  expectResult(findIssues("front line"), "00113");
+  expectResult(findIssues("front line"), issues.frontline2.id);
 });
 
 test("00114: grit", () => {
-  expectResult(findIssues("he grit his teeth"), "00114");
+  expectResult(findIssues("he grit his teeth"), issues.grit.id);
 });
 
 test("00115: heroin", () => {
-  expectResult(findIssues("heroin addict"), "00115");
+  expectResult(findIssues("heroin addict"), issues.heroin.id);
 });
 
 test("00116: lead", () => {
-  expectResult(findIssues("lead away"), "00116");
+  expectResult(findIssues("lead away"), issues.lead.id);
 });
 
 test("00117: principal", () => {
-  expectResult(findIssues("principAlity"), "00117");
+  expectResult(findIssues("principAlity"), issues.principal.id);
 });
 
 test("00118: principle", () => {
-  expectResult(findIssues("PRInciplE"), "00118");
+  expectResult(findIssues("PRInciplE"), issues.principle.id);
 });
 
 test("00119: psych (verb)", () => {
-  expectResult(findIssues("psyCh up"), "00119");
+  expectResult(findIssues("psyCh up"), issues.psych.id);
 });
 
 test("00120: psyche (noun)", () => {
-  expectResult(findIssues("his psycHe"),"00120");
+  expectResult(findIssues("his psycHe"),issues.psyche.id);
 });
 
 test("00121: pubic", () => {
-  expectResult(findIssues("puBIc bone"), "00121");
+  expectResult(findIssues("puBIc bone"), issues.pubic.id);
 });
 
 test("00122: sheath (noun)", () => {
-  expectResult(findIssues("sword in shEath and"), "00122");
+  expectResult(findIssues("sword in shEath and"), issues.sheath.id);
 });
 
 test("00123: sheathe (verb)", () => {
-  expectResult(findIssues("SHeaThe your sword"), "00123");
+  expectResult(findIssues("SHeaThe your sword"), issues.sheathe.id);
 });
 
 test("00124: first-hand", () => {
-  expectResult(findIssues("FIRST-hand"), "00124");
+  expectResult(findIssues("FIRST-hand"), issues.first_hand.id);
 });
 
 test("00125: mid-twenties", () => {
-  expectResult(findIssues("mid-TWENties"), "00125");
+  expectResult(findIssues("mid-TWENties"), issues.mid_twenties.id);
 });
 
 test("00126: mid-thirties", () => {
-  expectResult(findIssues("mid-THIRtieS"), "00126");
+  expectResult(findIssues("mid-THIRtieS"), issues.mid_thirties.id);
 });
 
 test("00127: mid-forties", () => {
-  expectResult(findIssues("MID-forties"), "00127");
+  expectResult(findIssues("MID-forties"), issues.mid_forties.id);
 });
 
 test("00128: one-time", () => {
-  expectResult(findIssues("ONE-time"), "00128");
+  expectResult(findIssues("ONE-time"), issues.onetime.id);
 });
 
 test("00129: second-hand", () => {
-  expectResult(findIssues("second-HAND"), "00129");
+  expectResult(findIssues("second-HAND"), issues.second_hand.id);
 });
 
 test("00130: twenty-four-seven", () => {
-  expectResult(findIssues("TWENTY-four-sEven"), "00130");
+  expectResult(findIssues("TWENTY-four-sEven"), issues.twentyfourseven.id);
 });
 
 test("00131: coup d'etat", () => {
-  expectResult(findIssues("cOUp d’Etat"), "00131");
+  expectResult(findIssues("cOUp d’Etat"), issues.coup.id);
 });
 
 test("00132: deja vu", () => {
-  expectResult(findIssues("DEJa vU"), "00132");
+  expectResult(findIssues("DEJa vU"), issues.dejavu.id);
 });
 
 test("00133: gatling gun", () => {
-  expectResult(findIssues("fire my gatling gun"), "00133");
+  expectResult(findIssues("fire my gatling gun"), issues.gatling.id);
 });
 
 test("00133: gatling gun NOT case-insensitive", () => {
@@ -566,7 +566,7 @@ test("00133: gatling gun NOT case-insensitive", () => {
 });
 
 test("00134: fiance", () => {
-  expectResult(findIssues("my fiance and I"), "00134");
+  expectResult(findIssues("my fiance and I"), issues.fiance.id);
 });
 
 test("00134: fiance respects word boundaries", () => {
@@ -574,15 +574,15 @@ test("00134: fiance respects word boundaries", () => {
 });
 
 test("00135: fiancee", () => {
-  expectResult(findIssues("my fiancee and I"), "00135");
+  expectResult(findIssues("my fiancee and I"), issues.fiancee.id);
 });
 
 test("00136: paper mache", () => {
-  expectResult(findIssues("PAPER mache"), "00136");
+  expectResult(findIssues("PAPER mache"), issues.mache.id);
 });
 
 test("00137: swiss cheese", () => {
-  expectResult(findIssues("ate swiss cheese"), "00137");
+  expectResult(findIssues("ate swiss cheese"), issues.swiss.id);
 });
 
 test("00137: swiss cheese NOT case-insensitive", () => {
@@ -590,27 +590,27 @@ test("00137: swiss cheese NOT case-insensitive", () => {
 });
 
 test("00138: tete-a-tete", () => {
-  expectResult(findIssues("tete-a-TETE"), "00138");
+  expectResult(findIssues("tete-a-TETE"), issues.tete_a_tete.id);
 });
 
 test("00139: hyphenated adverbs (ly-)", () => {
-  expectResult(findIssues("BADLY-made"), "00139");
+  expectResult(findIssues("BADLY-made"), issues.adverb.id);
 });
 
 test("00140: towards", () => {
-  expectResult(findIssues("toWards"), "00140");
+  expectResult(findIssues("toWards"), issues.towards.id);
 });
 
 test("00141: toward", () => {
-  expectResult(findIssues("towarD"), "00141");
+  expectResult(findIssues("towarD"), issues.toward.id);
 });
 
 test("00142: afterwards", () => {
-  expectResult(findIssues("afterWards"), "00142");
+  expectResult(findIssues("afterWards"), issues.afterwards.id);
 });
 
 test("00143: afterward", () => {
-  expectResult(findIssues("aftErWard"), "00143");
+  expectResult(findIssues("aftErWard"), issues.afterward.id);
 });
 
 function expectResult(actualResult: IssueInstance[], expectedResult: string) {
