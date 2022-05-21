@@ -135,7 +135,7 @@ const idlessIssues = {
 
   frontline1: { regex: /frontline/ig, ui: { label: "frontline (adjective)", copy: "", checkTypes: [WordsToCheck], }, },
   frontline2: { regex: /front line/ig, ui: { label: "front line (noun)", copy: "", checkTypes: [WordsToCheck], }, },
-  grit: { regex: /\bgritb/ig, ui: { label: "grit (should be gritted, past tense?)", copy: "", checkTypes: [WordsToCheck], }, },
+  grit: { regex: /\bgrit\b/ig, ui: { label: "grit (should be gritted, past tense?)", copy: "", checkTypes: [WordsToCheck], }, },
   heroin: { regex: /heroin[^e]/ig, ui: { label: "heroin (heroine?)", copy: "", checkTypes: [WordsToCheck], }, },
   lead: { regex: /\blead\b/ig, ui: { label: "lead (should be led, past tense?)", copy: "", checkTypes: [WordsToCheck], }, },
   principal: { regex: /principal/ig, ui: { label: "principal (head of a school)", copy: "", checkTypes: [WordsToCheck], }, },
@@ -162,10 +162,10 @@ const idlessIssues = {
   swiss: { regex: /swiss cheese/g, ui: { label: "swiss cheese → Swiss cheese", copy: "", checkTypes: [Spelling], }, },
   tete_a_tete: { regex: /tete-a-tete/ig, ui: { label: "tete-a-tete → tête-à-tête", copy: "", checkTypes: [Spelling], }, },
   adverb: { regex: /ly-/ig, ui: { label: "hyphenated averbs (ly-)", copy: "", checkTypes: [Punctuation], }, },
-  toward: { regex: /towards/ig, ui: { label: "towards", copy: "", checkTypes: [WordsToCheck], }, },
-  towards: { regex: /toward($|[^s])/ig, ui: { label: "toward", copy: "", checkTypes: [WordsToCheck], }, },
-  afterward: { regex: /afterwards/ig, ui: { label: "afterwards", copy: "", checkTypes: [WordsToCheck], }, },
-  afterwards: { regex: /afterward($|[^s])/ig, ui: { label: "afterward", copy: "", checkTypes: [WordsToCheck], }, },
+  towards: { regex: /towards/ig, ui: { label: "towards", copy: "", checkTypes: [WordsToCheck], }, },
+  toward: { regex: /toward($|[^s])/ig, ui: { label: "toward", copy: "", checkTypes: [WordsToCheck], }, },
+  afterwards: { regex: /afterwards/ig, ui: { label: "afterwards", copy: "", checkTypes: [WordsToCheck], }, },
+  afterward: { regex: /afterward($|[^s])/ig, ui: { label: "afterward", copy: "", checkTypes: [WordsToCheck], }, },
 };
 
 // variable is unused, but forces a type check

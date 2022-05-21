@@ -222,7 +222,7 @@ test("flipside", () => {
 test("frontlines", () => {
   const result = findIssues("frontLINES of the war");
   // this triggers the "frontline (adjective) rule, so we can't assert there's only one issue
-  expect(result[0].id).toBe("00052");
+  expect(result[0].id).toBe(issues.frontlines.id);
 });
 
 test("good will", () => {
@@ -483,6 +483,10 @@ test("front line", () => {
 
 test("grit", () => {
   expectResult(findIssues("he grit his teeth"), issues.grit.id);
+});
+
+test("grit respects word boundaries", () => {
+  expectNoResult(findIssues("big gritty fat"));
 });
 
 test("heroin", () => {
