@@ -11,7 +11,6 @@
     @import url('https://fonts.googleapis.com/css?family=Share%20Tech%20Mono:100,200,300,400,500,600,700,800');
 
     body {
-      background-color: #333;
       padding: 12px;
     }
 
@@ -22,19 +21,34 @@
   
   <button id="runButton" onclick="runChecks()">Run checks</button>
   <textarea id="inputBox"></textarea>
-  <div id="issueContainer" class="container"></div>
+  <div id="resultContainer">
+    <div id="issueContainer"></div>
+  </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="../dist/qatool.js"></script>
 
 <script>
 
-const inputBox = document.getElementById("inputBox");
-const issueContainer = document.getElementById("issueContainer");
+const inputBox = $('#inputBox');
+const issueContainer = $('#issueContainer');
+const resultContainer = $('#resultContainer');
 
 function runChecks() {
-  // findIssues("hi");
-  issueContainer.innerHTML = "";
+  // clear the issue container for now; we'll fix this another way later
+  issueContainer.empty();
+
+  const issues = qatool.findIssues(inputBox.val());
+
+  for (let i = 0; i < issues.length; i++) {
+    const issue = issues[i];
+
+    const label = issue.label;
+    const occurrences = issue.occurrences;
+
+    const issueElement = $('<div class="issue"><div class="label">' + label + '</div><div class="count">' + occurrences + '</div></div>');
+    issueContainer.append(issueElement);
+  }
 }
 
 </script>

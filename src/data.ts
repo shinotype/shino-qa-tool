@@ -17,8 +17,8 @@ export interface Issue {
 
 const idlessIssues = {
   space: { regex: /[ ]{2}/g, ui: { label: "Double spaces", copy: "  ", checkTypes: [Punctuation], }, },
-  apostrophe: { regex: /'/g, ui: { label: "'", copy: "\\\'", checkTypes: [Punctuation], }, },
-  quote: { regex: /"/g, ui: { label: "\"", copy: "\\\"", checkTypes: [Punctuation], }, },
+  apostrophe: { regex: /'/g, ui: { label: "Straight apostrophe", copy: "\\\'", checkTypes: [Punctuation], }, },
+  quote: { regex: /"/g, ui: { label: "Straight quote", copy: "\\\"", checkTypes: [Punctuation], }, },
   too: { regex: /, too\b/ig, ui: { label: ", too", copy: ", too\\b", checkTypes: [Punctuation], }, },
   either: { regex: /, either/ig, ui: { label: ", either", copy: ", either", checkTypes: [Punctuation], }, },
   bang: { regex: /!\?/g, ui: { label: "!? → ?!", copy: "!?", checkTypes: [Punctuation], }, },
@@ -190,6 +190,7 @@ export interface IssueInstance {
 }
 
 export interface UiIssue {
+  id: string,
   label: string,
   occurrences: number,
   copy?: string,

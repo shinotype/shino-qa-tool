@@ -29,6 +29,7 @@ export function renderIssues(issueInstances: IssueInstance[]): UiIssue[] {
     const issueInstance = issueInstances[i];
     const issueData = issues[issueInstance.id];
     result.push({
+      id: issueData.id,
       label: issueData.ui.label,
       occurrences: issueInstance.occurrences,
       copy: issueData.ui.copy || "",
