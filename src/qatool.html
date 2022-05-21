@@ -11,18 +11,70 @@
     @import url('https://fonts.googleapis.com/css?family=Share%20Tech%20Mono:100,200,300,400,500,600,700,800');
 
     body {
+      font-family: 'Source Code Pro', sans-serif;
+      font-size: 14px;
       padding: 12px;
+    }
+
+    .inputBox {
+      display: block;
+      font-size: 16px;
+    }
+
+    .runButton {
+      margin: 10px 0;
+    }
+
+    .resultContainer {
+      width: 500px;
+    }
+
+    .noIssuesMessage {
+      display: none;
+    }
+
+    .issueContainer {
+      display: none;
+    }
+
+    .resultContainer.empty .noIssuesMessage {
+      display: block;
+    }
+
+    .resultContainer:not(.empty) .issueContainer {
+      display: block;
+    }
+
+    .issue {
+      display: grid;
+      grid-template-columns: 1fr 40px;
+    }
+
+    .label {
+      grid-column: 1;
+      padding: 2px 0;
+      margin: 2px 0;
+    }
+
+    .count {
+      border-radius: 6px;
+      font-family: 'Share Tech Mono', monospace;
+      grid-column: 2;
+      padding: 4px;
+      text-align: right;
+      margin: 2px 4px;
     }
 
   </style>
   <title></title>
 </head>
 <body>
-  
-  <button id="runButton" onclick="runChecks()">Run checks</button>
-  <textarea id="inputBox"></textarea>
-  <div id="resultContainer">
-    <div id="issueContainer"></div>
+  <textarea id="inputBox" class="inputBox">" ' ugly-made</textarea>
+  <button id="runButton" class="runButton" onclick="runChecks()">Run checks</button>
+
+  <div id="resultContainer" class="resultContainer">
+    <div class="noIssuesMessage">No issues found! :)</div>
+    <div id="issueContainer" class="issueContainer"></div>
   </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -35,10 +87,14 @@ const issueContainer = $('#issueContainer');
 const resultContainer = $('#resultContainer');
 
 function runChecks() {
-  // clear the issue container for now; we'll fix this another way later
-  issueContainer.empty();
-
   const issues = qatool.findIssues(inputBox.val());
+
+  if (issues.length > 0) {
+    issueContainer.empty();
+    resultContainer.removeClass('empty');
+  } else {
+    resultContainer.addClass('empty');
+  }
 
   for (let i = 0; i < issues.length; i++) {
     const issue = issues[i];

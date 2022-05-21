@@ -161,7 +161,7 @@ const idlessIssues = {
   mache: { regex: /paper mache/ig, ui: { label: "paper mache → paper-mache or papier mâché", copy: "paper mache", checkTypes: [Spelling], }, },
   swiss: { regex: /swiss cheese/g, ui: { label: "swiss cheese → Swiss cheese", copy: "swiss cheese", paste: "Swiss cheese", checkTypes: [Spelling], }, },
   tete_a_tete: { regex: /tete-a-tete/ig, ui: { label: "tete-a-tete → tête-à-tête", copy: "tete-a-tete", paste: "tête-à-tête", checkTypes: [Spelling], }, },
-  adverb: { regex: /ly-/ig, ui: { label: "hyphenated averbs (ly-)", copy: "ly-", checkTypes: [Punctuation], }, },
+  adverb: { regex: /ly-/ig, ui: { label: "hyphenated adverbs (ly-)", copy: "ly-", checkTypes: [Punctuation], }, },
   towards: { regex: /towards/ig, ui: { label: "towards", copy: "towards", checkTypes: [WordsToCheck], }, },
   toward: { regex: /toward($|[^s])/ig, ui: { label: "toward", copy: "toward[^s]", checkTypes: [WordsToCheck], }, },
   afterwards: { regex: /afterwards/ig, ui: { label: "afterwards", copy: "afterwards", checkTypes: [WordsToCheck], }, },
