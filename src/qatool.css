@@ -44,7 +44,7 @@ body {
   display: none;
 }
 
-.issueContainer:empty + .noIssuesMessage {
+.resultContainer.hasRun > .issueContainer:empty + .noIssuesMessage {
   display: block;
 }
 

@@ -17,6 +17,7 @@ export function init(container: HTMLElement, textProvider: () => string) {
     const issueContainer = $('.issueContainer', resultContainer);
     const text = textProvider();
     renderIssues(issueContainer, findIssues(text));
+    resultContainer.classList.add('hasRun');
   });
 }
 
