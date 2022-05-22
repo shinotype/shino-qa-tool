@@ -25,8 +25,7 @@ export function countIssues(text: string): IssueInstance[] {
 
 export function renderIssues(issueInstances: IssueInstance[]): UiIssue[] {
   const result : UiIssue[] = [];
-  for (let i = 0; i < issueInstances.length; i++) {
-    const issueInstance = issueInstances[i];
+  for (const issueInstance of issueInstances) {
     const issueData = issues[issueInstance.id];
     result.push({
       id: issueData.id,

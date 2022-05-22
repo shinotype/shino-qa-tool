@@ -28,9 +28,7 @@ const resultContainer = $('#resultContainer');
 function runChecks() {
   const issues = qatool.findIssues(inputBox.val());
 
-  for (let i = 0; i < issues.length; i++) {
-    const issue = issues[i];
-
+  for (const issue of issues) {
     const label = issue.label;
     const occurrences = issue.occurrences;
 
