@@ -2,92 +2,9 @@
 <html>
 <head>
   <base target="_top">
+  <!-- Applies Google styling to buttons and other elements. -->
   <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
-  <!-- The CSS package above applies Google styling to buttons and other elements. -->
-
-  <style>
-    @import url('https://fonts.googleapis.com/css?family=Fredoka:100,200,300,400,500,600,700,800');
-    @import url('https://fonts.googleapis.com/css?family=Source%20Code%20Pro:100,200,300,400,500,600,700,800');
-    @import url('https://fonts.googleapis.com/css?family=Share%20Tech%20Mono:100,200,300,400,500,600,700,800');
-    /* @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800'); */
-
-    body {
-      background-color: rgb(47, 50, 55);
-      font-family: 'Segoe UI', 'Roboto', 'Helvetica', sans-serif;
-      font-size: 14px;
-      padding: 12px;
-    }
-
-    .inputBox {
-      display: block;
-      font-size: 16px;
-    }
-
-    .runButton {
-      margin: 10px 0;
-    }
-
-    .copyPasteButton {
-      border-radius: 16px;
-      margin-top: 3px;
-      height: 32px;
-      min-width: auto;
-      width: 32px;
-      position: relative;
-    }
-
-    .resultContainer {
-      background-color: rgb(25, 30, 37);
-      border: 1px solid rgb(68, 68, 68);
-      color: #FFF;
-      padding: 8px 12px;
-      width: 500px;
-    }
-
-    .noIssuesMessage {
-      display: none;
-    }
-
-    .issueContainer {
-      display: none;
-    }
-
-    .resultContainer.empty .noIssuesMessage {
-      display: block;
-    }
-
-    .resultContainer:not(.empty) .issueContainer {
-      display: block;
-    }
-
-    .issue {
-      display: grid;
-      grid-template-columns: 1fr 40px 30px 30px;
-      padding: 2px 10px;
-    }
-
-    .issue:nth-child(even) {
-      background-color: rgba(77, 77, 77, 0.5); 
-    }
-
-    .label {
-      grid-column: 1;
-      height: 30px;
-      line-height: 30px;
-      padding: 2px 0;
-      margin: 2px 0;
-    }
-
-    .count {
-      border-radius: 6px;
-      /* font-family: 'Share Tech Mono', monospace; */
-      grid-column: 2;
-      padding: 4px;
-      text-align: right;
-      margin: 2px 4px;
-    }
-
-  </style>
+  <link rel="stylesheet" href="qatool.css">
   <title></title>
 </head>
 <body>
