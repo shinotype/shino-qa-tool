@@ -48,23 +48,3 @@ function showSidebar() {
       .setTitle('QA Assistant');
   DocumentApp.getUi().showSidebar(ui);
 }
-
-/**
- * @return {string} The text of the document.
- */
-function getText() {
-  return DocumentApp.getActiveDocument().getBody().getText();
-}
-
-/**
- */
-function hasText(text, useJsRegex) {
-  const body = DocumentApp.getActiveDocument().getBody();
-
-  if (useJsRegex) {
-    return body.getText().match(new RegExp(text));
-  }
-
-  var foundEl = body.findText(text); 
-  return foundEl != null;
-}
