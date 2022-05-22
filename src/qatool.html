@@ -9,63 +9,14 @@
 </head>
 <body>
   <textarea id="inputBox" class="inputBox">" ' ugly-made towards toward moustache colour</textarea>
-  <button id="runButton" class="runButton" onclick="runChecks()">Run checks</button>
+  <div id="container"></div>
 
-  <div id="resultContainer" class="resultContainer">
-    <div id="issueContainer" class="issueContainer"></div>
-    <div class="noIssuesMessage">No issues found! :)</div>
-  </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="../dist/qatool.js"></script>
-
-<script>
-
-const inputBox = $('#inputBox');
-const issueContainer = $('#issueContainer');
-const resultContainer = $('#resultContainer');
-
-function runChecks() {
-  const issues = qatool.findIssues(inputBox.val());
-
-  for (const issue of issues) {
-    const label = issue.label;
-    const occurrences = issue.occurrences;
-
-    const copy = issue.copy || "";
-    const hasCopy = copy.length > 0;
-    const copyId = "copy-" + issue.id;
-
-    const paste = issue.paste || "";
-    const hasPaste = paste.length > 0;
-    const pasteId = "paste-" + issue.id;
-
-    const issueElement = $('<div class="issue"><div class="label">' + label + '</div><div class="count">' + occurrences + '</div>' +
-        (hasCopy ? '<button class="copyPasteButton" id="' + copyId + '">🔍</button>' : '') +
-        (hasPaste ? '<button class="copyPasteButton" id="' + pasteId + '">📋</button>' : '') +
-        '</div>');
-    issueContainer.append(issueElement);
-
-    if (hasCopy) {
-      $('#' + copyId).click(() => {
-        // nested function is necessary here or function is immediately invoked
-        copyText(copy);
-      });
-    }
-    if (hasPaste) {
-      $('#' + pasteId).click(() => {
-        // nested function is necessary here or function is immediately invoked
-        copyText(paste);
-      });
-    }
-  }
-}
-
-function copyText(text) {
-  navigator.clipboard.writeText(text);
-}
-
-</script>
+  <script src="../dist/qatool.js"></script>
+  <script>
+    const inputBox = document.getElementById('inputBox');
+    const container = document.getElementById('container');
+    qatool.init(container, () => inputBox.value);
+  </script>
 
 </body>
 </html>

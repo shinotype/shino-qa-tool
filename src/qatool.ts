@@ -5,7 +5,7 @@ interface IssueInstance {
   occurrences: number,
 }
 
-interface UiIssue {
+export interface UiIssue {
   id: string,
   label: string,
   occurrences: number,
@@ -13,9 +13,8 @@ interface UiIssue {
   paste?: string,
 }
 
-export function findIssues(text: string) {
-  const issues = countIssues(text);
-  return renderIssues(issues);
+export function findIssues(text: string): UiIssue[] {
+  return countIssues(text).map(toUiIssue);
 }
 
 function countIssues(text: string): IssueInstance[] {
@@ -36,17 +35,13 @@ function countIssues(text: string): IssueInstance[] {
   return result;
 }
 
-function renderIssues(issueInstances: IssueInstance[]): UiIssue[] {
-  const result : UiIssue[] = [];
-  for (const issueInstance of issueInstances) {
-    const issueData = issues[issueInstance.id];
-    result.push({
-      id: issueData.id,
-      label: issueData.ui.label,
-      occurrences: issueInstance.occurrences,
-      copy: issueData.ui.copy || "",
-      paste: issueData.ui.paste || "",
-    });
-  }
-  return result;
+function toUiIssue(issueInstance: IssueInstance): UiIssue {
+  const issueData = issues[issueInstance.id];
+  return {
+    id: issueData.id,
+    label: issueData.ui.label,
+    occurrences: issueInstance.occurrences,
+    copy: issueData.ui.copy || "",
+    paste: issueData.ui.paste || "",
+  };
 }

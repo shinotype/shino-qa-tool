@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/qatool.ts',
+  entry: './src/ui.ts',
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'qatool.js',
