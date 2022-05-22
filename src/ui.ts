@@ -1,5 +1,7 @@
 import { UiIssue, findIssues } from './qatool';
 
+import './qatool.css';
+
 export function init(container: HTMLElement, textProvider: () => string) {
   const runButton = parseHtml(`<button class="runButton">Run checks</button>`);
   container.append(runButton);
