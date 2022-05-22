@@ -11,7 +11,7 @@ export interface Issue {
     label: string,
     copy?: string,
     paste?: string,
-    checkTypes: any,
+    checkTypes: Symbol[],
   }
 }
 

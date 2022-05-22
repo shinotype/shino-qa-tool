@@ -1,4 +1,4 @@
-import { issues, IssueId, IssueInstance, UiIssue } from "./data";
+import { issues, IssueInstance, UiIssue } from "./issues";
 
 export function findIssues(text: string) {
   const issues = countIssues(text);
