@@ -40,15 +40,11 @@ body {
   display: none;
 }
 
-.issueContainer {
+.issueContainer:empty {
   display: none;
 }
 
-.resultContainer.empty .noIssuesMessage {
-  display: block;
-}
-
-.resultContainer:not(.empty) .issueContainer {
+.issueContainer:empty + .noIssuesMessage {
   display: block;
 }
 

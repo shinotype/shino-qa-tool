@@ -12,8 +12,8 @@
   <button id="runButton" class="runButton" onclick="runChecks()">Run checks</button>
 
   <div id="resultContainer" class="resultContainer">
-    <div class="noIssuesMessage">No issues found! :)</div>
     <div id="issueContainer" class="issueContainer"></div>
+    <div class="noIssuesMessage">No issues found! :)</div>
   </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -27,13 +27,6 @@ const resultContainer = $('#resultContainer');
 
 function runChecks() {
   const issues = qatool.findIssues(inputBox.val());
-
-  if (issues.length > 0) {
-    issueContainer.empty();
-    resultContainer.removeClass('empty');
-  } else {
-    resultContainer.addClass('empty');
-  }
 
   for (let i = 0; i < issues.length; i++) {
     const issue = issues[i];
