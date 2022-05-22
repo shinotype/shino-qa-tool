@@ -183,16 +183,3 @@ function copyObjectIdsToValues(idlessIssues: IdlessIssues): Issues {
 }
 
 export const issues = copyObjectIdsToValues(idlessIssues);
-
-export interface IssueInstance {
-  id: IssueId,
-  occurrences: number,
-}
-
-export interface UiIssue {
-  id: string,
-  label: string,
-  occurrences: number,
-  copy?: string,
-  paste?: string,
-}

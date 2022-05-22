@@ -1,11 +1,24 @@
-import { issues, IssueInstance, UiIssue } from "./issues";
+import { issues, IssueId } from "./issues";
+
+interface IssueInstance {
+  id: IssueId,
+  occurrences: number,
+}
+
+interface UiIssue {
+  id: string,
+  label: string,
+  occurrences: number,
+  copy?: string,
+  paste?: string,
+}
 
 export function findIssues(text: string) {
   const issues = countIssues(text);
   return renderIssues(issues);
 }
 
-export function countIssues(text: string): IssueInstance[] {
+function countIssues(text: string): IssueInstance[] {
   const result : IssueInstance[] = [];
   for (const issue of Object.values(issues)) {
     const issueId = issue.id;
@@ -23,7 +36,7 @@ export function countIssues(text: string): IssueInstance[] {
   return result;
 }
 
-export function renderIssues(issueInstances: IssueInstance[]): UiIssue[] {
+function renderIssues(issueInstances: IssueInstance[]): UiIssue[] {
   const result : UiIssue[] = [];
   for (const issueInstance of issueInstances) {
     const issueData = issues[issueInstance.id];
