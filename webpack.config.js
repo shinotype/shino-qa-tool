@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = {
+module.exports = (env, argv) => ({
   entry: './src/ui.ts',
   output: {
     path: path.join(__dirname, '/dist'),
@@ -19,8 +19,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: (argv.mode == 'production')
+                ? ['style-loader', 'css-loader']
+                : ['css-loader'],
       },
     ],
   },
-};
+});
