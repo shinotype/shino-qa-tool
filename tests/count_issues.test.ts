@@ -1,5 +1,5 @@
-import { countIssues } from '../src/qatool';
-import { IssueId, IssueInstance, issues } from '../src/data';
+import { countIssues, IssueInstance } from '../src/qatool';
+import { IssueId, issues } from '../src/issues';
 
 test("number of occurrences is incremented for multiple of the same issue", () => {
   const result = countIssues("'''");
@@ -9,6 +9,26 @@ test("number of occurrences is incremented for multiple of the same issue", () =
 
 test("double spaces", () => {
   expectResult(countIssues("hello  goodbye"), issues.space.id);
+});
+
+test("space after newline", () => {
+  expectResult(countIssues("ABC\n DEF"), issues.space2.id);
+});
+
+test("space before period", () => {
+  expectResult(countIssues("Hello . There"), issues.space3.id);
+});
+
+test("space before period ignores multiple periods", () => {
+  expectNoResult(countIssues("Hello ... There"));
+});
+
+test("two periods", () => {
+  expectResult(countIssues("Hello .. There"), issues.period.id);
+});
+
+test("two periods ignores three periods", () => {
+  expectNoResult(countIssues("Hello ... There"));
 });
 
 test("straight single quote", () => {
@@ -85,6 +105,14 @@ test("missing start quotes", () => {
 
 test("missing end quotes", () => {
   expectResult(countIssues("He said, “Wow. And then I said, “Sure.”"), issues.endquote.id);
+});
+
+test("hyphenated adverbs (ly-)", () => {
+  expectResult(countIssues("BADLY-made"), issues.adverb.id);
+});
+
+test("hyphenated adverbs (ly-) ignores fully-fledged", () => {
+  expectNoResult(countIssues("fully-fledged"));
 });
 
 test("absent-minded", () => {
@@ -169,6 +197,14 @@ test("mid-sentence", () => {
 
 test("off-handed", () => {
   expectResult(countIssues("OFF-handed"), issues.off_handed.id);
+});
+
+test("occured", () => {
+  expectResult(countIssues("occuRed"), issues.occured.id);
+});
+
+test("occuring", () => {
+  expectResult(countIssues("occurInG"), issues.occuring.id);
 });
 
 test("on-stage", () => {
@@ -378,7 +414,7 @@ test("underaged", () => {
 });
 
 test("well-kempt ", () => {
-  expectResult(countIssues("WELL-kempt"), issues.kempt.id);
+  expectResult(countIssues("WELL-kempt"), issues.wellkempt.id);
 });
 
 test("woah: ", () => {
@@ -467,6 +503,10 @@ test("smoulder: ", () => {
 
 test("travelling", () => {
   expectResult(countIssues("travelLIng"), issues.travelling.id);
+});
+
+test("travelled", () => {
+  expectResult(countIssues("travelLed"), issues.travelled.id);
 });
 
 test("traveller", () => {
@@ -561,6 +601,10 @@ test("deja vu", () => {
   expectResult(countIssues("DEJa vU"), issues.dejavu.id);
 });
 
+test("entree", () => {
+  expectResult(countIssues("EntrEe"), issues.entree.id);
+});
+
 test("gatling gun", () => {
   expectResult(countIssues("fire my gatling gun"), issues.gatling.id);
 });
@@ -582,7 +626,7 @@ test("fiancee", () => {
 });
 
 test("paper mache", () => {
-  expectResult(countIssues("PAPER mache"), issues.mache.id);
+  expectResult(countIssues("PAPER mache"), issues.paper_mache.id);
 });
 
 test("swiss cheese", () => {
@@ -597,29 +641,40 @@ test("tete-a-tete", () => {
   expectResult(countIssues("tete-a-TETE"), issues.tete_a_tete.id);
 });
 
-test("hyphenated adverbs (ly-)", () => {
-  expectResult(countIssues("BADLY-made"), issues.adverb.id);
+test("towards and toward", () => {
+  const result = countIssues("toWARDS toward toWARDs toWard TOwards TOWARD toward");
+  expectContainsResult(result, issues.towards.id, 3);
+  expectContainsResult(result, issues.toward.id, 4);
 });
 
-test("towards", () => {
-  expectResult(countIssues("toWards"), issues.towards.id);
+test("afterwards and afterward", () => {
+  const result = countIssues("afterWARDS afterward afterWARDs afterWard AFTERwards AFTERWARD afterward");
+  expectContainsResult(result, issues.afterwards.id, 3);
+  expectContainsResult(result, issues.afterward.id, 4);
 });
 
-test("toward", () => {
-  expectResult(countIssues("towarD"), issues.toward.id);
+test("further and farther", () => {
+  const result = countIssues("further FURTHER farTher FARTHER farthER");
+  expectContainsResult(result, issues.further.id, 2);
+  expectContainsResult(result, issues.farther.id, 3);
 });
 
-test("afterwards", () => {
-  expectResult(countIssues("afterWards"), issues.afterwards.id);
-});
-
-test("afterward", () => {
-  expectResult(countIssues("aftErWard"), issues.afterward.id);
+test("anymore and any more", () => {
+  const result = countIssues("anymore any more anyMORE ANY more any MORE");
+  expectContainsResult(result, issues.anymore.id, 2);
+  expectContainsResult(result, issues.any_more.id, 3);
 });
 
 function expectResult(actualResult: IssueInstance[], expectedResult: string) {
   expect(actualResult).toHaveLength(1);
   expect(actualResult[0].id).toBe(expectedResult);
+}
+
+function expectContainsResult(actualResult: IssueInstance[], expectedResult: string, expectedOccurrences: number) {
+  expect(actualResult).toContainEqual({
+    id: expectedResult,
+    occurrences: expectedOccurrences,
+  });
 }
 
 function expectNoResult(actualResult: IssueInstance[]) {

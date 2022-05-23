@@ -1,6 +1,6 @@
 import { issues, IssueId } from "./issues";
 
-interface IssueInstance {
+export interface IssueInstance {
   id: IssueId,
   occurrences: number,
 }
@@ -17,7 +17,7 @@ export function findIssues(text: string): UiIssue[] {
   return countIssues(text).map(toUiIssue);
 }
 
-function countIssues(text: string): IssueInstance[] {
+export function countIssues(text: string): IssueInstance[] {
   const result : IssueInstance[] = [];
   for (const issue of Object.values(issues)) {
     const issueId = issue.id;
