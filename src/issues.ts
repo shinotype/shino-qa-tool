@@ -20,6 +20,8 @@ const idlessIssues = {
   space2: { regex: /\n /g, ui: { label: "Space after newline", copy: "\\\n ", checkTypes: [Punctuation], }, },
   space3: { regex: / \.[^\.]/, ui: { label: "Space preceding period", checkTypes: [Punctuation], }, }, 
   period: { regex: /([^\.]|^)\.\.([^\.]|$)/g, ui: { label: ".. → . or ...", copy: "..", checkTypes: [Punctuation], }, },
+  period2: { regex: /[^\.]\.[?!]/, ui: { label: "Period preceding exclamation/question mark", copy: "[^\\.]\\.[?!]", checkTypes: [Punctuation], }, },
+  period3: { regex: /[?!]\./, ui: { label: "Period following exclamation/question mark", copy: "[?!]\\.", checkTypes: [Punctuation], }, },
   apostrophe: { regex: /'/g, ui: { label: "Straight apostrophe", copy: "\\\'", checkTypes: [Punctuation], }, },
   quote: { regex: /"/g, ui: { label: "Straight quote", copy: "\\\"", checkTypes: [Punctuation], }, },
   too: { regex: /, too\b/ig, ui: { label: ", too", copy: ", too\\b", checkTypes: [Punctuation], }, },
@@ -38,6 +40,7 @@ const idlessIssues = {
   startquote: { regex: /”[^“]*?”/g, ui: { label: "Missing start quotes", copy: "”[^“]*?”", checkTypes: [Punctuation], }, },
   endquote: { regex: /“[^”]*?“/g, ui: { label: "Missing end quotes", copy: "“[^”]*?“", checkTypes: [Punctuation], }, },
   adverb: { regex: /ly-(?!(?:fledged))/ig, ui: { label: "hyphenated adverbs (ly-)", copy: "ly-(?!(?:fledged))", checkTypes: [Punctuation], }, },
+  hyphen_numbers: { regex: /(twen|thir|for|fif|six|seven|eigh|nine)ty (one|two|three|four|five|six|seven|eight|nine)/ig, ui: { label: "Hyphenate numbers between twenty-one and ninety-nine", copy: "(twen|thir|for|fif|six|seven|eigh|nine)ty (one|two|three|four|five|six|seven|eight|nine)", checkTypes: [ Punctuation ], }, },
 
   absent_minded: { regex: /absent-minded/ig, ui: { label: "absent-minded → absentminded", copy: "absent-minded", paste: "absentminded", checkTypes: [Spelling], }, },
   accidently: { regex: /accidently/ig, ui: { label: "accidently → accidentally", copy: "accidently", paste: "accidentally", checkTypes: [Spelling], }, },
@@ -172,6 +175,9 @@ const idlessIssues = {
   afterward: { regex: /afterward($|[^s])/ig, ui: { label: "afterward", copy: "afterward[^s]", checkTypes: [ManualCheck], }, },
   further: { regex: /further/ig, ui: { label: "further", copy: "further", checkTypes: [ManualCheck], }, },
   farther: { regex: /farther/ig, ui: { label: "farther", copy: "farther", checkTypes: [ManualCheck], }, },
+  less_plural: { regex: /\bless [a-z]+s\b/ig, ui: { label: "'Less' used for countable quantity?", copy: "\\bless [a-z]+s\\b", checkTypes: [ManualCheck], }, },
+  double_possessive: { regex: /.+’s and .+’s/ig, ui: { label: "Double possessive?", copy: ".+‘s and .+‘s", checkTypes: [ManualCheck], }, },
+  low_numerals: { regex: /(?<!chapter|part|section|grade|level|tier|class|rank)[^0-9\(\[\{][0-9]{1,2}[^0-9](?![LHMX]P|coins|gold|points|experience)/ig, ui: { label: "Numerals 1 through 99", copy: "(?<![cC]hapter|[pP]art|[sS]ection|[gG]rade|[lL]evel|[tT]ier|[cC]lass|[rR]ank)[^0-9\(\[\{][0-9]{1,2}[^0-9](?![LHMX]P|coins|gold|points|experience)", checkTypes: [ManualCheck] }, },
 };
 
 // variable is unused, but forces a type check

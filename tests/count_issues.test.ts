@@ -31,6 +31,30 @@ test("two periods ignores three periods", () => {
   expectNoResult(countIssues("Hello ... There"));
 });
 
+test("period preceding question mark", () => {
+  expectResult(countIssues("Hello.?"), issues.period2.id);
+});
+
+test("period preceding exclamation mark", () => {
+  expectResult(countIssues("Hello.!"), issues.period2.id);
+});
+
+test("period preceding question mark ignores multiple periods", () => {
+  expectNoResult(countIssues("Hello...?"));
+});
+
+test("period preceding exclamation mark ignores multiple periods", () => {
+  expectNoResult(countIssues("Hello...!"));
+});
+
+test("period following question mark", () => {
+  expectResult(countIssues("Hello?."), issues.period3.id);
+});
+
+test("period following exclamation mark", () => {
+  expectResult(countIssues("Hello!."), issues.period3.id);
+});
+
 test("straight single quote", () => {
   expectResult(countIssues("it's no big deal"), issues.apostrophe.id);
 });
@@ -113,6 +137,21 @@ test("hyphenated adverbs (ly-)", () => {
 
 test("hyphenated adverbs (ly-) ignores fully-fledged", () => {
   expectNoResult(countIssues("fully-fledged"));
+});
+
+test("hyphenate numbers between 21 and 99", () => {
+  expectResult(countIssues("twenty one"), issues.hyphen_numbers.id);
+  expectResult(countIssues("thirty two"), issues.hyphen_numbers.id);
+  expectResult(countIssues("forty three"), issues.hyphen_numbers.id);
+  expectResult(countIssues("fifty four"), issues.hyphen_numbers.id);
+  expectResult(countIssues("sixty five"), issues.hyphen_numbers.id);
+  expectResult(countIssues("seventy six"), issues.hyphen_numbers.id);
+  expectResult(countIssues("eighty seven"), issues.hyphen_numbers.id);
+  expectResult(countIssues("ninety eight"), issues.hyphen_numbers.id);
+});
+
+test("hyphenate numbers between 21 and 99, case insensitive", () => {
+  expectResult(countIssues("NINETY NINE"), issues.hyphen_numbers.id);
 });
 
 test("absent-minded", () => {
@@ -663,6 +702,68 @@ test("anymore and any more", () => {
   const result = countIssues("anymore any more anyMORE ANY more any MORE");
   expectContainsResult(result, issues.anymore.id, 2);
   expectContainsResult(result, issues.any_more.id, 3);
+});
+
+test("less used for countable quantity", () => {
+  expectResult(countIssues("less numbers are good"), issues.less_plural.id);
+});
+
+test("less used for countable quantity, case insensitive", () => {
+  expectResult(countIssues("LESS NUMBERS ARE GOOD"), issues.less_plural.id);
+});
+
+test("less used for countable quantity respects word boundaries", () => {
+  expectNoResult(countIssues("bless numbersare good"));
+});
+
+test("double possessive", () => {
+  expectResult(countIssues("Jim’s and Bob’s stuff"), issues.double_possessive.id);
+});
+
+test("low numerals", () => {
+  expectResult(countIssues("there was 1 dog"), issues.low_numerals.id);
+  expectResult(countIssues("there were 2 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 3 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 4 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 5 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 6 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 7 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 8 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 9 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 11 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 23 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 45 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 67 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 88 dogs"), issues.low_numerals.id);
+  expectResult(countIssues("there were 99 dogs"), issues.low_numerals.id);
+});
+
+test("low numerals ignores prefixes", () => {
+  expectNoResult(countIssues("Chapter 1"));
+  expectNoResult(countIssues("part 2"));
+  expectNoResult(countIssues("section 3"));
+  expectNoResult(countIssues("GRADE 4"));
+  expectNoResult(countIssues("LEVEL 5"));
+  expectNoResult(countIssues("tier 6"));
+  expectNoResult(countIssues("Class 7"));
+  expectNoResult(countIssues("rank 8"));
+});
+
+test("low numerals ignores numbers greater than 99", () => {
+  expectNoResult(countIssues("there were 100 dogs"));
+  expectNoResult(countIssues("there were 203 dogs"));
+  expectNoResult(countIssues("there were 999 dogs"));
+});
+
+test("low numerals ignores suffixes", () => {
+  expectNoResult(countIssues("10 XP"));
+  expectNoResult(countIssues("11 LP"));
+  expectNoResult(countIssues("12 HP"));
+  expectNoResult(countIssues("13 MP"));
+  expectNoResult(countIssues("14 coins"));
+  expectNoResult(countIssues("15 GOLD"));
+  expectNoResult(countIssues("16 points"));
+  expectNoResult(countIssues("17 EXPERIENCE"));
 });
 
 function expectResult(actualResult: IssueInstance[], expectedResult: string) {
