@@ -352,6 +352,16 @@
       .getText();
   }
 
+  function getText(items) {
+    return new Promise((resolve, reject) => {
+      google.script.run
+        .withSuccessHandler(text => resolve(text))
+        .withFailureHandler(msg => reject(msg))
+        .withUserObject(this)
+        .getText();
+    });
+  }
+
   /* Error handling hasn't been tested. */
   let errors = 0;
 
