@@ -37,17 +37,23 @@ function renderIssues(issueContainer: Element, issues: UiIssue[]) {
     $('.label', issueElement).append(issue.label);
     $('.count', issueElement).append(String(issue.occurrences));
 
-    if (issue.copy) {
-      const copyButton = parseHtml('<button class="copyPasteButton">🔍</button>');
-      copyButton.addEventListener('click', () => copyText(issue.copy as string));
-      issueElement.append(copyButton);
+    if (issue.copy || issue.paste) {
+      const buttonContainer = parseHtml('<div class="copyPasteButtonContainer">');
+
+      if (issue.copy) {
+        const copyButton = parseHtml('<button class="copyPasteButton">🔍</button>');
+        copyButton.addEventListener('click', () => copyText(issue.copy as string));
+        buttonContainer.append(copyButton);
+      }
+      if (issue.paste) {
+        const pasteButton = parseHtml('<button class="copyPasteButton pasteButton">📋</button>');
+        pasteButton.addEventListener('click', () => copyText(issue.paste as string));
+        buttonContainer.append(pasteButton);
+      }
+
+      issueElement.append(buttonContainer);
     }
 
-    if (issue.paste) {
-      const pasteButton = parseHtml('<button class="copyPasteButton">📋</button>');
-      pasteButton.addEventListener('click', () => copyText(issue.paste as string));
-      issueElement.append(pasteButton);
-    }
 
     issueContainer.append(issueElement);
   }

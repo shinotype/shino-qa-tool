@@ -352,7 +352,7 @@
       .getText();
   }
 
-  function getText(items) {
+  function getText() {
     return new Promise((resolve, reject) => {
       google.script.run
         .withSuccessHandler(text => resolve(text))
