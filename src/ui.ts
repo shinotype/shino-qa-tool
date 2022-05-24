@@ -2,7 +2,7 @@ import { UiIssue, findIssues } from './qatool';
 
 import './qatool.css';
 
-export function init(initContainer: HTMLElement, textProvider: () => string) {
+export function init(initContainer: HTMLElement, textProvider: () => Promise<string>) {
   const container = parseHtml(`<div class="container"></div>`);
   initContainer.append(container);
 
@@ -16,9 +16,9 @@ export function init(initContainer: HTMLElement, textProvider: () => string) {
     </div>`);
   container.append(resultContainer);
 
-  runButton.addEventListener('click', () => {
+  runButton.addEventListener('click', async () => {
     const issueContainer = $('.issueContainer', resultContainer);
-    const text = textProvider();
+    const text = await textProvider();
     const result = findIssues(text);
     renderIssues(issueContainer, findIssues(text));
     result.length === 0 ? resultContainer.classList.add("empty") : resultContainer.classList.remove("empty");
