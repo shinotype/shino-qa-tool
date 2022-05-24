@@ -16,7 +16,7 @@ test("space after newline", () => {
 });
 
 test("space before period", () => {
-  expectResult(countIssues("Hello . There"), issues.space3.id);
+  expectResult(countIssues("Hello ."), issues.space3.id);
 });
 
 test("space before period ignores multiple periods", () => {
@@ -57,6 +57,10 @@ test("period following exclamation mark", () => {
 
 test("straight single quote", () => {
   expectResult(countIssues("it's no big deal"), issues.apostrophe.id);
+});
+
+test("straight single quote", () => {
+  expectResult(countIssues("it‘s no big deal"), issues.apostrophe2.id);
 });
 
 test("straight double quote", () => {
@@ -121,6 +125,62 @@ test("'sup (wrong curly quote)", () => {
 
 test("'em (wrong curly quote)", () => {
   expectResult(countIssues("‘em"), issues.empos.id);
+});
+
+test("'bout (wrong curly quote)", () => {
+  expectResult(countIssues("‘bout"), issues.boutpos.id);
+});
+
+test("'nother (wrong curly quote)", () => {
+  expectResult(countIssues("‘nother"), issues.notherpos.id);
+});
+
+test("'fore (wrong curly quote)", () => {
+  expectResult(countIssues("‘fore"), issues.forepos.id);
+});
+
+test("'fraid (wrong curly quote)", () => {
+  expectResult(countIssues("‘fraid"), issues.fraidpos.id);
+});
+
+test("'neath (wrong curly quote)", () => {
+  expectResult(countIssues("‘neath"), issues.neathpos.id);
+});
+
+test("'gainst (wrong curly quote)", () => {
+  expectResult(countIssues("‘gainst"), issues.gainstpos.id);
+});
+
+test("'cept (wrong curly quote)", () => {
+  expectResult(countIssues("‘cept"), issues.ceptpos.id);
+});
+
+test("'round (wrong curly quote)", () => {
+  expectResult(countIssues("‘round"), issues.roundpos.id);
+});
+
+test("'til (wrong curly quote)", () => {
+  expectResult(countIssues("‘til"), issues.tilpos.id);
+});
+
+test("'tis (wrong curly quote)", () => {
+  expectResult(countIssues("‘tis"), issues.tispos.id);
+});
+
+test("'twas (wrong curly quote)", () => {
+  expectResult(countIssues("‘twas"), issues.twaspos.id);
+});
+
+test("'tween (wrong curly quote)", () => {
+  expectResult(countIssues("‘tween"), issues.tweenpos.id);
+});
+
+test("'twere (wrong curly quote)", () => {
+  expectResult(countIssues("‘twere"), issues.twerepos.id);
+});
+
+test("'twixt (wrong curly quote)", () => {
+  expectResult(countIssues("‘twixt"), issues.twixtpos.id);
 });
 
 test("missing start quotes", () => {
@@ -765,6 +825,7 @@ test("low numerals ignores suffixes", () => {
   expectNoResult(countIssues("16 points"));
   expectNoResult(countIssues("17 EXPERIENCE"));
 });
+
 
 function expectResult(actualResult: IssueInstance[], expectedResult: string) {
   expect(actualResult).toHaveLength(1);

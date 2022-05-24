@@ -14,6 +14,7 @@ export interface UiIssue {
 }
 
 export function findIssues(text: string): UiIssue[] {
+  console.log(text);
   return countIssues(text).map(toUiIssue);
 }
 
