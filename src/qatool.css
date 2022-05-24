@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka:100,200,300,400,500,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Source%20Code%20Pro:100,200,300,400,500,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Share%20Tech%20Mono:100,200,300,400,500,600,700,800');
-/* @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800'); */
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800');
 
 body {
-  background-color: rgb(47, 50, 55);
+  background-color: #eee;
   font-family: 'Segoe UI', 'Roboto', 'Helvetica', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   padding: 12px;
 }
 
@@ -15,8 +15,25 @@ body {
   font-size: 16px;
 }
 
+.container {
+  padding: 8px 12px;
+  width: 500px;
+}
+
+button:hover {
+  background: #fff;
+}
+
+button:active {
+  box-shadow: inset 0px 0px 0px 3px rgba(77, 77, 77, 0.1);
+}
+
 .runButton {
+  font-size: 20px;
+  font-weight: bold;
+  height: auto;
   margin: 10px 0;
+  padding: 8px 16px;
 }
 
 .copyPasteButton {
@@ -28,23 +45,15 @@ body {
   position: relative;
 }
 
-.resultContainer {
-  background-color: rgb(25, 30, 37);
-  border: 1px solid rgb(68, 68, 68);
-  color: #FFF;
-  padding: 8px 12px;
-  width: 500px;
-}
-
 .noIssuesMessage {
   display: none;
 }
 
-.issueContainer:empty {
+.resultContainer.empty .issueContainer {
   display: none;
 }
 
-.resultContainer.hasRun > .issueContainer:empty + .noIssuesMessage {
+.resultContainer.empty .noIssuesMessage {
   display: block;
 }
 
@@ -55,7 +64,7 @@ body {
 }
 
 .issue:nth-child(even) {
-  background-color: rgba(77, 77, 77, 0.5); 
+  background-color: rgba(77, 77, 77, 0.1); 
 }
 
 .label, .count {
