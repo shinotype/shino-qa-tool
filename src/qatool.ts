@@ -8,13 +8,13 @@ export interface IssueInstance {
 export interface UiIssue {
   id: string,
   label: string,
+  toLabel?: string,
   occurrences: number,
   copy?: string,
   paste?: string,
 }
 
 export function findIssues(text: string): UiIssue[] {
-  console.log(text);
   return countIssues(text).map(toUiIssue);
 }
 
@@ -41,6 +41,7 @@ function toUiIssue(issueInstance: IssueInstance): UiIssue {
   return {
     id: issueData.id,
     label: issueData.ui.label,
+    toLabel: issueData.ui.toLabel || "",
     occurrences: issueInstance.occurrences,
     copy: issueData.ui.copy || "",
     paste: issueData.ui.paste || "",

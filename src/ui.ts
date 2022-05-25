@@ -31,29 +31,32 @@ function renderIssues(issueContainer: Element, issues: UiIssue[]) {
   for (const issue of issues) {
     const issueElement = parseHtml(`
       <div class="issue">
-        <div class="label"></div>
+        <div class="labelContainer"></div>
         <div class="count"></div>
       </div>`);
-    $('.label', issueElement).append(issue.label);
     $('.count', issueElement).append(String(issue.occurrences));
 
-    if (issue.copy || issue.paste) {
-      const buttonContainer = parseHtml('<div class="copyPasteButtonContainer">');
+    const labelContainer = $('.labelContainer', issueElement);
 
+    if (issue.label) {
+      const fromLabel = parseHtml(`<div class="label">` + issue.label + `</div>`);
       if (issue.copy) {
-        const copyButton = parseHtml('<button class="copyPasteButton">🔍</button>');
-        copyButton.addEventListener('click', () => copyText(issue.copy as string));
-        buttonContainer.append(copyButton);
+        fromLabel.classList.add("copyLabel");
+        fromLabel.addEventListener('click', () => copyText(issue.copy as string));
       }
-      if (issue.paste) {
-        const pasteButton = parseHtml('<button class="copyPasteButton pasteButton">📋</button>');
-        pasteButton.addEventListener('click', () => copyText(issue.paste as string));
-        buttonContainer.append(pasteButton);
-      }
-
-      issueElement.append(buttonContainer);
+      labelContainer.append(fromLabel);
     }
 
+    if (issue.toLabel) {
+      const toLabel = parseHtml(`<div class="label">` + issue.toLabel + `</div>`);
+      if (issue.paste) {
+        toLabel.classList.add("pasteLabel");
+        toLabel.addEventListener('click', () => copyText(issue.paste as string));
+      }
+      const arrowLabel = parseHtml(`<div class="arrowLabel">→</div>`);
+      labelContainer.append(arrowLabel);
+      labelContainer.append(toLabel);
+    }
 
     issueContainer.append(issueElement);
   }
