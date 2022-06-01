@@ -17,8 +17,8 @@ body {
 }
 
 .container {
-  padding: 8px 12px;
-  width: 260px;
+  margin-bottom: 10px;
+  width: 283px;
 }
 
 button:hover {
@@ -33,33 +33,36 @@ button:active {
   font-size: 20px;
   font-weight: bold;
   height: auto;
-  margin: 10px 0;
+  margin: 12px;
   padding: 8px 16px;
 }
 
 .labelContainer {
   display: flex;
+  flex-wrap: wrap;
   grid-column: 1;
   padding: 6px; 
+  row-gap: 5px;
 }
 
 .label {
   border-radius: 14px;
   cursor: default;
   line-height: 20px;
-  padding: 4px 10px 4px 10px;
+  padding: 4px 10px 4px 0px;
 }
 
 .arrowLabel {
   cursor: default;
   font-size: 16px;
-  font-weight: bold;
-  padding: 4px 14px 0px 14px;
+  margin: 4px 14px 0px 10px;
   width: 10px;
 }
 
 .copyLabel, .pasteLabel {
   background-color: #fff;
+  box-shadow: 0px 2px #ccc;
+  padding: 4px 10px 4px 10px;
 }
 
 .copyLabel:hover, .pasteLabel:hover {
@@ -98,9 +101,9 @@ button:active {
 
 .count {
   border-radius: 6px;
-  /* font-family: 'Share Tech Mono', monospace; */
+  font-family: 'Share Tech Mono', monospace;
   grid-column: 2;
   padding: 4px;
   text-align: right;
-  margin: 2px 4px;
+  margin: 6px 2px;
 }
