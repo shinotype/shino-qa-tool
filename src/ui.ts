@@ -17,12 +17,19 @@ export function init(initContainer: HTMLElement, textProvider: () => Promise<str
   container.append(resultContainer);
 
   runButton.addEventListener('click', async () => {
-    const issueContainer = $('.issueContainer', resultContainer);
-    const text = await textProvider();
-    const result = findIssues(text);
-    renderIssues(issueContainer, findIssues(text));
-    result.length === 0 ? resultContainer.classList.add("empty") : resultContainer.classList.remove("empty");
+    await runChecks(resultContainer, textProvider);
   });
+
+  // Run once immediately when initialized. This doesn't await the result which is bad but I don't care. 
+  runChecks(resultContainer, textProvider); 
+}
+
+async function runChecks(resultContainer: Element, textProvider: () => Promise<string>) {
+  const issueContainer = $('.issueContainer', resultContainer);
+  const text = await textProvider();
+  const result = findIssues(text);
+  renderIssues(issueContainer, findIssues(text));
+  result.length === 0 ? resultContainer.classList.add("empty") : resultContainer.classList.remove("empty");
 }
 
 function renderIssues(issueContainer: Element, issues: UiIssue[]) {
