@@ -780,6 +780,7 @@ test("double possessive", () => {
   expectResult(countIssues("Jim’s and Bob’s stuff"), issues.double_possessive.id);
 });
 
+/* UNUSED TESTS - see issues.ts for reasons
 test("low numerals", () => {
   expectResult(countIssues("there was 1 dog"), issues.low_numerals.id);
   expectResult(countIssues("there were 2 dogs"), issues.low_numerals.id);
@@ -825,7 +826,7 @@ test("low numerals ignores suffixes", () => {
   expectNoResult(countIssues("16 points"));
   expectNoResult(countIssues("17 EXPERIENCE"));
 });
-
+*/
 
 function expectResult(actualResult: IssueInstance[], expectedResult: string) {
   expect(actualResult).toHaveLength(1);
