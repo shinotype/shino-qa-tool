@@ -14,7 +14,9 @@
   <script>
     const inputBox = document.getElementById('inputBox');
     const container = document.getElementById('container');
-    qatool.init(container, () => inputBox.value);
+    qatool.init(container, () => new Promise(resolve => {
+      window.setTimeout(() => resolve(inputBox.value), 1000);
+    }));
   </script>
 
 </body>
