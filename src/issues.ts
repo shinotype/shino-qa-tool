@@ -33,7 +33,7 @@ const idlessIssues = {
   ellipsis1: { regex: /\.\.\.\./g, ui: { label: "....", copy: "....", checkTypes: [Punctuation], }, },
   ellipsis2: { regex: /\.\.\. [a-z]/g, ui: { label: "... a", copy: "\\.\\.\\. [a-z]", checkTypes: [Punctuation], }, },
   ellipsis3: { regex: /\.\.\.[A-Z]/g, ui: { label: "...A", copy: "\\.\\.\\.[A-Z]", checkTypes: [Punctuation], }, },
-  ellipsis4: { regex: /…/g, ui: { label: "… (symbol)", toLabel: "...", copy: "…", paste: "...", checkTypes: [Punctuation], }, },
+  ellipsis4: { regex: /…/g, ui: { label: "… (symbol)", toLabel: "...", copy: "[\\u2026]", paste: "...", checkTypes: [Punctuation], }, },
   emdash1: { regex: /— /g, ui: { label: "—[space]", copy: "— ", checkTypes: [Punctuation], }, },
   emdash2: { regex: / —/g, ui: { label: "[space]—", copy: " —", checkTypes: [Punctuation], }, },
   causepos: { regex: /‘cause\b/ig, ui: { label: "‘cause", toLabel: "’cause", copy: "‘cause\\b", paste: "’cause", checkTypes: [Punctuation], }, },
