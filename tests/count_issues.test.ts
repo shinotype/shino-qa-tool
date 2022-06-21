@@ -226,6 +226,10 @@ test("blood-sucking", () => {
   expectResult(countIssues("he was BlOod-SUcKing"), issues.blood_sucking.id);
 });
 
+test("buildup", () => {
+  expectResult(countIssues("buiLd-Up"), issues.build_up.id);
+});
+
 test("crossdress", () => {
   expectResult(countIssues("cRosSdReSSing"), issues.crossdress.id);
 });
@@ -250,6 +254,10 @@ test("duty-bound", () => {
   expectResult(countIssues("DUtY-BOuNd"), issues.duty_bound.id);
 });
 
+test("forcefield", () => {
+  expectResult(countIssues("forCeFielD"), issues.forcefield.id);
+});
+
 test("hand-pick", () => {
   expectResult(countIssues("HanD-picK"), issues.hand_pick.id);
 });
@@ -260,6 +268,10 @@ test("hardpressed", () => {
 
 test("hard-working", () => {
   expectResult(countIssues("HaRd-WorKinG"), issues.hard_working.id);
+});
+
+test("iron-clad", () => {
+  expectResult(countIssues("iroN-ClaD"), issues.iron_clad.id);
 });
 
 test("iron-fisted", () => {
@@ -276,6 +288,18 @@ test("knowhow", () => {
 
 test("laidback", () => {
   expectResult(countIssues("laidBACK"), issues.laidback.id);
+});
+
+test("light-hearted", () => {
+  expectResult(countIssues("LIGHT-hearted"), issues.light_hearted.id);
+});
+
+test("light-weight", () => {
+  expectResult(countIssues("LIGHT-weight"), issues.light_weight.id);
+});
+
+test("line-up", () => {
+  expectResult(countIssues("line-UP"), issues.line_up.id);
 });
 
 test("mass produce", () => {
@@ -762,6 +786,18 @@ test("anymore and any more", () => {
   const result = countIssues("anymore any more anyMORE ANY more any MORE");
   expectContainsResult(result, issues.anymore.id, 2);
   expectContainsResult(result, issues.any_more.id, 3);
+});
+
+test("discreet and discrete", () => {
+  const result = countIssues("disCreet DIScrete disCreTe DISCREET discREET");
+  expectContainsResult(result, issues.discreet.id, 3);
+  expectContainsResult(result, issues.discrete.id, 2);
+});
+
+test("drier and dryer", () => {
+  const result = countIssues("drier DRYeR driER DRier drYer");
+  expectContainsResult(result, issues.drier.id, 3);
+  expectContainsResult(result, issues.dryer.id, 2);
 });
 
 test("less used for countable quantity", () => {
