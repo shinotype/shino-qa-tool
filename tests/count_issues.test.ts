@@ -61,6 +61,10 @@ test("straight single quote", () => {
 
 test("straight single quote", () => {
   expectResult(countIssues("it‘s no big deal"), issues.apostrophe2.id);
+})
+
+test("comma outside quotes", () => {
+  expectResult(countIssues("“wow”, she said"), issues.comma.id);
 });
 
 test("straight double quote", () => {
@@ -580,6 +584,10 @@ test("centre", () => {
   expectResult(countIssues("CEntRe"), issues.centre.id);
 });
 
+test("co-worker", () => {
+  expectResult(countIssues("co-WORker"), issues.co_worker.id);
+});
+
 test("defence", () => {
   expectResult(countIssues("deFence"), issues.defence.id);
 });
@@ -590,6 +598,10 @@ test("emphasise", () => {
 
 test("grey", () => {
   expectResult(countIssues("greying hair"), issues.grey.id);
+});
+
+test("knock-off", () => {
+  expectResult(countIssues("knock-OFF"), issues.knock_off.id);
 });
 
 test("meagre", () => {
