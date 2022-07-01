@@ -1,4 +1,10 @@
-# shino-qa-tool
+# QA Assistant
+
+The QA Assistant makes the process of QAing a novel or other piece of writing easy!
+
+This is a personal project for which I am not being paid, and is offered free of charge. You can find more information at [https://shinotype.dev/qa-assistant](https://shinotype.dev/qa-assistant).
+
+You can file bug reports and feature requests on the issues tab. Given the nature of the project, please note that there is no guaranteed timeline of delivery for any changes, nor is there any guarantee that feature requests will be implemented.
 
 ## Setup
 ```npm install```
