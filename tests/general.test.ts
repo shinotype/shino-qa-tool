@@ -1,6 +1,6 @@
-import { countIssues, IssueInstance } from '../src/qatool';
-import { IssueId, issues } from '../src/issues';
-import { expectResult, expectContainsResult } from './expectations';
+import { countIssues } from '../src/qatool';
+import { issues } from '../src/issues';
+import { expectContainsResult } from './expectations';
 
 /**
  * General functionality tests.

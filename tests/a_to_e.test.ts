@@ -1,5 +1,5 @@
-import { countIssues, IssueInstance } from '../src/qatool';
-import { IssueId, issues } from '../src/issues';
+import { countIssues } from '../src/qatool';
+import { issues } from '../src/issues';
 import { expectResult, expectContainsResult, expectNoResult } from './expectations';
 
 test("absent-minded", () => {
@@ -13,6 +13,10 @@ test("acknowledgement", () => {
 test("accidently", () => {
   expectResult(countIssues("acciDentLy"), issues.accidently.id);
 });
+
+test("ahaha", () => {
+  expectResult(countIssues("ahaha"), issues.ahaha.id);
+})
 
 test("aircon", () => {
   expectResult(countIssues("AirCon"), issues.aircon.id);
@@ -40,6 +44,10 @@ test("ax respects word boundaries", () => {
 
 test("bath house", () => {
   expectResult(countIssues("the BATH house is big"), issues.bathhouse.id);
+});
+
+test("blood-curdling", () => {
+  expectResult(countIssues("he was blOoD-CurDling"), issues.blood_curdling.id);
 });
 
 test("blood-red", () => {

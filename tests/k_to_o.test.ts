@@ -1,6 +1,6 @@
-import { countIssues, IssueInstance } from '../src/qatool';
-import { IssueId, issues } from '../src/issues';
-import { expectResult, expectContainsResult, expectNoResult } from './expectations';
+import { countIssues } from '../src/qatool';
+import { issues } from '../src/issues';
+import { expectResult } from './expectations';
 
 test("keychain", () => {
   expectResult(countIssues("KeYChain"), issues.keychain.id);
@@ -26,6 +26,10 @@ test("lead", () => {
   expectResult(countIssues("lead away"), issues.lead.id);
 });
 
+test("life-blood", () => {
+  expectResult(countIssues("life-BLOOD"), issues.life_blood.id);
+});
+
 test("lightbulb", () => {
   expectResult(countIssues("LIGHTbulb"), issues.lightbulb.id);
 });
@@ -42,6 +46,14 @@ test("line-up", () => {
   expectResult(countIssues("line-UP"), issues.line_up.id);
 });
 
+test("love-struck", () => {
+  expectResult(countIssues("love-STRUCK"), issues.love_struck.id);
+});
+
+test("mask-like", () => {
+  expectResult(countIssues("mask-LIKE"), issues.mask_like.id);
+});
+
 test("mass produce", () => {
   expectResult(countIssues("mAss ProDuCe"), issues.massproduce.id);
 });
@@ -52,6 +64,10 @@ test("mass-production", () => {
 
 test("meagre", () => {
   expectResult(countIssues("meAgrE"), issues.meagre.id);
+});
+
+test("mid-air", () => {
+  expectResult(countIssues("mid-AIR"), issues.mid_air.id);
 });
 
 test("mid-morning", () => {
@@ -90,6 +106,22 @@ test("nevermind", () => {
   expectResult(countIssues("neverMind"), issues.nm.id);
 });
 
+test("non-combatant", () => {
+  expectResult(countIssues("NON-combatant"), issues.non_combatant.id);
+});
+
+test("non-hero", () => {
+  expectResult(countIssues("non-HERO"), issues.non_hero.id);
+});
+
+test("non-living", () => {
+  expectResult(countIssues("NON-living"), issues.non_living.id);
+});
+
+test("non-zero", () => {
+  expectResult(countIssues("non-ZERO"), issues.non_zero.id);
+});
+
 test("occured", () => {
   expectResult(countIssues("occuRed"), issues.occured.id);
 });
@@ -122,4 +154,10 @@ test("one-time", () => {
   expectResult(countIssues("ONE-time"), issues.one_time.id);
 });
 
+test("over-prepared", () => {
+  expectResult(countIssues("over-PREPARED"), issues.over_prepared.id);
+});
 
+test("over-protect", () => {
+  expectResult(countIssues("OVER-protect"), issues.over_protect.id);
+});

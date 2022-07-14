@@ -1,6 +1,6 @@
-import { countIssues, IssueInstance } from '../src/qatool';
-import { IssueId, issues } from '../src/issues';
-import { expectResult, expectContainsResult, expectNoResult } from './expectations';
+import { countIssues } from '../src/qatool';
+import { issues } from '../src/issues';
+import { expectResult, expectNoResult } from './expectations';
 
 test("double spaces", () => {
   expectResult(countIssues("hello  goodbye"), issues.space.id);

@@ -1,6 +1,6 @@
-import { countIssues, IssueInstance } from '../src/qatool';
-import { IssueId, issues } from '../src/issues';
-import { expectResult, expectContainsResult, expectNoResult } from './expectations';
+import { countIssues } from '../src/qatool';
+import { issues } from '../src/issues';
+import { expectResult, expectNoResult } from './expectations';
 
 test("paper mache", () => {
   expectResult(countIssues("PAPER mache"), issues.paper_mache.id);
@@ -36,6 +36,14 @@ test("pubic", () => {
 
 test("publically", () => {
   expectResult(countIssues("PUBlicaLly"), issues.publically.id);
+});
+
+test("puppet-like", () => {
+  expectResult(countIssues("puppet-like"), issues.puppet_like.id);
+});
+
+test("re-absorb", () => {
+  expectResult(countIssues("re-aBsorB"), issues.re_absorb.id);
 });
 
 test("re-examine", () => {
@@ -94,8 +102,16 @@ test("smoulder", () => {
   expectResult(countIssues("SMOULder"), issues.smoulder.id);
 });
 
+test("soft-hearted", () => {
+  expectResult(countIssues("SOFT-hearted"), issues.soft_hearted.id);
+});
+
 test("soulmate", () => {
   expectResult(countIssues("soulMATE"), issues.soul.id);
+});
+
+test("standalone", () => {
+  expectResult(countIssues("STAnDALONE"), issues.standalone.id);
 });
 
 test("straightlaced", () => {
@@ -112,6 +128,10 @@ test("swiss cheese NOT case-insensitive", () => {
 
 test("tastebud", () => {
   expectResult(countIssues("tasteBUD"), issues.tastebud.id);
+});
+
+test("tete-a-tete", () => {
+  expectResult(countIssues("tete-a-TETE"), issues.tete_a_tete.id);
 });
 
 test("timeframe", () => {

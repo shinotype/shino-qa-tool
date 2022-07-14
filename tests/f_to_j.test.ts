@@ -2,6 +2,10 @@ import { countIssues } from '../src/qatool';
 import { issues } from '../src/issues';
 import { expectResult, expectNoResult, expectContainsResult } from './expectations';
 
+test("face-down", () => {
+  expectResult(countIssues("face-down"), issues.face_down.id);
+});
+
 test("fiance", () => {
   expectResult(countIssues("my fiance and I"), issues.fiance.id);
 });
@@ -12,6 +16,10 @@ test("fiance respects word boundaries", () => {
 
 test("fiancee", () => {
   expectResult(countIssues("my fiancee and I"), issues.fiancee.id);
+});
+
+test("finger-like", () => {
+  expectResult(countIssues("finger-LIKE"), issues.finger_like.id);
 });
 
 test("first-hand", () => {
@@ -120,6 +128,14 @@ test("heroin", () => {
   expectResult(countIssues("heroin addict"), issues.heroin.id);
 });
 
+test("home-made", () => {
+  expectResult(countIssues("home-MADE"), issues.home_made.id);
+});
+
+test("human-like", () => {
+  expectResult(countIssues("HUMAN-like"), issues.human_like.id);
+});
+
 test("iron-clad", () => {
   expectResult(countIssues("iroN-ClaD"), issues.iron_clad.id);
 });
@@ -130,6 +146,10 @@ test("iron-fisted", () => {
 
 test("judgement", () => {
   expectResult(countIssues("juDgeMENT"), issues.judge.id);
+});
+
+test("jungle-like", () => {
+  expectResult(countIssues("jungle-LIKE"), issues.jungle_like.id);
 });
 
 
