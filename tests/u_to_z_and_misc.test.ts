@@ -48,6 +48,12 @@ test("further and farther", () => {
   expectContainsResult(result, issues.farther.id, 3);
 });
 
+test("leapt and leaped", () => {
+  const result = countIssues("leaped LEAPED leaPT LEAPT lEAPt");
+  expectContainsResult(result, issues.leaped.id, 2);
+  expectContainsResult(result, issues.leapt.id, 3);
+});
+
 test("towards and toward", () => {
   const result = countIssues("toWARDS toward toWARDs toWard TOwards TOWARD toward");
   expectContainsResult(result, issues.towards.id, 3);

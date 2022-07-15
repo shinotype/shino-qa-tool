@@ -54,6 +54,10 @@ test("puppet-like", () => {
   expectResult(countIssues("puppet-like"), issues.puppet_like.id);
 });
 
+test("pushup", () => {
+  expectResult(countIssues("puSHup"), issues.pushup.id);
+});
+
 test("re-absorb", () => {
   expectResult(countIssues("re-aBsorB"), issues.re_absorb.id);
 });
@@ -64,6 +68,14 @@ test("re-examine", () => {
 
 test("roleplay", () => {
   expectResult(countIssues("rOlePlaY"), issues.roleplay.id);
+});
+
+test("saute", () => {
+  expectResult(countIssues("sAuTe"), issues.saute.id);
+});
+
+test("second guess", () => {
+  expectResult(countIssues("second GUESs"), issues.second_guess.id);
 });
 
 test("second-hand", () => {

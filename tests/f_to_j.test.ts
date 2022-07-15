@@ -26,6 +26,14 @@ test("first-hand", () => {
   expectResult(countIssues("FIRST-hand"), issues.first_hand.id);
 });
 
+test("fist-fight", () => {
+  expectResult(countIssues("FIST-fight"), issues.fist_fight.id);
+});
+
+test("fist fight", () => {
+  expectResult(countIssues("fist FIGHT"), issues.fist_fight2.id);
+});
+
 test("flipside", () => {
   expectResult(countIssues("on the FLIPside,"), issues.flipside.id);
 });
@@ -120,6 +128,10 @@ test("hard-working", () => {
   expectResult(countIssues("HaRd-WorKinG"), issues.hard_working.id);
 });
 
+test("head on", () => {
+  expectResult(countIssues("head ON"), issues.head_on.id);
+});
+
 test("head scratcher", () => {
   expectResult(countIssues("HEAD scRATcher"), issues.head_scratcher.id);
 });
@@ -138,6 +150,14 @@ test("hitman", () => {
 
 test("home-made", () => {
   expectResult(countIssues("home-MADE"), issues.home_made.id);
+});
+
+test("home sick", () => {
+  expectResult(countIssues("home SIcK"), issues.home_sick.id);
+});
+
+test("home-sick", () => {
+  expectResult(countIssues("hOme-SIcK"), issues.home_sick2.id);
 });
 
 test("human-like", () => {

@@ -62,6 +62,10 @@ test("comma outside quotes", () => {
   expectResult(countIssues("“wow”, she said"), issues.comma.id);
 });
 
+test("comma outside quotes", () => {
+  expectResult(countIssues("‘wow’, she said"), issues.comma2.id);
+});
+
 test("straight double quote", () => {
   expectResult(countIssues("he said \"okay but"), issues.quote.id);
 });

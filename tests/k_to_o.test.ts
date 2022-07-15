@@ -50,12 +50,20 @@ test("love-struck", () => {
   expectResult(countIssues("love-STRUCK"), issues.love_struck.id);
 });
 
+test("make-up", () => {
+  expectResult(countIssues("MAKE-up"), issues.make_up.id);
+});
+
 test("mask-like", () => {
   expectResult(countIssues("mask-LIKE"), issues.mask_like.id);
 });
 
 test("mass produce", () => {
-  expectResult(countIssues("mAss ProDuCe"), issues.massproduce.id);
+  expectResult(countIssues("mAss ProDuCe"), issues.mass_produce.id);
+});
+
+test("mass producing", () => {
+  expectResult(countIssues("mAss ProDuCiNG"), issues.mass_producing.id);
 });
 
 test("mass-production", () => {
@@ -100,6 +108,10 @@ test("mischevious", () => {
 
 test("moustache", () => {
   expectResult(countIssues("MOUSTache"), issues.moustache.id);
+});
+
+test("naive", () => {
+  expectResult(countIssues("naïvE"), issues.naive.id);
 });
 
 test("nevermind", () => {

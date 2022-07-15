@@ -38,6 +38,10 @@ test("apologise", () => {
   expectResult(countIssues("APOLOgise"), issues.apologise.id);
 });
 
+test("apologising", () => {
+  expectResult(countIssues("APOLOgising"), issues.apologising.id);
+});
+
 test("ax", () => {
   expectResult(countIssues("an AX chops wood"), issues.axe.id);
 });
@@ -60,6 +64,10 @@ test("blood-curdling", () => {
 
 test("blood-red", () => {
   expectResult(countIssues("he was blOoD-reD"), issues.blood_red.id);
+});
+
+test("blood-sucker", () => {
+  expectResult(countIssues("he was BlOod-SUcKer"), issues.blood_sucker.id);
 });
 
 test("blood-sucking", () => {
@@ -192,6 +200,10 @@ test("duty-bound", () => {
 
 test("emphasise", () => {
   expectResult(countIssues("emphaSise"), issues.emphasise.id);
+});
+
+test("emphasising", () => {
+  expectResult(countIssues("emphaSisING"), issues.emphasising.id);
 });
 
 test("entree", () => {
