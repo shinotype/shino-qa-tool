@@ -6,6 +6,14 @@ test("face-down", () => {
   expectResult(countIssues("face-down"), issues.face_down.id);
 });
 
+test("fast-food", () => {
+  expectResult(countIssues("fast-FOOD"), issues.fast_food.id);
+});
+
+test("fast food", () => {
+  expectResult(countIssues("fast FOOD"), issues.fast_food2.id);
+});
+
 test("fiance", () => {
   expectResult(countIssues("my fiance and I"), issues.fiance.id);
 });

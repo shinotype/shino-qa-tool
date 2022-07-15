@@ -27,7 +27,7 @@ const idlessIssues = {
   endquote: { regex: /“[^”]*?“/g, ui: { label: "Missing end quotes", copy: "“[^”]*?“" }, },
   apostrophe2: { regex: /‘s\b/ig, ui: { label: "‘s", toLabel: "’s", copy: "‘s\\b", paste: "’s" }, },
   comma: { regex: /”,/ig, ui: { label: "Comma outside ”", copy: "”," }, },
-  comma2: { regex: /”,/ig, ui: { label: "Comma outside ’", copy: "’," }, },
+  comma2: { regex: /’,/ig, ui: { label: "Comma outside ’", copy: "’," }, },
   too: { regex: /, too\b/ig, ui: { label: ", too", copy: ", too\\b" }, },
   either: { regex: /, either/ig, ui: { label: ", either", copy: ", either" }, },
   bang: { regex: /!\?/g, ui: { label: "!?", toLabel: "?!", copy: "!?", paste: "?!" }, },
@@ -72,6 +72,8 @@ const idlessIssues = {
   apologise: { regex: /apologise/ig, ui: { label: "apologise", toLabel: "apologize",  copyLabels: true }, },
   apologising: { regex: /apologising/ig, ui: { label: "apologising", toLabel: "apologizing",  copyLabels: true }, },
   axe: { regex: /\bax\b/ig, ui: { label: "ax", toLabel: "axe", copy: "\\bax\\b", paste: "axe" }, },
+  badmouth: { regex: /badmouth/ig, ui: { label: "badmouth", toLabel: "bad-mouth", copyLabels: true }, },
+  bad_mouth: { regex: /bad mouth/ig, ui: { label: "bad mouth", toLabel: "bad-mouth (verb?)", copy: "bad mouth", paste: "bad-mouth" }, },
   bathhouse: { regex: /bath house/ig, ui: { label: "bath house", toLabel: "bathhouse",  copyLabels: true }, },
   bite_sized: { regex: /bite-sized/ig, ui: { label: "bite-sized", toLabel: "bite-size", copyLabels: true }, },
   blood_curdling: { regex: /blood-curdling/ig, ui: { label: "blood-curdling", toLabel: "bloodcurdling",  copyLabels: true }, },
@@ -115,6 +117,8 @@ const idlessIssues = {
   
   // F through J
   face_down: { regex: /face-down/ig, ui: { label: "face-down", toLabel: "facedown", copyLabels: true }, },
+  fast_food: { regex: /fast-food/ig, ui: { label: "fast-food", toLabel: "fast food (noun?)", copy: "fast-food", paste: "fast food" }, },
+  fast_food2: { regex: /fast food/ig, ui: { label: "fast food", toLabel: "fast-food (adjective?)", copy: "fast food", paste: "fast-food" }, },
   fiance: { regex: /\bfiance[^e]/ig, ui: { label: "fiance", toLabel: "fiancé", copy: "\\bfiance[^e]", paste: "fiancé" }, },
   fiancee: { regex: /fiancee/ig, ui: { label: "fiancee", toLabel: "fiancée", copyLabels: true }, },
   finger_like: { regex: /finger-like/ig, ui: { label: "finger-like", toLabel: "fingerlike", copyLabels: true }, },

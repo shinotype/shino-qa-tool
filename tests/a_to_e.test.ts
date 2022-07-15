@@ -50,6 +50,14 @@ test("ax respects word boundaries", () => {
   expectNoResult(countIssues("maximum pax power"));
 });
 
+test("bad-mouth", () => {
+  expectResult(countIssues("BAD mouth"), issues.bad_mouth.id);
+});
+
+test("badmouth", () => {
+  expectResult(countIssues("BADmouth"), issues.badmouth.id);
+});
+
 test("bath house", () => {
   expectResult(countIssues("the BATH house is big"), issues.bathhouse.id);
 });
