@@ -120,12 +120,20 @@ test("hard-working", () => {
   expectResult(countIssues("HaRd-WorKinG"), issues.hard_working.id);
 });
 
+test("head scratcher", () => {
+  expectResult(countIssues("HEAD scRATcher"), issues.head_scratcher.id);
+});
+
 test("heehee", () => {
   expectResult(countIssues("heehee! he giggled"), issues.laugh2.id);
 });
 
 test("heroin", () => {
   expectResult(countIssues("heroin addict"), issues.heroin.id);
+});
+
+test("hitman", () => {
+  expectResult(countIssues("hitMAN"), issues.hitman.id);
 });
 
 test("home-made", () => {

@@ -10,6 +10,10 @@ test("photoshoot", () => {
   expectResult(countIssues("photoSHOOT"), issues.photoshoot.id);
 });
 
+test("piece de resistance", () => {
+  expectResult(countIssues("piece DE RESIstance"), issues.piecede.id);
+});
+
 test("plough", () => {
   expectResult(countIssues("PloUghing"), issues.plough.id);
 });
@@ -36,6 +40,14 @@ test("pubic", () => {
 
 test("publically", () => {
   expectResult(countIssues("PUBlicaLly"), issues.publically.id);
+});
+
+test("punchline", () => {
+  expectResult(countIssues("PUNCHline"), issues.punchline.id);
+});
+
+test("punch-line", () => {
+  expectResult(countIssues("PUncH-LINE"), issues.punch_line.id);
 });
 
 test("puppet-like", () => {
@@ -114,6 +126,10 @@ test("standalone", () => {
   expectResult(countIssues("STAnDALONE"), issues.standalone.id);
 });
 
+test("stand-out", () => {
+  expectResult(countIssues("STand-OUT"), issues.stand_out.id);
+});
+
 test("straightlaced", () => {
   expectResult(countIssues("STRAIGHTlaced"), issues.strait.id);
 });
@@ -132,6 +148,10 @@ test("tastebud", () => {
 
 test("tete-a-tete", () => {
   expectResult(countIssues("tete-a-TETE"), issues.tete_a_tete.id);
+});
+
+test("thrusted", () => {
+  expectResult(countIssues("thRUSTed"), issues.thrusted.id);
 });
 
 test("timeframe", () => {
@@ -156,4 +176,16 @@ test("traveller", () => {
 
 test("twenty-four-seven", () => {
   expectResult(countIssues("TWENTY-four-sEven"), issues.twentyfourseven.id);
+});
+
+test("twin tail", () => {
+  expectResult(countIssues("TWIN tail"), issues.twin_tail.id);
+});
+
+test("twin-tail", () => {
+  expectResult(countIssues("twin-TAIL"), issues.twin_tail2.id);
+});
+
+test("twintail", () => {
+  expectResult(countIssues("twinTAIL"), issues.twintail.id);
 });

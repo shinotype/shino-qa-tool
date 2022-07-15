@@ -15,11 +15,15 @@ test("accidently", () => {
 });
 
 test("ahaha", () => {
-  expectResult(countIssues("ahaha"), issues.ahaha.id);
+  expectContainsResult(countIssues("ahaha"), issues.ahaha.id, 1);
 })
 
 test("aircon", () => {
   expectResult(countIssues("AirCon"), issues.aircon.id);
+});
+
+test("air-tight", () => {
+  expectResult(countIssues("AIR-tight"), issues.air_tight.id);
 });
 
 test("alright", () => {
@@ -44,6 +48,10 @@ test("ax respects word boundaries", () => {
 
 test("bath house", () => {
   expectResult(countIssues("the BATH house is big"), issues.bathhouse.id);
+});
+
+test("bite-sized", () => {
+  expectResult(countIssues("BITE-sized"), issues.bite_sized.id);
 });
 
 test("blood-curdling", () => {
@@ -126,6 +134,18 @@ test("dealbreaker", () => {
   expectResult(countIssues("deaLbReaKer"), issues.dealbreaker.id);
 });
 
+test("deal-maker", () => {
+  expectResult(countIssues("DEAL-maker"), issues.deal_maker.id);
+});
+
+test("deal-making", () => {
+  expectResult(countIssues("deal-MAKING"), issues.deal_making.id);
+});
+
+test("deep fry", () => {
+  expectResult(countIssues("DEEP FRY"), issues.deep_fry.id);
+});
+
 test("defence", () => {
   expectResult(countIssues("deFence"), issues.defence.id);
 });
@@ -138,10 +158,26 @@ test("dieing", () => {
   expectResult(countIssues("DIeing"), issues.dieing.id);
 });
 
+test("discernable", () => {
+  expectResult(countIssues("DIScernable"), issues.discernable.id);
+});
+
+test("discernably", () => {
+  expectResult(countIssues("discernaBLY"), issues.discernably.id);
+});
+
 test("discreet and discrete", () => {
   const result = countIssues("disCreet DIScrete disCreTe DISCREET discREET");
   expectContainsResult(result, issues.discreet.id, 3);
   expectContainsResult(result, issues.discrete.id, 2);
+});
+
+test("doppelganger", () => {
+  expectResult(countIssues("doppELgAnger"), issues.doppelganger.id);
+});
+
+test("doppleganger", () => {
+  expectResult(countIssues("DOPPLEganger"), issues.doppleganger.id);
 });
 
 test("drier and dryer", () => {
