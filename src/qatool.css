@@ -60,13 +60,13 @@ button:active {
   width: 10px;
 }
 
-.copyLabel, .pasteLabel {
+.copyLabel, .pasteLabel, .mw {
   background-color: #fff;
   box-shadow: 0px 2px #ccc;
   padding: 4px 10px 4px 10px;
 }
 
-.copyLabel:hover, .pasteLabel:hover {
+.copyLabel:hover, .pasteLabel:hover, .mw:hover {
   cursor: pointer;
 }
 
@@ -76,6 +76,15 @@ button:active {
 
 .pasteLabel:hover {
   background-color: greenyellow;
+}
+
+.mw {
+  background-color: #ccc;
+  margin-left: 6px;
+}
+
+.mw:hover {
+  background-color: lightblue;
 }
 
 .noIssuesMessage {

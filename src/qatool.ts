@@ -12,6 +12,7 @@ export interface UiIssue {
   occurrences: number,
   copy?: string,
   paste?: string,
+  mw?: string,
 }
 
 export function findIssues(text: string): UiIssue[] {
@@ -45,5 +46,6 @@ function toUiIssue(issueInstance: IssueInstance): UiIssue {
     occurrences: issueInstance.occurrences,
     copy: issueData.ui.copyLabels ? issueData.ui.label : (issueData.ui.copy || ""),
     paste: issueData.ui.copyLabels ? issueData.ui.toLabel : (issueData.ui.paste || ""),
+    mw: issueData.ui.mw || "",
   };
 }
