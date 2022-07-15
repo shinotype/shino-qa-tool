@@ -43,7 +43,7 @@ function toUiIssue(issueInstance: IssueInstance): UiIssue {
     label: issueData.ui.label,
     toLabel: issueData.ui.toLabel || "",
     occurrences: issueInstance.occurrences,
-    copy: issueData.ui.copy || "",
-    paste: issueData.ui.paste || "",
+    copy: issueData.ui.copyLabels ? issueData.ui.label : (issueData.ui.copy || ""),
+    paste: issueData.ui.copyLabels ? issueData.ui.toLabel : (issueData.ui.paste || ""),
   };
 }
