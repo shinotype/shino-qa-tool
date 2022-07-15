@@ -40,7 +40,7 @@ const idlessIssues = {
   emdash2: { regex: / —/g, ui: { label: "[space]—", copy: " —" }, },
   adverb: { regex: /ly-(?!(?:fledged))/ig, ui: { label: "hyphenated adverbs (ly-)", copy: "ly-(?!(?:fledged))" }, },
   hyphen_numbers: { regex: /(twen|thir|for|fif|six|seven|eigh|nine)ty (one|two|three|four|five|six|seven|eight|nine)/ig, ui: { label: "Hyphenate numbers [21-99]", copy: "(twen|thir|for|fif|six|seven|eigh|nine)ty (one|two|three|four|five|six|seven|eight|nine)" }, },
-  double_possessive: { regex: /.+’s and .+’s/ig, ui: { label: "Double possessive?", copy: ".+‘s and .+‘s" }, },
+  double_possessive: { regex: /.+’s and .+’s/ig, ui: { label: "Double possessive?", copy: "'s \\band ([^\\s]+)'s" }, },
   less_plural: { regex: /\bless [a-z]+s\b/ig, ui: { label: "'Less' used for countable quantity?", copy: "\\bless [a-z]+s\\b" }, },
   causepos: { regex: /‘cause\b/ig, ui: { label: "‘cause", toLabel: "’cause", copy: "‘cause\\b", paste: "’cause" }, },
   suppos: { regex: /‘sup\b/ig, ui: { label: "‘sup", toLabel: "’sup", copy: "‘sup\\b", paste: "’sup" }, },
