@@ -78,9 +78,14 @@ button:active {
   background-color: greenyellow;
 }
 
+.pasteLabel {
+  margin-right: 6px;
+}
+
 .mw {
   background-color: #ccc;
-  margin-left: 6px;
+  font-size: 9px;
+  font-weight: bold;
 }
 
 .mw:hover {

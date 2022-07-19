@@ -266,16 +266,16 @@ const idlessIssues = {
   worshiper: { regex: /worshiper/ig, ui: { label: "worshiper", toLabel: "worshipper", copyLabels: true, mw: "worshipper" }, },
   
   // Compare similar words
-  afterwards: { regex: /afterwards/ig, ui: { label: "afterwards (compare: afterward)", copy: "afterwards" }, },
-  afterward: { regex: /afterward($|[^s])/ig, ui: { label: "afterward (compare: afterwards)", copy: "afterward[^s]" }, },
-  anymore: { regex: /anymore/ig, ui: { label: "anymore (compare: any more)", copy: "anymore" }, },
-  any_more: { regex: /any more/ig, ui: { label: "any more (compare: anymore)", copy: "any more" }, },
-  further: { regex: /further/ig, ui: { label: "further", copy: "further (compare: farther)" }, },
-  farther: { regex: /farther/ig, ui: { label: "farther", copy: "farther (compare: further)" }, },
-  leaped: { regex: /leaped/ig, ui: { label: "leaped (compare: leapt)", copy: "leaped" }, },
-  leapt: { regex: /leapt/ig, ui: { label: "leapt (compare: leaped)", copy: "leapt" }, },
-  towards: { regex: /towards/ig, ui: { label: "towards (compare: toward)", copy: "towards" }, },
-  toward: { regex: /toward($|[^s])/ig, ui: { label: "toward (compare: towards)", copy: "toward[^s]" }, },
+  afterwards: { regex: /afterwards/ig, ui: { label: "afterwards", copy: "afterwards" }, },
+  afterward: { regex: /afterward($|[^s])/ig, ui: { label: "afterward", copy: "afterward[^s]" }, },
+  anymore: { regex: /anymore/ig, ui: { label: "anymore", copy: "anymore" }, },
+  any_more: { regex: /any more/ig, ui: { label: "any more", copy: "any more" }, },
+  further: { regex: /further/ig, ui: { label: "further", copy: "further" }, },
+  farther: { regex: /farther/ig, ui: { label: "farther", copy: "farther" }, },
+  leaped: { regex: /leaped/ig, ui: { label: "leaped", copy: "leaped" }, },
+  leapt: { regex: /leapt/ig, ui: { label: "leapt", copy: "leapt" }, },
+  towards: { regex: /towards/ig, ui: { label: "towards", copy: "towards" }, },
+  toward: { regex: /toward($|[^s])/ig, ui: { label: "toward", copy: "toward[^s]" }, },
 };
 
 // variable is unused, but forces a type check
