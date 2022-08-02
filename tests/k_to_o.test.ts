@@ -10,6 +10,10 @@ test("kind-hearted", () => {
   expectResult(countIssues("KinD-HeArTed"), issues.kind_hearted.id);
 });
 
+test("kind hearted", () => {
+  expectResult(countIssues("KinD HeArTed"), issues.kind_hearted2.id);
+});
+
 test("knock-off", () => {
   expectResult(countIssues("knock-OFF"), issues.knock_off.id);
 });
@@ -30,12 +34,20 @@ test("life-blood", () => {
   expectResult(countIssues("life-BLOOD"), issues.life_blood.id);
 });
 
+test("life threatening", () => {
+  expectResult(countIssues("life THREATENING"), issues.life_threatening.id);
+});
+
 test("lightbulb", () => {
   expectResult(countIssues("LIGHTbulb"), issues.lightbulb.id);
 });
 
 test("light-hearted", () => {
   expectResult(countIssues("LIGHT-hearted"), issues.light_hearted.id);
+});
+
+test("light hearted", () => {
+  expectResult(countIssues("LIGHT hearted"), issues.light_hearted2.id);
 });
 
 test("light-weight", () => {
@@ -46,9 +58,23 @@ test("line-up", () => {
   expectResult(countIssues("line-UP"), issues.line_up.id);
 });
 
+test("liquify", () => {
+  expectResult(countIssues("liquify"), issues.liquif.id);
+});
+
+
+test("liquified", () => {
+  expectResult(countIssues("liquified"), issues.liquif.id);
+});
+
 test("love-struck", () => {
   expectResult(countIssues("love-STRUCK"), issues.love_struck.id);
 });
+
+test("make due", () => {
+  expectResult(countIssues("MAKE due"), issues.make_due.id);
+});
+
 
 test("make-up", () => {
   expectResult(countIssues("MAKE-up"), issues.make_up.id);
@@ -80,6 +106,10 @@ test("mid-air", () => {
 
 test("mid-morning", () => {
   expectResult(countIssues("mId-MorNinG"), issues.mid_morning.id);
+});
+
+test("mid-section", () => {
+  expectResult(countIssues("mID-SectION"), issues.mid_section.id);
 });
 
 test("mid-sentence", () => {
@@ -114,12 +144,25 @@ test("naive", () => {
   expectResult(countIssues("naïvE"), issues.naive.id);
 });
 
+test("name drop", () => {
+  expectResult(countIssues("NAME drop"), issues.name_drop.id);
+});
+
+
 test("nevermind", () => {
   expectResult(countIssues("neverMind"), issues.nm.id);
 });
 
 test("non-combatant", () => {
   expectResult(countIssues("NON-combatant"), issues.non_combatant.id);
+});
+
+test("non-committal", () => {
+  expectResult(countIssues("NON-committal"), issues.non_committal.id);
+});
+
+test("non-existent", () => {
+  expectResult(countIssues("NON-existent"), issues.non_existent.id);
 });
 
 test("non-hero", () => {
@@ -144,6 +187,14 @@ test("occuring", () => {
 
 test("ochre", () => {
   expectResult(countIssues("OCHre"), issues.ocher.id);
+});
+
+test("off balance", () => {
+  expectResult(countIssues("OFF balance"), issues.off_balance.id);
+});
+
+test("off-guard", () => {
+  expectResult(countIssues("off-GUARD"), issues.off_guard.id);
 });
 
 test("off-handed", () => {

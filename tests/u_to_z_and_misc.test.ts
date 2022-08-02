@@ -30,6 +30,10 @@ test("worshiper", () => {
   expectResult(countIssues("woRshipEr"), issues.worshiper.id);
 });
 
+test("worst case scenario", () => {
+  expectResult(countIssues("WORST case SCENario"), issues.worst_case_scenario.id);
+});
+
 test("afterwards and afterward", () => {
   const result = countIssues("afterWARDS afterward afterWARDs afterWard AFTERwards AFTERWARD afterward");
   expectContainsResult(result, issues.afterwards.id, 3);

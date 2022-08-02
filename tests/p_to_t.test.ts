@@ -18,6 +18,10 @@ test("plough", () => {
   expectResult(countIssues("PloUghing"), issues.plough.id);
 });
 
+test("power-walk", () => {
+  expectResult(countIssues("POWER-walk"), issues.power_walk.id);
+});
+
 test("principal", () => {
   expectResult(countIssues("principAlity"), issues.principal.id);
 });
@@ -66,8 +70,25 @@ test("re-examine", () => {
   expectResult(countIssues("rE-eXaMiNe"), issues.re_examine.id);
 });
 
+test("r.i.p", () => {
+  expectResult(countIssues("r.i.P"), issues.rip.id);
+});
+
+test("river bank", () => {
+  expectResult(countIssues("river BANK"), issues.river_bank.id);
+});
+
+test("river-bank", () => {
+  expectResult(countIssues("RIVER-bank"), issues.river_bank2.id);
+});
+
+
 test("roleplay", () => {
   expectResult(countIssues("rOlePlaY"), issues.roleplay.id);
+});
+
+test("rough and tumble", () => {
+  expectResult(countIssues("ROUGH and TUMBLE"), issues.rough_and_tumble.id);
 });
 
 test("saute", () => {
@@ -80,6 +101,10 @@ test("second guess", () => {
 
 test("second-hand", () => {
   expectResult(countIssues("second-HAND"), issues.second_hand.id);
+});
+
+test("self expression", () => {
+  expectResult(countIssues("SELF expression"), issues.self_expression.id);
 });
 
 test("semi-circle", () => {
@@ -97,6 +122,11 @@ test("sheathe (verb)", () => {
 test("shockwave", () => {
   expectResult(countIssues("SHOCKwave"), issues.shockwave.id);
 });
+
+test("shuteye", () => {
+  expectResult(countIssues("shutEYE"), issues.shuteye.id);
+});
+
 
 test("signalling", () => {
   expectResult(countIssues("SIGNAlling"), issues.signalling.id);
@@ -117,6 +147,11 @@ test("sizeable", () => {
 test("skillset", () => {
   expectResult(countIssues("skillSET"), issues.skillset.id);
 });
+
+test("slayed", () => {
+  expectResult(countIssues("SLaYed"), issues.slayed.id);
+});
+
 
 test("slip-up", () => {
   expectResult(countIssues("SLIP-up"), issues.slip_up.id);

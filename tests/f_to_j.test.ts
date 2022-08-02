@@ -6,6 +6,10 @@ test("face-down", () => {
   expectResult(countIssues("face-down"), issues.face_down.id);
 });
 
+test("face to face", () => {
+  expectResult(countIssues("face TO face"), issues.face_to_face.id);
+});
+
 test("fast-food", () => {
   expectResult(countIssues("fast-FOOD"), issues.fast_food.id);
 });
@@ -70,6 +74,10 @@ test("frontline", () => {
 
 test("front line", () => {
   expectResult(countIssues("front line"), issues.frontline2.id);
+});
+
+test("g force", () => {
+  expectResult(countIssues("g force"), issues.g_force.id);
 });
 
 test("gatling gun", () => {

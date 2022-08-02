@@ -34,6 +34,10 @@ test("ambiance", () => {
   expectResult(countIssues("AMBiance"), issues.ambiance.id);
 });
 
+test("animal-like", () => {
+  expectResult(countIssues("animal-LIKE"), issues.animal_like.id);
+});
+
 test("apologise", () => {
   expectResult(countIssues("APOLOgise"), issues.apologise.id);
 });
@@ -74,12 +78,20 @@ test("blood-red", () => {
   expectResult(countIssues("he was blOoD-reD"), issues.blood_red.id);
 });
 
+test("blood red", () => {
+  expectResult(countIssues("he was blOoD reD"), issues.blood_red2.id);
+});
+
 test("blood-sucker", () => {
   expectResult(countIssues("he was BlOod-SUcKer"), issues.blood_sucker.id);
 });
 
 test("blood-sucking", () => {
   expectResult(countIssues("he was BlOod-SUcKing"), issues.blood_sucking.id);
+});
+
+test("broadminded", () => {
+  expectResult(countIssues("BROADminded"), issues.broadminded.id);
 });
 
 test("buildup", () => {
@@ -196,6 +208,14 @@ test("doppleganger", () => {
   expectResult(countIssues("DOPPLEganger"), issues.doppleganger.id);
 });
 
+test("double-take", () => {
+  expectResult(countIssues("DOUBLE-take"), issues.double_take.id);
+});
+
+test("doubletake", () => {
+  expectResult(countIssues("doubleTAKE"), issues.doubletake.id);
+});
+
 test("drier and dryer", () => {
   const result = countIssues("drier DRYeR driER DRier drYer");
   expectContainsResult(result, issues.drier.id, 3);
@@ -216,4 +236,12 @@ test("emphasising", () => {
 
 test("entree", () => {
   expectResult(countIssues("EntrEe"), issues.entree.id);
+});
+
+test("eye witness", () => {
+  expectResult(countIssues("eye WITNESS"), issues.eye_witness.id);
+});
+
+test("eye-witness", () => {
+  expectResult(countIssues("EYE-witness"), issues.eye_witness2.id);
 });

@@ -50,6 +50,22 @@ test("period following exclamation mark", () => {
   expectResult(countIssues("Hello!."), issues.period3.id);
 });
 
+test("period outside quotes", () => {
+  expectResult(countIssues("“wow”. She said"), issues.period4.id);
+});
+
+test("period outside quotes: excludes ellipsis", () => {
+  expectNoResult(countIssues("“wow”... She said"));
+});
+
+test("period outside single quotes", () => {
+  expectResult(countIssues("‘wow’. She said"), issues.period5.id);
+});
+
+test("period outside single quotes", () => {
+  expectNoResult(countIssues("‘wow’... She said"));
+});
+
 test("straight single quote", () => {
   expectResult(countIssues("it's no big deal"), issues.apostrophe.id);
 });
