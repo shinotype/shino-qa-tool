@@ -82,13 +82,32 @@ test("river-bank", () => {
   expectResult(countIssues("RIVER-bank"), issues.river_bank2.id);
 });
 
-
 test("roleplay", () => {
   expectResult(countIssues("rOlePlaY"), issues.roleplay.id);
 });
 
 test("rough and tumble", () => {
   expectResult(countIssues("ROUGH and TUMBLE"), issues.rough_and_tumble.id);
+});
+
+test("rundown", () => {
+  expectResult(countIssues("RUNdown"), issues.rundown.id);
+});
+
+test("run-down", () => {
+  expectResult(countIssues("run-DOWN"), issues.run_down.id);
+});
+
+test("run down", () => {
+  expectResult(countIssues("RUN DoWn"), issues.run_down2.id);
+});
+
+test("run in", () => {
+  expectResult(countIssues("RUN in"), issues.run_in.id);
+});
+
+test("run-in", () => {
+  expectResult(countIssues("run-IN"), issues.run_in2.id);
 });
 
 test("saute", () => {

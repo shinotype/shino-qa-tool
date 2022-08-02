@@ -30,6 +30,10 @@ test("fiancee", () => {
   expectResult(countIssues("my fiancee and I"), issues.fiancee.id);
 });
 
+test("filet", () => {
+  expectResult(countIssues("FiLeT"), issues.filet.id);
+});
+
 test("finger-like", () => {
   expectResult(countIssues("finger-LIKE"), issues.finger_like.id);
 });
@@ -44,6 +48,10 @@ test("fist-fight", () => {
 
 test("fist fight", () => {
   expectResult(countIssues("fist FIGHT"), issues.fist_fight2.id);
+});
+
+test("fist full", () => {
+  expectResult(countIssues("FIST full"), issues.fist_full.id);
 });
 
 test("flipside", () => {

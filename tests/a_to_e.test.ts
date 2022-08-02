@@ -62,12 +62,28 @@ test("badmouth", () => {
   expectResult(countIssues("BADmouth"), issues.badmouth.id);
 });
 
+test("backup", () => {
+  expectResult(countIssues("BAckUP"), issues.backup.id);
+});
+
+test("back up", () => {
+  expectResult(countIssues("BACK up"), issues.back_up.id);
+});
+
+test("back-up", () => {
+  expectResult(countIssues("back-UP"), issues.back_up2.id);
+});
+
 test("bath house", () => {
   expectResult(countIssues("the BATH house is big"), issues.bathhouse.id);
 });
 
 test("bite-sized", () => {
   expectResult(countIssues("BITE-sized"), issues.bite_sized.id);
+});
+
+test("black and white", () => {
+  expectResult(countIssues("BLACK and WHITE"), issues.black_and_white.id);
 });
 
 test("blood-curdling", () => {
@@ -214,6 +230,10 @@ test("double-take", () => {
 
 test("doubletake", () => {
   expectResult(countIssues("doubleTAKE"), issues.doubletake.id);
+});
+
+test("draw string", () => {
+  expectResult(countIssues("draw STRING"), issues.draw_string.id);
 });
 
 test("drier and dryer", () => {
