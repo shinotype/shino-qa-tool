@@ -74,6 +74,14 @@ test("r.i.p", () => {
   expectResult(countIssues("r.i.P"), issues.rip.id);
 });
 
+test("r.i.p.", () => {
+  expectResult(countIssues("R.i.P."), issues.rip.id);
+});
+
+test("rip doesn't flag R.I.P.", () => {
+  expectNoResult(countIssues("Rip it"));
+});
+
 test("river bank", () => {
   expectResult(countIssues("river BANK"), issues.river_bank.id);
 });

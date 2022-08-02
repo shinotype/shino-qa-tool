@@ -252,7 +252,7 @@ const idlessIssues = {
   pushup: { regex: /pushup/ig, ui: { label: "pushup", toLabel: "push-up", copyLabels: true, mw: "push-up" }, },
   re_absorb: { regex: /re-absorb/ig, ui: { label: "re-absorb", toLabel: "reabsorb", copyLabels: true, mw: "reabsorb" }, },
   re_examine: { regex: /re-examine/ig, ui: { label: "re-examine", toLabel: "reexamine", copyLabels: true, mw: "reexamine" }, },
-  rip: { regex: /r.i.p/ig, ui: { label: "R.I.P", toLabel: "RIP", copyLabels: true, mw: "RIP" }, },
+  rip: { regex: /\br\.i\.p\.?\b/ig, ui: { label: "R.I.P", toLabel: "RIP", copyLabels: true, mw: "RIP" }, },
   river_bank: { regex: /river bank/ig, ui: { label: "river bank", toLabel: "riverbank", copyLabels: true, mw: "riverbank" }, },
   river_bank2: { regex: /river-bank/ig, ui: { label: "river-bank", toLabel: "riverbank", copyLabels: true, mw: "riverbank" }, },
   roleplay: { regex: /roleplay/ig, ui: { label: "roleplay", toLabel: "role-play", copyLabels: true, mw: "role-play" }, },

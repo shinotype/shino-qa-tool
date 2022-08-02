@@ -14,6 +14,8 @@ body {
 .inputBox {
   display: block;
   font-size: 16px;
+  width: 400px;
+  height: 200px;
 }
 
 .container {
