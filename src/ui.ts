@@ -76,7 +76,7 @@ function renderIssues(issueContainer: Element, issues: UiIssue[]) {
 
     if (issue.mw) {
       const mwLabel = parseHtml(`<div class="label mw">MW</div>`);
-      mwLabel.addEventListener('click', () => copyText("https://www.merriam-webster.com/dictionary/" + (issue.mw as string)));
+      mwLabel.addEventListener('click', () => copyText("https://www.merriam-webster.com/dictionary/" + encodeURI(issue.mw as string)));
       labelContainer.append(mwLabel)
     }
 
