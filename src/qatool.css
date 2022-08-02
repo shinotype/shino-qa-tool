@@ -56,8 +56,12 @@ button:active {
 .arrowLabel {
   cursor: default;
   font-size: 16px;
-  margin: 4px 14px 0px 10px;
+  margin: 4px 14px 0px 4px;
   width: 10px;
+}
+
+.copyLabel, .pasteLabel {
+  margin-right: 6px;
 }
 
 .copyLabel, .pasteLabel, .mw {
@@ -76,10 +80,6 @@ button:active {
 
 .pasteLabel:hover {
   background-color: greenyellow;
-}
-
-.pasteLabel {
-  margin-right: 6px;
 }
 
 .mw {
