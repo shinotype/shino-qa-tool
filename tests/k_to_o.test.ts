@@ -42,6 +42,14 @@ test("lightbulb", () => {
   expectResult(countIssues("LIGHTbulb"), issues.lightbulb.id);
 });
 
+test("light headed", () => {
+  expectResult(countIssues("LIGHT headed"), issues.light_headed.id);
+});
+
+test("lightheaded", () => {
+  expectResult(countIssues("LIGHTheaded"), issues.lightheaded.id);
+});
+
 test("light-hearted", () => {
   expectResult(countIssues("LIGHT-hearted"), issues.light_hearted.id);
 });
@@ -65,6 +73,10 @@ test("liquify", () => {
 
 test("liquified", () => {
   expectResult(countIssues("liquified"), issues.liquif.id);
+});
+
+test("long-time", () => {
+  expectResult(countIssues("loNG-time"), issues.long_time.id);
 });
 
 test("love-struck", () => {
@@ -171,6 +183,10 @@ test("non-hero", () => {
 
 test("non-living", () => {
   expectResult(countIssues("NON-living"), issues.non_living.id);
+});
+
+test("non-stop", () => {
+  expectResult(countIssues("NoN-StoP"), issues.non_stop.id);
 });
 
 test("non-zero", () => {

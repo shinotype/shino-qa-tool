@@ -38,9 +38,18 @@ test("finger-like", () => {
   expectResult(countIssues("finger-LIKE"), issues.finger_like.id);
 });
 
+test("first-aid", () => {
+  expectResult(countIssues("FIRST-aid"), issues.first_aid.id);
+});
+
 test("first-hand", () => {
   expectResult(countIssues("FIRST-hand"), issues.first_hand.id);
 });
+
+test("first hand", () => {
+  expectResult(countIssues("FIRST hand"), issues.first_hand2.id);
+});
+
 
 test("fist-fight", () => {
   expectResult(countIssues("FIST-fight"), issues.fist_fight.id);
@@ -70,6 +79,18 @@ test("forsee", () => {
   expectResult(countIssues("foRsEE"), issues.forsee.id);
 });
 
+test("free-fall", () => {
+  expectResult(countIssues("FREE-fall"), issues.free_fall.id);
+});
+
+test("free flowing", () => {
+  expectResult(countIssues("free FLOWING"), issues.free_flowing.id);
+});
+
+test("free spirited", () => {
+  expectResult(countIssues("FREE spirited"), issues.free_spirited.id);
+});
+
 test("frontlines", () => {
   const result = countIssues("frontLINES of the war");
   // this triggers the "frontline (adjective) rule, so we can't assert there's only one issue
@@ -86,6 +107,10 @@ test("front line", () => {
 
 test("g force", () => {
   expectResult(countIssues("g force"), issues.g_force.id);
+});
+
+test("g force: respects word breaks", () => {
+  expectNoResult(countIssues("overwhelming force"));
 });
 
 test("gatling gun", () => {
@@ -134,6 +159,10 @@ test("guerrila", () => {
 
 test("guerilla", () => {
   expectResult(countIssues("GUeRilla"), issues.guerilla.id);
+});
+
+test("gun powder", () => {
+  expectResult(countIssues("GUn Powder"), issues.gun_powder.id);
 });
 
 test("haha", () => {

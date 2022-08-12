@@ -1,6 +1,14 @@
 import { countIssues } from '../src/qatool';
 import { issues } from '../src/issues';
-import { expectResult, expectContainsResult } from './expectations';
+import { expectResult, expectNoResult, expectContainsResult } from './expectations';
+
+test("uh huh", () => {
+  expectResult(countIssues("uh HUH"), issues.uh_huh.id);
+});
+
+test("uh huh: respects word boundaries", () => {
+  expectNoResult(countIssues("Nuh HUH"));
+});
 
 test("underaged", () => {
   expectResult(countIssues("underAGED"), issues.underaged.id);
@@ -12,6 +20,14 @@ test("vice-versa", () => {
 
 test("well-kempt", () => {
   expectResult(countIssues("WELL-kempt"), issues.wellkempt.id);
+});
+
+test("wide-spread", () => {
+  expectResult(countIssues("WIDE-spread"), issues.wide_spread.id);
+});
+
+test("willy nilly", () => {
+  expectResult(countIssues("WILLY nilly"), issues.willy_nilly.id);
 });
 
 test("wishlist", () => {
@@ -44,6 +60,15 @@ test("anymore and any more", () => {
   const result = countIssues("anymore any more anyMORE ANY more any MORE");
   expectContainsResult(result, issues.anymore.id, 2);
   expectContainsResult(result, issues.any_more.id, 3);
+});
+
+test("anymore: respects word boundaries", () => {
+  expectNoResult(countIssues("manymore sanymore"));
+});
+
+
+test("any more: respects word boundaries", () => {
+  expectNoResult(countIssues("many more bany more"));
 });
 
 test("further and farther", () => {

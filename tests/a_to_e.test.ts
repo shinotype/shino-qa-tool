@@ -78,12 +78,20 @@ test("bath house", () => {
   expectResult(countIssues("the BATH house is big"), issues.bathhouse.id);
 });
 
+test("bed time", () => {
+  expectResult(countIssues("bed TIME"), issues.bed_time.id);
+});
+
 test("bite-sized", () => {
   expectResult(countIssues("BITE-sized"), issues.bite_sized.id);
 });
 
 test("black and white", () => {
   expectResult(countIssues("BLACK and WHITE"), issues.black_and_white.id);
+});
+
+test("blindspot", () => {
+  expectResult(countIssues("blindSPot"), issues.blindspot.id);
 });
 
 test("blood-curdling", () => {
@@ -138,12 +146,20 @@ test("centre", () => {
   expectResult(countIssues("CEntRe"), issues.centre.id);
 });
 
+test("collar bone", () => {
+  expectResult(countIssues("colLAR bone"), issues.collar_bone.id);
+});
+
 test("colour", () => {
   expectResult(countIssues("colOurfuL"), issues.colour.id);
 });
 
 test("concensus", () => {
   expectResult(countIssues("ConCensus"), issues.concensus.id);
+});
+
+test("counter attack", () => {
+  expectResult(countIssues("counter ATTACK"), issues.counter_attack.id);
 });
 
 test("coup d'etat", () => {
@@ -252,6 +268,10 @@ test("emphasise", () => {
 
 test("emphasising", () => {
   expectResult(countIssues("emphaSisING"), issues.emphasising.id);
+});
+
+test("enroute", () => {
+  expectResult(countIssues("EnRoute"), issues.enroute.id);
 });
 
 test("entree", () => {

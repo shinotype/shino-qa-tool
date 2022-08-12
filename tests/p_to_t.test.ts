@@ -14,6 +14,10 @@ test("piece de resistance", () => {
   expectResult(countIssues("piece DE RESIstance"), issues.piecede.id);
 });
 
+test("plantlife", () => {
+  expectResult(countIssues("PlAntLife"), issues.plantlife.id);
+});
+
 test("plough", () => {
   expectResult(countIssues("PloUghing"), issues.plough.id);
 });
@@ -58,6 +62,10 @@ test("puppet-like", () => {
   expectResult(countIssues("puppet-like"), issues.puppet_like.id);
 });
 
+test("pureblooded", () => {
+  expectResult(countIssues("PUREblooded"), issues.pureblooded.id);
+});
+
 test("pushup", () => {
   expectResult(countIssues("puSHup"), issues.pushup.id);
 });
@@ -65,6 +73,11 @@ test("pushup", () => {
 test("re-absorb", () => {
   expectResult(countIssues("re-aBsorB"), issues.re_absorb.id);
 });
+
+test("re-evaluate", () => {
+  expectResult(countIssues("rE-eVaLuate"), issues.re_evaluate.id);
+});
+
 
 test("re-examine", () => {
   expectResult(countIssues("rE-eXaMiNe"), issues.re_examine.id);
@@ -88,6 +101,10 @@ test("river bank", () => {
 
 test("river-bank", () => {
   expectResult(countIssues("RIVER-bank"), issues.river_bank2.id);
+});
+
+test("role play", () => {
+  expectResult(countIssues("rOle PlaY"), issues.role_play.id);
 });
 
 test("roleplay", () => {
