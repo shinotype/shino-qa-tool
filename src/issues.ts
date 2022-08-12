@@ -34,7 +34,7 @@ const idlessIssues = {
   too: { regex: /, too\b/ig, ui: { label: ", too", copy: ", too\\b" }, },
   either: { regex: /, either/ig, ui: { label: ", either", copy: ", either" }, },
   bang: { regex: /!\?/g, ui: { label: "!?", toLabel: "?!", copy: "!?", paste: "?!" }, },
-  bang2: { regex: /([^!]|^)!!([^!]|$)/g, ui: { label: "!!", toLabel: "! or !!!", copy: "\\b!!\\b" }, },
+  bang2: { regex: /([^!]|^)!!([^!]|$)/g, ui: { label: "!!", toLabel: "! or !!!", copy: "([^!]|^)!!([^!]|$)" }, },
   ellipsis1: { regex: /\.\.\.\./g, ui: { label: "....", copy: "...." }, },
   ellipsis2: { regex: /\.\.\. [a-z]/g, ui: { label: "... a", copy: "\\.\\.\\. [a-z]" }, },
   ellipsis3: { regex: /\.\.\.[A-Z]/g, ui: { label: "...A", copy: "\\.\\.\\.[A-Z]" }, },
