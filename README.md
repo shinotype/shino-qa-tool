@@ -8,9 +8,7 @@ You can file bug reports and feature requests on the issues tab. Given the natur
 
 ## Updates
 
-**Last updated:** 8/1/2022.
-
-Fixed bug in generating Merriam-Webster link, added ~45 new issues, fixed other small bugs.
+**Last updated:** 8/12/2022.
 
 ## Setup
 ```npm install```
