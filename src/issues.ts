@@ -29,7 +29,7 @@ const idlessIssues = {
   startquote: { regex: /”[^“]*?”/g, ui: { label: "Missing start quotes", copy: "”[^“]*?”" }, },
   endquote: { regex: /“[^”]*?“/g, ui: { label: "Missing end quotes", copy: "“[^”]*?“" }, },
   apostrophe2: { regex: /‘s\b/ig, ui: { label: "‘s", toLabel: "’s", copy: "‘s\\b", paste: "’s" }, },
-  possessive: { regex: /s’/ig, ui: { label: "s’ (singular possessive?)", toLabel: "s’s", copy: "s’", paste: "s’s" }, },
+  possessive: { regex: /s’([^s])/ig, ui: { label: "s’ (singular possessive?)", toLabel: "s’s", copy: "s’([^s])", paste: "s’s" }, },
   comma: { regex: /”,/ig, ui: { label: "Comma outside ”", copy: "”," }, },
   comma2: { regex: /’,/ig, ui: { label: "Comma outside ’", copy: "’," }, },
   too: { regex: /, too\b/ig, ui: { label: ", too", copy: ", too\\b" }, },
