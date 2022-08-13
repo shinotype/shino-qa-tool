@@ -82,6 +82,10 @@ test("singular possessive: ignores if there's an s after the apostrophe", () => 
   expectNoResult(countIssues("Dennis’s things"));
 });
 
+test("singular possessive: ignores if there's anything else after the apostrophe", () => {
+  expectNoResult(countIssues("Dennis’ll go"));
+});
+
 test("comma outside quotes", () => {
   expectResult(countIssues("“wow”, she said"), issues.comma.id);
 });
