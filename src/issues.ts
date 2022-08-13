@@ -63,7 +63,7 @@ const idlessIssues = {
   tweenpos: { regex: /‘tween\b/ig, ui: { label: "‘tween", toLabel: "’tween", copy: "‘tween\\b", paste: "’tween" }, },
   twerepos: { regex: /‘twere\b/ig, ui: { label: "‘twere", toLabel: "’twere", copy: "‘twere\\b", paste: "’twere" }, },
   twixtpos: { regex: /‘twixt\b/ig, ui: { label: "‘twixt", toLabel: "’twixt", copy: "‘twixt\\b", paste: "’twixt" }, },
-  space_before_measurement: { regex: /[0-9](cm|m|km|centimeter|centimeters|meter|meters|kilometer|kilometers|g|kg|gram|grams|kilogram|kilograms)\b/ig, ui: { label: "No space before measurements", toLabel: "Add space before measurements", copy: "[0-9](cm|m|km|centimeter|centimeters|meter|meters|kilometer|kilometers|g|kg|gram|grams|kilogram|kilograms)\\b" }, },
+  space_before_measurement: { regex: /[0-9](cm|m|km|centimeter|centimeters|meter|meters|kilometer|kilometers|g|kg|gram|grams|kilogram|kilograms)\b/ig, ui: { label: "No space before measurement", toLabel: "Add space before measurement", copy: "[0-9](cm|m|km|centimeter|centimeters|meter|meters|kilometer|kilometers|g|kg|gram|grams|kilogram|kilograms)\\b" }, },
 
   // A through E
   absent_minded: { regex: /absent-minded/ig, ui: { label: "absent-minded", toLabel: "absentminded", copyLabels: true, mw: "absentminded" }, },
