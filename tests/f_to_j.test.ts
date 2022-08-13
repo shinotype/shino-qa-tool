@@ -133,6 +133,10 @@ test("good will", () => {
   expectResult(countIssues("GOOD wilL hunting"), issues.goodwill.id);
 });
 
+test("great grand", () => {
+  expectResult(countIssues("great GRAND"), issues.great_grand.id);
+});
+
 test("grevious", () => {
   expectResult(countIssues("gReVioUs"), issues.grevious.id);
 });

@@ -74,6 +74,10 @@ test("straight single quote", () => {
   expectResult(countIssues("it‘s no big deal"), issues.apostrophe2.id);
 })
 
+test("singular possessive", () => {
+  expectResult(countIssues("Dennis’ things"), issues.possessive.id);
+});
+
 test("comma outside quotes", () => {
   expectResult(countIssues("“wow”, she said"), issues.comma.id);
 });
@@ -248,3 +252,23 @@ test("less used for countable quantity respects word boundaries", () => {
 test("double possessive", () => {
   expectResult(countIssues("Jim’s and Bob’s stuff"), issues.double_possessive.id);
 });
+
+test("no space before measurements", () => {
+  expectResult(countIssues("it was 10cm long"), issues.space_before_measurement.id);
+  expectResult(countIssues("it was 10centimeter long"), issues.space_before_measurement.id);
+  expectResult(countIssues("it was 10centimeters long"), issues.space_before_measurement.id);
+  expectResult(countIssues("it was 10m long"), issues.space_before_measurement.id);
+  expectResult(countIssues("it was 10meter long"), issues.space_before_measurement.id);
+  expectResult(countIssues("it was 10meters long"), issues.space_before_measurement.id);
+  expectResult(countIssues("it was 10km long"), issues.space_before_measurement.id);
+  expectResult(countIssues("it was 10kilometer long"), issues.space_before_measurement.id);
+  expectResult(countIssues("it was 10kilometers long"), issues.space_before_measurement.id);
+  
+  expectResult(countIssues("it weighed 10g in total"), issues.space_before_measurement.id);
+  expectResult(countIssues("it weighed 10gram in total"), issues.space_before_measurement.id);
+  expectResult(countIssues("it weighed 10grams in total"), issues.space_before_measurement.id);
+  expectResult(countIssues("it weighed 10kg in total"), issues.space_before_measurement.id);
+  expectResult(countIssues("it weighed 10kilogram in total"), issues.space_before_measurement.id);
+  expectResult(countIssues("it weighed 10kilograms in total"), issues.space_before_measurement.id);
+});
+

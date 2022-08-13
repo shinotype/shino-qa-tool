@@ -29,6 +29,7 @@ const idlessIssues = {
   startquote: { regex: /”[^“]*?”/g, ui: { label: "Missing start quotes", copy: "”[^“]*?”" }, },
   endquote: { regex: /“[^”]*?“/g, ui: { label: "Missing end quotes", copy: "“[^”]*?“" }, },
   apostrophe2: { regex: /‘s\b/ig, ui: { label: "‘s", toLabel: "’s", copy: "‘s\\b", paste: "’s" }, },
+  possessive: { regex: /s’/ig, ui: { label: "s’ (singular possessive?)", toLabel: "s’s", copy: "s’", paste: "s’s" }, },
   comma: { regex: /”,/ig, ui: { label: "Comma outside ”", copy: "”," }, },
   comma2: { regex: /’,/ig, ui: { label: "Comma outside ’", copy: "’," }, },
   too: { regex: /, too\b/ig, ui: { label: ", too", copy: ", too\\b" }, },
@@ -62,6 +63,7 @@ const idlessIssues = {
   tweenpos: { regex: /‘tween\b/ig, ui: { label: "‘tween", toLabel: "’tween", copy: "‘tween\\b", paste: "’tween" }, },
   twerepos: { regex: /‘twere\b/ig, ui: { label: "‘twere", toLabel: "’twere", copy: "‘twere\\b", paste: "’twere" }, },
   twixtpos: { regex: /‘twixt\b/ig, ui: { label: "‘twixt", toLabel: "’twixt", copy: "‘twixt\\b", paste: "’twixt" }, },
+  space_before_measurement: { regex: /[0-9](cm|m|km|centimeter|centimeters|meter|meters|kilometer|kilometers|g|kg|gram|grams|kilogram|kilograms)\b/ig, ui: { label: "No space before measurements", toLabel: "Add space before measurements", copy: "[0-9](cm|m|km|centimeter|centimeters|meter|meters|kilometer|kilometers|g|kg|gram|grams|kilogram|kilograms)\\b" }, },
 
   // A through E
   absent_minded: { regex: /absent-minded/ig, ui: { label: "absent-minded", toLabel: "absentminded", copyLabels: true, mw: "absentminded" }, },
@@ -164,6 +166,7 @@ const idlessIssues = {
   gatling: { regex: /gatling gun/g, ui: { label: "gatling gun", toLabel: "Gatling gun", copyLabels: true, mw: "Gatling gun" }, },
   geez: { regex: /\bgeez\b/ig, ui: { label: "geez", toLabel: "jeez", copy: "geez\\b", paste: "jeez", mw: "jeez" }, },
   goodwill: { regex: /good will/ig, ui: { label: "good will", toLabel: "goodwill", copyLabels: true, mw: "goodwill" }, },
+  great_grand: { regex: /great grand/ig, ui: { label: "great grand (relationship?)", toLabel: "great-grand", copy: "great grand", paste: "great-grand" }, },
   grevious: { regex: /grevious/ig, ui: { label: "grevious", toLabel: "grievous", copyLabels: true, mw: "grievous" }, },
   grey: { regex: /grey/ig, ui: { label: "grey", toLabel: "gray", copyLabels: true, mw: "gray" }, },
   grinded: { regex: /grinded/ig, ui: { label: "grinded", toLabel: "ground", copyLabels: true, mw: "grind" }, },
@@ -279,7 +282,7 @@ const idlessIssues = {
   rundown: { regex: /rundown/ig, ui: { label: "rundown (noun)", copy: "rundown", mw: "rundown" }, },
   run_down: { regex: /run-down/ig, ui: { label: "run-down (adjective)", copy: "run-down", mw: "run-down" }, },
   run_down2: { regex: /run down/ig, ui: { label: "run down (verb)", copy: "run down", mw: "run down" }, },
-  run_in: { regex: /run in/ig, ui: { label: "run in (verb)", copy: "run in", mw: "run in" }, },
+  run_in: { regex: /run in\b/ig, ui: { label: "run in (verb)", copy: "run in\\b", mw: "run in" }, },
   run_in2: { regex: /run-in/ig, ui: { label: "run-in (noun)", copy: "run-in", mw: "run-in" }, },
   saute: { regex: /saute/ig, ui: { label: "saute", toLabel: "sauté", copyLabels: true, mw: "sauté" }, },
   second_guess: { regex: /second guess/ig, ui: { label: "second guess", toLabel: "second-guess (verb?)", copyLabels: true, mw: "second-guess" }, },

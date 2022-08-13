@@ -131,6 +131,10 @@ test("run in", () => {
   expectResult(countIssues("RUN in"), issues.run_in.id);
 });
 
+test("run in: respects word boundaries", () => {
+  expectNoResult(countIssues("run into"));
+});
+
 test("run-in", () => {
   expectResult(countIssues("run-IN"), issues.run_in2.id);
 });
