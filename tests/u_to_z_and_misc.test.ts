@@ -14,12 +14,32 @@ test("underaged", () => {
   expectResult(countIssues("underAGED"), issues.underaged.id);
 });
 
+test("upperhand", () => {
+  expectResult(countIssues("upperhand"), issues.upperhand.id);
+});
+
 test("vice-versa", () => {
   expectResult(countIssues("vice-VERSA"), issues.vice_versa.id);
 });
 
+test("videogame", () => {
+  expectResult(countIssues("VIDEOgame"), issues.videogame.id);
+});
+
+test("vocal chord", () => {
+  expectResult(countIssues("vocal CHORD"), issues.vocal_chord.id);
+});
+
+test("wash bowl", () => {
+  expectResult(countIssues("wash BOWL"), issues.wash_bowl.id);
+});
+
 test("well-kempt", () => {
   expectResult(countIssues("WELL-kempt"), issues.wellkempt.id);
+});
+
+test("wide eyed", () => {
+  expectResult(countIssues("wide EYED"), issues.wide_eyed.id);
 });
 
 test("wide-spread", () => {
@@ -48,6 +68,10 @@ test("worshiper", () => {
 
 test("worst case scenario", () => {
   expectResult(countIssues("WORST case SCENario"), issues.worst_case_scenario.id);
+});
+
+test("yada-yada", () => {
+  expectResult(countIssues("YADA-yada"), issues.yada_yada.id);
 });
 
 test("afterwards and afterward", () => {
