@@ -403,6 +403,11 @@ const idlessIssues = {
   leapt: { regex: /leapt/ig, ui: { label: "leapt", copy: "leapt" }, },
   towards: { regex: /towards/ig, ui: { label: "towards", copy: "towards" }, },
   toward: { regex: /toward($|[^s])/ig, ui: { label: "toward", copy: "toward[^s]" }, },
+
+  // Possible slurs and offensive terms
+  spaz: { regex: /\bspaz\b/ig, ui: { label: "spaz (slur?)", copy: "spaz" }, },
+  retard: { regex: /retard/ig, ui: { label: "retard (slur?)", copy: "retard" }, },
+  fuck: { regex: /fuck/ig, ui: { label: "fuck (curse word)", copy: "fuck" }, },
 };
 
 // variable is unused, but forces a type check

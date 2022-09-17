@@ -34,6 +34,10 @@ test("wash bowl", () => {
   expectResult(countIssues("wash BOWL"), issues.wash_bowl.id);
 });
 
+test("wellbeing", () => {
+  expectResult(countIssues("WELLbeing"), issues.wellbeing.id);
+});
+
 test("well-kempt", () => {
   expectResult(countIssues("WELL-kempt"), issues.wellkempt.id);
 });
@@ -90,7 +94,6 @@ test("anymore: respects word boundaries", () => {
   expectNoResult(countIssues("manymore sanymore"));
 });
 
-
 test("any more: respects word boundaries", () => {
   expectNoResult(countIssues("many more bany more"));
 });
@@ -111,4 +114,16 @@ test("towards and toward", () => {
   const result = countIssues("toWARDS toward toWARDs toWard TOwards TOWARD toward");
   expectContainsResult(result, issues.towards.id, 3);
   expectContainsResult(result, issues.toward.id, 4);
+});
+
+test("spaz", () => {
+  expectResult(countIssues("this spaz that"), issues.spaz.id);
+});
+
+test("retard", () => {
+  expectResult(countIssues("this retard that"), issues.retard.id);
+});
+
+test("fuck", () => {
+  expectResult(countIssues("this fuck that"), issues.fuck.id);
 });
