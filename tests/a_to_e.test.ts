@@ -14,6 +14,10 @@ test("accidently", () => {
   expectResult(countIssues("acciDentLy"), issues.accidently.id);
 });
 
+test("adult-like", () => {
+  expectResult(countIssues("adult-LIKE"), issues.adult_like.id);
+})
+
 test("ahaha", () => {
   expectContainsResult(countIssues("ahaha"), issues.ahaha.id, 1);
 })
@@ -44,6 +48,10 @@ test("apologise", () => {
 
 test("apologising", () => {
   expectResult(countIssues("APOLOgising"), issues.apologising.id);
+});
+
+test("auto-pilot", () => {
+  expectResult(countIssues("Auto-PiloT"), issues.auto_pilot.id);
 });
 
 test("ax", () => {
@@ -80,6 +88,10 @@ test("bath house", () => {
 
 test("bed time", () => {
   expectResult(countIssues("bed TIME"), issues.bed_time.id);
+});
+
+test("best-seller", () => {
+  expectResult(countIssues("best-SELLER"), issues.best_seller.id);
 });
 
 test("bite-sized", () => {
@@ -122,6 +134,10 @@ test("buildup", () => {
   expectResult(countIssues("buiLd-Up"), issues.build_up.id);
 });
 
+test("bye bye", () => {
+  expectResult(countIssues("bye BYE"), issues.bye_bye.id);
+});
+
 test("cafe", () => {
   expectResult(countIssues("trendy cafe there"), issues.cafe.id);
 });
@@ -146,6 +162,22 @@ test("centre", () => {
   expectResult(countIssues("CEntRe"), issues.centre.id);
 });
 
+test("city state", () => {
+  expectResult(countIssues("CITY state"), issues.city_state.id);
+});
+
+test("clean-up", () => {
+  expectResult(countIssues("Clean-UP"), issues.clean_up.id);
+});
+
+test("clear-headed", () => {
+  expectResult(countIssues("Clear-HEAded"), issues.clear_headed.id);
+});
+
+test("cliche", () => {
+  expectResult(countIssues("clicHE"), issues.cliche.id);
+});
+
 test("collar bone", () => {
   expectResult(countIssues("colLAR bone"), issues.collar_bone.id);
 });
@@ -166,12 +198,20 @@ test("coup d'etat", () => {
   expectResult(countIssues("cOUp d’Etat"), issues.coup.id);
 });
 
+test("coup de grace", () => {
+  expectResult(countIssues("coup de GRACE"), issues.coup_de_grace.id);
+});
+
 test("co-worker", () => {
   expectResult(countIssues("co-WORker"), issues.co_worker.id);
 });
 
 test("crossdress", () => {
   expectResult(countIssues("cRosSdReSSing"), issues.crossdress.id);
+});
+
+test("crossfire", () => {
+  expectResult(countIssues("cRosSFirE"), issues.crossfire.id);
 });
 
 test("cross-section", () => {
@@ -250,6 +290,18 @@ test("doubletake", () => {
 
 test("draw string", () => {
   expectResult(countIssues("draw STRING"), issues.draw_string.id);
+});
+
+test("dream world", () => {
+  expectResult(countIssues("dream WORLD"), issues.dream_world.id);
+});
+
+test("dream-world", () => {
+  expectResult(countIssues("dream-WORLD"), issues.dream_world2.id);
+});
+
+test("drop-out", () => {
+  expectResult(countIssues("Drop-Out"), issues.drop_out.id);
 });
 
 test("drier and dryer", () => {
