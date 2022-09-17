@@ -34,7 +34,7 @@ async function runChecks(
   const issueContainer = $('.issueContainer', resultContainer);
   const text = await textProvider();
   const result = findIssues(text);
-  renderIssues(issueContainer, findIssues(text));
+  renderIssues(issueContainer, result);
   result.length === 0 ? resultContainer.classList.add("empty") : resultContainer.classList.remove("empty");
 
   runButton.innerText = 'Run checks';

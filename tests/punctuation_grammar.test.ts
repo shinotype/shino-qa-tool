@@ -253,6 +253,10 @@ test("less used for countable quantity, case insensitive", () => {
   expectResult(countIssues("LESS NUMBERS ARE GOOD"), issues.less_plural.id);
 });
 
+test("less -ous not considered countable quantity", () => {
+  expectNoResult(countIssues("less obvious"));
+});
+
 test("less used for countable quantity respects word boundaries", () => {
   expectNoResult(countIssues("bless numbersare good"));
 });
