@@ -70,12 +70,25 @@ test("badmouth", () => {
   expectResult(countIssues("BADmouth"), issues.badmouth.id);
 });
 
+test("back-and-forth", () => {
+  expectResult(countIssues("BAck-AND-forth"), issues.back_and_forth.id);
+});
+
+test("back and forth", () => {
+  expectResult(countIssues("BAck AND forth"), issues.back_and_forth2.id);
+});
+
 test("backup", () => {
   expectResult(countIssues("BAckUP"), issues.backup.id);
 });
 
 test("back up", () => {
   expectResult(countIssues("BACK up"), issues.back_up.id);
+});
+
+test("back up: respects word boundaries", () => {
+  expectNoResult(countIssues("BACK upon"));
+  expectNoResult(countIssues("reBACK up"));
 });
 
 test("back-up", () => {
@@ -156,6 +169,10 @@ test("cancelling", () => {
 
 test("cancelation", () => {
   expectResult(countIssues("canCElation"), issues.cancelation.id);
+});
+
+test("candle holder", () => {
+  expectResult(countIssues("candle HOLDER"), issues.candle_holder.id);
 });
 
 test("centre", () => {

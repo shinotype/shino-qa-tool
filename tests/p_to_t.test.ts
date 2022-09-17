@@ -22,6 +22,10 @@ test("plough", () => {
   expectResult(countIssues("PloUghing"), issues.plough.id);
 });
 
+test("point blank", () => {
+  expectResult(countIssues("Point BLANK"), issues.point_blank.id);
+});
+
 test("power-walk", () => {
   expectResult(countIssues("POWER-walk"), issues.power_walk.id);
 });

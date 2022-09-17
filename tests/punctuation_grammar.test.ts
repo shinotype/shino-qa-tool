@@ -146,6 +146,18 @@ test("[space]—", () => {
   expectResult(countIssues("wow —no"), issues.emdash2.id);
 });
 
+test("double hyphens", () => {
+  expectResult(countIssues("wow --no"), issues.double_hyphen.id);
+});
+
+test("incorrect stuttering: t-th", () => {
+  expectResult(countIssues("he said T-this is crazy!"), issues.t_th.id);
+});
+
+test("incorrect stuttering: w-wh", () => {
+  expectResult(countIssues("i said w-WHO are you?!"), issues.w_wh.id);
+});
+
 test("'cause (wrong curly quote)", () => {
   expectResult(countIssues("‘cause"), issues.causepos.id);
 });

@@ -50,6 +50,10 @@ test("let-down", () => {
   expectResult(countIssues("let-DOWN"), issues.let_down.id);
 });
 
+test("life and death", () => {
+  expectResult(countIssues("life AND death"), issues.life_and_death.id);
+});
+
 test("life-blood", () => {
   expectResult(countIssues("life-BLOOD"), issues.life_blood.id);
 });
@@ -182,9 +186,12 @@ test("name drop", () => {
   expectResult(countIssues("NAME drop"), issues.name_drop.id);
 });
 
-
 test("nevermind", () => {
   expectResult(countIssues("neverMind"), issues.nm.id);
+});
+
+test("non-answer", () => {
+  expectResult(countIssues("NON-answer"), issues.non_answer.id);
 });
 
 test("non-combatant", () => {
@@ -205,6 +212,10 @@ test("non-hero", () => {
 
 test("non-living", () => {
   expectResult(countIssues("NON-living"), issues.non_living.id);
+});
+
+test("non-participant", () => {
+  expectResult(countIssues("NON-participant"), issues.non_participant.id);
 });
 
 test("non-stop", () => {
@@ -257,6 +268,10 @@ test("on-stage", () => {
 
 test("one-time", () => {
   expectResult(countIssues("ONE-time"), issues.one_time.id);
+});
+
+test("over-excited", () => {
+  expectResult(countIssues("OVER-excited"), issues.over_excited.id);
 });
 
 test("over-prepared", () => {

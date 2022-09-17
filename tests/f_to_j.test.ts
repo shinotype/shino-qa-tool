@@ -180,6 +180,10 @@ test("grit respects word boundaries", () => {
   expectNoResult(countIssues("big gritty fat"));
 });
 
+test("grownup", () => {
+  expectResult(countIssues("GROWNup"), issues.grownup.id);
+});
+
 test("guerrila", () => {
   expectResult(countIssues("GUERrila"), issues.guerrila.id);
 });
@@ -210,6 +214,11 @@ test("hard-working", () => {
 
 test("head on", () => {
   expectResult(countIssues("head ON"), issues.head_on.id);
+});
+
+test("head on: respects word boundaries", () => {
+  expectNoResult(countIssues("ahead ON"));
+  expectNoResult(countIssues("head Onto"));
 });
 
 test("head scratcher", () => {
