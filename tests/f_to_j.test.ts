@@ -34,6 +34,14 @@ test("filet", () => {
   expectResult(countIssues("FiLeT"), issues.filet.id);
 });
 
+test("fine tune", () => {
+  expectResult(countIssues("fine TUNE"), issues.fine_tune.id);
+});
+
+test("fine tuning", () => {
+  expectResult(countIssues("FINE tuning"), issues.fine_tuning.id);
+});
+
 test("finger-like", () => {
   expectResult(countIssues("finger-LIKE"), issues.finger_like.id);
 });
@@ -49,7 +57,6 @@ test("first-hand", () => {
 test("first hand", () => {
   expectResult(countIssues("FIRST hand"), issues.first_hand2.id);
 });
-
 
 test("fist-fight", () => {
   expectResult(countIssues("FIST-fight"), issues.fist_fight.id);
@@ -67,8 +74,24 @@ test("flipside", () => {
   expectResult(countIssues("on the FLIPside,"), issues.flipside.id);
 });
 
+test("followup", () => {
+  expectResult(countIssues("followUP"), issues.followup.id);
+});
+
 test("forcefield", () => {
   expectResult(countIssues("forCeFielD"), issues.forcefield.id);
+});
+
+test("forego", () => {
+  expectResult(countIssues("foREgo"), issues.forego.id);
+});
+
+test("forego: detects foregone", () => {
+  expectResult(countIssues("FOReGone"), issues.forego.id);
+});
+
+test("forewent", () => {
+  expectResult(countIssues("FOREwent"), issues.forewent.id);
 });
 
 test("forsaw", () => {
@@ -201,6 +224,14 @@ test("heroin", () => {
   expectResult(countIssues("heroin addict"), issues.heroin.id);
 });
 
+test("higher ups", () => {
+  expectResult(countIssues("HIGHER ups"), issues.higher_ups.id);
+});
+
+test("high-schooler", () => {
+  expectResult(countIssues("high-SCHOOLER"), issues.high_schooler.id);
+});
+
 test("hitman", () => {
   expectResult(countIssues("hitMAN"), issues.hitman.id);
 });
@@ -219,6 +250,14 @@ test("home-sick", () => {
 
 test("human-like", () => {
   expectResult(countIssues("HUMAN-like"), issues.human_like.id);
+});
+
+test("ice cream cone", () => {
+  expectResult(countIssues("ice creAm CONE"), issues.ice_cream_cone.id);
+});
+
+test("icepack", () => {
+  expectResult(countIssues("ICEpack"), issues.icepack.id);
 });
 
 test("iron-clad", () => {

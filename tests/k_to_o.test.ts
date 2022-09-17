@@ -26,8 +26,28 @@ test("laidback", () => {
   expectResult(countIssues("laidBACK"), issues.laidback.id);
 });
 
+test("landmine", () => {
+  expectResult(countIssues("LANDmine"), issues.landmine.id);
+});
+
+test("last ditch", () => {
+  expectResult(countIssues("LAST ditch"), issues.last_ditch.id);
+});
+
+test("last-ditch", () => {
+  expectResult(countIssues("last-DITCH"), issues.last_ditch2.id);
+});
+
+test("off-handed", () => {
+  expectResult(countIssues("OFF-handed"), issues.off_handed.id);
+});
+
 test("lead", () => {
   expectResult(countIssues("lead away"), issues.lead.id);
+});
+
+test("let-down", () => {
+  expectResult(countIssues("let-DOWN"), issues.let_down.id);
 });
 
 test("life-blood", () => {
@@ -70,7 +90,6 @@ test("liquify", () => {
   expectResult(countIssues("liquify"), issues.liquif.id);
 });
 
-
 test("liquified", () => {
   expectResult(countIssues("liquified"), issues.liquif.id);
 });
@@ -83,10 +102,13 @@ test("love-struck", () => {
   expectResult(countIssues("love-STRUCK"), issues.love_struck.id);
 });
 
+test("lunchbox", () => {
+  expectResult(countIssues("lunchBOX"), issues.lunchbox.id);
+});
+
 test("make due", () => {
   expectResult(countIssues("MAKE due"), issues.make_due.id);
 });
-
 
 test("make-up", () => {
   expectResult(countIssues("MAKE-up"), issues.make_up.id);
@@ -215,6 +237,10 @@ test("off-guard", () => {
 
 test("off-handed", () => {
   expectResult(countIssues("OFF-handed"), issues.off_handed.id);
+});
+
+test("offload", () => {
+  expectResult(countIssues("OFFload"), issues.offload.id);
 });
 
 test("offence", () => {
