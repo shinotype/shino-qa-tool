@@ -42,6 +42,10 @@ test("vocal chord", () => {
   expectResult(countIssues("vocal CHORD"), issues.vocal_chord.id);
 });
 
+test("walkthrough", () => {
+  expectResult(countIssues("waLKthrough"), issues.walkthrough.id);
+});
+
 test("wash bowl", () => {
   expectResult(countIssues("wash BOWL"), issues.wash_bowl.id);
 });

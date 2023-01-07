@@ -98,6 +98,10 @@ test("forewent", () => {
   expectResult(countIssues("FOREwent"), issues.forewent.id);
 });
 
+test("form-fitting", () => {
+  expectResult(countIssues("FORM-fitting"), issues.form_fitting.id);
+});
+
 test("forsaw", () => {
   expectResult(countIssues("ForSaw"), issues.forsaw.id);
 });
@@ -112,6 +116,10 @@ test("foul-mouthed", () => {
 
 test("free-fall", () => {
   expectResult(countIssues("FREE-fall"), issues.free_fall.id);
+});
+
+test("free fall", () => {
+  expectResult(countIssues("FREE fall"), issues.free_fall2.id);
 });
 
 test("free flowing", () => {
@@ -142,6 +150,18 @@ test("g force", () => {
 
 test("g force: respects word breaks", () => {
   expectNoResult(countIssues("overwhelming force"));
+});
+
+test("game-changer", () => {
+  expectResult(countIssues("game-CHANGER"), issues.game_changer.id);
+});
+
+test("gamechanger", () => {
+  expectResult(countIssues("gameCHANGER"), issues.gamechanger.id);
+});
+
+test("gameplan", () => {
+  expectResult(countIssues("gamePLAN"), issues.gameplan.id);
 });
 
 test("gatling gun", () => {
@@ -214,6 +234,22 @@ test("gun powder", () => {
 
 test("haha", () => {
   expectResult(countIssues("hahah! he laughed"), issues.laugh1.id);
+});
+
+test("halfmoon", () => {
+  expectResult(countIssues("halFMOON"), issues.halfmoon.id);
+});
+
+test("half moon", () => {
+  expectResult(countIssues("half MOON"), issues.half_moon.id);
+}); 
+
+test("halftruth", () => {
+  expectResult(countIssues("halFTRUTH"), issues.halftruth.id);
+});
+
+test("half truth", () => {
+  expectResult(countIssues("halF TRUTH"), issues.half_truth.id);
 });
 
 test("halfwit", () => {

@@ -146,6 +146,10 @@ test("[space]—", () => {
   expectResult(countIssues("wow —no"), issues.emdash2.id);
 });
 
+test("en dash", () => {
+  expectResult(countIssues("wow –no"), issues.endash.id);
+});
+
 test("double hyphens", () => {
   expectResult(countIssues("wow --no"), issues.double_hyphen.id);
 });

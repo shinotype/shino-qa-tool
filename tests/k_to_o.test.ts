@@ -6,6 +6,10 @@ test("keychain", () => {
   expectResult(countIssues("KeYChain"), issues.keychain.id);
 });
 
+test("kickstart", () => {
+  expectResult(countIssues("KiCKstArt"), issues.kickstart.id);
+});
+
 test("kind-hearted", () => {
   expectResult(countIssues("KinD-HeArTed"), issues.kind_hearted.id);
 });
@@ -138,6 +142,14 @@ test("make-up", () => {
   expectResult(countIssues("MAKE-up"), issues.make_up.id);
 });
 
+test("manmade", () => {
+  expectResult(countIssues("MANMade"), issues.manmade.id);
+});
+
+test("manpower", () => {
+  expectResult(countIssues("MANpower"), issues.manpower.id);
+});
+
 test("mask-like", () => {
   expectResult(countIssues("mask-LIKE"), issues.mask_like.id);
 });
@@ -202,6 +214,10 @@ test("mischevious", () => {
   expectResult(countIssues("MISCheviouS"), issues.mischevious.id);
 });
 
+test("mothership", () => {
+  expectResult(countIssues("MOTHERship"), issues.mothership.id);
+});
+
 test("moustache", () => {
   expectResult(countIssues("MOUSTache"), issues.moustache.id);
 });
@@ -212,6 +228,10 @@ test("naive", () => {
 
 test("name drop", () => {
   expectResult(countIssues("NAME drop"), issues.name_drop.id);
+});
+
+test("neverending", () => {
+  expectResult(countIssues("neverENDING"), issues.neverending.id);
 });
 
 test("nevermind", () => {
@@ -248,6 +268,14 @@ test("non-living", () => {
 
 test("non-participant", () => {
   expectResult(countIssues("NON-participant"), issues.non_participant.id);
+});
+
+test("nonsequitur", () => {
+  expectResult(countIssues("NoNsequitur"), issues.nonsequitur.id);
+});
+
+test("non-sequitur", () => {
+  expectResult(countIssues("NoN-sequitur"), issues.non_sequitur.id);
 });
 
 test("non-stop", () => {
@@ -300,6 +328,10 @@ test("omelette", () => {
 
 test("on-stage", () => {
   expectResult(countIssues("on-STAGE"), issues.on_stage.id);
+});
+
+test("on stage", () => {
+  expectResult(countIssues("on STAGE"), issues.on_stage2.id);
 });
 
 test("one-time", () => {

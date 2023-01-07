@@ -42,6 +42,10 @@ test("ambiance", () => {
   expectResult(countIssues("AMBiance"), issues.ambiance.id);
 });
 
+test("ambiant", () => {
+  expectResult(countIssues("AMBiant"), issues.ambiant.id);
+});
+
 test("animal-like", () => {
   expectResult(countIssues("animal-LIKE"), issues.animal_like.id);
 });
@@ -97,6 +101,14 @@ test("back up: respects word boundaries", () => {
 
 test("back-up", () => {
   expectResult(countIssues("back-UP"), issues.back_up2.id);
+});
+
+test("barebones", () => {
+  expectResult(countIssues("bareBONES"), issues.barebones.id);
+});
+
+test("bare bones", () => {
+  expectResult(countIssues("bare BONES"), issues.bare_bones.id);
 });
 
 test("bath house", () => {
@@ -159,6 +171,14 @@ test("blood-sucking", () => {
   expectResult(countIssues("he was BlOod-SUcKing"), issues.blood_sucking.id);
 });
 
+test("braindead", () => {
+  expectResult(countIssues("BRAINdead"), issues.braindead.id);
+});
+
+test("brain dead", () => {
+  expectResult(countIssues("BRAIN dead"), issues.brain_dead.id);
+});
+
 test("broadminded", () => {
   expectResult(countIssues("BROADminded"), issues.broadminded.id);
 });
@@ -207,12 +227,20 @@ test("centre", () => {
   expectResult(countIssues("CEntRe"), issues.centre.id);
 });
 
+test("chainmail", () => {
+  expectResult(countIssues("CHAINmail"), issues.chainmail.id);
+});
+
 test("chit-chat", () => {
   expectResult(countIssues("CHIT-chat"), issues.chit_chat.id);
 });
 
 test("chit chat", () => {
   expectResult(countIssues("CHIT chat"), issues.chit_chat2.id);
+});
+
+test("chokehold", () => {
+  expectResult(countIssues("CHOKEhold"), issues.chokehold.id);
 });
 
 test("city state", () => {
@@ -229,6 +257,14 @@ test("clear-headed", () => {
 
 test("cliche", () => {
   expectResult(countIssues("clicHE"), issues.cliche.id);
+});
+
+test("cliff hanger", () => {
+  expectResult(countIssues("CLIFF hanger"), issues.cliff_hanger.id);
+});
+
+test("cliffhanger", () => {
+  expectResult(countIssues("CLIFFhanger"), issues.cliffhanger.id);
 });
 
 test("cold-hearted", () => {
@@ -269,10 +305,22 @@ test("criss-cross", () => {
 
 test("crossdress", () => {
   expectResult(countIssues("cRosSdReSSing"), issues.crossdress.id);
+}); 
+
+test("cross-fire", () => {
+  expectResult(countIssues("cRosS-FirE"), issues.cross_fire.id);
 });
 
 test("crossfire", () => {
   expectResult(countIssues("cRosSFirE"), issues.crossfire.id);
+});
+
+test("cross-hair", () => {
+  expectResult(countIssues("cROSS-hair"), issues.cross_hair.id);
+});
+
+test("cross hair", () => {
+  expectResult(countIssues("cROSS hair"), issues.cross_hair2.id);
 });
 
 test("cross-section", () => {
@@ -333,6 +381,10 @@ test("defence", () => {
 
 test("deja vu", () => {
   expectResult(countIssues("DEJa vU"), issues.dejavu.id);
+});
+
+test("descendent", () => {
+  expectResult(countIssues("deSCENdent"), issues.descendent.id);
 });
 
 test("DINNER time", () => {
@@ -413,6 +465,18 @@ test("enroute", () => {
 
 test("entree", () => {
   expectResult(countIssues("EntrEe"), issues.entree.id);
+}); 
+
+test("eyepatch", () => {
+  expectResult(countIssues("eyePATCH"), issues.eyepatch.id);
+});
+
+test("eye-patch", () => {
+  expectResult(countIssues("eye-PATCH"), issues.eye_patch.id);
+});
+
+test("eye-to-eye", () => {
+  expectResult(countIssues("eye-TO-eye"), issues.eye_to_eye.id);
 });
 
 test("eye witness", () => {
