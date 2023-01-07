@@ -2,12 +2,12 @@ import { countIssues } from '../src/qatool';
 import { issues } from '../src/issues';
 import { expectResult, expectNoResult, expectContainsResult } from './expectations';
 
-test("face-down", () => {
-  expectResult(countIssues("face-down"), issues.face_down.id);
+test("face down", () => {
+  expectResult(countIssues("face DOWN"), issues.face_down.id);
 });
 
-test("face down", () => {
-  expectResult(countIssues("face down"), issues.face_down2.id);
+test("face-down", () => {
+  expectResult(countIssues("face-DOWN"), issues.face_down2.id);
 });
 
 test("face to face", () => {

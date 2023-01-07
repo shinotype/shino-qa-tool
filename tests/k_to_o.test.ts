@@ -59,19 +59,19 @@ test("life-blood", () => {
 });
 
 test("life form", () => {
-  expectResult(countIssues("life form"), issues.life_form.id);
+  expectResult(countIssues("LIFE form"), issues.life_form.id);
 });
 
 test("lifeform", () => {
-  expectResult(countIssues("lifeform"), issues.lifeform.id);
+  expectResult(countIssues("LIFEform"), issues.lifeform.id);
 });
 
 test("lifespan", () => {
-  expectResult(countIssues("lifespan"), issues.lifespan.id);
+  expectResult(countIssues("lifeSPAN"), issues.lifespan.id);
 });
 
-test("life span", () => {
-  expectResult(countIssues("life span"), issues.life_span.id);
+test("life-span", () => {
+  expectResult(countIssues("life-SPAN"), issues.life_span.id);
 });
 
 test("life threatening", () => {
