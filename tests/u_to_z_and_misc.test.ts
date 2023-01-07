@@ -14,8 +14,20 @@ test("underaged", () => {
   expectResult(countIssues("underAGED"), issues.underaged.id);
 });
 
+test("unshakeable", () => {
+  expectResult(countIssues("unSHAKEable"), issues.unshakeable.id);
+});
+
 test("upperhand", () => {
   expectResult(countIssues("upperhand"), issues.upperhand.id);
+});
+
+test("vice-like", () => {
+  expectResult(countIssues("vice-like"), issues.vice_like.id);
+});
+
+test("vicelike", () => {
+  expectResult(countIssues("vicelike"), issues.vicelike.id);
 });
 
 test("vice-versa", () => {
@@ -32,6 +44,10 @@ test("vocal chord", () => {
 
 test("wash bowl", () => {
   expectResult(countIssues("wash BOWL"), issues.wash_bowl.id);
+});
+
+test("week-long", () => {
+  expectResult(countIssues("week-long"), issues.week_long.id);
 });
 
 test("wellbeing", () => {

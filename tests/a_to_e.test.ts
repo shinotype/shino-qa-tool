@@ -18,6 +18,10 @@ test("adult-like", () => {
   expectResult(countIssues("adult-LIKE"), issues.adult_like.id);
 })
 
+test("after-effect", () => {
+  expectResult(countIssues("after-EFFECT"), issues.after_effect.id);
+})
+
 test("ahaha", () => {
   expectContainsResult(countIssues("ahaha"), issues.ahaha.id, 1);
 })
@@ -123,12 +127,28 @@ test("blood-curdling", () => {
   expectResult(countIssues("he was blOoD-CurDling"), issues.blood_curdling.id);
 });
 
+test("blood curdling", () => {
+  expectResult(countIssues("he was blOoD CurDling"), issues.blood_curdling2.id);
+});
+
 test("blood-red", () => {
   expectResult(countIssues("he was blOoD-reD"), issues.blood_red.id);
 });
 
 test("blood red", () => {
   expectResult(countIssues("he was blOoD reD"), issues.blood_red2.id);
+}); 
+
+test("blood stain", () => {
+  expectResult(countIssues("BlOOD stain"), issues.blood_stain.id);
+});
+
+test("blood-stain", () => {
+  expectResult(countIssues("BlOOD-stain"), issues.blood_stain2.id);
+});
+
+test("blood-sucker", () => {
+  expectResult(countIssues("he was BlOod-SUcKer"), issues.blood_sucker.id);
 });
 
 test("blood-sucker", () => {
@@ -175,8 +195,24 @@ test("candle holder", () => {
   expectResult(countIssues("candle HOLDER"), issues.candle_holder.id);
 });
 
+test("catch phrase", () => {
+  expectResult(countIssues("caTCH phrase"), issues.catch_phrase.id);
+});
+
+test("catch-phrase", () => {
+  expectResult(countIssues("caTCH-phrase"), issues.catch_phrase2.id);
+});
+
 test("centre", () => {
   expectResult(countIssues("CEntRe"), issues.centre.id);
+});
+
+test("chit-chat", () => {
+  expectResult(countIssues("CHIT-chat"), issues.chit_chat.id);
+});
+
+test("chit chat", () => {
+  expectResult(countIssues("CHIT chat"), issues.chit_chat2.id);
 });
 
 test("city state", () => {
@@ -193,6 +229,10 @@ test("clear-headed", () => {
 
 test("cliche", () => {
   expectResult(countIssues("clicHE"), issues.cliche.id);
+});
+
+test("cold-hearted", () => {
+  expectResult(countIssues("colD-hearTED"), issues.cold_hearted.id);
 });
 
 test("collar bone", () => {
@@ -223,6 +263,10 @@ test("co-worker", () => {
   expectResult(countIssues("co-WORker"), issues.co_worker.id);
 });
 
+test("criss-cross", () => {
+  expectResult(countIssues("crisS-CROSS"), issues.criss_cross.id);
+});
+
 test("crossdress", () => {
   expectResult(countIssues("cRosSdReSSing"), issues.crossdress.id);
 });
@@ -241,6 +285,26 @@ test("crystal-clear", () => {
 
 test("crystalized", () => {
   expectResult(countIssues("CRYstalIzed"), issues.crystalized.id);
+});
+
+test("cut and dried", () => {
+  expectResult(countIssues("CUT and dried"), issues.cut_and_dried.id);
+});
+
+test("cut and dry", () => {
+  expectResult(countIssues("CUT and DRY"), issues.cut_and_dry.id);
+});
+
+test("cut-and-dry", () => {
+  expectResult(countIssues("CUT-and-DRY"), issues.cut_and_dry2.id);
+});
+
+test("damndest", () => {
+  expectResult(countIssues("dAMNdest"), issues.damndest.id);
+});
+
+test("day to day life", () => {
+  expectResult(countIssues("DAY to day LIFE"), issues.day_to_day_life.id);
 });
 
 test("dead-set", () => {
@@ -269,6 +333,10 @@ test("defence", () => {
 
 test("deja vu", () => {
   expectResult(countIssues("DEJa vU"), issues.dejavu.id);
+});
+
+test("DINNER time", () => {
+  expectResult(countIssues("DINNER time"), issues.dinner_time.id);
 });
 
 test("dieing", () => {

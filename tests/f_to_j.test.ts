@@ -6,6 +6,10 @@ test("face-down", () => {
   expectResult(countIssues("face-down"), issues.face_down.id);
 });
 
+test("face down", () => {
+  expectResult(countIssues("face down"), issues.face_down2.id);
+});
+
 test("face to face", () => {
   expectResult(countIssues("face TO face"), issues.face_to_face.id);
 });
@@ -102,6 +106,10 @@ test("forsee", () => {
   expectResult(countIssues("foRsEE"), issues.forsee.id);
 });
 
+test("foul-mouthed", () => {
+  expectResult(countIssues("foul-MOUTHED"), issues.foul_mouthed.id);
+});
+
 test("free-fall", () => {
   expectResult(countIssues("FREE-fall"), issues.free_fall.id);
 });
@@ -152,8 +160,16 @@ test("geez respects word boundaries", () => {
   expectNoResult(countIssues("geezer"));
 });
 
+test("glovebox", () => {
+  expectResult(countIssues("gloveBOX"), issues.glovebox.id);
+});
+
 test("good will", () => {
   expectResult(countIssues("GOOD wilL hunting"), issues.goodwill.id);
+});
+
+test("good-will", () => {
+  expectResult(countIssues("GOOD-wilL hunting"), issues.good_will.id);
 });
 
 test("great grand", () => {
@@ -200,8 +216,16 @@ test("haha", () => {
   expectResult(countIssues("hahah! he laughed"), issues.laugh1.id);
 });
 
+test("halfwit", () => {
+  expectResult(countIssues("halFWIT"), issues.halfwit.id);
+});
+
 test("hand-pick", () => {
   expectResult(countIssues("HanD-picK"), issues.hand_pick.id);
+});
+
+test("hard and fast", () => {
+  expectResult(countIssues("Hard AND fast"), issues.hard_and_fast.id);
 });
 
 test("hardpressed", () => {

@@ -58,6 +58,22 @@ test("life-blood", () => {
   expectResult(countIssues("life-BLOOD"), issues.life_blood.id);
 });
 
+test("life form", () => {
+  expectResult(countIssues("life form"), issues.life_form.id);
+});
+
+test("lifeform", () => {
+  expectResult(countIssues("lifeform"), issues.lifeform.id);
+});
+
+test("lifespan", () => {
+  expectResult(countIssues("lifespan"), issues.lifespan.id);
+});
+
+test("life span", () => {
+  expectResult(countIssues("life span"), issues.life_span.id);
+});
+
 test("life threatening", () => {
   expectResult(countIssues("life THREATENING"), issues.life_threatening.id);
 });
@@ -100,6 +116,10 @@ test("liquified", () => {
 
 test("long-time", () => {
   expectResult(countIssues("loNG-time"), issues.long_time.id);
+});
+
+test("lookalike", () => {
+  expectResult(countIssues("looKAlike"), issues.lookalike.id);
 });
 
 test("love-struck", () => {
@@ -146,6 +166,10 @@ test("mid-morning", () => {
   expectResult(countIssues("mId-MorNinG"), issues.mid_morning.id);
 });
 
+test("mid-point", () => {
+  expectResult(countIssues("mid-POINT"), issues.mid_point.id);
+});
+
 test("mid-section", () => {
   expectResult(countIssues("mID-SectION"), issues.mid_section.id);
 });
@@ -164,6 +188,10 @@ test("mid-thirties", () => {
 
 test("mid-forties", () => {
   expectResult(countIssues("MID-forties"), issues.mid_forties.id);
+});
+
+test("mini-car", () => {
+  expectResult(countIssues("mini-CAR"), issues.mini_car.id);
 });
 
 test("miniscule", () => {
@@ -200,6 +228,10 @@ test("non-combatant", () => {
 
 test("non-committal", () => {
   expectResult(countIssues("NON-committal"), issues.non_committal.id);
+});
+
+test("non-confrontational", () => {
+  expectResult(countIssues("NON-confrontational"), issues.non_confrontational.id);
 });
 
 test("non-existent", () => {
@@ -242,6 +274,10 @@ test("off balance", () => {
   expectResult(countIssues("OFF balance"), issues.off_balance.id);
 });
 
+test("off-duty", () => {
+  expectResult(countIssues("OFF-duty"), issues.off_duty.id);
+});
+
 test("off-guard", () => {
   expectResult(countIssues("off-GUARD"), issues.off_guard.id);
 });
@@ -272,6 +308,14 @@ test("one-time", () => {
 
 test("over-excited", () => {
   expectResult(countIssues("OVER-excited"), issues.over_excited.id);
+});
+
+test("over-extend", () => {
+  expectResult(countIssues("OVER-extend"), issues.over_extend.id);
+});
+
+test("over-familiar", () => {
+  expectResult(countIssues("OVER-familiar"), issues.over_familiar.id);
 });
 
 test("over-prepared", () => {

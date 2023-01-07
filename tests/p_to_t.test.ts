@@ -6,12 +6,24 @@ test("paper mache", () => {
   expectResult(countIssues("PAPER mache"), issues.paper_mache.id);
 });
 
+test("part timer", () => {
+  expectResult(countIssues("PART timer"), issues.part_timer.id);
+});
+
+test("phase", () => {
+  expectResult(countIssues("PhaSe"), issues.phase.id);
+});
+
 test("photoshoot", () => {
   expectResult(countIssues("photoSHOOT"), issues.photoshoot.id);
 });
 
 test("piece de resistance", () => {
   expectResult(countIssues("piece DE RESIstance"), issues.piecede.id);
+});
+
+test("pipsqueak", () => {
+  expectResult(countIssues("PIPsqueak"), issues.pipsqueak.id);
 });
 
 test("plantlife", () => {
@@ -74,9 +86,29 @@ test("pushup", () => {
   expectResult(countIssues("puSHup"), issues.pushup.id);
 });
 
+test("rag-tag", () => {
+  expectResult(countIssues("rag-TAG"), issues.rag_tag.id);
+});
+
+test("railgun", () => {
+  expectResult(countIssues("RAILgun"), issues.railgun.id);
+});
+
+test("rear view mirror", () => {
+  expectResult(countIssues("REAR view mirror"), issues.rear_view_mirror.id);
+}); 
+
+test("rear-view mirror", () => {
+  expectResult(countIssues("REAR-view mirror"), issues.rear_view_mirror2.id);
+});
+
 test("re-absorb", () => {
   expectResult(countIssues("re-aBsorB"), issues.re_absorb.id);
 });
+
+test("re-categorize", () => {
+  expectResult(countIssues("re-categorIZE"), issues.re_categorize.id);
+}); 
 
 test("re-enact", () => {
   expectResult(countIssues("RE-enact"), issues.re_enact.id);
@@ -88,6 +120,10 @@ test("re-evaluate", () => {
 
 test("re-examine", () => {
   expectResult(countIssues("rE-eXaMiNe"), issues.re_examine.id);
+});
+
+test("red faced", () => {
+  expectResult(countIssues("RED faced"), issues.red_faced.id);
 });
 
 test("r.i.p", () => {
@@ -126,6 +162,10 @@ test("rough and tumble", () => {
   expectResult(countIssues("ROUGH and TUMBLE"), issues.rough_and_tumble.id);
 });
 
+test("round robin", () => {
+  expectResult(countIssues("ROUND robin"), issues.round_robin.id);
+});
+
 test("rundown", () => {
   expectResult(countIssues("RUNdown"), issues.rundown.id);
 });
@@ -154,6 +194,10 @@ test("saute", () => {
   expectResult(countIssues("sAuTe"), issues.saute.id);
 });
 
+test("saw-like", () => {
+  expectResult(countIssues("sAW-like"), issues.saw_like.id);
+});
+
 test("second guess", () => {
   expectResult(countIssues("second GUESs"), issues.second_guess.id);
 });
@@ -168,6 +212,18 @@ test("self expression", () => {
 
 test("semi-circle", () => {
   expectResult(countIssues("SEMI-circle"), issues.semi_circle.id);
+});
+
+test("semi-translucent", () => {
+  expectResult(countIssues("SEMI-translucent"), issues.semi_translucent.id);
+});
+ 
+test("semi-transparent", () => {
+  expectResult(countIssues("SEMI-transparent"), issues.semi_transparent.id);
+});
+
+test("semi-truck", () => {
+  expectResult(countIssues("SEMI-truck"), issues.semi_truck2.id);
 });
 
 test("semi truck", () => {
@@ -194,6 +250,10 @@ test("shockwave", () => {
   expectResult(countIssues("SHOCKwave"), issues.shockwave.id);
 });
 
+test("short-sighted", () => {
+  expectResult(countIssues("SHORT-sighted"), issues.short_sighted.id);
+});
+
 test("shuteye", () => {
   expectResult(countIssues("shutEYE"), issues.shuteye.id);
 });
@@ -212,6 +272,10 @@ test("signalling", () => {
 
 test("silk-like", () => {
   expectResult(countIssues("silk-LIKE"), issues.silk_like.id);
+});
+
+test("simple-minded", () => {
+  expectResult(countIssues("simple-MINDED"), issues.simple_minded.id);
 });
 
 test("singlehanded", () => {
@@ -234,9 +298,12 @@ test("slayed", () => {
   expectResult(countIssues("SLaYed"), issues.slayed.id);
 });
 
-
 test("slip-up", () => {
   expectResult(countIssues("SLIP-up"), issues.slip_up.id);
+});
+
+test("smack dab", () => {
+  expectResult(countIssues("SMACK dab"), issues.smack_dab.id);
 });
 
 test("smoulder", () => {
@@ -275,12 +342,24 @@ test("sub-par", () => {
   expectResult(countIssues("SUB-par"), issues.sub_par.id);
 });
 
+test("sun-tan", () => {
+  expectResult(countIssues("SUN-tan"), issues.sun_tan.id);
+});
+
 test("swiss cheese", () => {
   expectResult(countIssues("ate swiss cheese"), issues.swiss.id);
 });
 
 test("swiss cheese NOT case-insensitive", () => {
   expectNoResult(countIssues("ate SWISS CHEESE"));
+});
+
+test("t-shirt", () => {
+  expectResult(countIssues("t-shirt"), issues.t_shirt.id);
+});
+
+test("t-shirt NOT case-insensitive", () => {
+  expectNoResult(countIssues("T-shirt"));
 });
 
 test("tastebud", () => {
@@ -303,6 +382,10 @@ test("timeframe", () => {
   expectResult(countIssues("timeFrame"), issues.timeframe.id);
 });
 
+test("time-worn", () => {
+  expectResult(countIssues("time-WORN"), issues.time_worn.id);
+});
+
 test("tipoff", () => {
   expectResult(countIssues("TIPoff"), issues.tipoff.id);
 });
@@ -317,6 +400,10 @@ test("travelled", () => {
 
 test("traveller", () => {
   expectResult(countIssues("TRAVELler"), issues.traveller.id);
+});
+
+test("tried and true", () => {
+  expectResult(countIssues("tried AND true"), issues.tried_and_true.id);
 });
 
 test("twenty-four-seven", () => {
