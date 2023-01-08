@@ -34,6 +34,14 @@ test("air-tight", () => {
   expectResult(countIssues("AIR-tight"), issues.air_tight.id);
 });
 
+test("all out", () => {
+  expectResult(countIssues("ALL out"), issues.all_out.id);
+});
+
+test("all-out", () => {
+  expectResult(countIssues("ALL-out"), issues.all_out2.id);
+});
+
 test("alright", () => {
   expectResult(countIssues("ALright"), issues.alright.id);
 });
@@ -48,6 +56,10 @@ test("ambiant", () => {
 
 test("animal-like", () => {
   expectResult(countIssues("animal-LIKE"), issues.animal_like.id);
+});
+
+test("arm-in-arm", () => {
+  expectResult(countIssues("aRM-in-ARM"), issues.arm_in_arm.id);
 });
 
 test("apologise", () => {
@@ -84,6 +96,10 @@ test("back-and-forth", () => {
 
 test("back and forth", () => {
   expectResult(countIssues("BAck AND forth"), issues.back_and_forth2.id);
+});
+
+test("back to back", () => {
+  expectResult(countIssues("BAck to BACK"), issues.back_to_back.id);
 });
 
 test("backup", () => {
@@ -185,6 +201,14 @@ test("broadminded", () => {
 
 test("buildup", () => {
   expectResult(countIssues("buiLd-Up"), issues.build_up.id);
+});
+
+test("bullseye", () => {
+  expectResult(countIssues("BULLSeye"), issues.bullseye.id);
+});
+
+test("bull's eye", () => {
+  expectResult(countIssues("bull’s EYE"), issues.bulls_eye.id);
 });
 
 test("bye bye", () => {
@@ -351,12 +375,24 @@ test("damndest", () => {
   expectResult(countIssues("dAMNdest"), issues.damndest.id);
 });
 
+test("day-LONG", () => {
+  expectResult(countIssues("DAY-long"), issues.day_long.id);
+});
+
 test("day to day life", () => {
   expectResult(countIssues("DAY to day LIFE"), issues.day_to_day_life.id);
 });
 
+test("deadset", () => {
+  expectResult(countIssues("dEaDsEt"), issues.deadset.id);
+});
+
 test("dead-set", () => {
   expectResult(countIssues("dEaD-sEt"), issues.dead_set.id);
+});
+
+test("deal breaker", () => {
+  expectResult(countIssues("deaL bReaKer"), issues.deal_breaker.id);
 });
 
 test("dealbreaker", () => {
@@ -466,6 +502,10 @@ test("enroute", () => {
 test("entree", () => {
   expectResult(countIssues("EntrEe"), issues.entree.id);
 }); 
+
+test("ever-so", () => {
+  expectResult(countIssues("ever-SO"), issues.ever_so.id);
+});
 
 test("eyepatch", () => {
   expectResult(countIssues("eyePATCH"), issues.eyepatch.id);

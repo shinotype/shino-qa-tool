@@ -118,6 +118,14 @@ test("liquified", () => {
   expectResult(countIssues("liquified"), issues.liquif.id);
 });
 
+test("longshot", () => {
+  expectResult(countIssues("loNGShoT"), issues.longshot.id);
+});
+
+test("long-shot", () => {
+  expectResult(countIssues("loNG-ShoT"), issues.long_shot.id);
+});
+
 test("long-time", () => {
   expectResult(countIssues("loNG-time"), issues.long_time.id);
 });
@@ -214,6 +222,10 @@ test("mischevious", () => {
   expectResult(countIssues("MISCheviouS"), issues.mischevious.id);
 });
 
+test("month-long", () => {
+  expectResult(countIssues("month-LONG"), issues.month_long.id);
+});
+
 test("mothership", () => {
   expectResult(countIssues("MOTHERship"), issues.mothership.id);
 });
@@ -286,6 +298,18 @@ test("non-zero", () => {
   expectResult(countIssues("non-ZERO"), issues.non_zero.id);
 });
 
+test("notetaking", () => {
+  expectResult(countIssues("NOTEtaking"), issues.notetaking.id);
+});
+
+test("note taking", () => {
+  expectResult(countIssues("NOTE taking"), issues.note_taking.id);
+});
+
+test("number-one", () => {
+  expectResult(countIssues("Number-One"), issues.number_one.id);
+});
+
 test("occured", () => {
   expectResult(countIssues("occuRed"), issues.occured.id);
 });
@@ -324,6 +348,14 @@ test("offence", () => {
 
 test("omelette", () => {
   expectResult(countIssues("OMElette"), issues.omelette.id);
+});
+
+test("on screen", () => {
+  expectResult(countIssues("on SCREEN"), issues.on_screen.id);
+});
+
+test("onscreen", () => {
+  expectResult(countIssues("onSCREEN"), issues.onscreen.id);
 });
 
 test("on-stage", () => {

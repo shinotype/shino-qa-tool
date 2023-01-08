@@ -358,6 +358,10 @@ test("standalone", () => {
   expectResult(countIssues("STAnDALONE"), issues.standalone.id);
 });
 
+test("stepping-stone", () => {
+  expectResult(countIssues("STePPIng-STONE"), issues.stepping_stone.id);
+});
+
 test("stand-out", () => {
   expectResult(countIssues("STand-OUT"), issues.stand_out.id);
 });
@@ -384,6 +388,14 @@ test("swiss cheese", () => {
 
 test("swiss cheese NOT case-insensitive", () => {
   expectNoResult(countIssues("ate SWISS CHEESE"));
+});
+
+test("tax-payer", () => {
+  expectResult(countIssues("tax-PAYER"), issues.tax_payer.id);
+});
+
+test("tax-paying", () => {
+  expectResult(countIssues("tax-PAYING"), issues.tax_paying.id);
 });
 
 test("t-shirt", () => {

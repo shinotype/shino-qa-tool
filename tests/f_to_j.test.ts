@@ -14,6 +14,10 @@ test("face to face", () => {
   expectResult(countIssues("face TO face"), issues.face_to_face.id);
 });
 
+test("farsight", () => {
+  expectResult(countIssues("faRsiGHt"), issues.farsight.id);
+});
+
 test("fast-food", () => {
   expectResult(countIssues("fast-FOOD"), issues.fast_food.id);
 });
@@ -80,6 +84,10 @@ test("flipside", () => {
 
 test("followup", () => {
   expectResult(countIssues("followUP"), issues.followup.id);
+});
+
+test("footsoldier", () => {
+  expectResult(countIssues("FOOTsoldier"), issues.footsoldier.id);
 });
 
 test("forcefield", () => {
@@ -256,6 +264,10 @@ test("halfwit", () => {
   expectResult(countIssues("halFWIT"), issues.halfwit.id);
 });
 
+test("hand-in-hand", () => {
+  expectResult(countIssues("HanD-in-HAND"), issues.hand_in_hand.id);
+});
+
 test("hand-pick", () => {
   expectResult(countIssues("HanD-picK"), issues.hand_pick.id);
 });
@@ -291,6 +303,18 @@ test("heehee", () => {
 
 test("heroin", () => {
   expectResult(countIssues("heroin addict"), issues.heroin.id);
+});
+
+test("high five", () => {
+  expectResult(countIssues("HIGH five"), issues.high_five.id);
+});
+
+test("high-five", () => {
+  expectResult(countIssues("HIGH-five"), issues.high_five2.id);
+});
+
+test("high-performance", () => {
+  expectResult(countIssues("HIGH-performance"), issues.high_performance.id);
 });
 
 test("higher ups", () => {

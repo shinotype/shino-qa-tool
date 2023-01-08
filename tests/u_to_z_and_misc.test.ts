@@ -98,6 +98,10 @@ test("yada-yada", () => {
   expectResult(countIssues("YADA-yada"), issues.yada_yada.id);
 });
 
+test("year-long", () => {
+  expectResult(countIssues("Year-Long"), issues.year_long.id);
+});
+
 test("afterwards and afterward", () => {
   const result = countIssues("afterWARDS afterward afterWARDs afterWard AFTERwards AFTERWARD afterward");
   expectContainsResult(result, issues.afterwards.id, 3);
