@@ -5,23 +5,22 @@ import './db.css';
 import { isTSImportEqualsDeclaration } from "@babel/types";
 
 export function init(initContainer: HTMLElement) {
-  const container = parseHtml(`<div class="container"></div>`);
+  const container = parseHtml(`
+      <div class="container">
+        <textarea class="textBox"></textarea>
+        <button class="runButton">Generate issues</button>
+        <button class="addButton">Add new issue</button>
+        <div class="issueContainer"></div>
+      </div>`);
   initContainer.append(container);
 
-  const runButton = parseHtml(`<button class="runButton">Generate issues</button>`) as HTMLButtonElement;
-  const addButton = parseHtml(`<button class="addButton">Add new issue</button>`) as HTMLButtonElement;
-  const textBox = parseHtml(`<textarea class="textBox"></textarea>`);
-  const issueContainer = parseHtml(`<div class="issueContainer"></div>`);
+  const issueContainer = container.querySelector(".issueContainer")!;
+  const textBox = container.querySelector(".textBox")!;
 
-  container.append(textBox);
-  container.append(runButton);
-  container.append(addButton);
-  container.append(issueContainer);
-
-  addButton.addEventListener('click', () => {
+  container.querySelector(".addButton")?.addEventListener("click", () => {
     addNewIssue(issueContainer);
   });
-  runButton.addEventListener('click', () => {
+  container.querySelector(".runButton")?.addEventListener("click", () => {
     generateIssues(issueContainer, textBox);
   });
 
