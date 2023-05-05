@@ -8,13 +8,13 @@ export function init(initContainer: HTMLElement) {
   const container = parseHtml(`<div class="container"></div>`);
   initContainer.append(container);
 
-  const runButton = parseHtml(`<button class="runButton">Run checks</button>`) as HTMLButtonElement;
-  const textBox = parseHtml(`<textarea class="textBox"></textarea>`);
+  const runButton = parseHtml(`<button class="runButton">Generate issues</button>`) as HTMLButtonElement;
   const addButton = parseHtml(`<button class="addButton">Add new issue</button>`) as HTMLButtonElement;
+  const textBox = parseHtml(`<textarea class="textBox"></textarea>`);
   const issueContainer = parseHtml(`<div class="issueContainer"></div>`);
 
-  container.append(runButton);
   container.append(textBox);
+  container.append(runButton);
   container.append(addButton);
   container.append(issueContainer);
 
@@ -50,13 +50,12 @@ function renderNewIssue() : Element {
 
 function renderIssue(idValue: string, regexValue: string, fromLabel: string, toLabel: string, copyText: string, pasteText: string, mwText: string) {
   const container = parseHtml(`<div class="issue"></div>`);
-  appendField(container, "ID", "id", "");
-  appendField(container, "Regex", "regex", "");
-  appendField(container, "UI Label", "fromlabel", "");
-  appendField(container, "To Label", "tolabel", "");
-  appendField(container, "Copy Text", "copy", "");
-  appendField(container, "Paste Text", "paste", "");
-  appendField(container, "MW Link", "mw", "");
+  appendField(container, "ID", "id", idValue);
+  appendField(container, "Regex", "regex", regexValue);
+  appendField(container, "UI Label", "fromlabel", fromLabel);
+  appendField(container, "To Label", "tolabel", copyText);
+  appendField(container, "Paste Text", "paste", pasteText);
+  appendField(container, "MW Link", "mw", mwText);
   return container;
 }
 
@@ -101,6 +100,7 @@ function generateIssues(issueContainer: Element, textBox: Element) {
   let result = "const idlessIssues = {";
   const issues = issueContainer.querySelectorAll('.issue');
 
+  // TODO: gather the info parsed here, then sort by issue type and issue ID, then render into text
   for (let i = 0; i < issues.length; i++) {
     const issue = issues[i];
     const issueId = getInputValue(issue, "id");
