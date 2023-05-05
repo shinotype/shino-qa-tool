@@ -22,7 +22,9 @@ This will generate an unminimized dist/qatool.js with source maps.
 
 ## Build for live development
 ```npm run dev```
-This will start a server at localhost:8081 that will auto-refresh when files change.
+This will start a server at localhost:8080 that will auto-refresh when files change.
+
+The pages will be at `localhost:8080/qatool.html` and `localhost:8080/db.html`.
 
 ## Build for release
 ```npm run build```
