@@ -34,8 +34,8 @@ function renderIssue(issue: Issue) : Element {
   appendField(container, "To Label", "tolabel", issue.ui.toLabel ? issue.ui.toLabel : "");
   appendField(container, "Copy Text", "copy", issue.ui.copy ? issue.ui.copy : "");
   appendField(container, "Paste Text", "paste", issue.ui.paste ? issue.ui.paste : "");
-  appendField(container, "Copy Labels?", "copylabels", issue.ui.copyLabels ? issue.ui.copyLabels.toString() : "false");
   appendField(container, "MW Link", "mw", issue.ui.mw ? issue.ui.mw : "");
+  appendCopyLabels(container, issue);
   appendType(container, issue);
   return container;
 }
@@ -44,6 +44,14 @@ function appendField(container: Element, label: string, inputClass: string, fiel
   const fieldContainer = parseHtml(`<div class="field"></div>`);
   fieldContainer.appendChild(parseHtml(`<div class="label">` + label + `</div>`));
   fieldContainer.appendChild(parseHtml(`<input type="text" class=` + inputClass + ` value="` + field + `"></input>`));
+  container.appendChild(fieldContainer);
+}
+
+function appendCopyLabels(container: Element, issue: Issue) {
+  const fieldContainer = parseHtml(`<div class="field"></div>`);
+  fieldContainer.appendChild(parseHtml(`<div class="label">` + "Copy Labels?" + `</div>`));
+  let copyLabels = issue.ui.copyLabels ? issue.ui.copyLabels.toString() : false;
+  fieldContainer.appendChild(parseHtml(`<select class="copylabels"><option value="true"` + (copyLabels ? ` selected` : ``) + `>true</option><option value="false"` + (!copyLabels ? ` selected` : ``) + `>false</option></select>`));
   container.appendChild(fieldContainer);
 }
 
@@ -61,10 +69,35 @@ function appendType(container: Element, issue: Issue) {
     // default to SP
     issueType = "SP";
   }
-  fieldContainer.appendChild(parseHtml(`<select><option value="pg"` + (issueType == "PG" ? ` selected` : ``) + `>PG</option><option value="sp"` + (issueType == "SP" ? ` selected` : ``) + `>SP</option><option value="SW"` + (issueType == "SW" ? ` selected` : ``) + `>SW</option><option value="SL"` + (issueType == "SL" ? ` selected` : ``) + `>SL</option></select>`));
+  fieldContainer.appendChild(parseHtml(`<select class="issuetype"><option value="PG"` + (issueType == "PG" ? ` selected` : ``) + `>PG</option><option value="SP"` + (issueType == "SP" ? ` selected` : ``) + `>SP</option><option value="SW"` + (issueType == "SW" ? ` selected` : ``) + `>SW</option><option value="SL"` + (issueType == "SL" ? ` selected` : ``) + `>SL</option></select>`));
   container.appendChild(fieldContainer);
 }
 
 function generateIssues(issueContainer: Element, textBox: Element) {
-  console.log(issueContainer);
+  let result = "const idlessIssues = {";
+  const issues = issueContainer.querySelectorAll('.issue');
+  for (let i = 0; i < issues.length; i++) {
+    const issue = issues[i];
+    const issueId = getInputValue(issue, "id");
+    const regex = getInputValue(issue, "regex");
+    const fromLabel = getInputValue(issue, "fromlabel");
+    const toLabel = getInputValue(issue, "toLabel");
+    const copy = getInputValue(issue, "copy");
+    const paste = getInputValue(issue, "paste");
+    const mw = getInputValue(issue, "mw");
+    const copyLabels = getSelectValue(issue, "copylabels");
+    const issueType = getSelectValue(issue, "issuetype");
+    console.log(issueType);
+    result += `${issueId}: { regex: ${regex}, ui: { label: "${fromLabel}", toLabel: "${toLabel}", copy: "${copy}", paste: "${paste}", mw: "${mw}", copyLabels: ${copyLabels}}, type: IssueType.${issueType}},`
+  }
+  result += "};";
+  (textBox as HTMLInputElement).value = result;
+}
+
+function getInputValue(issue: Element, selector: string) {
+  return (issue.querySelector('.' + selector) as HTMLInputElement)?.value;
+}
+
+function getSelectValue(issue: Element, selector: string) {
+  return (issue.querySelector('.' + selector) as HTMLInputElement)?.value;
 }
