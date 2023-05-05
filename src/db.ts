@@ -60,11 +60,12 @@ function renderIssue(idValue: string, regexValue: string, fromLabel: string, toL
 }
 
 function appendField(container: Element, label: string, inputClass: string, field: string) {
-  const fieldContainer = parseHtml(`<div class="field"></div>`);
-  fieldContainer.appendChild(parseHtml(`<div class="label">` + label + `</div>`)); 
-  let inputElement = parseHtml(`<input type="text" class="` + inputClass + `"></input>`);
-  inputElement.setAttribute("value", field);
-  fieldContainer.appendChild(inputElement);
+  const fieldContainer = parseHtml(`
+      <div class="field">
+        <div class="label">${label}</div>
+        <input type="text" class="${inputClass}">
+      </div>`);
+  fieldContainer.querySelector('input')?.setAttribute("value", field);
   container.appendChild(fieldContainer);
 }
 
