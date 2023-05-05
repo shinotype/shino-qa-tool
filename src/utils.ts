@@ -11,3 +11,7 @@ export function parseHtml(src: string, wrapperTag='div'): Element {
   wrapper.innerHTML = src;
   return wrapper.children[0];
 }
+
+export function escapeString(input: string): string {
+  return JSON.stringify(input).slice(1, -1);
+}

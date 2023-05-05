@@ -15,6 +15,11 @@
 
 .issue:nth-child(even) {
   background-color: #ddd; 
+} 
+
+.textBox {
+  width: 300px;
+  height: 100px;
 }
 
 .field {
