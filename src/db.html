@@ -11,8 +11,10 @@
   <div id="root"></div>
 
   <script>
-    const root = document.getElementById('root');
-    db.init(root);
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.getElementById('root');
+      db.init(root);
+    });
   </script>
 
 </body>

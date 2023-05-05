@@ -1,6 +1,8 @@
 import { issues, IssueId, Issue, IssueType } from "./issues";
 import { parseHtml, $, copyText } from './utils';
 
+import './db.css';
+
 export function init(initContainer: HTMLElement) {
   const container = parseHtml(`<div class="container"></div>`);
   initContainer.append(container);
