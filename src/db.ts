@@ -9,12 +9,16 @@ export function init(initContainer: HTMLElement) {
 
   const runButton = parseHtml(`<button class="runButton">Run checks</button>`) as HTMLButtonElement;
   const textBox = parseHtml(`<input type="text"></input>`);
+  const addButton = parseHtml(`<button class="addButton">Add new issue</button>`) as HTMLButtonElement;
   const issueContainer = parseHtml(`<div class="issueContainer"></div>`);
 
   container.append(runButton);
   container.append(textBox);
   container.append(issueContainer);
 
+  addButton.addEventListener('click', () => {
+    addNewIssue(issueContainer);
+  });
   runButton.addEventListener('click', () => {
     generateIssues(issueContainer, textBox);
   });
@@ -42,6 +46,19 @@ function renderIssue(issue: Issue) : Element {
   return container;
 }
 
+function renderNewIssue() : Element {
+  const container = parseHtml(`<div class="issue"></div>`);
+  appendField(container, "ID", "id", "");
+  appendField(container, "Regex", "regex", "");
+  appendField(container, "UI Label", "fromlabel", "");
+  appendField(container, "To Label", "tolabel", "");
+  appendField(container, "Copy Text", "copy", "");
+  appendField(container, "Paste Text", "paste", "");
+  appendField(container, "MW Link", "mw", "");
+  appendSelect(container, "Copy Labels?", "copylabels", ["true", "false"], "true");
+  appendSelect(container, "Type", "issuetype", ["PG", "SP", "SW", "SL"], "SP");
+  return container;
+
 function appendField(container: Element, label: string, inputClass: string, field: string) {
   const fieldContainer = parseHtml(`<div class="field"></div>`);
   fieldContainer.appendChild(parseHtml(`<div class="label">` + label + `</div>`));
@@ -49,17 +66,15 @@ function appendField(container: Element, label: string, inputClass: string, fiel
   container.appendChild(fieldContainer);
 }
 
-function appendCopyLabels(container: Element, issue: Issue) {
-  const fieldContainer = parseHtml(`<div class="field"></div>`);
-  fieldContainer.appendChild(parseHtml(`<div class="label">` + "Copy Labels?" + `</div>`));
-  let copyLabels = issue.ui.copyLabels ? issue.ui.copyLabels.toString() : false;
-  fieldContainer.appendChild(parseHtml(`<select class="copylabels"><option value="true"` + (copyLabels ? ` selected` : ``) + `>true</option><option value="false"` + (!copyLabels ? ` selected` : ``) + `>false</option></select>`));
-  container.appendChild(fieldContainer);
+function appendCopyLabelsFromIssue(container: Element, issue: Issue) {
+  appendCopyLabels(container, issue.ui.copyLabels ? issue.ui.copyLabels.toString() : "false");
 }
 
-function appendType(container: Element, issue: Issue) {
-  const fieldContainer = parseHtml(`<div class="field"></div>`);
-  fieldContainer.appendChild(parseHtml(`<div class="label">` + "Type" + `</div>`));
+function appendCopyLabels(container: Element, selected: string) {
+  appendSelect(container, "Copy Labels?", "copylabels", ["true", "false"], selected);
+}
+
+function appendTypeFromIssue(container: Element, issue: Issue) {
   let issueType = "";
   if (issue.type == IssueType.PG) {
     issueType = "PG";
@@ -71,7 +86,22 @@ function appendType(container: Element, issue: Issue) {
     // default to SP
     issueType = "SP";
   }
-  fieldContainer.appendChild(parseHtml(`<select class="issuetype"><option value="PG"` + (issueType == "PG" ? ` selected` : ``) + `>PG</option><option value="SP"` + (issueType == "SP" ? ` selected` : ``) + `>SP</option><option value="SW"` + (issueType == "SW" ? ` selected` : ``) + `>SW</option><option value="SL"` + (issueType == "SL" ? ` selected` : ``) + `>SL</option></select>`));
+  appendType(container, issueType);
+}
+
+function appendType(container: Element, selected: string) {
+  appendSelect(container, "Type", "issuetype", ["PG", "SP", "SW", "SL"], selected);
+}
+
+function appendSelect(container: Element, label: string, inputClass: string, options: Array<string>, selected: string) {
+  const fieldContainer = parseHtml(`<div class="field"></div>`);
+  fieldContainer.appendChild(parseHtml(`<div class="label">${label}</div>`));
+  let optionHtml = ``;
+  for (let i = 0; i < options.length; i++) {
+    let option = options[i];
+    optionHtml += `<option value="${option}"` + (selected == option ? ` selected` : ``) + `>${option}</option>`
+  }
+  fieldContainer.appendChild(parseHtml(`<select class="${inputClass}">` + optionHtml + `</select>`));
   container.appendChild(fieldContainer);
 }
 
@@ -103,3 +133,7 @@ function getInputValue(issue: Element, selector: string) {
 function getSelectValue(issue: Element, selector: string) {
   return (issue.querySelector('.' + selector) as HTMLInputElement)?.value;
 }
+
+function addNewIssue(issueContainer: Element) {
+}
+
