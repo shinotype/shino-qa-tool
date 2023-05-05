@@ -98,22 +98,32 @@ function appendSelect(container: Element, label: string, inputClass: string, opt
 }
 
 function generateIssues(issueContainer: Element, textBox: Element) {
-  let result = "const idlessIssues = {";
   const issues = issueContainer.querySelectorAll('.issue');
-
-  // TODO: gather the info parsed here, then sort by issue type and issue ID, then render into text
-  for (let i = 0; i < issues.length; i++) {
-    const issue = issues[i];
-    const issueId = getInputValue(issue, "id");
-    const regex = getInputValue(issue, "regex");
-    const fromLabel = escapeString(getInputValue(issue, "fromlabel"));
-    const toLabel = escapeString(getInputValue(issue, "toLabel"));
-    const copy = escapeString(getInputValue(issue, "copy"));
-    const paste = getInputValue(issue, "paste");
-    const mw = getInputValue(issue, "mw");
-    const copyLabels = getSelectValue(issue, "copylabels");
-    const issueType = getSelectValue(issue, "issuetype");
-    result += `\n${issueId}: { regex: ${regex}, ui: { label: "${fromLabel}", toLabel: "${toLabel}", copy: "${copy}", paste: "${paste}", mw: "${mw}", copyLabels: ${copyLabels}}, type: IssueType.${issueType}},`
+  const issueObjects = [];
+  for (const issue of issues) {
+    issueObjects.push({
+      issueId: getInputValue(issue, "id"),
+      regex: getInputValue(issue, "regex"),
+      fromLabel: escapeString(getInputValue(issue, "fromlabel")),
+      toLabel: escapeString(getInputValue(issue, "toLabel")),
+      copy: escapeString(getInputValue(issue, "copy")),
+      paste: getInputValue(issue, "paste"),
+      mw: getInputValue(issue, "mw"),
+      copyLabels: getSelectValue(issue, "copylabels"),
+      issueType: getSelectValue(issue, "issuetype"),
+    });
+  }
+  issueObjects.sort((a, b) => {
+    const types = ['PG', 'SP', 'SW', 'SL'];
+    if (a.issueType != b.issueType) {
+      return types.indexOf(a.issueType) - types.indexOf(b.issueType);
+    }
+    return a.issueId.localeCompare(b.issueId);
+  });
+  let result = "const idlessIssues = {";
+  for (const issue of issueObjects) {
+    const ui = `{ label: "${issue.fromLabel}", toLabel: "${issue.toLabel}", copy: "${issue.copy}", paste: "${issue.paste}", mw: "${issue.mw}", copyLabels: ${issue.copyLabels}}`;
+    result += `\n${issue.issueId}: { regex: ${issue.regex}, ui: ${ui}, type: IssueType.${issue.issueType}},`;
   }
   result += "};";
 
