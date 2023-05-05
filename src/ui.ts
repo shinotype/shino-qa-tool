@@ -1,4 +1,5 @@
 import { UiIssue, findIssues } from './qatool';
+import { parseHtml, $, copyText } from './utils';
 
 import './qatool.css';
 
@@ -82,18 +83,4 @@ function renderIssues(issueContainer: Element, issues: UiIssue[]) {
 
     issueContainer.append(issueElement);
   }
-}
-
-function copyText(text: string) {
-  navigator.clipboard.writeText(text);
-}
-
-function $(q: string, root: Element = document.body): Element {
-  return root.querySelector(q) as Element;
-}
-
-function parseHtml(src: string, wrapperTag='div'): Element {
-  let wrapper = document.createElement(wrapperTag);
-  wrapper.innerHTML = src;
-  return wrapper.children[0];
 }

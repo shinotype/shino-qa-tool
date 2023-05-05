@@ -26,3 +26,30 @@ module.exports = (env, argv) => ({
     ],
   },
 });
+
+module.exports = (env, argv) => ({
+  entry: './src/db.ts',
+  output: {
+    path: path.join(__dirname, '/dist'),
+    filename: 'db.js',
+    library: 'db',
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.css'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: (argv.mode == 'production')
+                ? ['style-loader', 'css-loader']
+                : ['css-loader'],
+      },
+    ],
+  },
+});
