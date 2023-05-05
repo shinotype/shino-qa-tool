@@ -8,7 +8,7 @@ You can file bug reports and feature requests on the issues tab. Given the natur
 
 ## Updates
 
-**Last updated:** 9/16/2022.
+**Last updated:** 1/8/2023.
 
 ## Setup
 ```npm install```
@@ -19,6 +19,10 @@ You can file bug reports and feature requests on the issues tab. Given the natur
 ## Build for development
 ```npm run build-dev```
 This will generate an unminimized dist/qatool.js with source maps.
+
+## Build for live development
+```npm run dev```
+This will start a server at localhost:8081 that will auto-refresh when files change.
 
 ## Build for release
 ```npm run build```

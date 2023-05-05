@@ -12,11 +12,13 @@
 
   <script src="../dist/qatool.js"></script>
   <script>
-    const inputBox = document.getElementById('inputBox');
-    const container = document.getElementById('container');
-    qatool.init(container, () => new Promise(resolve => {
-      window.setTimeout(() => resolve(inputBox.value), 1000);
-    }));
+    document.addEventListener('DOMContentLoaded', () => {
+      const inputBox = document.getElementById('inputBox');
+      const container = document.getElementById('container');
+      qatool.init(container, () => new Promise(resolve => {
+        window.setTimeout(() => resolve(inputBox.value), 1000);
+      }));
+    });
   </script>
 
 </body>
