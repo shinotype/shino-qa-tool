@@ -1,13 +1,18 @@
 import { countIssues } from '../src/qatool';
 import { issues } from '../src/issues';
-import { expectResult, expectNoResult } from './expectations';
+import { expectContainsResult, expectResult, expectNoResult } from './expectations';
+
+test("lower case after punctuation", () => {
+  expectContainsResult(countIssues("a. a b? b c! c"), issues.period6.id, 3);
+  expectResult(countIssues("a... a"), issues.ellipsis2.id);
+});
 
 test("double spaces", () => {
   expectResult(countIssues("hello  goodbye"), issues.space.id);
 });
 
 test("space after newline", () => {
-  expectResult(countIssues("ABC\n DEF"), issues.space2.id);
+  expectResult(countIssues("ABC.\n DEF"), issues.space2.id);
 });
 
 test("space before period", () => {
@@ -16,6 +21,10 @@ test("space before period", () => {
 
 test("space before period ignores multiple periods", () => {
   expectNoResult(countIssues("Hello ... There"));
+});
+
+test("space between punctuation and quote", () => {
+  expectContainsResult(countIssues("a. ” b? ” c! ”"), issues.space4.id, 3);
 });
 
 test("two periods", () => {
@@ -115,11 +124,11 @@ test("!?", () => {
 });
 
 test("!!", () => {
-  expectResult(countIssues("wow!! amazing"), issues.bang2.id);
+  expectResult(countIssues("wow!! Amazing"), issues.bang2.id);
 });
 
 test("!! rule ignores !!!", () => {
-  expectNoResult(countIssues("wow!!! amazing"));
+  expectNoResult(countIssues("wow!!! Amazing"));
 });
 
 test("....", () => {
@@ -238,6 +247,10 @@ test("missing end quotes", () => {
   expectResult(countIssues("He said, “Wow. And then I said, “Sure.”"), issues.quotes_end.id);
 });
 
+test("missing punctuation after paragraph", () => {
+  expectResult(countIssues("hello\ngoodbye"), issues.punctuation_before_newline.id);
+});
+
 test("hyphenated adverbs (ly-)", () => {
   expectResult(countIssues("BADLY-made"), issues.adverb.id);
 });
@@ -291,7 +304,7 @@ test("no space before measurements", () => {
   expectResult(countIssues("it was 10km long"), issues.space_before_measurement.id);
   expectResult(countIssues("it was 10kilometer long"), issues.space_before_measurement.id);
   expectResult(countIssues("it was 10kilometers long"), issues.space_before_measurement.id);
-  
+
   expectResult(countIssues("it weighed 10g in total"), issues.space_before_measurement.id);
   expectResult(countIssues("it weighed 10gram in total"), issues.space_before_measurement.id);
   expectResult(countIssues("it weighed 10grams in total"), issues.space_before_measurement.id);

@@ -98,6 +98,10 @@ test("willy nilly", () => {
   expectResult(countIssues("WILLY nilly"), issues.willy_nilly.id);
 });
 
+test("willy-nilly", () => {
+  expectNoResult(countIssues("WILLY-nilly"));
+});
+
 test("wishlist", () => {
   expectResult(countIssues("WISHlist"), issues.wishlist.id);
 });
@@ -136,7 +140,7 @@ test("your grace", () => {
 
 test("your Grace", () => {
   expectResult(countIssues("your Grace"), issues.your_grace2.id);
-}); 
+});
 
 test("Your grace", () => {
   expectResult(countIssues("Your grace"), issues.your_grace3.id);
@@ -148,7 +152,7 @@ test("your highness", () => {
 
 test("your Highness", () => {
   expectResult(countIssues("your Highness"), issues.your_highness2.id);
-}); 
+});
 
 test("Your highness", () => {
   expectResult(countIssues("Your highness"), issues.your_highness3.id);
@@ -160,7 +164,7 @@ test("your majesty", () => {
 
 test("your Majesty", () => {
   expectResult(countIssues("your Majesty"), issues.your_majesty2.id);
-}); 
+});
 
 test("Your majesty", () => {
   expectResult(countIssues("Your majesty"), issues.your_majesty3.id);

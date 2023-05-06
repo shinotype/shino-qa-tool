@@ -164,6 +164,10 @@ test("front line", () => {
   expectResult(countIssues("front line"), issues.frontline2.id);
 });
 
+test("fully-fledged", () => {
+  expectNoResult(countIssues("FULLY-fledged"));
+});
+
 test("g force", () => {
   expectResult(countIssues("g force"), issues.g_force.id);
 });
@@ -261,7 +265,7 @@ test("gun powder", () => {
 });
 
 test("haha", () => {
-  expectResult(countIssues("hahah! he laughed"), issues.laugh1.id);
+  expectResult(countIssues("hahah! He laughed"), issues.laugh1.id);
 });
 
 test("halfmoon", () => {
@@ -326,7 +330,7 @@ test("head scratcher", () => {
 });
 
 test("heehee", () => {
-  expectResult(countIssues("heehee! he giggled"), issues.laugh2.id);
+  expectResult(countIssues("heehee! He giggled"), issues.laugh2.id);
 });
 
 test("her majesty", () => {
