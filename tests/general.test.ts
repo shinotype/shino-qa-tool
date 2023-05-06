@@ -17,5 +17,5 @@ test("can detect multiple issues", () => {
   expect(result).toHaveLength(3);
   expectContainsResult(result, issues.too.id, 1);
   expectContainsResult(result, issues.judge.id, 1);
-  expectContainsResult(result, issues.apostrophe.id, 1);
+  expectContainsResult(result, issues.straight_pos.id, 1);
 })

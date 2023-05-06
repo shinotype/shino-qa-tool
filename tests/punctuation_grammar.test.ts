@@ -67,11 +67,11 @@ test("period outside single quotes", () => {
 });
 
 test("straight single quote", () => {
-  expectResult(countIssues("it's no big deal"), issues.apostrophe.id);
+  expectResult(countIssues("it's no big deal"), issues.straight_pos.id);
 });
 
 test("straight single quote", () => {
-  expectResult(countIssues("it‘s no big deal"), issues.apostrophe2.id);
+  expectResult(countIssues("it‘s no big deal"), issues.straight_pos2.id);
 })
 
 test("singular possessive", () => {
@@ -95,7 +95,7 @@ test("comma outside single quotes", () => {
 });
 
 test("straight double quote", () => {
-  expectResult(countIssues("he said \"okay but"), issues.quote.id);
+  expectResult(countIssues("he said \"okay but"), issues.straight_quote.id);
 });
 
 test("comma too", () => {
@@ -139,15 +139,15 @@ test("ellipsis symbol", () => {
 });
 
 test("—[space]", () => {
-  expectResult(countIssues("wow— no"), issues.emdash1.id);
+  expectResult(countIssues("wow— no"), issues.dash_em1.id);
 });
 
 test("[space]—", () => {
-  expectResult(countIssues("wow —no"), issues.emdash2.id);
+  expectResult(countIssues("wow —no"), issues.dash_em2.id);
 });
 
 test("en dash", () => {
-  expectResult(countIssues("wow –no"), issues.endash.id);
+  expectResult(countIssues("wow –no"), issues.dash_en.id);
 });
 
 test("double hyphens", () => {
@@ -155,87 +155,87 @@ test("double hyphens", () => {
 });
 
 test("incorrect stuttering: t-th", () => {
-  expectResult(countIssues("he said T-this is crazy!"), issues.t_th.id);
+  expectResult(countIssues("he said T-this is crazy!"), issues.stutter_t_th.id);
 });
 
 test("incorrect stuttering: w-wh", () => {
-  expectResult(countIssues("i said w-WHO are you?!"), issues.w_wh.id);
+  expectResult(countIssues("i said w-WHO are you?!"), issues.stutter_w_wh.id);
 });
 
 test("'cause (wrong curly quote)", () => {
-  expectResult(countIssues("‘cause"), issues.causepos.id);
+  expectResult(countIssues("‘cause"), issues.pos_cause.id);
 });
 
 test("'sup (wrong curly quote)", () => {
-  expectResult(countIssues("‘sup"), issues.suppos.id);
+  expectResult(countIssues("‘sup"), issues.pos_sup.id);
 });
 
 test("'em (wrong curly quote)", () => {
-  expectResult(countIssues("‘em"), issues.empos.id);
+  expectResult(countIssues("‘em"), issues.pos_em.id);
 });
 
 test("'bout (wrong curly quote)", () => {
-  expectResult(countIssues("‘bout"), issues.boutpos.id);
+  expectResult(countIssues("‘bout"), issues.pos_bout.id);
 });
 
 test("'nother (wrong curly quote)", () => {
-  expectResult(countIssues("‘nother"), issues.notherpos.id);
+  expectResult(countIssues("‘nother"), issues.pos_nother.id);
 });
 
 test("'fore (wrong curly quote)", () => {
-  expectResult(countIssues("‘fore"), issues.forepos.id);
+  expectResult(countIssues("‘fore"), issues.pos_fore.id);
 });
 
 test("'fraid (wrong curly quote)", () => {
-  expectResult(countIssues("‘fraid"), issues.fraidpos.id);
+  expectResult(countIssues("‘fraid"), issues.pos_fraid.id);
 });
 
 test("'neath (wrong curly quote)", () => {
-  expectResult(countIssues("‘neath"), issues.neathpos.id);
+  expectResult(countIssues("‘neath"), issues.pos_neath.id);
 });
 
 test("'gainst (wrong curly quote)", () => {
-  expectResult(countIssues("‘gainst"), issues.gainstpos.id);
+  expectResult(countIssues("‘gainst"), issues.pos_gainst.id);
 });
 
 test("'cept (wrong curly quote)", () => {
-  expectResult(countIssues("‘cept"), issues.ceptpos.id);
+  expectResult(countIssues("‘cept"), issues.pos_cept.id);
 });
 
 test("'round (wrong curly quote)", () => {
-  expectResult(countIssues("‘round"), issues.roundpos.id);
+  expectResult(countIssues("‘round"), issues.pos_round.id);
 });
 
 test("'til (wrong curly quote)", () => {
-  expectResult(countIssues("‘til"), issues.tilpos.id);
+  expectResult(countIssues("‘til"), issues.pos_til.id);
 });
 
 test("'tis (wrong curly quote)", () => {
-  expectResult(countIssues("‘tis"), issues.tispos.id);
+  expectResult(countIssues("‘tis"), issues.pos_tis.id);
 });
 
 test("'twas (wrong curly quote)", () => {
-  expectResult(countIssues("‘twas"), issues.twaspos.id);
+  expectResult(countIssues("‘twas"), issues.pos_twas.id);
 });
 
 test("'tween (wrong curly quote)", () => {
-  expectResult(countIssues("‘tween"), issues.tweenpos.id);
+  expectResult(countIssues("‘tween"), issues.pos_tween.id);
 });
 
 test("'twere (wrong curly quote)", () => {
-  expectResult(countIssues("‘twere"), issues.twerepos.id);
+  expectResult(countIssues("‘twere"), issues.pos_twere.id);
 });
 
 test("'twixt (wrong curly quote)", () => {
-  expectResult(countIssues("‘twixt"), issues.twixtpos.id);
+  expectResult(countIssues("‘twixt"), issues.pos_twixt.id);
 });
 
 test("missing start quotes", () => {
-  expectResult(countIssues("He said, “Wow.” And then I said, Sure.”"), issues.startquote.id);
+  expectResult(countIssues("He said, “Wow.” And then I said, Sure.”"), issues.quotes_start.id);
 });
 
 test("missing end quotes", () => {
-  expectResult(countIssues("He said, “Wow. And then I said, “Sure.”"), issues.endquote.id);
+  expectResult(countIssues("He said, “Wow. And then I said, “Sure.”"), issues.quotes_end.id);
 });
 
 test("hyphenated adverbs (ly-)", () => {
