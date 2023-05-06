@@ -51,10 +51,10 @@ function renderIssue(idValue: string, regexValue: string, fromLabel: string, toL
   const container = parseHtml(`<div class="issue"></div>`);
   appendField(container, "ID", "id", idValue);
   appendField(container, "Regex", "regex", regexValue);
-  appendField(container, "UI Label", "fromlabel", fromLabel);
+  appendField(container, "From Label", "fromlabel", fromLabel);
   appendField(container, "To Label", "tolabel", toLabel);
-  appendField(container, "Copy Text", "copy", copyText);
-  appendField(container, "Paste Text", "paste", pasteText);
+  appendField(container, "Copy", "copy", copyText);
+  appendField(container, "Paste", "paste", pasteText);
   appendField(container, "MW Link", "mw", mwText);
   return container;
 }
@@ -105,7 +105,7 @@ function generateIssues(issueContainer: Element, textBox: Element) {
       issueId: getInputValue(issue, "id"),
       regex: getInputValue(issue, "regex"),
       fromLabel: escapeString(getInputValue(issue, "fromlabel")),
-      toLabel: escapeString(getInputValue(issue, "toLabel")),
+      toLabel: escapeString(getInputValue(issue, "tolabel")),
       copy: escapeString(getInputValue(issue, "copy")),
       paste: escapeString(getInputValue(issue, "paste")),
       mw: getInputValue(issue, "mw"),
