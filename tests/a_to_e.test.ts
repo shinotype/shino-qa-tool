@@ -34,8 +34,12 @@ test("aircon", () => {
   expectResult(countIssues("AirCon"), issues.aircon.id);
 });
 
+test("air tight", () => {
+  expectResult(countIssues("AIR tight"), issues.air_tight.id);
+});
+
 test("air-tight", () => {
-  expectResult(countIssues("AIR-tight"), issues.air_tight.id);
+  expectResult(countIssues("AIR-tight"), issues.air_tight2.id);
 });
 
 test("all out", () => {
@@ -84,6 +88,10 @@ test("ax", () => {
 
 test("ax respects word boundaries", () => {
   expectNoResult(countIssues("maximum pax power"));
+});
+
+test("back yard", () => {
+  expectResult(countIssues("BACK yard"), issues.back_yard.id);
 });
 
 test("bad-mouth", () => {
@@ -215,6 +223,10 @@ test("bull's eye", () => {
   expectResult(countIssues("bull’s EYE"), issues.bulls_eye.id);
 });
 
+test("business-like", () => {
+  expectResult(countIssues("business-LIKE"), issues.business_like.id);
+});
+
 test("bye bye", () => {
   expectResult(countIssues("bye BYE"), issues.bye_bye.id);
 });
@@ -249,6 +261,10 @@ test("catch phrase", () => {
 
 test("catch-phrase", () => {
   expectResult(countIssues("caTCH-phrase"), issues.catch_phrase2.id);
+});
+
+test("cat-like", () => {
+  expectResult(countIssues("cat-LIKE"), issues.cat_like.id);
 });
 
 test("centre", () => {
@@ -311,12 +327,28 @@ test("colour", () => {
   expectResult(countIssues("colOurfuL"), issues.colour.id);
 });
 
+test("commander-in-chief", () => {
+  expectResult(countIssues("commander-IN-chief"), issues.commander_in_chief.id);
+});
+
 test("concensus", () => {
   expectResult(countIssues("ConCensus"), issues.concensus.id);
 });
 
+test("cool-headed", () => {
+  expectResult(countIssues("COOl-headed"), issues.cool_headed.id);
+});
+
 test("counter attack", () => {
   expectResult(countIssues("counter ATTACK"), issues.counter_attack.id);
+});
+
+test("counter invasion", () => {
+  expectResult(countIssues("counter INVASION"), issues.counter_invasion.id);
+});
+
+test("counter-offensive", () => {
+  expectResult(countIssues("counter-OFFENSIVE"), issues.counter_offensive.id);
 });
 
 test("coup d'etat", () => {
@@ -383,6 +415,10 @@ test("cut-and-dry", () => {
   expectResult(countIssues("CUT-and-DRY"), issues.cut_and_dry2.id);
 });
 
+test("dagger-like", () => {
+  expectResult(countIssues("DAGGER-like"), issues.dagger_like.id);
+});
+
 test("damndest", () => {
   expectResult(countIssues("dAMNdest"), issues.damndest.id);
 });
@@ -443,6 +479,10 @@ test("dieing", () => {
   expectResult(countIssues("DIeing"), issues.dieing.id);
 });
 
+test("dilly dally", () => {
+  expectResult(countIssues("DILLY dally"), issues.dilly_dally.id);
+});
+
 test("discernable", () => {
   expectResult(countIssues("DIScernable"), issues.discernable.id);
 });
@@ -495,8 +535,16 @@ test("drier and dryer", () => {
   expectContainsResult(result, issues.dryer.id, 2);
 });
 
+test("dust-up", () => {
+  expectResult(countIssues("DUsT-Up"), issues.dust_up.id);
+});
+
 test("duty-bound", () => {
   expectResult(countIssues("DUtY-BOuNd"), issues.duty_bound.id);
+});
+
+test("ear-splitting", () => {
+  expectResult(countIssues("EAR-splitting"), issues.ear_splitting.id);
 });
 
 test("emphasise", () => {

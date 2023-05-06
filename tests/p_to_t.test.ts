@@ -242,6 +242,10 @@ test("self expression", () => {
   expectResult(countIssues("SELF expression"), issues.self_expression.id);
 });
 
+test("self pity", () => {
+  expectResult(countIssues("SELF pity"), issues.self_pity.id);
+});
+
 test("semi-circle", () => {
   expectResult(countIssues("SEMI-circle"), issues.semi_circle.id);
 });
@@ -312,6 +316,10 @@ test("side by side", () => {
 
 test("side-by-side", () => {
   expectResult(countIssues("side-BY-side"), issues.side_by_side2.id);
+});
+
+test("side-effect", () => {
+  expectResult(countIssues("side-EFFECT"), issues.side_effect.id);
 });
 
 test("signalling", () => {
@@ -406,6 +414,14 @@ test("stock still", () => {
   expectResult(countIssues("STOCK still"), issues.stock_still.id);
 });
 
+test("stomach ache", () => {
+  expectResult(countIssues("STOMACH ache"), issues.stomach_ache.id);
+});
+
+test("stone-like", () => {
+  expectResult(countIssues("STONE-like"), issues.stone_like.id);
+});
+
 test("storyline", () => {
   expectResult(countIssues("SToryLine"), issues.storyline.id);
 });
@@ -414,8 +430,20 @@ test("straightlaced", () => {
   expectResult(countIssues("STRAIGHTlaced"), issues.strait.id);
 });
 
+test("street light", () => {
+  expectResult(countIssues("STREET light"), issues.street_light.id);
+});
+
+test("strong arm", () => {
+  expectResult(countIssues("STRONG arm"), issues.strong_arm.id);
+});
+
 test("sub-par", () => {
   expectResult(countIssues("SUB-par"), issues.sub_par.id);
+});
+
+test("sub-zero", () => {
+  expectResult(countIssues("SUB-zero"), issues.sub_zero.id);
 });
 
 test("sun-tan", () => {
@@ -430,14 +458,6 @@ test("swiss cheese NOT case-insensitive", () => {
   expectNoResult(countIssues("ate SWISS CHEESE"));
 });
 
-test("tax-payer", () => {
-  expectResult(countIssues("tax-PAYER"), issues.tax_payer.id);
-});
-
-test("tax-paying", () => {
-  expectResult(countIssues("tax-PAYING"), issues.tax_paying.id);
-});
-
 test("t-shirt", () => {
   expectResult(countIssues("t-shirt"), issues.t_shirt.id);
 });
@@ -446,8 +466,20 @@ test("t-shirt NOT case-insensitive", () => {
   expectNoResult(countIssues("T-shirt"));
 });
 
+test("tank-like", () => {
+  expectResult(countIssues("tank-LIKE"), issues.tank_like.id);
+});
+
 test("tastebud", () => {
   expectResult(countIssues("tasteBUD"), issues.tastebud.id);
+});
+
+test("tax-payer", () => {
+  expectResult(countIssues("tax-PAYER"), issues.tax_payer.id);
+});
+
+test("tax-paying", () => {
+  expectResult(countIssues("tax-PAYING"), issues.tax_paying.id);
 });
 
 test("tell-tale", () => {
@@ -472,6 +504,10 @@ test("test-run", () => {
 
 test("tete-a-tete", () => {
   expectResult(countIssues("tete-a-TETE"), issues.tete_a_tete.id);
+});
+
+test("three-fold", () => {
+  expectResult(countIssues("THREE-fold"), issues.three_fold.id);
 });
 
 test("thrusted", () => {
@@ -532,4 +568,8 @@ test("twin-tail", () => {
 
 test("twintail", () => {
   expectResult(countIssues("twinTAIL"), issues.twintail.id);
+});
+
+test("two-fold", () => {
+  expectResult(countIssues("TWO-fold"), issues.two_fold.id);
 });

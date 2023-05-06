@@ -10,8 +10,16 @@ test("uh huh: respects word boundaries", () => {
   expectNoResult(countIssues("Nuh HUH"));
 });
 
+test("ultra-thin", () => {
+  expectResult(countIssues("ULTRA-thin"), issues.ultra_thin.id);
+});
+
 test("underaged", () => {
   expectResult(countIssues("underAGED"), issues.underaged.id);
+});
+
+test("unnamable", () => {
+  expectResult(countIssues("UNnamable"), issues.unnamable.id);
 });
 
 test("unshakeable", () => {
@@ -22,12 +30,16 @@ test("upperhand", () => {
   expectResult(countIssues("upperhand"), issues.upperhand.id);
 });
 
+test("vermillion", () => {
+  expectResult(countIssues("VERmillion"), issues.vermillion.id);
+});
+
 test("vice-like", () => {
-  expectResult(countIssues("vice-like"), issues.vice_like.id);
+  expectResult(countIssues("vice-LIKE"), issues.vice_like.id);
 });
 
 test("vicelike", () => {
-  expectResult(countIssues("vicelike"), issues.vicelike.id);
+  expectResult(countIssues("viceLIKE"), issues.vicelike.id);
 });
 
 test("vice-versa", () => {
@@ -62,6 +74,10 @@ test("well-kempt", () => {
   expectResult(countIssues("WELL-kempt"), issues.wellkempt.id);
 });
 
+test("whole-hearted", () => {
+  expectResult(countIssues("whole-HEARTED"), issues.whole_hearted.id);
+});
+
 test("wide eyed", () => {
   expectResult(countIssues("wide EYED"), issues.wide_eyed.id);
 });
@@ -76,6 +92,10 @@ test("willy nilly", () => {
 
 test("wishlist", () => {
   expectResult(countIssues("WISHlist"), issues.wishlist.id);
+});
+
+test("witch-like", () => {
+  expectResult(countIssues("WITCH-like"), issues.witch_like.id);
 });
 
 test("woah", () => {

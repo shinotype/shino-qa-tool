@@ -54,6 +54,10 @@ test("let-down", () => {
   expectResult(countIssues("let-DOWN"), issues.let_down.id);
 });
 
+test("level-headed", () => {
+  expectResult(countIssues("level-HEADED"), issues.level_headed.id);
+});
+
 test("life and death", () => {
   expectResult(countIssues("life AND death"), issues.life_and_death.id);
 });
@@ -234,6 +238,10 @@ test("moustache", () => {
   expectResult(countIssues("MOUSTache"), issues.moustache.id);
 });
 
+test("multi-headed", () => {
+  expectResult(countIssues("MULTI-headed"), issues.multi_headed.id);
+});
+
 test("naive", () => {
   expectResult(countIssues("naïvE"), issues.naive.id);
 });
@@ -256,6 +264,18 @@ test("neverending", () => {
 
 test("nevermind", () => {
   expectResult(countIssues("neverMind"), issues.nm.id);
+});
+
+test("new found", () => {
+  expectResult(countIssues("new FOUND"), issues.new_found.id);
+});
+
+test("new-found", () => {
+  expectResult(countIssues("new-FOUND"), issues.new_found2.id);
+}); 
+
+test("non-alcoholic", () => {
+  expectResult(countIssues("NON-alcoholic"), issues.non_alcoholic.id);
 });
 
 test("non-answer", () => {
@@ -282,8 +302,16 @@ test("non-hero", () => {
   expectResult(countIssues("non-HERO"), issues.non_hero.id);
 });
 
+test("non-intervention", () => {
+  expectResult(countIssues("non-INTERvention"), issues.non_intervention.id);
+});
+
 test("non-living", () => {
   expectResult(countIssues("NON-living"), issues.non_living.id);
+});
+
+test("non-negotiable", () => {
+  expectResult(countIssues("NON-negotiable"), issues.non_negotiable.id);
 });
 
 test("non-participant", () => {
@@ -298,8 +326,16 @@ test("non-sequitur", () => {
   expectResult(countIssues("NoN-sequitur"), issues.non_sequitur.id);
 });
 
+test("non-standard", () => {
+  expectResult(countIssues("NoN-StAndarD"), issues.non_standard.id);
+});
+
 test("non-stop", () => {
   expectResult(countIssues("NoN-StoP"), issues.non_stop.id);
+});
+
+test("non-threatening", () => {
+  expectResult(countIssues("NoN-ThreAteNing"), issues.non_threatening.id);
 });
 
 test("non-zero", () => {

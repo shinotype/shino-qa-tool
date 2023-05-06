@@ -14,6 +14,14 @@ test("face to face", () => {
   expectResult(countIssues("face TO face"), issues.face_to_face.id);
 });
 
+test("faint-hearted", () => {
+  expectResult(countIssues("faint-HEARTed"), issues.faint_hearted.id);
+});
+
+test("farm work", () => {
+  expectResult(countIssues("FARM work"), issues.farm_work.id);
+});
+
 test("farsight", () => {
   expectResult(countIssues("faRsiGHt"), issues.farsight.id);
 });
@@ -24,6 +32,10 @@ test("fast-food", () => {
 
 test("fast food", () => {
   expectResult(countIssues("fast FOOD"), issues.fast_food2.id);
+});
+
+test("fed-up", () => {
+  expectResult(countIssues("fed-UP"), issues.fed_up.id);
 });
 
 test("fiance", () => {
@@ -82,6 +94,10 @@ test("flipside", () => {
   expectResult(countIssues("on the FLIPside,"), issues.flipside.id);
 });
 
+test("flack", () => {
+  expectResult(countIssues("FLaCk"), issues.flack.id);
+});
+
 test("followup", () => {
   expectResult(countIssues("followUP"), issues.followup.id);
 });
@@ -132,6 +148,10 @@ test("free fall", () => {
 
 test("free flowing", () => {
   expectResult(countIssues("free FLOWING"), issues.free_flowing.id);
+});
+
+test("free reign", () => {
+  expectResult(countIssues("FREE reign"), issues.free_reign.id);
 });
 
 test("free spirited", () => {
@@ -192,12 +212,20 @@ test("glovebox", () => {
   expectResult(countIssues("gloveBOX"), issues.glovebox.id);
 });
 
+test("god-like", () => {
+  expectResult(countIssues("GOD-like"), issues.god_like.id);
+});
+
 test("good will", () => {
   expectResult(countIssues("GOOD wilL hunting"), issues.goodwill.id);
 });
 
 test("good-will", () => {
   expectResult(countIssues("GOOD-wilL hunting"), issues.good_will.id);
+});
+
+test("goosebump", () => {
+  expectResult(countIssues("GOOseBump"), issues.goosebump.id);
 });
 
 test("great grand", () => {
@@ -351,6 +379,10 @@ test("home-sick", () => {
 
 test("human-like", () => {
   expectResult(countIssues("HUMAN-like"), issues.human_like.id);
+});
+
+test("ice box", () => {
+  expectResult(countIssues("ICE box"), issues.ice_box.id);
 });
 
 test("ice cream cone", () => {
