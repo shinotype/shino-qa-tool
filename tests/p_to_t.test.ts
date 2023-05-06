@@ -354,6 +354,10 @@ test("skillset", () => {
   expectResult(countIssues("skillSET"), issues.skillset.id);
 });
 
+test("sky high", () => {
+  expectResult(countIssues("SKY high"), issues.sky_high.id);
+});
+
 test("slayed", () => {
   expectResult(countIssues("SLaYed"), issues.slayed.id);
 });
@@ -536,6 +540,14 @@ test("top-secret", () => {
 
 test("tradeoff", () => {
   expectResult(countIssues("tradeOFF"), issues.tradeoff.id);
+});
+
+test("trash talk", () => {
+  expectResult(countIssues("trash TALK"), issues.trash_talk.id);
+});
+
+test("trash-talk", () => {
+  expectResult(countIssues("trash-TALK"), issues.trash_talk2.id);
 });
 
 test("travelling", () => {

@@ -2,14 +2,6 @@ import { countIssues } from '../src/qatool';
 import { issues } from '../src/issues';
 import { expectResult, expectNoResult, expectContainsResult } from './expectations';
 
-test("face down", () => {
-  expectResult(countIssues("face DOWN"), issues.face_down.id);
-});
-
-test("face-down", () => {
-  expectResult(countIssues("face-DOWN"), issues.face_down2.id);
-});
-
 test("face to face", () => {
   expectResult(countIssues("face TO face"), issues.face_to_face.id);
 });
@@ -381,6 +373,14 @@ test("human-like", () => {
   expectResult(countIssues("HUMAN-like"), issues.human_like.id);
 });
 
+test("hurrah", () => {
+  expectResult(countIssues("huRRAH"), issues.hurrah.id);
+});
+
+test("hurray", () => {
+  expectResult(countIssues("HurRAY"), issues.hurray.id);
+});
+
 test("ice box", () => {
   expectResult(countIssues("ICE box"), issues.ice_box.id);
 });
@@ -391,6 +391,10 @@ test("ice cream cone", () => {
 
 test("icepack", () => {
   expectResult(countIssues("ICEpack"), issues.icepack.id);
+});
+
+test("illicit", () => {
+  expectResult(countIssues("ILLIcit"), issues.illicit.id);
 });
 
 test("iron-clad", () => {

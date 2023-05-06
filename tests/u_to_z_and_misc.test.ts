@@ -142,6 +142,12 @@ test("any more: respects word boundaries", () => {
   expectNoResult(countIssues("many more bany more"));
 });
 
+test("blond and blonde", () => {
+  const result = countIssues("blond BLONDE blOND blONDe Blond BLONDE blond");
+  expectContainsResult(result, issues.blond.id, 4);
+  expectContainsResult(result, issues.blonde.id, 3);
+});
+
 test("further and farther", () => {
   const result = countIssues("further FURTHER farTher FARTHER farthER");
   expectContainsResult(result, issues.further.id, 2);
@@ -158,6 +164,11 @@ test("towards and toward", () => {
   const result = countIssues("toWARDS toward toWARDs toWard TOwards TOWARD toward");
   expectContainsResult(result, issues.towards.id, 3);
   expectContainsResult(result, issues.toward.id, 4);
+});
+
+test("towards and toward: respect word boundaries", () => {
+  const result = countIssues("untoWARDS untoward untoWARDs untoWard unTOwards unTOWARD untoward");
+  expectNoResult(result);
 });
 
 test("spaz", () => {

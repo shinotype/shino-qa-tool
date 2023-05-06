@@ -46,8 +46,18 @@ test("all out", () => {
   expectResult(countIssues("ALL out"), issues.all_out.id);
 });
 
+test("all out: respects word boundaries", () => {
+  expectNoResult(countIssues("CALL out to him"));
+  expectNoResult(countIssues("ALL outside the house"));
+});
+
 test("all-out", () => {
   expectResult(countIssues("ALL-out"), issues.all_out2.id);
+});
+
+test("all-out: respects word boundaries", () => {
+  expectNoResult(countIssues("ALL-outside"));
+  expectNoResult(countIssues("CALL-out post"));
 });
 
 test("alright", () => {
@@ -231,12 +241,20 @@ test("bye bye", () => {
   expectResult(countIssues("bye BYE"), issues.bye_bye.id);
 });
 
+test("bye, bye", () => {
+  expectResult(countIssues("bye, BYE"), issues.bye_bye2.id);
+});
+
 test("cafe", () => {
   expectResult(countIssues("trendy cafe there"), issues.cafe.id);
 });
 
 test("cafe respects word boundaries", () => {
   expectNoResult(countIssues("nescafe coffee"));
+});
+
+test("canape", () => {
+  expectResult(countIssues("CAnapE"), issues.canape.id);
 });
 
 test("cancelled", () => {
@@ -253,6 +271,10 @@ test("cancelation", () => {
 
 test("candle holder", () => {
   expectResult(countIssues("candle HOLDER"), issues.candle_holder.id);
+});
+
+test("canons", () => {
+  expectResult(countIssues("CAnons"), issues.canons.id);
 });
 
 test("catch phrase", () => {
@@ -431,6 +453,10 @@ test("day to day life", () => {
   expectResult(countIssues("DAY to day LIFE"), issues.day_to_day_life.id);
 });
 
+test("dead on", () => {
+  expectResult(countIssues("DEAD on"), issues.dead_on.id);
+});
+
 test("deadset", () => {
   expectResult(countIssues("dEaDsEt"), issues.deadset.id);
 });
@@ -457,6 +483,10 @@ test("deal-making", () => {
 
 test("deep fry", () => {
   expectResult(countIssues("DEEP FRY"), issues.deep_fry.id);
+});
+
+test("decision making", () => {
+  expectResult(countIssues("DEcisION making"), issues.decision_making.id);
 });
 
 test("defence", () => {
@@ -545,6 +575,10 @@ test("duty-bound", () => {
 
 test("ear-splitting", () => {
   expectResult(countIssues("EAR-splitting"), issues.ear_splitting.id);
+});
+
+test("elicit", () => {
+  expectResult(countIssues("ELIcit"), issues.elicit.id);
 });
 
 test("emphasise", () => {

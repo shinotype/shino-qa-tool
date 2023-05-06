@@ -1,6 +1,6 @@
 import { countIssues } from '../src/qatool';
 import { issues } from '../src/issues';
-import { expectResult } from './expectations';
+import { expectNoResult, expectResult } from './expectations';
 
 test("keychain", () => {
   expectResult(countIssues("KeYChain"), issues.keychain.id);
@@ -134,6 +134,10 @@ test("long-time", () => {
   expectResult(countIssues("loNG-time"), issues.long_time.id);
 });
 
+test("long time, no see", () => {
+  expectResult(countIssues("LONG time, no SEE"), issues.long_time_no_see.id);
+});
+
 test("lookalike", () => {
   expectResult(countIssues("looKAlike"), issues.lookalike.id);
 });
@@ -156,6 +160,10 @@ test("make-up", () => {
 
 test("manmade", () => {
   expectResult(countIssues("MANMade"), issues.manmade.id);
+});
+
+test("man power", () => {
+  expectResult(countIssues("MAN power"), issues.man_power.id);
 });
 
 test("manpower", () => {
@@ -402,12 +410,25 @@ test("omelette", () => {
   expectResult(countIssues("OMElette"), issues.omelette.id);
 });
 
+test("on board", () => {
+  expectResult(countIssues("it is on BOARD right now"), issues.on_board.id);
+});
+
 test("on screen", () => {
-  expectResult(countIssues("on SCREEN"), issues.on_screen.id);
+  expectResult(countIssues("it is on SCREEN right now"), issues.on_screen.id);
+});
+
+test("on screen: respects word boundaries", () => {
+  expectNoResult(countIssues("PARTITIon SCREEN door"));
+  expectNoResult(countIssues("on SCREENS"));
 });
 
 test("onscreen", () => {
   expectResult(countIssues("onSCREEN"), issues.onscreen.id);
+});
+
+test("on site", () => {
+  expectResult(countIssues("it is on SITE right now"), issues.on_site.id);
 });
 
 test("on-stage", () => {
