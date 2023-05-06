@@ -2,6 +2,10 @@ import { countIssues } from '../src/qatool';
 import { issues } from '../src/issues';
 import { expectResult, expectContainsResult, expectNoResult } from './expectations';
 
+test("above ground", () => {
+  expectResult(countIssues("he was aBOVE ground"), issues.above_ground.id);
+});
+
 test("absent-minded", () => {
   expectResult(countIssues("he was aBseNt-MINDED"), issues.absent_minded.id);
 });
@@ -291,6 +295,10 @@ test("cliffhanger", () => {
   expectResult(countIssues("CLIFFhanger"), issues.cliffhanger.id);
 });
 
+test("closeup", () => {
+  expectResult(countIssues("xd cLOseUp xd"), issues.closeup.id);
+});
+
 test("cold-hearted", () => {
   expectResult(countIssues("colD-hearTED"), issues.cold_hearted.id);
 });
@@ -317,6 +325,10 @@ test("coup d'etat", () => {
 
 test("coup de grace", () => {
   expectResult(countIssues("coup de GRACE"), issues.coup_de_grace.id);
+});
+
+test("co-exist", () => {
+  expectResult(countIssues("xd co-ExiSt xd"), issues.co_exist.id);
 });
 
 test("co-worker", () => {

@@ -2,6 +2,10 @@ import { countIssues } from '../src/qatool';
 import { issues } from '../src/issues';
 import { expectResult, expectNoResult } from './expectations';
 
+test("pain-killer", () => {
+  expectResult(countIssues("PAIN-killer"), issues.pain_killer.id);
+});
+
 test("paper mache", () => {
   expectResult(countIssues("PAPER mache"), issues.paper_mache.id);
 });
@@ -102,6 +106,10 @@ test("railgun", () => {
   expectResult(countIssues("RAILgun"), issues.railgun.id);
 });
 
+test("rain drop", () => {
+  expectResult(countIssues("rain DROP"), issues.rain_drop.id);
+});
+
 test("rear view mirror", () => {
   expectResult(countIssues("REAR view mirror"), issues.rear_view_mirror.id);
 }); 
@@ -128,6 +136,10 @@ test("re-evaluate", () => {
 
 test("re-examine", () => {
   expectResult(countIssues("rE-eXaMiNe"), issues.re_examine.id);
+});
+
+test("re-write", () => {
+  expectResult(countIssues("rE-wrIte"), issues.re_write.id);
 });
 
 test("red faced", () => {
@@ -234,6 +246,18 @@ test("semi-circle", () => {
   expectResult(countIssues("SEMI-circle"), issues.semi_circle.id);
 });
 
+test("semi-conscious", () => {
+  expectResult(countIssues("SEMI-conscious"), issues.semi_conscious.id);
+});
+
+test("semi-final", () => {
+  expectResult(countIssues("SEMI-final"), issues.semi_final.id);
+});
+
+test("semi-final catches semi-finals", () => {
+  expectResult(countIssues("SEMI-finalS"), issues.semi_final.id);
+});
+
 test("semi-translucent", () => {
   expectResult(countIssues("SEMI-translucent"), issues.semi_translucent.id);
 });
@@ -272,6 +296,10 @@ test("shockwave", () => {
 
 test("short-sighted", () => {
   expectResult(countIssues("SHORT-sighted"), issues.short_sighted.id);
+});
+
+test("shootout", () => {
+  expectResult(countIssues("SHOOTout"), issues.shootout.id);
 });
 
 test("shuteye", () => {
@@ -330,6 +358,14 @@ test("smack dab", () => {
   expectResult(countIssues("SMACK dab"), issues.smack_dab.id);
 });
 
+test("smokescreen", () => {
+  expectResult(countIssues("SMOKEscreen"), issues.smokescreen.id);
+});
+
+test("smoke-screen", () => {
+  expectResult(countIssues("SMOKE-screen"), issues.smoke_screen.id);
+});
+
 test("smokey", () => {
   expectResult(countIssues("SMOkey"), issues.smokey.id);
 });
@@ -364,6 +400,10 @@ test("stepping-stone", () => {
 
 test("stand-out", () => {
   expectResult(countIssues("STand-OUT"), issues.stand_out.id);
+});
+
+test("stock still", () => {
+  expectResult(countIssues("STOCK still"), issues.stock_still.id);
 });
 
 test("storyline", () => {
@@ -456,6 +496,10 @@ test("tipoff", () => {
 
 test("top-secret", () => {
   expectResult(countIssues("TOP-secret"), issues.top_secret.id);
+});
+
+test("tradeoff", () => {
+  expectResult(countIssues("tradeOFF"), issues.tradeoff.id);
 });
 
 test("travelling", () => {

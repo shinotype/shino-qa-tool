@@ -242,6 +242,14 @@ test("name drop", () => {
   expectResult(countIssues("NAME drop"), issues.name_drop.id);
 });
 
+test("nametag", () => {
+  expectResult(countIssues("NAMEtag"), issues.nametag.id);
+});
+
+test("natural born", () => {
+  expectResult(countIssues("NATURAL born"), issues.natural_born.id);
+});
+
 test("neverending", () => {
   expectResult(countIssues("neverENDING"), issues.neverending.id);
 });
@@ -326,6 +334,10 @@ test("off balance", () => {
   expectResult(countIssues("OFF balance"), issues.off_balance.id);
 });
 
+test("off center", () => {
+  expectResult(countIssues("OFF center"), issues.off_center.id);
+});
+
 test("off-duty", () => {
   expectResult(countIssues("OFF-duty"), issues.off_duty.id);
 });
@@ -336,6 +348,10 @@ test("off-guard", () => {
 
 test("off-handed", () => {
   expectResult(countIssues("OFF-handed"), issues.off_handed.id);
+});
+
+test("off limits", () => {
+  expectResult(countIssues("OFF limits"), issues.off_limits.id);
 });
 
 test("offload", () => {

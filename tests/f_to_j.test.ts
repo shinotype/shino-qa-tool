@@ -268,12 +268,20 @@ test("hand-in-hand", () => {
   expectResult(countIssues("HanD-in-HAND"), issues.hand_in_hand.id);
 });
 
+test("hand-like", () => {
+  expectResult(countIssues("HanD-LiKe"), issues.hand_like.id);
+});
+
 test("hand-pick", () => {
   expectResult(countIssues("HanD-picK"), issues.hand_pick.id);
 });
 
 test("hard and fast", () => {
   expectResult(countIssues("Hard AND fast"), issues.hard_and_fast.id);
+});
+
+test("hard pressed", () => {
+  expectResult(countIssues("hard PrEsSed"), issues.hard_pressed.id);
 });
 
 test("hardpressed", () => {
