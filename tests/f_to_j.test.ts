@@ -329,6 +329,18 @@ test("heehee", () => {
   expectResult(countIssues("heehee! he giggled"), issues.laugh2.id);
 });
 
+test("her majesty", () => {
+  expectResult(countIssues("her majesty"), issues.her_majesty1.id);
+});
+
+test("her Majesty", () => {
+  expectResult(countIssues("her Majesty"), issues.her_majesty2.id);
+}); 
+
+test("Her majesty", () => {
+  expectResult(countIssues("Her majesty"), issues.her_majesty3.id);
+});
+
 test("heroin", () => {
   expectResult(countIssues("heroin addict"), issues.heroin.id);
 });
@@ -351,6 +363,18 @@ test("higher ups", () => {
 
 test("high-schooler", () => {
   expectResult(countIssues("high-SCHOOLER"), issues.high_schooler.id);
+});
+
+test("his majesty", () => {
+  expectResult(countIssues("his majesty"), issues.his_majesty1.id);
+});
+
+test("his Majesty", () => {
+  expectResult(countIssues("his Majesty"), issues.his_majesty2.id);
+}); 
+
+test("His majesty", () => {
+  expectResult(countIssues("His majesty"), issues.his_majesty3.id);
 });
 
 test("hitman", () => {

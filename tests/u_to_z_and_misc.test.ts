@@ -26,6 +26,14 @@ test("unshakeable", () => {
   expectResult(countIssues("unSHAKEable"), issues.unshakeable.id);
 });
 
+test("up-front", () => {
+  expectResult(countIssues("UP-front"), issues.up_front.id);
+});
+
+test("up front", () => {
+  expectResult(countIssues("UP front"), issues.up_front2.id);
+});
+
 test("upperhand", () => {
   expectResult(countIssues("upperhand"), issues.upperhand.id);
 });
@@ -120,6 +128,42 @@ test("yada-yada", () => {
 
 test("year-long", () => {
   expectResult(countIssues("Year-Long"), issues.year_long.id);
+});
+
+test("your grace", () => {
+  expectResult(countIssues("your grace"), issues.your_grace1.id);
+});
+
+test("your Grace", () => {
+  expectResult(countIssues("your Grace"), issues.your_grace2.id);
+}); 
+
+test("Your grace", () => {
+  expectResult(countIssues("Your grace"), issues.your_grace3.id);
+});
+
+test("your highness", () => {
+  expectResult(countIssues("your highness"), issues.your_highness1.id);
+});
+
+test("your Highness", () => {
+  expectResult(countIssues("your Highness"), issues.your_highness2.id);
+}); 
+
+test("Your highness", () => {
+  expectResult(countIssues("Your highness"), issues.your_highness3.id);
+});
+
+test("your majesty", () => {
+  expectResult(countIssues("your majesty"), issues.your_majesty1.id);
+});
+
+test("your Majesty", () => {
+  expectResult(countIssues("your Majesty"), issues.your_majesty2.id);
+}); 
+
+test("Your majesty", () => {
+  expectResult(countIssues("Your majesty"), issues.your_majesty3.id);
 });
 
 test("afterwards and afterward", () => {

@@ -26,6 +26,14 @@ test("knowhow", () => {
   expectResult(countIssues("KNOWhow"), issues.knowhow.id);
 });
 
+test("laid", () => {
+  expectResult(countIssues("laID"), issues.laid.id);
+});
+
+test("laid: respects word boundaries", () => {
+  expectNoResult(countIssues("PlaID"));
+});
+
 test("laidback", () => {
   expectResult(countIssues("laidBACK"), issues.laidback.id);
 });
@@ -40,6 +48,22 @@ test("last ditch", () => {
 
 test("last-ditch", () => {
   expectResult(countIssues("last-DITCH"), issues.last_ditch2.id);
+});
+
+test("laying", () => {
+  expectResult(countIssues("laYIng"), issues.laying.id);
+});
+
+test("laying: respects word boundaries", () => {
+  expectNoResult(countIssues("PlAYIng"));
+});
+
+test("lied", () => {
+  expectResult(countIssues("LieD"), issues.lied.id);
+});
+
+test("lied: respects word boundaries", () => {
+  expectNoResult(countIssues("pLieD"));
 });
 
 test("off-handed", () => {
