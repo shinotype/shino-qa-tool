@@ -52,7 +52,8 @@ function renderIssue(idValue: string, regexValue: string, fromLabel: string, toL
   appendField(container, "ID", "id", idValue);
   appendField(container, "Regex", "regex", regexValue);
   appendField(container, "UI Label", "fromlabel", fromLabel);
-  appendField(container, "To Label", "tolabel", copyText);
+  appendField(container, "To Label", "tolabel", toLabel);
+  appendField(container, "Copy Text", "copy", copyText);
   appendField(container, "Paste Text", "paste", pasteText);
   appendField(container, "MW Link", "mw", mwText);
   return container;
@@ -98,7 +99,7 @@ function appendSelect(container: Element, label: string, inputClass: string, opt
 
 function generateIssues(issueContainer: Element, textBox: Element) {
   const issues = issueContainer.querySelectorAll('.issue');
-  const issueObjects = [];
+  const issueObjects : any[] = [];
   for (const issue of issues) {
     issueObjects.push({
       issueId: getInputValue(issue, "id"),
@@ -106,7 +107,7 @@ function generateIssues(issueContainer: Element, textBox: Element) {
       fromLabel: escapeString(getInputValue(issue, "fromlabel")),
       toLabel: escapeString(getInputValue(issue, "toLabel")),
       copy: escapeString(getInputValue(issue, "copy")),
-      paste: getInputValue(issue, "paste"),
+      paste: escapeString(getInputValue(issue, "paste")),
       mw: getInputValue(issue, "mw"),
       copyLabels: getSelectValue(issue, "copylabels"),
       issueType: getSelectValue(issue, "issuetype"),
