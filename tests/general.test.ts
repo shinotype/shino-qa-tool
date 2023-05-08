@@ -15,7 +15,7 @@ test("number of occurrences is incremented for multiple of the same issue", () =
 test("can detect multiple issues", () => {
   const result = countIssues("he's got judgement problems, too, you know.");
   expect(result).toHaveLength(3);
-  expectContainsResult(result, issues.too.id, 1);
+  expectContainsResult(result, issues.p_comma_too.id, 1);
   expectContainsResult(result, issues.judge.id, 1);
-  expectContainsResult(result, issues.straight_pos.id, 1);
+  expectContainsResult(result, issues.p_straight_pos.id, 1);
 })

@@ -3,20 +3,20 @@ import { issues } from '../src/issues';
 import { expectContainsResult, expectResult, expectNoResult } from './expectations';
 
 test("lower case after punctuation", () => {
-  expectContainsResult(countIssues("a. a b? b c! c"), issues.period6.id, 3);
-  expectResult(countIssues("a... a"), issues.ellipsis2.id);
+  expectContainsResult(countIssues("a. a b? b c! c"), issues.p_period6.id, 3);
+  expectResult(countIssues("a... a"), issues.p_ellipsis2.id);
 });
 
 test("double spaces", () => {
-  expectResult(countIssues("hello  goodbye"), issues.space.id);
+  expectResult(countIssues("hello  goodbye"), issues.p_space.id);
 });
 
 test("space after newline", () => {
-  expectResult(countIssues("ABC.\n DEF"), issues.space2.id);
+  expectResult(countIssues("ABC.\n DEF"), issues.p_space2.id);
 });
 
 test("space before period", () => {
-  expectResult(countIssues("Hello ."), issues.space3.id);
+  expectResult(countIssues("Hello ."), issues.p_space3.id);
 });
 
 test("space before period ignores multiple periods", () => {
@@ -24,11 +24,11 @@ test("space before period ignores multiple periods", () => {
 });
 
 test("space between punctuation and quote", () => {
-  expectContainsResult(countIssues("a. ” b? ” c! ”"), issues.space4.id, 3);
+  expectContainsResult(countIssues("a. ” b? ” c! ”"), issues.p_space4.id, 3);
 });
 
 test("two periods", () => {
-  expectResult(countIssues("Hello .. There"), issues.period.id);
+  expectResult(countIssues("Hello .. There"), issues.p_period.id);
 });
 
 test("two periods ignores three periods", () => {
@@ -36,11 +36,11 @@ test("two periods ignores three periods", () => {
 });
 
 test("period preceding question mark", () => {
-  expectResult(countIssues("Hello.?"), issues.period2.id);
+  expectResult(countIssues("Hello.?"), issues.p_period2.id);
 });
 
 test("period preceding exclamation mark", () => {
-  expectResult(countIssues("Hello.!"), issues.period2.id);
+  expectResult(countIssues("Hello.!"), issues.p_period2.id);
 });
 
 test("period preceding question mark ignores multiple periods", () => {
@@ -52,15 +52,15 @@ test("period preceding exclamation mark ignores multiple periods", () => {
 });
 
 test("period following question mark", () => {
-  expectResult(countIssues("Hello?."), issues.period3.id);
+  expectResult(countIssues("Hello?."), issues.p_period3.id);
 });
 
 test("period following exclamation mark", () => {
-  expectResult(countIssues("Hello!."), issues.period3.id);
+  expectResult(countIssues("Hello!."), issues.p_period3.id);
 });
 
 test("period outside quotes", () => {
-  expectResult(countIssues("“wow”. She said"), issues.period4.id);
+  expectResult(countIssues("“wow”. She said"), issues.p_period4.id);
 });
 
 test("period outside quotes: excludes ellipsis", () => {
@@ -68,7 +68,7 @@ test("period outside quotes: excludes ellipsis", () => {
 });
 
 test("period outside single quotes", () => {
-  expectResult(countIssues("‘wow’. She said"), issues.period5.id);
+  expectResult(countIssues("‘wow’. She said"), issues.p_period5.id);
 });
 
 test("period outside single quotes", () => {
@@ -76,15 +76,15 @@ test("period outside single quotes", () => {
 });
 
 test("straight single quote", () => {
-  expectResult(countIssues("it's no big deal"), issues.straight_pos.id);
+  expectResult(countIssues("it's no big deal"), issues.p_straight_pos.id);
 });
 
 test("straight single quote", () => {
-  expectResult(countIssues("it‘s no big deal"), issues.straight_pos2.id);
+  expectResult(countIssues("it‘s no big deal"), issues.p_straight_pos2.id);
 })
 
 test("singular possessive", () => {
-  expectResult(countIssues("Dennis’ things"), issues.possessive.id);
+  expectResult(countIssues("Dennis’ things"), issues.p_possessive_singular.id);
 });
 
 test("singular possessive: ignores if there's an s after the apostrophe", () => {
@@ -96,19 +96,19 @@ test("singular possessive: ignores if there's anything else after the apostrophe
 });
 
 test("comma outside quotes", () => {
-  expectResult(countIssues("“wow”, she said"), issues.comma.id);
+  expectResult(countIssues("“wow”, she said"), issues.p_comma.id);
 });
 
 test("comma outside single quotes", () => {
-  expectResult(countIssues("‘wow’, she said"), issues.comma2.id);
+  expectResult(countIssues("‘wow’, she said"), issues.p_comma2.id);
 });
 
 test("straight double quote", () => {
-  expectResult(countIssues("he said \"okay but"), issues.straight_quote.id);
+  expectResult(countIssues("he said \"okay but"), issues.p_straight_quote.id);
 });
 
 test("comma too", () => {
-  expectResult(countIssues("i want to go, tOo"), issues.too.id);
+  expectResult(countIssues("i want to go, tOo"), issues.p_comma_too.id);
 });
 
 test("comma too respects word boundaries", () => {
@@ -116,15 +116,15 @@ test("comma too respects word boundaries", () => {
 });
 
 test("comma either", () => {
-  expectResult(countIssues("maybe, eiTHer"), issues.either.id);
+  expectResult(countIssues("maybe, eiTHer"), issues.p_comma_either.id);
 });
 
 test("!?", () => {
-  expectResult(countIssues("really!?"), issues.bang.id);
+  expectResult(countIssues("really!?"), issues.p_bang.id);
 });
 
 test("!!", () => {
-  expectResult(countIssues("wow!! Amazing"), issues.bang2.id);
+  expectResult(countIssues("wow!! Amazing"), issues.p_bang2.id);
 });
 
 test("!! rule ignores !!!", () => {
@@ -132,127 +132,127 @@ test("!! rule ignores !!!", () => {
 });
 
 test("....", () => {
-  expectResult(countIssues("Wow.... Cool"), issues.ellipsis1.id);
+  expectResult(countIssues("Wow.... Cool"), issues.p_ellipsis1.id);
 });
 
 test("... [a-z]", () => {
-  expectResult(countIssues("okay... me too"), issues.ellipsis2.id);
+  expectResult(countIssues("okay... me too"), issues.p_ellipsis2.id);
 });
 
 test("...[A-Z]", () => {
-  expectResult(countIssues("why...Not"), issues.ellipsis3.id);
+  expectResult(countIssues("why...Not"), issues.p_ellipsis3.id);
 });
 
 test("ellipsis symbol", () => {
-  expectResult(countIssues("Wow… Cool"), issues.ellipsis4.id);
+  expectResult(countIssues("Wow… Cool"), issues.p_ellipsis4.id);
 });
 
 test("—[space]", () => {
-  expectResult(countIssues("wow— no"), issues.dash_em1.id);
+  expectResult(countIssues("wow— no"), issues.p_dash_em1.id);
 });
 
 test("[space]—", () => {
-  expectResult(countIssues("wow —no"), issues.dash_em2.id);
+  expectResult(countIssues("wow —no"), issues.p_dash_em2.id);
 });
 
 test("en dash", () => {
-  expectResult(countIssues("wow –no"), issues.dash_en.id);
+  expectResult(countIssues("wow –no"), issues.p_dash_en.id);
 });
 
 test("double hyphens", () => {
-  expectResult(countIssues("wow --no"), issues.double_hyphen.id);
+  expectResult(countIssues("wow --no"), issues.p_dash_double.id);
 });
 
 test("incorrect stuttering: t-th", () => {
-  expectResult(countIssues("he said T-this is crazy!"), issues.stutter_t_th.id);
+  expectResult(countIssues("he said T-this is crazy!"), issues.z_stutter_t_th.id);
 });
 
 test("incorrect stuttering: w-wh", () => {
-  expectResult(countIssues("i said w-WHO are you?!"), issues.stutter_w_wh.id);
+  expectResult(countIssues("i said w-WHO are you?!"), issues.z_stutter_w_wh.id);
 });
 
 test("'cause (wrong curly quote)", () => {
-  expectResult(countIssues("‘cause"), issues.pos_cause.id);
+  expectResult(countIssues("‘cause"), issues.p_pos_cause.id);
 });
 
 test("'sup (wrong curly quote)", () => {
-  expectResult(countIssues("‘sup"), issues.pos_sup.id);
+  expectResult(countIssues("‘sup"), issues.p_pos_sup.id);
 });
 
 test("'em (wrong curly quote)", () => {
-  expectResult(countIssues("‘em"), issues.pos_em.id);
+  expectResult(countIssues("‘em"), issues.p_pos_em.id);
 });
 
 test("'bout (wrong curly quote)", () => {
-  expectResult(countIssues("‘bout"), issues.pos_bout.id);
+  expectResult(countIssues("‘bout"), issues.p_pos_bout.id);
 });
 
 test("'nother (wrong curly quote)", () => {
-  expectResult(countIssues("‘nother"), issues.pos_nother.id);
+  expectResult(countIssues("‘nother"), issues.p_pos_nother.id);
 });
 
 test("'fore (wrong curly quote)", () => {
-  expectResult(countIssues("‘fore"), issues.pos_fore.id);
+  expectResult(countIssues("‘fore"), issues.p_pos_fore.id);
 });
 
 test("'fraid (wrong curly quote)", () => {
-  expectResult(countIssues("‘fraid"), issues.pos_fraid.id);
+  expectResult(countIssues("‘fraid"), issues.p_pos_fraid.id);
 });
 
 test("'neath (wrong curly quote)", () => {
-  expectResult(countIssues("‘neath"), issues.pos_neath.id);
+  expectResult(countIssues("‘neath"), issues.p_pos_neath.id);
 });
 
 test("'gainst (wrong curly quote)", () => {
-  expectResult(countIssues("‘gainst"), issues.pos_gainst.id);
+  expectResult(countIssues("‘gainst"), issues.p_pos_gainst.id);
 });
 
 test("'cept (wrong curly quote)", () => {
-  expectResult(countIssues("‘cept"), issues.pos_cept.id);
+  expectResult(countIssues("‘cept"), issues.p_pos_cept.id);
 });
 
 test("'round (wrong curly quote)", () => {
-  expectResult(countIssues("‘round"), issues.pos_round.id);
+  expectResult(countIssues("‘round"), issues.p_pos_round.id);
 });
 
 test("'til (wrong curly quote)", () => {
-  expectResult(countIssues("‘til"), issues.pos_til.id);
+  expectResult(countIssues("‘til"), issues.p_pos_til.id);
 });
 
 test("'tis (wrong curly quote)", () => {
-  expectResult(countIssues("‘tis"), issues.pos_tis.id);
+  expectResult(countIssues("‘tis"), issues.p_pos_tis.id);
 });
 
 test("'twas (wrong curly quote)", () => {
-  expectResult(countIssues("‘twas"), issues.pos_twas.id);
+  expectResult(countIssues("‘twas"), issues.p_pos_twas.id);
 });
 
 test("'tween (wrong curly quote)", () => {
-  expectResult(countIssues("‘tween"), issues.pos_tween.id);
+  expectResult(countIssues("‘tween"), issues.p_pos_tween.id);
 });
 
 test("'twere (wrong curly quote)", () => {
-  expectResult(countIssues("‘twere"), issues.pos_twere.id);
+  expectResult(countIssues("‘twere"), issues.p_pos_twere.id);
 });
 
 test("'twixt (wrong curly quote)", () => {
-  expectResult(countIssues("‘twixt"), issues.pos_twixt.id);
+  expectResult(countIssues("‘twixt"), issues.p_pos_twixt.id);
 });
 
 test("missing start quotes", () => {
-  expectResult(countIssues("He said, “Wow.” And then I said, Sure.”"), issues.quotes_start.id);
+  expectResult(countIssues("He said, “Wow.” And then I said, Sure.”"), issues.p_quotes_start.id);
 });
 
 test("missing end quotes", () => {
-  expectResult(countIssues("He said, “Wow. And then I said, “Sure.”"), issues.quotes_end.id);
+  expectResult(countIssues("He said, “Wow. And then I said, “Sure.”"), issues.p_quotes_end.id);
 });
 
 test("missing punctuation after paragraph", () => {
-  expectResult(countIssues("hello\ngoodbye"), issues.punctuation_before_newline.id);
+  expectResult(countIssues("hello\ngoodbye"), issues.p_punctuation_before_newline.id);
 });
 
 test("hyphenated adverbs (ly-)", () => {
-  expectResult(countIssues("BADLY-made"), issues.adverb.id);
+  expectResult(countIssues("BADLY-made"), issues.z_adverb.id);
 });
 
 test("hyphenated adverbs (ly-) ignores fully-fledged", () => {
@@ -260,26 +260,26 @@ test("hyphenated adverbs (ly-) ignores fully-fledged", () => {
 });
 
 test("hyphenate numbers between 21 and 99", () => {
-  expectResult(countIssues("twenty one"), issues.hyphen_numbers.id);
-  expectResult(countIssues("thirty two"), issues.hyphen_numbers.id);
-  expectResult(countIssues("forty three"), issues.hyphen_numbers.id);
-  expectResult(countIssues("fifty four"), issues.hyphen_numbers.id);
-  expectResult(countIssues("sixty five"), issues.hyphen_numbers.id);
-  expectResult(countIssues("seventy six"), issues.hyphen_numbers.id);
-  expectResult(countIssues("eighty seven"), issues.hyphen_numbers.id);
-  expectResult(countIssues("ninety eight"), issues.hyphen_numbers.id);
+  expectResult(countIssues("twenty one"), issues.z_hyphen_numbers.id);
+  expectResult(countIssues("thirty two"), issues.z_hyphen_numbers.id);
+  expectResult(countIssues("forty three"), issues.z_hyphen_numbers.id);
+  expectResult(countIssues("fifty four"), issues.z_hyphen_numbers.id);
+  expectResult(countIssues("sixty five"), issues.z_hyphen_numbers.id);
+  expectResult(countIssues("seventy six"), issues.z_hyphen_numbers.id);
+  expectResult(countIssues("eighty seven"), issues.z_hyphen_numbers.id);
+  expectResult(countIssues("ninety eight"), issues.z_hyphen_numbers.id);
 });
 
 test("hyphenate numbers between 21 and 99, case insensitive", () => {
-  expectResult(countIssues("NINETY NINE"), issues.hyphen_numbers.id);
+  expectResult(countIssues("NINETY NINE"), issues.z_hyphen_numbers.id);
 });
 
 test("less used for countable quantity", () => {
-  expectResult(countIssues("less numbers are good"), issues.less_plural.id);
+  expectResult(countIssues("less numbers are good"), issues.z_less_plural.id);
 });
 
 test("less used for countable quantity, case insensitive", () => {
-  expectResult(countIssues("LESS NUMBERS ARE GOOD"), issues.less_plural.id);
+  expectResult(countIssues("LESS NUMBERS ARE GOOD"), issues.z_less_plural.id);
 });
 
 test("less -ous not considered countable quantity", () => {
@@ -291,25 +291,25 @@ test("less used for countable quantity respects word boundaries", () => {
 });
 
 test("double possessive", () => {
-  expectResult(countIssues("Jim’s and Bob’s stuff"), issues.double_possessive.id);
+  expectResult(countIssues("Jim’s and Bob’s stuff"), issues.p_possessive_double.id);
 });
 
 test("no space before measurements", () => {
-  expectResult(countIssues("it was 10cm long"), issues.space_before_measurement.id);
-  expectResult(countIssues("it was 10centimeter long"), issues.space_before_measurement.id);
-  expectResult(countIssues("it was 10centimeters long"), issues.space_before_measurement.id);
-  expectResult(countIssues("it was 10m long"), issues.space_before_measurement.id);
-  expectResult(countIssues("it was 10meter long"), issues.space_before_measurement.id);
-  expectResult(countIssues("it was 10meters long"), issues.space_before_measurement.id);
-  expectResult(countIssues("it was 10km long"), issues.space_before_measurement.id);
-  expectResult(countIssues("it was 10kilometer long"), issues.space_before_measurement.id);
-  expectResult(countIssues("it was 10kilometers long"), issues.space_before_measurement.id);
+  expectResult(countIssues("it was 10cm long"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it was 10centimeter long"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it was 10centimeters long"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it was 10m long"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it was 10meter long"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it was 10meters long"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it was 10km long"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it was 10kilometer long"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it was 10kilometers long"), issues.z_space_before_measurement.id);
 
-  expectResult(countIssues("it weighed 10g in total"), issues.space_before_measurement.id);
-  expectResult(countIssues("it weighed 10gram in total"), issues.space_before_measurement.id);
-  expectResult(countIssues("it weighed 10grams in total"), issues.space_before_measurement.id);
-  expectResult(countIssues("it weighed 10kg in total"), issues.space_before_measurement.id);
-  expectResult(countIssues("it weighed 10kilogram in total"), issues.space_before_measurement.id);
-  expectResult(countIssues("it weighed 10kilograms in total"), issues.space_before_measurement.id);
+  expectResult(countIssues("it weighed 10g in total"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it weighed 10gram in total"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it weighed 10grams in total"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it weighed 10kg in total"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it weighed 10kilogram in total"), issues.z_space_before_measurement.id);
+  expectResult(countIssues("it weighed 10kilograms in total"), issues.z_space_before_measurement.id);
 });
 
