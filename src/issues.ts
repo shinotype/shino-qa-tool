@@ -68,7 +68,7 @@ const idlessIssues = {
   p_pos_twixt: { regex: /‘twixt\b/gi, ui: { label: "‘twixt", toLabel: "’twixt", copy: "‘twixt\\b", paste: "’twixt", mw: "", copyLabels: false}, type: IssueType.PG},
   p_possessive_double: { regex: /\w+’s and [\w-]+’s/gi, ui: { label: "Double possessive?", toLabel: "", copy: "\\w+’s and [\\w-]+’s", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
   p_possessive_singular: { regex: /s’\s/gi, ui: { label: "s’ (singular possessive?)", toLabel: "s’s", copy: "s’\\s", paste: "s’s", mw: "", copyLabels: false}, type: IssueType.PG},
-  p_punctuation_before_newline: { regex: /[^.?!:"]\n/g, ui: { label: "No punctuation after ¶", toLabel: "", copy: "[^.?!:\"]\\n", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
+  p_punctuation_before_newline: { regex: /[^.?!:”\s]\n/g, ui: { label: "No punctuation after ¶", toLabel: "", copy: "[^.?!:”\\s]\\n", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
   p_quotes_end: { regex: /“[^”]*?“/g, ui: { label: "Missing end quotes", toLabel: "", copy: "“[^”]*?“", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
   p_quotes_start: { regex: /”[^“]*?”/g, ui: { label: "Missing start quotes", toLabel: "", copy: "”[^“]*?”", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
   p_space: { regex: /[ ]{2}/g, ui: { label: "Two spaces", toLabel: "One space", copy: "  ", paste: " ", mw: "", copyLabels: false}, type: IssueType.PG},
