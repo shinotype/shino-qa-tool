@@ -224,19 +224,23 @@ test("'cept (wrong curly quote)", () => {
 });
 
 test("peoples", () => {
-  expectResult(countIssues("peoples"), issues.p_pos_people1.id);
+  expectResult(countIssues("PeopLEs"), issues.p_pos_people1.id);
 });
 
 test("mens", () => {
-  expectResult(countIssues("mens"), issues.p_pos_people2.id);
+  expectResult(countIssues("MeNs"), issues.p_pos_people2.id);
+});
+
+test("mens: respects word boundaries", () => {
+  expectNoResult(countIssues("CLemens"));
 });
 
 test("womens", () => {
-  expectResult(countIssues("womens"), issues.p_pos_people3.id);
+  expectResult(countIssues("WoMeNs"), issues.p_pos_people3.id);
 });
 
 test("childrens", () => {
-  expectResult(countIssues("childrens"), issues.p_pos_people4.id);
+  expectResult(countIssues("chiLdRens"), issues.p_pos_people4.id);
 });
 
 test("'round (wrong curly quote)", () => {

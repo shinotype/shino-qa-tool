@@ -55,7 +55,7 @@ const idlessIssues = {
   p_pos_neath: { regex: /‘neath\b/gi, ui: { label: "‘neath", toLabel: "’neath", copy: "‘neath\\b", paste: "’neath", mw: "", copyLabels: false}, type: IssueType.PG},
   p_pos_nother: { regex: /‘nother\b/gi, ui: { label: "‘nother", toLabel: "’nother", copy: "‘nother\\b", paste: "’nother", mw: "", copyLabels: false}, type: IssueType.PG},
   p_pos_people1: { regex: /peoples/gi, ui: { label: "peoples", toLabel: "add apostrophe?", copy: "peoples", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
-  p_pos_people2: { regex: /mens/gi, ui: { label: "mens", toLabel: "add apostrophe?", copy: "mens", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
+  p_pos_people2: { regex: /\bmens/gi, ui: { label: "mens", toLabel: "add apostrophe?", copy: "\\bmens", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
   p_pos_people3: { regex: /womens/gi, ui: { label: "womens", toLabel: "add apostrophe?", copy: "womens", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
   p_pos_people4: { regex: /childrens/gi, ui: { label: "childrens", toLabel: "add apostrophe?", copy: "childrens", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
   p_pos_round: { regex: /‘round\b/gi, ui: { label: "‘round", toLabel: "’round", copy: "‘round\\b", paste: "’round", mw: "", copyLabels: false}, type: IssueType.PG},
