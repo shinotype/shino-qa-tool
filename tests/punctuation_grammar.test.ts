@@ -233,6 +233,7 @@ test("mens", () => {
 
 test("mens: respects word boundaries", () => {
   expectNoResult(countIssues("CLemens"));
+  expectNoResult(countIssues("MENstruAte"));
 });
 
 test("womens", () => {
