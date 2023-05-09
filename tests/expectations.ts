@@ -2,8 +2,7 @@ import { IssueInstance } from '../src/qatool';
 import { IssueId } from '../src/issues';
 
 export function expectResult(actualResult: IssueInstance[], expectedResult: string) {
-  expect(actualResult).toHaveLength(1);
-  expect(actualResult[0].id).toBe(expectedResult);
+  expect(actualResult).toEqual(expect.arrayContaining([expect.objectContaining({id: expectedResult})]));
 }
 
 export function expectContainsResult(actualResult: IssueInstance[], expectedResult: string, expectedOccurrences: number) {

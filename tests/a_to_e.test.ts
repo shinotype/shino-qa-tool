@@ -76,6 +76,14 @@ test("animal-like", () => {
   expectResult(countIssues("animal-LIKE"), issues.animal_like.id);
 });
 
+test("anti-", () => {
+  expectResult(countIssues("ANti-dote"), issues.anti_hyphen.id);
+});
+
+test("anti-: respects word boundaries", () => {
+  expectNoResult(countIssues("MANti-s"));
+});
+
 test("arm-in-arm", () => {
   expectResult(countIssues("aRM-in-ARM"), issues.arm_in_arm.id);
 });
@@ -599,6 +607,14 @@ test("entree", () => {
 
 test("ever-so", () => {
   expectResult(countIssues("ever-SO"), issues.ever_so.id);
+});
+
+test("extra-", () => {
+  expectResult(countIssues("EXtra-large"), issues.extra_hyphen.id);
+});
+
+test("extra-: respects word boundaries", () => {
+  expectNoResult(countIssues("sEXtra-large"));
 });
 
 test("eyepatch", () => {

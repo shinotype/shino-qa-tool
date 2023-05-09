@@ -18,6 +18,14 @@ test("underaged", () => {
   expectResult(countIssues("underAGED"), issues.underaged.id);
 });
 
+test("un-", () => {
+  expectResult(countIssues("UN-house"), issues.un_hyphen.id);
+});
+
+test("un-: respects word boundaries", () => {
+  expectNoResult(countIssues("FUN-house"));
+});
+
 test("unnamable", () => {
   expectResult(countIssues("UNnamable"), issues.unnamable.id);
 });

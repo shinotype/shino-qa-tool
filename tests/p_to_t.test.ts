@@ -46,8 +46,24 @@ test("point blank", () => {
   expectResult(countIssues("Point BLANK"), issues.point_blank.id);
 });
 
+test("post-", () => {
+  expectResult(countIssues("POST-haste"), issues.post_hyphen.id);
+});
+
+test("post-: respects word boundaries", () => {
+  expectNoResult(countIssues("UNPOST-haste"));
+});
+
 test("power-walk", () => {
   expectResult(countIssues("POWER-walk"), issues.power_walk.id);
+});
+
+test("pre-", () => {
+  expectResult(countIssues("PRE-haste"), issues.pre_hyphen.id);
+});
+
+test("pre-: respects word boundaries", () => {
+  expectNoResult(countIssues("UNPRE-haste"));
 });
 
 test("principal", () => {
@@ -116,6 +132,14 @@ test("rear view mirror", () => {
 
 test("rear-view mirror", () => {
   expectResult(countIssues("REAR-view mirror"), issues.rear_view_mirror2.id);
+});
+
+test("re-", () => {
+  expectResult(countIssues("RE-haste"), issues.re_hyphen.id);
+});
+
+test("re-: respects word boundaries", () => {
+  expectNoResult(countIssues("UNRE-haste"));
 });
 
 test("re-absorb", () => {
@@ -238,12 +262,24 @@ test("second-hand", () => {
   expectResult(countIssues("second-HAND"), issues.second_hand.id);
 });
 
+test("second in command", () => {
+  expectResult(countIssues("second IN command"), issues.second_in_command.id);
+});
+
 test("self expression", () => {
   expectResult(countIssues("SELF expression"), issues.self_expression.id);
 });
 
 test("self pity", () => {
   expectResult(countIssues("SELF pity"), issues.self_pity.id);
+});
+
+test("semi-", () => {
+  expectResult(countIssues("SEMI-haste"), issues.semi_hyphen.id);
+});
+
+test("semi-: respects word boundaries", () => {
+  expectNoResult(countIssues("UNSEMI-haste"));
 });
 
 test("semi-circle", () => {
@@ -454,6 +490,14 @@ test("sun-tan", () => {
   expectResult(countIssues("SUN-tan"), issues.sun_tan.id);
 });
 
+test("super-", () => {
+  expectResult(countIssues("SUPER-haste"), issues.super_hyphen.id);
+});
+
+test("super-: respects word boundaries", () => {
+  expectNoResult(countIssues("UNSUPER-haste"));
+});
+
 test("swiss cheese", () => {
   expectResult(countIssues("ate swiss cheese"), issues.swiss.id);
 });
@@ -584,4 +628,8 @@ test("twintail", () => {
 
 test("two-fold", () => {
   expectResult(countIssues("TWO-fold"), issues.two_fold.id);
+});
+
+test("two on two", () => {
+  expectResult(countIssues("TWO on TWO"), issues.two_on_two.id);
 });

@@ -27,7 +27,7 @@ test("knowhow", () => {
 });
 
 test("laid", () => {
-  expectResult(countIssues("laID"), issues.laid.id);
+  expectResult(countIssues("laID"), issues.lie3.id);
 });
 
 test("laid: respects word boundaries", () => {
@@ -51,15 +51,40 @@ test("last-ditch", () => {
 });
 
 test("laying", () => {
-  expectResult(countIssues("laYIng"), issues.laying.id);
+  expectResult(countIssues("laYIng"), issues.lie2.id);
 });
 
 test("laying: respects word boundaries", () => {
   expectNoResult(countIssues("PlAYIng"));
 });
 
+test("lay man", () => {
+  expectResult(countIssues("lay MAN"), issues.lay_man.id);
+});
+
+test("lay men", () => {
+  expectResult(countIssues("lay MEN"), issues.lay_men.id);
+});
+
+test("lay people", () => {
+  expectResult(countIssues("lay PEOPLE"), issues.lay_people.id);
+});
+
+test("lay person", () => {
+  expectResult(countIssues("lay PERSON"), issues.lay_person.id);
+});
+
+test("lay woman", () => {
+  expectResult(countIssues("lay WOMAN"), issues.lay_woman.id);
+});
+
+test("lay women", () => {
+  expectResult(countIssues("lay WOMEN"), issues.lay_women.id);
+});
+
+
 test("lied", () => {
-  expectResult(countIssues("LieD"), issues.lied.id);
+  expectResult(countIssues("LieD"), issues.lie1.id);
 });
 
 test("lied: respects word boundaries", () => {
@@ -132,6 +157,14 @@ test("light hearted", () => {
 
 test("light-weight", () => {
   expectResult(countIssues("LIGHT-weight"), issues.light_weight.id);
+});
+
+test("-like", () => {
+  expectResult(countIssues("apple-liKE"), issues.like_hyphen.id);
+});
+
+test("-like: respects word boundaries", () => {
+  expectNoResult(countIssues("apple-likeS"));
 });
 
 test("line-up", () => {
@@ -270,6 +303,14 @@ test("moustache", () => {
   expectResult(countIssues("MOUSTache"), issues.moustache.id);
 });
 
+test("multi-", () => {
+  expectResult(countIssues("MULTI-minded"), issues.multi_hyphen.id);
+});
+
+test("multi-: respects word boundaries", () => {
+  expectNoResult(countIssues("SMULTI-minded"));
+});
+
 test("multi-headed", () => {
   expectResult(countIssues("MULTI-headed"), issues.multi_headed.id);
 });
@@ -290,6 +331,14 @@ test("natural born", () => {
   expectResult(countIssues("NATURAL born"), issues.natural_born.id);
 });
 
+test("near-", () => {
+  expectResult(countIssues("NEAR-far"), issues.near_hyphen.id);
+});
+
+test("near-: respects word boundaries", () => {
+  expectNoResult(countIssues("SNEAR-far"));
+});
+
 test("neverending", () => {
   expectResult(countIssues("neverENDING"), issues.neverending.id);
 });
@@ -305,6 +354,14 @@ test("new found", () => {
 test("new-found", () => {
   expectResult(countIssues("new-FOUND"), issues.new_found2.id);
 }); 
+
+test("non-", () => {
+  expectResult(countIssues("non-banana"), issues.non_hyphen.id);
+});
+
+test("non-: respects word boundaries", () => {
+  expectNoResult(countIssues("SNON-big"));
+});
 
 test("non-alcoholic", () => {
   expectResult(countIssues("NON-alcoholic"), issues.non_alcoholic.id);
@@ -461,6 +518,10 @@ test("on-stage", () => {
 
 test("on stage", () => {
   expectResult(countIssues("on STAGE"), issues.on_stage2.id);
+});
+
+test("one on one", () => {
+  expectResult(countIssues("ONE on ONE"), issues.one_on_one.id);
 });
 
 test("one-time", () => {

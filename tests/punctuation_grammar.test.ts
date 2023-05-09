@@ -23,8 +23,12 @@ test("space before period ignores multiple periods", () => {
   expectNoResult(countIssues("Hello ... There"));
 });
 
+test("space before comma", () => {
+  expectResult(countIssues("Hello ,"), issues.p_space4.id);
+});
+
 test("space between punctuation and quote", () => {
-  expectContainsResult(countIssues("a. ” b? ” c! ”"), issues.p_space4.id, 3);
+  expectContainsResult(countIssues("a. ” b? ” c! ”"), issues.p_space5.id, 3);
 });
 
 test("two periods", () => {
@@ -199,6 +203,14 @@ test("'fraid (wrong curly quote)", () => {
   expectResult(countIssues("‘fraid"), issues.p_pos_fraid.id);
 });
 
+test("lil’", () => {
+  expectResult(countIssues("my lil’ friend"), issues.p_pos_lil1.id);
+});
+
+test("lil", () => {
+  expectResult(countIssues("boo lil wow"), issues.p_pos_lil2.id);
+});
+
 test("'neath (wrong curly quote)", () => {
   expectResult(countIssues("‘neath"), issues.p_pos_neath.id);
 });
@@ -209,6 +221,22 @@ test("'gainst (wrong curly quote)", () => {
 
 test("'cept (wrong curly quote)", () => {
   expectResult(countIssues("‘cept"), issues.p_pos_cept.id);
+});
+
+test("peoples", () => {
+  expectResult(countIssues("peoples"), issues.p_pos_people1.id);
+});
+
+test("mens", () => {
+  expectResult(countIssues("mens"), issues.p_pos_people2.id);
+});
+
+test("womens", () => {
+  expectResult(countIssues("womens"), issues.p_pos_people3.id);
+});
+
+test("childrens", () => {
+  expectResult(countIssues("childrens"), issues.p_pos_people4.id);
 });
 
 test("'round (wrong curly quote)", () => {
@@ -292,6 +320,10 @@ test("less used for countable quantity respects word boundaries", () => {
 
 test("double possessive", () => {
   expectResult(countIssues("Jim’s and Bob’s stuff"), issues.p_possessive_double.id);
+});
+
+test("reason why", () => {
+  expectResult(countIssues("REASON why"), issues.z_reason_why.id);
 });
 
 test("no space before measurements", () => {

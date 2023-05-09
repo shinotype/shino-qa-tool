@@ -70,6 +70,10 @@ test("first hand", () => {
   expectResult(countIssues("FIRST hand"), issues.first_hand2.id);
 });
 
+test("first in command", () => {
+  expectResult(countIssues("FIRST in COMMAND"), issues.first_in_command.id);
+});
+
 test("fist-fight", () => {
   expectResult(countIssues("FIST-fight"), issues.fist_fight.id);
 });
@@ -385,6 +389,18 @@ test("hitman", () => {
   expectResult(countIssues("hitMAN"), issues.hitman.id);
 });
 
+test("hold onto", () => {
+  expectResult(countIssues("hold onto"), issues.hold_onto.id);
+});
+
+test("holding onto", () => {
+  expectResult(countIssues("holding onto"), issues.hold_onto2.id);
+});
+
+test("held onto", () => {
+  expectResult(countIssues("held onto"), issues.hold_onto3.id);
+});
+
 test("home-made", () => {
   expectResult(countIssues("home-MADE"), issues.home_made.id);
 });
@@ -407,6 +423,14 @@ test("hurrah", () => {
 
 test("hurray", () => {
   expectResult(countIssues("HurRAY"), issues.hurray.id);
+});
+
+test("hyper-", () => {
+  expectResult(countIssues("HYper-speed"), issues.hyper_hyphen.id);
+});
+
+test("hyper-: respects word boundaries", () => {
+  expectNoResult(countIssues("shYper-big"));
 });
 
 test("ice box", () => {
