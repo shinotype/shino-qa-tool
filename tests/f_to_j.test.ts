@@ -10,6 +10,10 @@ test("faint-hearted", () => {
   expectResult(countIssues("faint-HEARTed"), issues.faint_hearted.id);
 });
 
+test("far flung", () => {
+  expectResult(countIssues("FAR flung"), issues.far_flung.id);
+});
+
 test("farm work", () => {
   expectResult(countIssues("FARM work"), issues.farm_work.id);
 });

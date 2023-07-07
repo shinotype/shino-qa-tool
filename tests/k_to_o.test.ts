@@ -82,7 +82,6 @@ test("lay women", () => {
   expectResult(countIssues("lay WOMEN"), issues.lay_women.id);
 });
 
-
 test("lied", () => {
   expectResult(countIssues("LieD"), issues.lie1.id);
 });
@@ -91,8 +90,8 @@ test("lied: respects word boundaries", () => {
   expectNoResult(countIssues("pLieD"));
 });
 
-test("off-handed", () => {
-  expectResult(countIssues("OFF-handed"), issues.off_handed.id);
+test("lily white", () => {
+  expectResult(countIssues("LILY white"), issues.lily_white.id);
 });
 
 test("lead", () => {
@@ -199,12 +198,20 @@ test("lookalike", () => {
   expectResult(countIssues("looKAlike"), issues.lookalike.id);
 });
 
+test("loveable", () => {
+  expectResult(countIssues("loveABLE"), issues.loveable.id);
+});
+
 test("love-struck", () => {
   expectResult(countIssues("love-STRUCK"), issues.love_struck.id);
 });
 
 test("lunchbox", () => {
   expectResult(countIssues("lunchBOX"), issues.lunchbox.id);
+});
+
+test("lunch time", () => {
+  expectResult(countIssues("lunch TIME"), issues.lunch_time.id);
 });
 
 test("make due", () => {
@@ -243,6 +250,18 @@ test("mass-production", () => {
   expectResult(countIssues("MASs-ProDuctIon"), issues.mass_production.id);
 });
 
+test("masterclass", () => {
+  expectResult(countIssues("MASTERclass"), issues.masterclass.id);
+});
+
+test("match-up", () => {
+  expectResult(countIssues("MATCH-up"), issues.match_up.id);
+});
+
+test("maze-like", () => {
+  expectResult(countIssues("MAZE-like"), issues.maze_like.id);
+});
+
 test("meagre", () => {
   expectResult(countIssues("meAgrE"), issues.meagre.id);
 });
@@ -265,6 +284,10 @@ test("mid-section", () => {
 
 test("mid-sentence", () => {
   expectResult(countIssues("mID-sEnTenCe"), issues.mid_sentence.id);
+});
+
+test("mid-size", () => {
+  expectResult(countIssues("mID-sIzE"), issues.mid_size.id);
 });
 
 test("mid-twenties", () => {
@@ -429,6 +452,14 @@ test("non-threatening", () => {
 
 test("non-zero", () => {
   expectResult(countIssues("non-ZERO"), issues.non_zero.id);
+});
+
+test("north east", () => {
+  expectResult(countIssues("NORTH east"), issues.north_east.id);
+});
+
+test("north west", () => {
+  expectResult(countIssues("NORTH west"), issues.north_west.id);
 });
 
 test("notetaking", () => {

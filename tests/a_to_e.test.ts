@@ -22,6 +22,10 @@ test("adult-like", () => {
   expectResult(countIssues("adult-LIKE"), issues.adult_like.id);
 })
 
+test("adverting", () => {
+  expectResult(countIssues("adVERting"), issues.adverting.id);
+})
+
 test("after-effect", () => {
   expectResult(countIssues("after-EFFECT"), issues.after_effect.id);
 })
@@ -84,6 +88,10 @@ test("anti-: respects word boundaries", () => {
   expectNoResult(countIssues("MANti-s"));
 });
 
+test("any time soon-", () => {
+  expectResult(countIssues("ANY time SOON"), issues.any_time_soon.id);
+});
+
 test("arm-in-arm", () => {
   expectResult(countIssues("aRM-in-ARM"), issues.arm_in_arm.id);
 });
@@ -126,6 +134,10 @@ test("back-and-forth", () => {
 
 test("back and forth", () => {
   expectResult(countIssues("BAck AND forth"), issues.back_and_forth2.id);
+});
+
+test("back-breaking", () => {
+  expectResult(countIssues("BAck-BREAking"), issues.back_breaking.id);
 });
 
 test("back to back", () => {
@@ -217,12 +229,20 @@ test("blood-sucking", () => {
   expectResult(countIssues("he was BlOod-SUcKing"), issues.blood_sucking.id);
 });
 
+test("bow string", () => {
+  expectResult(countIssues("BOw string"), issues.bow_string.id);
+});
+
 test("braindead", () => {
   expectResult(countIssues("BRAINdead"), issues.braindead.id);
 });
 
 test("brain dead", () => {
   expectResult(countIssues("BRAIN dead"), issues.brain_dead.id);
+});
+
+test("breakdancing", () => {
+  expectResult(countIssues("BREAKdancing"), issues.breakdancing.id);
 });
 
 test("broadminded", () => {
@@ -305,12 +325,24 @@ test("chainmail", () => {
   expectResult(countIssues("CHAINmail"), issues.chainmail.id);
 });
 
+test("check-up", () => {
+  expectResult(countIssues("check-UP"), issues.check_up.id);
+});
+
+test("child-like", () => {
+  expectResult(countIssues("child-LIKE"), issues.child_like.id);
+});
+
 test("chit-chat", () => {
   expectResult(countIssues("CHIT-chat"), issues.chit_chat.id);
 });
 
 test("chit chat", () => {
   expectResult(countIssues("CHIT chat"), issues.chit_chat2.id);
+});
+
+test("chock full", () => {
+  expectResult(countIssues("CHOCK full"), issues.chock_full.id);
 });
 
 test("chokehold", () => {
@@ -339,6 +371,10 @@ test("cliff hanger", () => {
 
 test("cliffhanger", () => {
   expectResult(countIssues("CLIFFhanger"), issues.cliffhanger.id);
+});
+
+test("climatic", () => {
+  expectResult(countIssues("CLImatic"), issues.climatic.id);
 });
 
 test("closeup", () => {
@@ -431,6 +467,10 @@ test("crystal-clear", () => {
 
 test("crystalized", () => {
   expectResult(countIssues("CRYstalIzed"), issues.crystalized.id);
+});
+
+test("curtsey", () => {
+  expectResult(countIssues("CURTsey"), issues.curtsey.id);
 });
 
 test("cut and dried", () => {
@@ -585,6 +625,10 @@ test("ear-splitting", () => {
   expectResult(countIssues("EAR-splitting"), issues.ear_splitting.id);
 });
 
+test("earth-shaking", () => {
+  expectResult(countIssues("EARTH-shaking"), issues.earth_shaking.id);
+});
+
 test("elicit", () => {
   expectResult(countIssues("ELIcit"), issues.elicit.id);
 });
@@ -596,6 +640,10 @@ test("emphasise", () => {
 test("emphasising", () => {
   expectResult(countIssues("emphaSisING"), issues.emphasising.id);
 });
+
+test("enquire", () => {
+  expectResult(countIssues("ENQuire"), issues.enquire.id);
+}); 
 
 test("enroute", () => {
   expectResult(countIssues("EnRoute"), issues.enroute.id);

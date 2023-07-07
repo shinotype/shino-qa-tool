@@ -179,6 +179,10 @@ test("'cause (wrong curly quote)", () => {
   expectResult(countIssues("‘cause"), issues.p_pos_cause.id);
 });
 
+test("'cuz (wrong curly quote)", () => {
+  expectResult(countIssues("‘cuz"), issues.p_pos_cuz.id);
+});
+
 test("'sup (wrong curly quote)", () => {
   expectResult(countIssues("‘sup"), issues.p_pos_sup.id);
 });
@@ -282,6 +286,17 @@ test("missing end quotes", () => {
 
 test("missing punctuation after paragraph", () => {
   expectResult(countIssues("hello\ngoodbye"), issues.p_punctuation_before_newline.id);
+});
+
+test("missing punctuation after paragraph: doesn't flag punctuation", () => {
+  expectNoResult(countIssues("hello!\ngoodbye"));
+  expectNoResult(countIssues("hello.\ngoodbye"));
+  expectNoResult(countIssues("hello?\ngoodbye"));
+  expectNoResult(countIssues("hello”\ngoodbye"));
+  expectNoResult(countIssues("hello:\ngoodbye"));
+  expectNoResult(countIssues("hello)\ngoodbye"));
+  expectNoResult(countIssues("hello]\ngoodbye"));
+  expectNoResult(countIssues("hello—\ngoodbye"));
 });
 
 test("hyphenated adverbs (ly-)", () => {

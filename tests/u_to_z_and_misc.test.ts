@@ -10,6 +10,15 @@ test("uh huh: respects word boundaries", () => {
   expectNoResult(countIssues("Nuh HUH"));
 });
 
+test("uh oh", () => {
+  expectResult(countIssues("uh OH"), issues.uh_oh.id);
+});
+
+test("uh oh: respects word boundaries", () => {
+  expectNoResult(countIssues("Buh OH"));
+  expectNoResult(countIssues("uh OHn"));
+});
+
 test("ultra-thin", () => {
   expectResult(countIssues("ULTRA-thin"), issues.ultra_thin.id);
 });
@@ -70,12 +79,20 @@ test("vocal chord", () => {
   expectResult(countIssues("vocal CHORD"), issues.vocal_chord.id);
 });
 
+test("wake up call", () => {
+  expectResult(countIssues("wake UP call"), issues.wake_up_call.id);
+});
+
 test("walkthrough", () => {
   expectResult(countIssues("waLKthrough"), issues.walkthrough.id);
 });
 
 test("wash bowl", () => {
   expectResult(countIssues("wash BOWL"), issues.wash_bowl.id);
+});
+
+test("watch tower", () => {
+  expectResult(countIssues("watch TOWER"), issues.watch_tower.id);
 });
 
 test("week-long", () => {
@@ -120,6 +137,23 @@ test("witch-like", () => {
 
 test("woah", () => {
   expectResult(countIssues("WOAh!"), issues.woah.id);
+});
+
+test("woo hoo", () => {
+  expectResult(countIssues("woo HOO"), issues.woo_hoo.id);
+});
+
+test("woohoo", () => {
+  expectResult(countIssues("wooHOO"), issues.woohoo.id);
+});
+
+test("work room", () => {
+  expectResult(countIssues("work ROOM"), issues.work_room.id);
+});
+
+test("work room: respects word boundaries", () => {
+  expectNoResult(countIssues("badwork ROOM"));
+  expectNoResult(countIssues("work ROOMING"));
 });
 
 test("worshiping", () => {

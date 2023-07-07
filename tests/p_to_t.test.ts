@@ -174,6 +174,10 @@ test("ribcage", () => {
   expectResult(countIssues("ribcage"), issues.ribcage.id);
 });
 
+test("right hand man", () => {
+  expectResult(countIssues("RIGHT hand man"), issues.right_hand_man.id);
+});
+
 test("r.i.p", () => {
   expectResult(countIssues("r.i.P"), issues.rip.id);
 });
@@ -236,6 +240,10 @@ test("run in: respects word boundaries", () => {
 
 test("run-in", () => {
   expectResult(countIssues("run-IN"), issues.run_in2.id);
+});
+
+test("saddle bag", () => {
+  expectResult(countIssues("SADDLE bag"), issues.saddle_bag.id);
 });
 
 test("saute", () => {
@@ -434,8 +442,28 @@ test("soulmate", () => {
   expectResult(countIssues("soulMATE"), issues.soul.id);
 });
 
+test("south east", () => {
+  expectResult(countIssues("SOUTH east"), issues.south_east.id);
+});
+
+test("south west", () => {
+  expectResult(countIssues("SOUTH west"), issues.south_west.id);
+});
+
 test("spine-like", () => {
   expectResult(countIssues("spine-LIKE"), issues.spine_like.id);
+});
+
+test("split second", () => {
+  expectResult(countIssues("SPLIT second"), issues.split_second1.id);
+});
+
+test("split-second", () => {
+  expectResult(countIssues("SPLIT-second"), issues.split_second2.id);
+});
+
+test("spread eagle", () => {
+  expectResult(countIssues("SPREAD eagle"), issues.spread_eagle.id);
 });
 
 test("standalone", () => {
@@ -466,6 +494,10 @@ test("storyline", () => {
   expectResult(countIssues("SToryLine"), issues.storyline.id);
 });
 
+test("straight away", () => {
+  expectResult(countIssues("STRAIGHT away"), issues.straight_away.id);
+});
+
 test("straightlaced", () => {
   expectResult(countIssues("STRAIGHTlaced"), issues.strait.id);
 });
@@ -488,6 +520,10 @@ test("sub-zero", () => {
 
 test("sun-tan", () => {
   expectResult(countIssues("SUN-tan"), issues.sun_tan.id);
+});
+
+test("super duper", () => {
+  expectResult(countIssues("SUPER duper"), issues.super_duper.id);
 });
 
 test("super-", () => {
@@ -554,6 +590,10 @@ test("tete-a-tete", () => {
   expectResult(countIssues("tete-a-TETE"), issues.tete_a_tete.id);
 });
 
+test("the lead up", () => {
+  expectResult(countIssues("THE lead up"), issues.lead_up.id);
+});
+
 test("three-fold", () => {
   expectResult(countIssues("THREE-fold"), issues.three_fold.id);
 });
@@ -580,6 +620,10 @@ test("tipoff", () => {
 
 test("top-secret", () => {
   expectResult(countIssues("TOP-secret"), issues.top_secret.id);
+});
+
+test("touchy feely", () => {
+  expectResult(countIssues("TOUCHy feely"), issues.touchy_feely.id);
 });
 
 test("tradeoff", () => {
