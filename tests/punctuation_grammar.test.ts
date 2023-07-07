@@ -211,8 +211,17 @@ test("lil’", () => {
   expectResult(countIssues("my lil’ friend"), issues.p_pos_lil1.id);
 });
 
+test("lil’: respects word boundaries", () => {
+  expectNoResult(countIssues("my blil’ friend"));
+});
+
 test("lil", () => {
   expectResult(countIssues("boo lil wow"), issues.p_pos_lil2.id);
+});
+
+test("lil: respects word boundaries", () => {
+  expectNoResult(countIssues("lily green"));
+  expectNoResult(countIssues("slil green"));
 });
 
 test("'neath (wrong curly quote)", () => {

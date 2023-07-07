@@ -38,6 +38,16 @@ test("plantlife", () => {
   expectResult(countIssues("PlAntLife"), issues.plantlife.id);
 });
 
+test("plead", () => {
+  expectResult(countIssues("PleAD"), issues.plead.id);
+});
+
+test("plead: respects word boundaries", () => {
+  expectNoResult(countIssues("PLEAded"));
+  expectNoResult(countIssues("uNPLead"));
+});
+
+
 test("plough", () => {
   expectResult(countIssues("PloUghing"), issues.plough.id);
 });
@@ -508,6 +518,11 @@ test("street light", () => {
 
 test("strong arm", () => {
   expectResult(countIssues("STRONG arm"), issues.strong_arm.id);
+});
+
+test("strong arm: respects word boundaries", () => {
+  expectNoResult(countIssues("big STRONG arms"));
+  expectNoResult(countIssues("unSTRONG arm"));
 });
 
 test("sub-par", () => {
