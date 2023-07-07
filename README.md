@@ -8,7 +8,7 @@ You can file bug reports and feature requests on the issues tab. Given the natur
 
 ## Updates
 
-**Last updated:** 1/8/2023.
+**Last updated:** 5/8/2023.
 
 ## Setup
 ```npm install```
