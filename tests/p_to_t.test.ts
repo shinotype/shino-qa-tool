@@ -500,8 +500,8 @@ test("stone-like", () => {
   expectResult(countIssues("STONE-like"), issues.stone_like.id);
 });
 
-test("storyline", () => {
-  expectResult(countIssues("SToryLine"), issues.storyline.id);
+test("story line", () => {
+  expectResult(countIssues("STory Line"), issues.story_line.id);
 });
 
 test("straight away", () => {
