@@ -8,7 +8,12 @@ export function init(initContainer: HTMLElement, textProvider: () => Promise<str
   initContainer.append(container);
 
   const runButton = parseHtml(`<button class="runButton">Run checks</button>`) as HTMLButtonElement;
-  container.append(runButton);
+  const toggleContainer = parseHtml(`<div class="toggleContainer"></div>`);
+  toggleContainer.append(runButton);
+
+  const selectCompany = parseHtml(`<select class="companySelect"><option selected value="jnc">JNC</option><option value="yp">YP</option></select>`) as HTMLSelectElement;
+  toggleContainer.append(selectCompany);
+  container.append(toggleContainer);
 
   const resultContainer = parseHtml(`
     <div class="resultContainer">
@@ -18,15 +23,20 @@ export function init(initContainer: HTMLElement, textProvider: () => Promise<str
   container.append(resultContainer);
 
   runButton.addEventListener('click', async () => {
-    await runChecks(runButton, resultContainer, textProvider);
+    await runChecks(runButton, selectCompany.selectedIndex, resultContainer, textProvider);
+  });
+
+  selectCompany.addEventListener('change', async () => {
+    await runChecks(runButton, selectCompany.selectedIndex, resultContainer, textProvider);
   });
 
   // Run once immediately when initialized. This doesn't await the result which is bad but I don't care.
-  runChecks(runButton, resultContainer, textProvider);
+  runChecks(runButton, selectCompany.selectedIndex, resultContainer, textProvider);
 }
 
 async function runChecks(
     runButton: HTMLButtonElement,
+    selectedCompanyIndex: number,
     resultContainer: Element,
     textProvider: () => Promise<string>) {
   runButton.disabled = true;
@@ -34,7 +44,7 @@ async function runChecks(
 
   const issueContainer = $('.issueContainer', resultContainer);
   const text = await textProvider();
-  const result = findIssues(text);
+  const result = findIssues(text, selectedCompanyIndex);
   renderIssues(issueContainer, result);
   result.length === 0 ? resultContainer.classList.add("empty") : resultContainer.classList.remove("empty");
 
@@ -76,9 +86,12 @@ function renderIssues(issueContainer: Element, issues: UiIssue[]) {
     }
 
     if (issue.mw) {
-      const mwLabel = parseHtml(`<div class="label mw">MW</div>`);
-      mwLabel.addEventListener('click', () => copyText("https://www.merriam-webster.com/dictionary/" + encodeURI(issue.mw as string)));
-      labelContainer.append(mwLabel)
+      const mwCopyLabel = parseHtml(`<div class="label mw copy" title="Copy MW link"><img src="img/link.png"></div>`);
+      mwCopyLabel.addEventListener('click', () => copyText("https://www.merriam-webster.com/dictionary/" + encodeURI(issue.mw as string)));
+      labelContainer.append(mwCopyLabel);
+
+      const mwGoLabel = parseHtml(`<a href="https://www.merriam-webster.com/dictionary/${encodeURI(issue.mw as string)}" target="_blank" rel="noopener noreferrer"><div class="label mw go" title="Go to MW"><img src="img/share.png"></div></a>`);
+      labelContainer.append(mwGoLabel);
     }
 
     issueContainer.append(issueElement);

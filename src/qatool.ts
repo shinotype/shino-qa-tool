@@ -1,4 +1,4 @@
-import { issues, IssueId } from "./issues";
+import { issues, IssueId, Issue, Company } from "./issues";
 
 export interface IssueInstance {
   id: IssueId,
@@ -15,15 +15,20 @@ export interface UiIssue {
   mw?: string,
 }
 
-export function findIssues(text: string): UiIssue[] {
-  return countIssues(text).map(toUiIssue);
+export function findIssues(text: string, selectedCompanyIndex: number): UiIssue[] {
+  return countIssues(text, selectedCompanyIndex).map(toUiIssue);
 }
 
-export function countIssues(text: string): IssueInstance[] {
+export function countIssues(text: string, selectedCompanyIndex: number): IssueInstance[] {
   const result : IssueInstance[] = [];
   for (const issue of Object.values(issues)) {
     const issueId = issue.id;
     const regex = issue.regex;
+
+    if (!companyMatch(issue, selectedCompanyIndex)) {
+      console.log("Not company match; returning");
+      continue;
+    }
 
     const numMatches = (text.match(regex) || []).length;
 
@@ -48,4 +53,18 @@ function toUiIssue(issueInstance: IssueInstance): UiIssue {
     paste: issueData.ui.copyLabels ? issueData.ui.toLabel : (issueData.ui.paste || ""),
     mw: issueData.ui.mw || "",
   };
+}
+
+function companyMatch(issue: Issue, selectedCompanyIndex: number): boolean {
+  if (issue.appliesTo == null || issue.appliesTo.length == 0) {
+    return true;
+  }
+  switch (selectedCompanyIndex) {
+    case 0: // JNC
+      return issue.appliesTo!.includes(Company.JNC);
+    case 1: // YP
+      return issue.appliesTo!.includes(Company.YP);
+    default:
+      throw new Error("Selected company index out of bounds: " + selectedCompanyIndex);
+  }
 }

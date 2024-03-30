@@ -35,8 +35,6 @@ button:active {
   font-size: 20px;
   font-weight: bold;
   height: auto;
-  width: 200px;
-  margin: 12px;
   padding: 8px 16px;
 }
 
@@ -88,10 +86,31 @@ button:active {
   background-color: #ccc;
   font-size: 9px;
   font-weight: bold;
+  position: relative;
+  height: 20px;
+  width: 18px;
+  margin-right: 6px;
 }
 
 .mw:hover {
   background-color: lightblue;
+}
+
+.mw > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mw.copy > img {
+  width: 15px;
+  height: 15px;
+}
+
+.mw.go > img {
+  width: 18px;
+  height: 18px;
 }
 
 .noIssuesMessage {
@@ -125,4 +144,10 @@ button:active {
   padding: 4px;
   text-align: right;
   margin: 6px 2px;
+}
+
+.toggleContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 12px;
 }

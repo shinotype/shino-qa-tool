@@ -8,6 +8,11 @@ export const IssueType = {
   SL: Symbol("slurs"),
 }
 
+export const Company = {
+  JNC: Symbol("jnc"),
+  YP: Symbol("yp"),
+}
+
 export interface Issue {
   id: IssueId,
   regex: RegExp,
@@ -20,14 +25,17 @@ export interface Issue {
     mw?: string,
   }
   type: Symbol,
+  appliesTo?: Symbol[],
 }
 
 const idlessIssues = {
   p_bang: { regex: /!\?/g, ui: { label: "!?", toLabel: "?!", copy: "!\\?", paste: "\\?!", mw: "", copyLabels: false}, type: IssueType.PG},
   p_bang2: { regex: /([^!]|^)!!([^!]|$)/g, ui: { label: "!!", toLabel: "! or !!!", copy: "([^!]|^)!!([^!]|$)", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
   p_comma: { regex: /”,/gi, ui: { label: "Comma outside ”", toLabel: "", copy: "”,", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
-  p_comma_either: { regex: /, either/gi, ui: { label: ", either", toLabel: "", copy: ", either", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
-  p_comma_too: { regex: /, too\b/gi, ui: { label: ", too", toLabel: "", copy: ", too\\b", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
+  p_comma_either: { regex: /, either/gi, ui: { label: ", either", toLabel: "", copy: ", either", paste: "", mw: "", copyLabels: false}, type: IssueType.PG, appliesTo: [Company.JNC]},
+  p_comma_too: { regex: /, too\b/gi, ui: { label: ", too", toLabel: "", copy: ", too\\b", paste: "", mw: "", copyLabels: false}, type: IssueType.PG, appliesTo: [Company.JNC]},
+  p_comma_either2: { regex: /[^,] either/gi, ui: { label: "either", toLabel: "", copy: "[^,] either", paste: "", mw: "", copyLabels: false}, type: IssueType.PG, appliesTo: [Company.YP]},
+  p_comma_too2: { regex: /[^,] too\b/gi, ui: { label: "too", toLabel: "", copy: "[^,] too\\b", paste: "", mw: "", copyLabels: false}, type: IssueType.PG, appliesTo: [Company.YP]},
   p_comma2: { regex: /’,/gi, ui: { label: "Comma outside ’", toLabel: "", copy: "’,", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
   p_dash_double: { regex: /--/g, ui: { label: "-- (double hyphen)", toLabel: "", copy: "--", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
   p_dash_em1: { regex: /— /g, ui: { label: "—[space]", toLabel: "", copy: "— ", paste: "", mw: "", copyLabels: false}, type: IssueType.PG},
