@@ -122,8 +122,8 @@ test("lifeform", () => {
   expectResult(countIssues("LIFEform"), issues.lifeform.id);
 });
 
-test("lifespan", () => {
-  expectResult(countIssues("lifeSPAN"), issues.lifespan.id);
+test("life span", () => {
+  expectResult(countIssues("life SPAN"), issues.life_span2.id);
 });
 
 test("life-span", () => {

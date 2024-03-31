@@ -1,4 +1,4 @@
-import { issues, IssueId, Issue, Company } from "./issues";
+import { issues, IssueId, Issue, StyleGuide } from "./issues";
 
 export interface IssueInstance {
   id: IssueId,
@@ -15,18 +15,21 @@ export interface UiIssue {
   mw?: string,
 }
 
-export function findIssues(text: string, selectedCompanyIndex: number): UiIssue[] {
-  return countIssues(text, selectedCompanyIndex).map(toUiIssue);
+export function findIssues(text: string, selectedStyleGuide: number): UiIssue[] {
+  return countIssuesUsingStyleGuide(text, selectedStyleGuide).map(toUiIssue);
 }
 
-export function countIssues(text: string, selectedCompanyIndex: number): IssueInstance[] {
+export function countIssues(text: string): IssueInstance[] {
+  return countIssuesUsingStyleGuide(text, -1);
+}
+
+export function countIssuesUsingStyleGuide(text: string, selectedStyleGuide: number): IssueInstance[] {
   const result : IssueInstance[] = [];
   for (const issue of Object.values(issues)) {
     const issueId = issue.id;
     const regex = issue.regex;
 
-    if (!companyMatch(issue, selectedCompanyIndex)) {
-      console.log("Not company match; returning");
+    if (!appliesForSelectedStyleGuide(issue, selectedStyleGuide)) {
       continue;
     }
 
@@ -55,16 +58,18 @@ function toUiIssue(issueInstance: IssueInstance): UiIssue {
   };
 }
 
-function companyMatch(issue: Issue, selectedCompanyIndex: number): boolean {
-  if (issue.appliesTo == null || issue.appliesTo.length == 0) {
+function appliesForSelectedStyleGuide(issue: Issue, selectedStyleGuide: number): boolean {
+  if (issue.styleGuides == null || issue.styleGuides.length == 0) {
     return true;
   }
-  switch (selectedCompanyIndex) {
+  switch (selectedStyleGuide) {
     case 0: // JNC
-      return issue.appliesTo!.includes(Company.JNC);
+      return issue.styleGuides!.includes(StyleGuide.JNC);
     case 1: // YP
-      return issue.appliesTo!.includes(Company.YP);
+      return issue.styleGuides!.includes(StyleGuide.YP);
+    case -1: // not selected
     default:
-      throw new Error("Selected company index out of bounds: " + selectedCompanyIndex);
+      // if no guide selected or unknown guide provided, assume the rule applies
+      return true;
   }
 }

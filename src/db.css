@@ -26,3 +26,7 @@
   display: inline-block;
   margin: 3px;
 }
+
+.field > label {
+  margin-right: 6px;
+}

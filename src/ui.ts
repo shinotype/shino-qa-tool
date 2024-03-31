@@ -11,8 +11,8 @@ export function init(initContainer: HTMLElement, textProvider: () => Promise<str
   const toggleContainer = parseHtml(`<div class="toggleContainer"></div>`);
   toggleContainer.append(runButton);
 
-  const selectCompany = parseHtml(`<select class="companySelect"><option selected value="jnc">JNC</option><option value="yp">YP</option></select>`) as HTMLSelectElement;
-  toggleContainer.append(selectCompany);
+  const styleGuideSelect = parseHtml(`<select class="styleGuideSelect"><option selected value="jnc">JNC</option><option value="yp">YP</option></select>`) as HTMLSelectElement;
+  toggleContainer.append(styleGuideSelect);
   container.append(toggleContainer);
 
   const resultContainer = parseHtml(`
@@ -23,20 +23,20 @@ export function init(initContainer: HTMLElement, textProvider: () => Promise<str
   container.append(resultContainer);
 
   runButton.addEventListener('click', async () => {
-    await runChecks(runButton, selectCompany.selectedIndex, resultContainer, textProvider);
+    await runChecks(runButton, styleGuideSelect.selectedIndex, resultContainer, textProvider);
   });
 
-  selectCompany.addEventListener('change', async () => {
-    await runChecks(runButton, selectCompany.selectedIndex, resultContainer, textProvider);
+  styleGuideSelect.addEventListener('change', async () => {
+    await runChecks(runButton, styleGuideSelect.selectedIndex, resultContainer, textProvider);
   });
 
   // Run once immediately when initialized. This doesn't await the result which is bad but I don't care.
-  runChecks(runButton, selectCompany.selectedIndex, resultContainer, textProvider);
+  runChecks(runButton, styleGuideSelect.selectedIndex, resultContainer, textProvider);
 }
 
 async function runChecks(
     runButton: HTMLButtonElement,
-    selectedCompanyIndex: number,
+    selectedStyleGuide: number,
     resultContainer: Element,
     textProvider: () => Promise<string>) {
   runButton.disabled = true;
@@ -44,7 +44,7 @@ async function runChecks(
 
   const issueContainer = $('.issueContainer', resultContainer);
   const text = await textProvider();
-  const result = findIssues(text, selectedCompanyIndex);
+  const result = findIssues(text, selectedStyleGuide);
   renderIssues(issueContainer, result);
   result.length === 0 ? resultContainer.classList.add("empty") : resultContainer.classList.remove("empty");
 

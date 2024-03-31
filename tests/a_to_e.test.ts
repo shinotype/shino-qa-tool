@@ -6,8 +6,8 @@ test("above ground", () => {
   expectResult(countIssues("he was aBOVE ground"), issues.above_ground.id);
 });
 
-test("absent-minded", () => {
-  expectResult(countIssues("he was aBseNt-MINDED"), issues.absent_minded.id);
+test("absentminded", () => {
+  expectResult(countIssues("he was aBseNtMINDED"), issues.absent_minded.id);
 });
 
 test("acknowledgement", () => {

@@ -250,17 +250,6 @@ test("leapt and leaped", () => {
   expectContainsResult(result, issues.leapt.id, 3);
 });
 
-test("towards and toward", () => {
-  const result = countIssues("toWARDS toward toWARDs toWard TOwards TOWARD toward");
-  expectContainsResult(result, issues.towards.id, 3);
-  expectContainsResult(result, issues.toward.id, 4);
-});
-
-test("towards and toward: respect word boundaries", () => {
-  const result = countIssues("untoWARDS untoward untoWARDs untoWard unTOwards unTOWARD untoward");
-  expectNoResult(result);
-});
-
 test("spaz", () => {
   expectResult(countIssues("this spaz that"), issues.spaz.id);
 });

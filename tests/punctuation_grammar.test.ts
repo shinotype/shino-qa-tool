@@ -19,10 +19,6 @@ test("space before period", () => {
   expectResult(countIssues("Hello ."), issues.p_space3.id);
 });
 
-test("space before period ignores multiple periods", () => {
-  expectNoResult(countIssues("Hello ... There"));
-});
-
 test("space before comma", () => {
   expectResult(countIssues("Hello ,"), issues.p_space4.id);
 });
@@ -35,24 +31,12 @@ test("two periods", () => {
   expectResult(countIssues("Hello .. There"), issues.p_period.id);
 });
 
-test("two periods ignores three periods", () => {
-  expectNoResult(countIssues("Hello ... There"));
-});
-
 test("period preceding question mark", () => {
   expectResult(countIssues("Hello.?"), issues.p_period2.id);
 });
 
 test("period preceding exclamation mark", () => {
   expectResult(countIssues("Hello.!"), issues.p_period2.id);
-});
-
-test("period preceding question mark ignores multiple periods", () => {
-  expectNoResult(countIssues("Hello...?"));
-});
-
-test("period preceding exclamation mark ignores multiple periods", () => {
-  expectNoResult(countIssues("Hello...!"));
 });
 
 test("period following question mark", () => {
@@ -67,16 +51,8 @@ test("period outside quotes", () => {
   expectResult(countIssues("“wow”. She said"), issues.p_period4.id);
 });
 
-test("period outside quotes: excludes ellipsis", () => {
-  expectNoResult(countIssues("“wow”... She said"));
-});
-
 test("period outside single quotes", () => {
   expectResult(countIssues("‘wow’. She said"), issues.p_period5.id);
-});
-
-test("period outside single quotes", () => {
-  expectNoResult(countIssues("‘wow’... She said"));
 });
 
 test("straight single quote", () => {
@@ -294,18 +270,18 @@ test("missing end quotes", () => {
 });
 
 test("missing punctuation after paragraph", () => {
-  expectResult(countIssues("hello\ngoodbye"), issues.p_punctuation_before_newline.id);
+  expectResult(countIssues("hello\nfarewell"), issues.p_punctuation_before_newline.id);
 });
 
 test("missing punctuation after paragraph: doesn't flag punctuation", () => {
-  expectNoResult(countIssues("hello!\ngoodbye"));
-  expectNoResult(countIssues("hello.\ngoodbye"));
-  expectNoResult(countIssues("hello?\ngoodbye"));
-  expectNoResult(countIssues("hello”\ngoodbye"));
-  expectNoResult(countIssues("hello:\ngoodbye"));
-  expectNoResult(countIssues("hello)\ngoodbye"));
-  expectNoResult(countIssues("hello]\ngoodbye"));
-  expectNoResult(countIssues("hello—\ngoodbye"));
+  expectNoResult(countIssues("hello!\nfarewell"));
+  expectNoResult(countIssues("hello.\nfarewell"));
+  expectNoResult(countIssues("hello?\nfarewell"));
+  expectNoResult(countIssues("hello”\nfarewell"));
+  expectNoResult(countIssues("hello:\nfarewell"));
+  expectNoResult(countIssues("hello)\nfarewell"));
+  expectNoResult(countIssues("hello]\nfarewell"));
+  expectNoResult(countIssues("hello—\nfarewell"));
 });
 
 test("hyphenated adverbs (ly-)", () => {

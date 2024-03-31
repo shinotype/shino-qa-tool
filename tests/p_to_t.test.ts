@@ -448,8 +448,8 @@ test("soft-serve", () => {
   expectResult(countIssues("sOFT-servE"), issues.soft_serve.id);
 });
 
-test("soulmate", () => {
-  expectResult(countIssues("soulMATE"), issues.soul.id);
+test("soul mate", () => {
+  expectResult(countIssues("soul MATE"), issues.soul.id);
 });
 
 test("south east", () => {

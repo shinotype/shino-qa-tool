@@ -1,4 +1,4 @@
-import { issues, IssueId, Issue, IssueType } from "./issues";
+import { issues, IssueId, Issue, IssueType, StyleGuide } from "./issues";
 import { parseHtml, $, copyText, escapeString } from './utils';
 
 import './db.css';
@@ -37,6 +37,7 @@ function renderIssueFromIssue(issue: Issue) : Element {
   const container = renderIssue(issue.id, issue.regex.toString(), issue.ui.label, issue.ui.toLabel ? issue.ui.toLabel : "", issue.ui.copy ? issue.ui.copy : "", issue.ui.paste ? issue.ui.paste : "", issue.ui.mw ? issue.ui.mw : "");
   appendCopyLabelsFromIssue(container, issue);
   appendTypeFromIssue(container, issue);
+  appendStyleGuidesFromIssue(container, issue);
   return container;
 }
 
@@ -44,6 +45,7 @@ function renderNewIssue() : Element {
   const container = renderIssue("", "", "", "", "", "", "");
   appendSelect(container, "Copy Labels?", "copylabels", ["true", "false"], "true");
   appendSelect(container, "Type", "issuetype", ["PG", "SP", "SW", "SL"], "SP");
+  appendCheckbox(container, "Style Guide", "styleguides", ["JNC", "YP"], []);
   return container;
 }
 
@@ -85,6 +87,14 @@ function appendType(container: Element, selected: string) {
   appendSelect(container, "Type", "issuetype", ["PG", "SP", "SW", "SL"], selected);
 }
 
+function appendStyleGuidesFromIssue(container: Element, issue: Issue) {
+  appendStyleGuides(container, styleGuidesToString(issue.styleGuides));
+}
+
+function appendStyleGuides(container: Element, selected: string[]) {
+  appendCheckbox(container, "Style Guides?", "styleguides", ["JNC", "YP"], selected);
+}
+
 function appendSelect(container: Element, label: string, inputClass: string, options: Array<string>, selected: string) {
   const fieldContainer = parseHtml(`<div class="field"></div>`);
   fieldContainer.appendChild(parseHtml(`<div class="label">${label}</div>`));
@@ -94,6 +104,19 @@ function appendSelect(container: Element, label: string, inputClass: string, opt
     optionHtml += `<option value="${option}"` + (selected == option ? ` selected` : ``) + `>${option}</option>`
   }
   fieldContainer.appendChild(parseHtml(`<select class="${inputClass}">` + optionHtml + `</select>`));
+  container.appendChild(fieldContainer);
+}
+
+function appendCheckbox(container: Element, label: string, inputClass: string, options: Array<string>, selected: string[]) {
+  const fieldContainer = parseHtml(`<div class="field"></div>`);
+  fieldContainer.appendChild(parseHtml(`<div class="label">${label}</div>`));
+  for (let i = 0; i < options.length; i++) {
+    let option = options[i];
+    // append date to the ID to make it unique on this page so that the label is applied to the correct checkbox
+    let optionId = option + Date.now().toString();
+    fieldContainer.append(parseHtml(`<input type="checkbox" class="${inputClass}" id="${optionId}" name="${option}"` + (selected.includes(option) ? ` checked` : ``) + `></input>`));
+    fieldContainer.append(parseHtml(`<label for="${optionId}">${option}</label>`));
+  }
   container.appendChild(fieldContainer);
 }
 
@@ -111,6 +134,7 @@ function generateIssues(issueContainer: Element, textBox: Element) {
       mw: getInputValue(issue, "mw"),
       copyLabels: getSelectValue(issue, "copylabels"),
       issueType: getSelectValue(issue, "issuetype"),
+      styleGuides: getCheckboxValues(issue, "styleguides"),
     });
   }
   issueObjects.sort((a, b) => {
@@ -122,8 +146,23 @@ function generateIssues(issueContainer: Element, textBox: Element) {
   });
   let result = "const idlessIssues = {";
   for (const issue of issueObjects) {
+    const styleGuidesArray = ["["];
+    for (let i = 0; i < issue.styleGuides.length; i++) {
+      styleGuidesArray.push("StyleGuide.");
+      styleGuidesArray.push(issue.styleGuides[i])
+      if (i < issue.styleGuides.length - 1) {
+        styleGuidesArray.push(",");
+      }
+      console.log(styleGuidesArray);
+    }
+    styleGuidesArray.push("]");
     const ui = `{ label: "${issue.fromLabel}", toLabel: "${issue.toLabel}", copy: "${issue.copy}", paste: "${issue.paste}", mw: "${issue.mw}", copyLabels: ${issue.copyLabels}}`;
-    result += `\n${issue.issueId}: { regex: ${issue.regex}, ui: ${ui}, type: IssueType.${issue.issueType}},`;
+    const toAdd = `\n${issue.issueId}: { regex: ${issue.regex}, ui: ${ui}, type: IssueType.${issue.issueType}, styleGuides: ${styleGuidesArray.join("")}}, `;
+    result += toAdd;
+
+    if (styleGuidesArray[2] == "YP") {
+      console.log(toAdd);
+    }
   }
   result += "};";
 
@@ -136,6 +175,20 @@ function getInputValue(issue: Element, selector: string) {
 
 function getSelectValue(issue: Element, selector: string) {
   return (issue.querySelector('.' + selector) as HTMLInputElement)?.value ?? "";
+}
+
+function getCheckboxValues(issue: Element, selector: string) {
+  console.log(issue);
+  const checkboxes = issue.querySelectorAll('.' + selector);
+  const result = [];
+  console.log(checkboxes);
+  for (let i = 0; i < checkboxes.length; i++) {
+    const checkbox = checkboxes[i] as HTMLInputElement;
+    if (checkbox.checked) {
+      result.push(checkbox.name);
+    }
+  }
+  return result;
 }
 
 function addNewIssue(issueContainer: Element) {
@@ -154,6 +207,22 @@ function issueTypeToString(input : Symbol) : string {
   }
   return issueType;
 }
+
+function styleGuidesToString(input?: Symbol[]) : string[] {
+  if (input == null || input.length == 0) {
+    return [];
+  }
+  const result = [];
+  for (let i = 0; i < input.length; i++) {
+    const styleGuide = input[i];
+    if (styleGuide == StyleGuide.JNC) {
+      result.push("JNC");
+    } else if (styleGuide == StyleGuide.YP) {
+      result.push("YP");
+    }
+  }
+  return result;
+} 
 
 function stringToIssueType(input: string) : Symbol  {
   // default to SP

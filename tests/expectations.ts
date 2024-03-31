@@ -1,4 +1,4 @@
-import { IssueInstance } from '../src/qatool';
+import { IssueInstance, countIssuesUsingStyleGuide } from '../src/qatool';
 import { IssueId } from '../src/issues';
 
 export function expectResult(actualResult: IssueInstance[], expectedResult: string) {
@@ -22,4 +22,12 @@ export function ids(issues: IssueInstance[]): IssueId[] {
     issueIds.push(issue.id);
   }
   return issueIds;
+}
+
+export function countIssuesJnc(text: string) {
+  return countIssuesUsingStyleGuide(text, 0);
+}
+
+export function countIssuesYp(text: string) {
+  return countIssuesUsingStyleGuide(text, 1);
 }
