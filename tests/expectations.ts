@@ -25,9 +25,9 @@ export function ids(issues: IssueInstance[]): IssueId[] {
 }
 
 export function countIssuesJnc(text: string) {
-  return countIssuesUsingStyleGuide(text, 0);
+  return countIssuesUsingStyleGuide(text, 0 /* jnc style guide index */);
 }
 
 export function countIssuesYp(text: string) {
-  return countIssuesUsingStyleGuide(text, 1);
+  return countIssuesUsingStyleGuide(text, 1 /* yp style guide index */);
 }

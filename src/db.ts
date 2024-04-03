@@ -144,6 +144,7 @@ function generateIssues(issueContainer: Element, textBox: Element) {
     }
     return a.issueId.localeCompare(b.issueId);
   });
+  // TODO: string += is slow
   let result = "const idlessIssues = {";
   for (const issue of issueObjects) {
     const styleGuidesArray = ["["];
@@ -153,16 +154,11 @@ function generateIssues(issueContainer: Element, textBox: Element) {
       if (i < issue.styleGuides.length - 1) {
         styleGuidesArray.push(",");
       }
-      console.log(styleGuidesArray);
     }
     styleGuidesArray.push("]");
     const ui = `{ label: "${issue.fromLabel}", toLabel: "${issue.toLabel}", copy: "${issue.copy}", paste: "${issue.paste}", mw: "${issue.mw}", copyLabels: ${issue.copyLabels}}`;
     const toAdd = `\n${issue.issueId}: { regex: ${issue.regex}, ui: ${ui}, type: IssueType.${issue.issueType}, styleGuides: ${styleGuidesArray.join("")}}, `;
     result += toAdd;
-
-    if (styleGuidesArray[2] == "YP") {
-      console.log(toAdd);
-    }
   }
   result += "};";
 
@@ -178,10 +174,8 @@ function getSelectValue(issue: Element, selector: string) {
 }
 
 function getCheckboxValues(issue: Element, selector: string) {
-  console.log(issue);
   const checkboxes = issue.querySelectorAll('.' + selector);
   const result = [];
-  console.log(checkboxes);
   for (let i = 0; i < checkboxes.length; i++) {
     const checkbox = checkboxes[i] as HTMLInputElement;
     if (checkbox.checked) {

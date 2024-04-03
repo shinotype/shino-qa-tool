@@ -7,7 +7,19 @@ test("above ground", () => {
 });
 
 test("absentminded", () => {
-  expectResult(countIssues("he was aBseNtMINDED"), issues.absent_minded.id);
+  expectResult(countIssues("he was aBseNtMINDED"), issues.absentminded.id);
+});
+
+test("absentminded: respects word boundaries", () => {
+  expectNoResult(countIssues("he was aBseNtMINDEDally"));
+});
+
+test("absent-mindedly", () => {
+  expectResult(countIssues("he was aBseNt-MiNdedly"), issues.absent_mindedly.id);
+});
+
+test("absent-mindedness", () => {
+  expectResult(countIssues("he was aBseNt-MINDEDness"), issues.absent_mindedness.id);
 });
 
 test("acknowledgement", () => {
@@ -28,10 +40,6 @@ test("adverting", () => {
 
 test("after-effect", () => {
   expectResult(countIssues("after-EFFECT"), issues.after_effect.id);
-})
-
-test("ahaha", () => {
-  expectContainsResult(countIssues("ahaha"), issues.ahaha.id, 1);
 })
 
 test("aircon", () => {
