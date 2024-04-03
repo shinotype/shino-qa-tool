@@ -44,7 +44,7 @@ function renderIssueFromIssue(issue: Issue) : Element {
 function renderNewIssue() : Element {
   const container = renderIssue("", "", "", "", "", "", "");
   appendSelect(container, "Copy Labels?", "copylabels", ["true", "false"], "true");
-  appendSelect(container, "Type", "issuetype", ["PG", "SP", "SW", "SL"], "SP");
+  appendSelect(container, "Type", "issuetype", ["PG", "SP", "RW", "SW", "SL"], "SP");
   appendCheckbox(container, "Style Guide", "styleguides", ["JNC", "YP"], []);
   return container;
 }
@@ -84,7 +84,7 @@ function appendTypeFromIssue(container: Element, issue: Issue) {
 }
 
 function appendType(container: Element, selected: string) {
-  appendSelect(container, "Type", "issuetype", ["PG", "SP", "SW", "SL"], selected);
+  appendSelect(container, "Type", "issuetype", ["PG", "SP", "RW", "SW", "SL"], selected);
 }
 
 function appendStyleGuidesFromIssue(container: Element, issue: Issue) {
@@ -138,7 +138,7 @@ function generateIssues(issueContainer: Element, textBox: Element) {
     });
   }
   issueObjects.sort((a, b) => {
-    const types = ['PG', 'SP', 'SW', 'SL'];
+    const types = ['PG', 'SP', 'RW', 'SW', 'SL'];
     if (a.issueType != b.issueType) {
       return types.indexOf(a.issueType) - types.indexOf(b.issueType);
     }
@@ -196,6 +196,8 @@ function issueTypeToString(input : Symbol) : string {
     issueType = "PG";
   } else if (input == IssueType.SL) {
     issueType = "SL";
+  } else if (input == IssueType.RW) {
+    issueType = "RW";
   } else if (input == IssueType.SW) {
     issueType = "SW";
   }
@@ -225,6 +227,8 @@ function stringToIssueType(input: string) : Symbol  {
     issueType = IssueType.PG;
   } else if (input == "SL") {
     issueType = IssueType.SL;
+  } else if (input == "RW") {
+    issueType = IssueType.RW;
   } else if (input = "SW") {
     issueType = IssueType.SW;
   }
