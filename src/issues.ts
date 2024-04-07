@@ -814,6 +814,8 @@ const idlessIssues = {
   leaped: { regex: /leaped/gi, ui: { label: "leaped", toLabel: "", copy: "leaped", paste: "", mw: "", copyLabels: false}, type: IssueType.SW, styleGuides: []}, 
   leapt: { regex: /leapt/gi, ui: { label: "leapt", toLabel: "", copy: "leapt", paste: "", mw: "", copyLabels: false}, type: IssueType.SW, styleGuides: []}, 
   outward: { regex: /\boutward\b/ig, ui: { label: "outward", toLabel: "", copy: "", paste: "", mw: "outward", copyLabels: true}, type: IssueType.SW, styleGuides: [StyleGuide.JNC]}, 
+  outwards: { regex: /\boutwards\b/ig, ui: { label: "outwards", toLabel: "", copy: "", paste: "", mw: "outward", copyLabels: true}, type: IssueType.SW, styleGuides: [StyleGuide.JNC]}, 
+  outwards2: { regex: /\boutwards\b/ig, ui: { label: "outwards", toLabel: "outward", copy: "", paste: "", mw: "outward", copyLabels: true}, type: IssueType.SW, styleGuides: [StyleGuide.YP]}, 
   proved: { regex: /\bproved\b/gi, ui: { label: "proved", toLabel: "", copy: "\\bproved\\b", paste: "", mw: "prove", copyLabels: false}, type: IssueType.SW, styleGuides: []}, 
   proven: { regex: /\bproven\b/gi, ui: { label: "proven", toLabel: "", copy: "\\bproven\\b", paste: "", mw: "prove", copyLabels: false}, type: IssueType.SW, styleGuides: []}, 
   slinked: { regex: /\bslinked/gi, ui: { label: "slinked", toLabel: "", copy: "", paste: "", mw: "slink", copyLabels: true}, type: IssueType.SW, styleGuides: []}, 
