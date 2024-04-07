@@ -29,7 +29,7 @@ test("axe respects word boundaries", () => {
 
 test("backwards", () => {
   const result = countIssuesYp("backWARDS backward backWARDs backWard BACKwards BACKWARD backward");
-  expectContainsResult(result, issues.backwards.id, 3);
+  expectContainsResult(result, issues.backwards2.id, 3);
 });
 
 test("blonde", () => {
@@ -97,6 +97,11 @@ test("cup noodles", () => {
   expectResult(countIssuesYp("a CuP noOdleS a"), issues.cup_noodles.id);
 });
 
+test("downwards", () => {
+  const result = countIssuesYp("downWARDS downward downWARDs downWard DOWNwards DOWNWARD downward");
+  expectContainsResult(result, issues.downwards2.id, 3);
+});
+
 test("email", () => {
   expectResult(countIssuesYp("eMaIL"), issues.email.id);
 });
@@ -107,7 +112,7 @@ test("first ever", () => {
 
 test("forwards", () => {
   const result = countIssuesYp("forWARDS forkward forWARDs forWard FORwards FORWARD forward");
-  expectContainsResult(result, issues.forwards.id, 3);
+  expectContainsResult(result, issues.forwards2.id, 3);
 });
 
 test("goodbye", () => {
@@ -141,6 +146,11 @@ test("inside of", () => {
 
 test("inside of: respects word boundaries", () => {
   expectNoResult(countIssuesYp("PinsIde Off"));
+});
+
+test("inwards", () => {
+  const result = countIssuesYp("inWARDS inward inWARDs inWard inwards INWARD inward");
+  expectContainsResult(result, issues.inwards2.id, 3);
 });
 
 test("jeez", () => {
@@ -189,6 +199,11 @@ test("outside of", () => {
 
 test("outside of: respects word boundaries", () => {
   expectNoResult(countIssuesYp("douTsidE Off"));
+}); 
+
+test("outwards", () => {
+  const result = countIssuesYp("outWARDS outward outWARDs OUTWard OuTwards OUTWARD outward");
+  expectContainsResult(result, issues.outwards2.id, 3);
 });
 
 test("rom-com", () => {
@@ -227,6 +242,11 @@ test("towards and toward", () => {
 test("towards: respects word boundaries", () => {
   const result = countIssuesYp("untoWARDS untoward untoWARDs untoWard unTOwards unTOWARD untoward");
   expectNoResult(result);
+});
+
+test("upwards", () => {
+  const result = countIssuesYp("upWARDS upward upWARDs UPWard uPwards UPWARD Upward");
+  expectContainsResult(result, issues.upwards2.id, 3);
 });
 
 test("yesterday", () => {

@@ -139,14 +139,6 @@ test("woah", () => {
   expectResult(countIssues("WOAh!"), issues.woah.id);
 });
 
-test("woo hoo", () => {
-  expectResult(countIssues("woo HOO"), issues.woo_hoo.id);
-});
-
-test("woohoo", () => {
-  expectResult(countIssues("wooHOO"), issues.woohoo.id);
-});
-
 test("work room", () => {
   expectResult(countIssues("work ROOM"), issues.work_room.id);
 });
@@ -154,6 +146,14 @@ test("work room", () => {
 test("work room: respects word boundaries", () => {
   expectNoResult(countIssues("badwork ROOM"));
   expectNoResult(countIssues("work ROOMING"));
+});
+
+test("world building", () => {
+  expectResult(countIssues("world BUILDING"), issues.world_building.id);
+});
+
+test("worldbuilding", () => {
+  expectResult(countIssues("worldBUILDING"), issues.worldbuilding.id);
 });
 
 test("worshiping", () => {
@@ -212,10 +212,16 @@ test("Your majesty", () => {
   expectResult(countIssues("Your majesty"), issues.your_majesty3.id);
 });
 
-test("afterwards and afterward", () => {
-  const result = countIssues("afterWARDS afterward afterWARDs afterWard AFTERwards AFTERWARD afterward");
-  expectContainsResult(result, issues.afterwards.id, 3);
-  expectContainsResult(result, issues.afterward.id, 4);
+test("amid and amidst", () => {
+  const result = countIssues("amid AMID AMIDST AMIDST aMidSt");
+  expectContainsResult(result, issues.amid.id, 2);
+  expectContainsResult(result, issues.amidst.id, 3);
+});
+
+test("among and amongst", () => {
+  const result = countIssues("among AMONG AMONGST AMonGST amongst");
+  expectContainsResult(result, issues.among.id, 2);
+  expectContainsResult(result, issues.amongst.id, 3);
 });
 
 test("anymore and any more", () => {
@@ -232,10 +238,16 @@ test("any more: respects word boundaries", () => {
   expectNoResult(countIssues("many more bany more"));
 });
 
-test("blond and blonde", () => {
-  const result = countIssues("blond BLONDE blOND blONDe Blond BLONDE blond");
-  expectContainsResult(result, issues.blond.id, 4);
-  expectContainsResult(result, issues.blonde.id, 3);
+test("dived and dove", () => {
+  const result = countIssues("dived DIVED dove doVE DOVE");
+  expectContainsResult(result, issues.dived.id, 2);
+  expectContainsResult(result, issues.dove.id, 3);
+});
+
+test("dreamed and dreamt", () => {
+  const result = countIssues("dreamed DREAMED dreamt DREAMT Dreamt");
+  expectContainsResult(result, issues.dreamed.id, 2);
+  expectContainsResult(result, issues.dreamt.id, 3);
 });
 
 test("further and farther", () => {
@@ -244,10 +256,40 @@ test("further and farther", () => {
   expectContainsResult(result, issues.farther.id, 3);
 });
 
+test("kneeled and knelt", () => {
+  const result = countIssues("kneeled KNEELED knelt KNELT kneLT");
+  expectContainsResult(result, issues.kneeled.id, 2);
+  expectContainsResult(result, issues.knelt.id, 3);
+});
+
 test("leapt and leaped", () => {
   const result = countIssues("leaped LEAPED leaPT LEAPT lEAPt");
   expectContainsResult(result, issues.leaped.id, 2);
   expectContainsResult(result, issues.leapt.id, 3);
+});
+
+test("proved and proven", () => {
+  const result = countIssues("proved PROVED prOVeN PROVEN proven");
+  expectContainsResult(result, issues.proved.id, 2);
+  expectContainsResult(result, issues.proven.id, 3);
+});
+
+test("slinked and slunk", () => {
+  const result = countIssues("slinked SLINKEd sLUnk SLUNK slUnk");
+  expectContainsResult(result, issues.slinked.id, 2);
+  expectContainsResult(result, issues.slunk.id, 3);
+});
+
+test("sneaked and snuck", () => {
+  const result = countIssues("sneaked SNEAKED snucK SNUCK snuck");
+  expectContainsResult(result, issues.sneaked.id, 2);
+  expectContainsResult(result, issues.snuck.id, 3);
+});
+
+test("strived and strove", () => {
+  const result = countIssues("strived STRIVED stroVe STROVE strOVE");
+  expectContainsResult(result, issues.strived.id, 2);
+  expectContainsResult(result, issues.strove.id, 3);
 });
 
 test("spaz", () => {

@@ -64,6 +64,10 @@ test("post-: respects word boundaries", () => {
   expectNoResult(countIssues("UNPOST-haste"));
 });
 
+test("pour over", () => {
+  expectResult(countIssues("POUR OVer"), issues.pour_over.id);
+});
+
 test("power-walk", () => {
   expectResult(countIssues("POWER-walk"), issues.power_walk.id);
 });
@@ -142,6 +146,18 @@ test("rear view mirror", () => {
 
 test("rear-view mirror", () => {
   expectResult(countIssues("REAR-view mirror"), issues.rear_view_mirror2.id);
+});
+
+test("reign in", () => {
+  expectResult(countIssues("reign IN"), issues.reign_in.id);
+});
+
+test("reigned in", () => {
+  expectResult(countIssues("reigned IN"), issues.reigned_in.id);
+});
+
+test("reigning in", () => {
+  expectResult(countIssues("reigning IN"), issues.reigning_in.id);
 });
 
 test("re-", () => {
@@ -360,6 +376,10 @@ test("shootout", () => {
   expectResult(countIssues("SHOOTout"), issues.shootout.id);
 });
 
+test("shoulder-to-shoulder", () => {
+  expectResult(countIssues("SHOulder-TO-shoulder"), issues.shoulder_to_shoulder.id);
+});
+
 test("shuteye", () => {
   expectResult(countIssues("shutEYE"), issues.shuteye.id);
 });
@@ -452,12 +472,28 @@ test("soul mate", () => {
   expectResult(countIssues("soul MATE"), issues.soul.id);
 });
 
+test("soundwave", () => {
+  expectResult(countIssues("soundWAVE"), issues.soundwave.id);
+});
+
 test("south east", () => {
   expectResult(countIssues("SOUTH east"), issues.south_east.id);
 });
 
 test("south west", () => {
   expectResult(countIssues("SOUTH west"), issues.south_west.id);
+})
+
+test("space time", () => {
+  expectResult(countIssues("space TIME"), issues.space_time.id);
+});
+
+test("spacetime", () => {
+  expectResult(countIssues("spaceTIME"), issues.spacetime.id);
+});
+
+test("spilt", () => {
+  expectResult(countIssues("spiLT"), issues.spilt.id);
 });
 
 test("spine-like", () => {
@@ -557,6 +593,10 @@ test("swiss cheese NOT case-insensitive", () => {
   expectNoResult(countIssues("ate SWISS CHEESE"));
 });
 
+test("swordfight", () => {
+  expectResult(countIssues("swordFIGHT"), issues.swordfight.id);
+});
+
 test("t-shirt", () => {
   expectResult(countIssues("t-shirt"), issues.t_shirt.id);
 });
@@ -633,6 +673,10 @@ test("tipoff", () => {
   expectResult(countIssues("TIPoff"), issues.tipoff.id);
 });
 
+test("toe-to-toe", () => {
+  expectResult(countIssues("TOE-to-TOE"), issues.toe_to_toe.id);
+});
+
 test("top-secret", () => {
   expectResult(countIssues("TOP-secret"), issues.top_secret.id);
 });
@@ -671,18 +715,6 @@ test("tried and true", () => {
 
 test("twenty-four-seven", () => {
   expectResult(countIssues("TWENTY-four-sEven"), issues.twentyfourseven.id);
-});
-
-test("twin tail", () => {
-  expectResult(countIssues("TWIN tail"), issues.twin_tail.id);
-});
-
-test("twin-tail", () => {
-  expectResult(countIssues("twin-TAIL"), issues.twin_tail2.id);
-});
-
-test("twintail", () => {
-  expectResult(countIssues("twinTAIL"), issues.twintail.id);
 });
 
 test("two-fold", () => {

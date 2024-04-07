@@ -19,6 +19,12 @@ test("ax respects word boundaries", () => {
   expectNoResult(countIssuesJnc("maximum pax power"));
 });
 
+test("backward and backwards", () => {
+  const result = countIssuesJnc("backWARDS backward backWARDs backWard bACKwards BACKWARD backward");
+  expectContainsResult(result, issues.backwards.id, 3);
+  expectContainsResult(result, issues.backward.id, 4);
+});
+
 test("blond and blonde", () => {
   const result = countIssuesJnc("blond BLONDE blOND blONDe Blond BLONDE blond");
   expectContainsResult(result, issues.blond.id, 4);
@@ -37,8 +43,20 @@ test("comma either", () => {
   expectResult(countIssuesJnc("maybe, eiTHer"), issues.p_comma_either.id);
 });
 
+test("downward and downwards", () => {
+  const result = countIssuesJnc("downWARDS downward downWARDs DOWNWard DOWNwards downWARD DOWNward");
+  expectContainsResult(result, issues.downwards.id, 3);
+  expectContainsResult(result, issues.downward.id, 4);
+});
+
 test("ellipsis symbol", () => {
   expectResult(countIssuesJnc("Wow… Cool"), issues.p_ellipsis4.id);
+});
+
+test("forward and forwards", () => {
+  const result = countIssuesJnc("forWARDS forward forWARDs forWard FORwards FORWARD forward");
+  expectContainsResult(result, issues.forwards.id, 3);
+  expectContainsResult(result, issues.forward.id, 4);
 });
 
 test("geez", () => {
@@ -55,6 +73,18 @@ test("hurrah", () => {
 
 test("hurray", () => {
   expectResult(countIssuesJnc("HurRAY"), issues.hurray.id);
+});
+
+test("inward and inwards", () => {
+  const result = countIssuesJnc("inWARDS inward inWARDs INWard INwards inWARD inward");
+  expectContainsResult(result, issues.inwards.id, 3);
+  expectContainsResult(result, issues.inward.id, 4);
+});
+
+test("outward and outwards", () => {
+  const result = countIssuesJnc("outWARDS outward outWARDs OUTWard outwards OUTWARD outward");
+  expectContainsResult(result, issues.outwards.id, 3);
+  expectContainsResult(result, issues.outward.id, 4);
 });
 
 test("towards and toward", () => {
@@ -102,6 +132,12 @@ test("period outside quotes: excludes ellipsis", () => {
 
 test("period outside single quotes: excludes ellipses", () => {
   expectNoResult(countIssuesJnc("‘wow’... She said"));
+});
+
+test("upward and upwards", () => {
+  const result = countIssuesJnc("upWARDS upward upWARDs UPWard upwards upWARD upward");
+  expectContainsResult(result, issues.upwards.id, 3);
+  expectContainsResult(result, issues.upward.id, 4);
 });
 
 test("woo hoo", () => {

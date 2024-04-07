@@ -116,14 +116,6 @@ test("auto-pilot", () => {
   expectResult(countIssues("Auto-PiloT"), issues.auto_pilot.id);
 });
 
-test("ax", () => {
-  expectResult(countIssues("an AX chops wood"), issues.axe.id);
-});
-
-test("ax respects word boundaries", () => {
-  expectNoResult(countIssues("maximum pax power"));
-});
-
 test("back yard", () => {
   expectResult(countIssues("BACK yard"), issues.back_yard.id);
 });
@@ -405,6 +397,10 @@ test("commander-in-chief", () => {
   expectResult(countIssues("commander-IN-chief"), issues.commander_in_chief.id);
 });
 
+test("comprised of", () => {
+  expectResult(countIssues("compriSed OF"), issues.comprised_of.id);
+});
+
 test("concensus", () => {
   expectResult(countIssues("ConCensus"), issues.concensus.id);
 });
@@ -439,6 +435,10 @@ test("co-exist", () => {
 
 test("co-worker", () => {
   expectResult(countIssues("co-WORker"), issues.co_worker.id);
+});
+
+test("creeped", () => {
+  expectResult(countIssues("crEEpeD"), issues.creeped.id);
 });
 
 test("criss-cross", () => {

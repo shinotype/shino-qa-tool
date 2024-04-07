@@ -122,6 +122,22 @@ test("forewent", () => {
   expectResult(countIssues("FOREwent"), issues.forewent.id);
 });
 
+test("forgo", () => {
+  expectResult(countIssues("foRgo"), issues.forgo.id);
+});
+
+test("forgo: respects word boundaries", () => {
+  expectNoResult(countIssues("foRgoT"));
+});
+
+test("forgone", () => {
+  expectResult(countIssues("FORGone"), issues.forgone.id);
+});
+
+test("forwent", () => {
+  expectResult(countIssues("FORwent"), issues.forwent.id);
+});
+
 test("form-fitting", () => {
   expectResult(countIssues("FORM-fitting"), issues.form_fitting.id);
 });
@@ -202,14 +218,6 @@ test("gatling gun", () => {
 
 test("gatling gun NOT case-insensitive", () => {
   expectNoResult(countIssues("fire my GATLING GUN"));
-});
-
-test("geez", () => {
-  expectResult(countIssues("GeeZ"), issues.geez.id);
-});
-
-test("geez respects word boundaries", () => {
-  expectNoResult(countIssues("geezer"));
 });
 
 test("glovebox", () => {
@@ -419,14 +427,6 @@ test("home-sick", () => {
 
 test("human-like", () => {
   expectResult(countIssues("HUMAN-like"), issues.human_like.id);
-});
-
-test("hurrah", () => {
-  expectResult(countIssues("huRRAH"), issues.hurrah.id);
-});
-
-test("hurray", () => {
-  expectResult(countIssues("HurRAY"), issues.hurray.id);
 });
 
 test("hyper-", () => {

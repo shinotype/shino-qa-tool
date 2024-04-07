@@ -142,8 +142,8 @@ test("light headed", () => {
   expectResult(countIssues("LIGHT headed"), issues.light_headed.id);
 });
 
-test("lightheaded", () => {
-  expectResult(countIssues("LIGHTheaded"), issues.lightheaded.id);
+test("light-headed", () => {
+  expectResult(countIssues("LIGHT-headed"), issues.light_headed2.id);
 });
 
 test("light-hearted", () => {
@@ -176,6 +176,14 @@ test("liquify", () => {
 
 test("liquified", () => {
   expectResult(countIssues("liquified"), issues.liquif.id);
+});
+
+test("live-stream", () => {
+  expectResult(countIssues("live-STREAM"), issues.live_stream.id);
+});
+
+test("livestream", () => {
+  expectResult(countIssues("liveSTREAM"), issues.livestream.id);
 });
 
 test("longshot", () => {
@@ -336,6 +344,38 @@ test("multi-: respects word boundaries", () => {
 
 test("multi-headed", () => {
   expectResult(countIssues("MULTI-headed"), issues.multi_headed.id);
+});
+
+test("My Lady", () => {
+  expectResult(countIssues("My Lady, this is quite"), issues.my_lady.id);
+});
+
+test("My Lady: case sensitive", () => {
+  expectNoResult(countIssues("My lady, this is quite"));
+});
+
+test("Milady", () => {
+  expectResult(countIssues("Milady, this is quite"), issues.milady.id);
+});
+
+test("Milady: case sensitive", () => {
+  expectNoResult(countIssues("milady, this is quite"));
+});
+
+test("My Lord", () => {
+  expectResult(countIssues("My Lord, this is quite"), issues.my_lord.id);
+});
+
+test("My Lord: case sensitive", () => {
+  expectNoResult(countIssues("My lord, this is quite"));
+});
+
+test("Milord", () => {
+  expectResult(countIssues("Milord, this is quite"), issues.milord.id);
+});
+
+test("Milord: case sensitive", () => {
+  expectNoResult(countIssues("milord, this is quite"));
 });
 
 test("naive", () => {
