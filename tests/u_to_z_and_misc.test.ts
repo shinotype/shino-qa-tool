@@ -119,6 +119,10 @@ test("wide-spread", () => {
   expectResult(countIssues("WIDE-spread"), issues.wide_spread.id);
 });
 
+test("wild goose chase", () => {
+  expectResult(countIssues("wild GOOSE chase"), issues.wild_goose_chase.id);
+});
+
 test("willy nilly", () => {
   expectResult(countIssues("WILLY nilly"), issues.willy_nilly.id);
 });
@@ -141,6 +145,10 @@ test("woah", () => {
 
 test("work room", () => {
   expectResult(countIssues("work ROOM"), issues.work_room.id);
+});
+
+test("workaround", () => {
+  expectResult(countIssues("workAROUND"), issues.workaround.id);
 });
 
 test("work room: respects word boundaries", () => {

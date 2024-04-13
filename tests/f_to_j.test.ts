@@ -98,6 +98,10 @@ test("flack", () => {
   expectResult(countIssues("FLaCk"), issues.flack.id);
 });
 
+test("floorplan", () => {
+  expectResult(countIssues("floorPLAN"), issues.floorplan.id);
+});
+
 test("followup", () => {
   expectResult(countIssues("followUP"), issues.followup.id);
 });
@@ -365,6 +369,10 @@ test("heroin", () => {
   expectResult(countIssues("heroin addict"), issues.heroin.id);
 });
 
+test("hide and seek", () => {
+  expectResult(countIssues("HIDE and SEEK"), issues.hide_and_seek.id);
+});
+
 test("high five", () => {
   expectResult(countIssues("HIGH five"), issues.high_five.id);
 });
@@ -379,6 +387,10 @@ test("high-performance", () => {
 
 test("higher ups", () => {
   expectResult(countIssues("HIGHER ups"), issues.higher_ups.id);
+});
+
+test("high rise", () => {
+  expectResult(countIssues("HIGH rise"), issues.high_rise.id);
 });
 
 test("high-schooler", () => {
@@ -427,6 +439,10 @@ test("home-sick", () => {
 
 test("human-like", () => {
   expectResult(countIssues("HUMAN-like"), issues.human_like.id);
+});
+
+test("husband to be", () => {
+  expectResult(countIssues("HUSBAND to be"), issues.husband_to_be.id);
 });
 
 test("hyper-", () => {

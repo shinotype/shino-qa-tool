@@ -245,6 +245,10 @@ test("breakdancing", () => {
   expectResult(countIssues("BREAKdancing"), issues.breakdancing.id);
 });
 
+test("bride to be", () => {
+  expectResult(countIssues("BRIDe to BE"), issues.bride_to_be.id);
+});
+
 test("broadminded", () => {
   expectResult(countIssues("BROADminded"), issues.broadminded.id);
 });
@@ -391,6 +395,10 @@ test("collar bone", () => {
 
 test("colour", () => {
   expectResult(countIssues("colOurfuL"), issues.colour.id);
+});
+
+test("combatting", () => {
+  expectResult(countIssues("COMbatTing"), issues.combatting.id);
 });
 
 test("commander-in-chief", () => {
@@ -647,6 +655,14 @@ test("emphasise", () => {
 
 test("emphasising", () => {
   expectResult(countIssues("emphaSisING"), issues.emphasising.id);
+});
+
+test("empty handed", () => {
+  expectResult(countIssues("EMPTY handED"), issues.empty_handed.id);
+});
+
+test("emptyhanded", () => {
+  expectResult(countIssues("empTYhandED"), issues.emptyhanded.id);
 });
 
 test("enquire", () => {

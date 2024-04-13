@@ -1,6 +1,6 @@
 import { countIssues } from '../src/qatool';
 import { issues } from '../src/issues';
-import { expectResult, expectNoResult } from './expectations';
+import { expectResult, expectContainsResult, expectNoResult } from './expectations';
 
 test("pain-killer", () => {
   expectResult(countIssues("PAIN-killer"), issues.pain_killer.id);
@@ -56,8 +56,16 @@ test("point blank", () => {
   expectResult(countIssues("Point BLANK"), issues.point_blank.id);
 });
 
+test("post-haste", () => {
+  expectContainsResult(countIssues("POST-haste"), issues.post_haste.id, 1);
+});
+
+test("post-haste: respects word boundaries", () => {
+  expectNoResult(countIssues("UNPOST-haste"));
+});
+
 test("post-", () => {
-  expectResult(countIssues("POST-haste"), issues.post_hyphen.id);
+  expectContainsResult(countIssues("POST-haste"), issues.post_hyphen.id, 1);
 });
 
 test("post-: respects word boundaries", () => {
@@ -118,6 +126,10 @@ test("puppet-like", () => {
 
 test("pureblooded", () => {
   expectResult(countIssues("PUREblooded"), issues.pureblooded.id);
+});
+
+test("pure-hearted", () => {
+  expectResult(countIssues("PURE-hearted"), issues.pure_hearted.id);
 });
 
 test("pushup", () => {
@@ -194,6 +206,10 @@ test("re-write", () => {
 
 test("red faced", () => {
   expectResult(countIssues("RED faced"), issues.red_faced.id);
+});
+
+test("revery", () => {
+  expectResult(countIssues("revERY"), issues.revery.id);
 });
 
 test("ribcage", () => {
@@ -280,6 +296,10 @@ test("saw-like", () => {
   expectResult(countIssues("sAW-like"), issues.saw_like.id);
 });
 
+test("scot free", () => {
+  expectResult(countIssues("SCOT free"), issues.scot_free.id);
+});
+
 test("seatbelt", () => {
   expectResult(countIssues("SEATbelt"), issues.seatbelt.id);
 });
@@ -350,6 +370,10 @@ test("semi truck", () => {
 
 test("semi-truck", () => {
   expectResult(countIssues("SEMI-truck"), issues.semi_truck2.id);
+});
+
+test("shakeup", () => {
+  expectResult(countIssues("SHAKEup"), issues.shakeup.id);
 });
 
 test("shapeshift", () => {
@@ -619,6 +643,10 @@ test("tax-payer", () => {
 
 test("tax-paying", () => {
   expectResult(countIssues("tax-PAYING"), issues.tax_paying.id);
+});
+
+test("tear stain", () => {
+  expectResult(countIssues("TEAR STain"), issues.tear_stain.id);
 });
 
 test("tell-tale", () => {

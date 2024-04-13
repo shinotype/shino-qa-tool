@@ -18,6 +18,10 @@ test("kind hearted", () => {
   expectResult(countIssues("KinD HeArTed"), issues.kind_hearted2.id);
 });
 
+test("knick-knack", () => {
+  expectResult(countIssues("knick-KNACK"), issues.knick_knack.id);
+});
+
 test("knock-off", () => {
   expectResult(countIssues("knock-OFF"), issues.knock_off.id);
 });
@@ -242,6 +246,10 @@ test("manpower", () => {
   expectResult(countIssues("MANpower"), issues.manpower.id);
 });
 
+test("map-maker", () => {
+  expectResult(countIssues("MAP-maker"), issues.map_maker.id);
+});
+
 test("mask-like", () => {
   expectResult(countIssues("mask-LIKE"), issues.mask_like.id);
 });
@@ -276,6 +284,10 @@ test("meagre", () => {
 
 test("mid-air", () => {
   expectResult(countIssues("mid-AIR"), issues.mid_air.id);
+});
+
+test("mid-day", () => {
+  expectResult(countIssues("mid-DAY"), issues.mid_day.id);
 });
 
 test("mid-morning", () => {
@@ -388,6 +400,10 @@ test("name drop", () => {
 
 test("nametag", () => {
   expectResult(countIssues("NAMEtag"), issues.nametag.id);
+});
+
+test("nation state", () => {
+  expectResult(countIssues("NATION state"), issues.nation_state.id);
 });
 
 test("natural born", () => {
@@ -550,6 +566,10 @@ test("off limits", () => {
   expectResult(countIssues("OFF limits"), issues.off_limits.id);
 });
 
+test("off putting", () => {
+  expectResult(countIssues("OFF balance"), issues.off_balance.id);
+});
+
 test("offload", () => {
   expectResult(countIssues("OFFload"), issues.offload.id);
 });
@@ -597,6 +617,10 @@ test("one on one", () => {
 
 test("one-time", () => {
   expectResult(countIssues("ONE-time"), issues.one_time.id);
+});
+
+test("out-bluff", () => {
+  expectResult(countIssues("OUT-bluff"), issues.out_bluff.id);
 });
 
 test("over-excited", () => {
