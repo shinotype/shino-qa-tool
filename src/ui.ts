@@ -86,11 +86,11 @@ function renderIssues(issueContainer: Element, issues: UiIssue[]) {
     }
 
     if (issue.mw) {
-      const mwCopyLabel = parseHtml(`<div class="label mw copy" title="Copy MW link"><img src="img/link.png"></div>`);
+      const mwCopyLabel = parseHtml(`<div class="label mw copy" title="Copy MW link">COPY MW</div>`);
       mwCopyLabel.addEventListener('click', () => copyText("https://www.merriam-webster.com/dictionary/" + encodeURI(issue.mw as string)));
       labelContainer.append(mwCopyLabel);
 
-      const mwGoLabel = parseHtml(`<a href="https://www.merriam-webster.com/dictionary/${encodeURI(issue.mw as string)}" target="_blank" rel="noopener noreferrer"><div class="label mw go" title="Go to MW"><img src="img/share.png"></div></a>`);
+      const mwGoLabel = parseHtml(`<a class="golink" href="https://www.merriam-webster.com/dictionary/${encodeURI(issue.mw as string)}" target="_blank" rel="noopener noreferrer"><div class="label mw go" title="Go to MW">OPEN MW</div></a>`);
       labelContainer.append(mwGoLabel);
     }
 

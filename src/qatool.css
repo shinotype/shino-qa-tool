@@ -88,7 +88,6 @@ button:active {
   font-weight: bold;
   position: relative;
   height: 20px;
-  width: 18px;
   margin-right: 6px;
 }
 
@@ -111,6 +110,11 @@ button:active {
 .mw.go > img {
   width: 18px;
   height: 18px;
+}
+
+.golink {
+  text-decoration: none !important;
+  color: #000;
 }
 
 .noIssuesMessage {
