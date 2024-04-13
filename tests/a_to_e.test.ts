@@ -169,6 +169,18 @@ test("bare bones", () => {
   expectResult(countIssues("bare BONES"), issues.bare_bones.id);
 });
 
+test("bare-handed", () => {
+  expectResult(countIssues("bare-HANDED"), issues.bare_handed.id);
+});
+
+test("barehand", () => {
+  expectResult(countIssues("bareHAND"), issues.barehand.id);
+});
+
+test("barehand: doesn't respect word boundaries", () => {
+  expectResult(countIssues("bareHANDED"), issues.barehand.id);
+});
+
 test("bath house", () => {
   expectResult(countIssues("the BATH house is big"), issues.bathhouse.id);
 });
@@ -507,6 +519,10 @@ test("dagger-like", () => {
 
 test("damndest", () => {
   expectResult(countIssues("dAMNdest"), issues.damndest.id);
+});
+
+test("dare say", () => {
+  expectResult(countIssues("DARE say"), issues.dare_say.id);
 });
 
 test("day-LONG", () => {

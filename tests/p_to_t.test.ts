@@ -661,6 +661,10 @@ test("testdrive", () => {
   expectResult(countIssues("TESTdrive"), issues.testdrive.id);
 });
 
+test("test fire", () => {
+  expectResult(countIssues("TEST fire"), issues.test_fire.id);
+});
+
 test("testrun", () => {
   expectResult(countIssues("TESTrun"), issues.testrun.id);
 });
@@ -675,6 +679,10 @@ test("tete-a-tete", () => {
 
 test("the lead up", () => {
   expectResult(countIssues("THE lead up"), issues.lead_up.id);
+});
+
+test("the up and up", () => {
+  expectResult(countIssues("THE UP and up"), issues.the_up_and_up.id);
 });
 
 test("three-fold", () => {

@@ -78,6 +78,10 @@ test("first in command", () => {
   expectResult(countIssues("FIRST in COMMAND"), issues.first_in_command.id);
 });
 
+test("first name basis", () => {
+  expectResult(countIssues("FIRST name BASIS"), issues.first_name_basis.id);
+});
+
 test("fist-fight", () => {
   expectResult(countIssues("FIST-fight"), issues.fist_fight.id);
 });
@@ -347,6 +351,14 @@ test("head on: respects word boundaries", () => {
 
 test("head scratcher", () => {
   expectResult(countIssues("HEAD scRATcher"), issues.head_scratcher.id);
+});
+
+test("heads up", () => {
+  expectResult(countIssues("HEADS up"), issues.heads_up1.id);
+});
+
+test("heads-up", () => {
+  expectResult(countIssues("HEADS-up"), issues.heads_up2.id);
 });
 
 test("heehee", () => {

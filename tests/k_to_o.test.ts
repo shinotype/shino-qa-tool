@@ -86,6 +86,10 @@ test("lay women", () => {
   expectResult(countIssues("lay WOMEN"), issues.lay_women.id);
 });
 
+test("learnt", () => {
+  expectResult(countIssues("LEARnt"), issues.learnt.id);
+});
+
 test("lied", () => {
   expectResult(countIssues("LieD"), issues.lie1.id);
 });
@@ -582,10 +586,6 @@ test("omelette", () => {
   expectResult(countIssues("OMElette"), issues.omelette.id);
 });
 
-test("on board", () => {
-  expectResult(countIssues("it is on BOARD right now"), issues.on_board.id);
-});
-
 test("on screen", () => {
   expectResult(countIssues("it is on SCREEN right now"), issues.on_screen.id);
 });
@@ -609,6 +609,10 @@ test("on-stage", () => {
 
 test("on stage", () => {
   expectResult(countIssues("on STAGE"), issues.on_stage2.id);
+});
+
+test("one night stand", () => {
+  expectResult(countIssues("ONE night STAND"), issues.one_night_stand.id);
 });
 
 test("one on one", () => {
