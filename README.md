@@ -8,7 +8,7 @@ You can file bug reports and feature requests on the issues tab. Given the natur
 
 ## Updates
 
-**Last updated:** 7/12/2023.
+**Last updated:** 4/13/2024.
 
 ## Setup
 ```npm install```
@@ -29,3 +29,8 @@ The pages will be at `localhost:8080/qatool.html` and `localhost:8080/db.html`.
 ## Build for release
 ```npm run build```
 This will generate a minified dist/qatool.js.
+
+## Credits
+
+* [Link icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/link)
+* [Export icons created by Amazona Adorada - Flaticon](https://www.flaticon.com/free-icons/export)
