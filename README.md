@@ -29,8 +29,3 @@ The pages will be at `localhost:8080/qatool.html` and `localhost:8080/db.html`.
 ## Build for release
 ```npm run build```
 This will generate a minified dist/qatool.js.
-
-## Credits
-
-* [Link icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/link)
-* [Export icons created by Amazona Adorada - Flaticon](https://www.flaticon.com/free-icons/export)
