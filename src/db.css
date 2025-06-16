@@ -9,13 +9,28 @@
   font-size: 12px;
 }
 
-.issue {
-  padding: 8px;
+.controls {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: 50px;
 }
 
-.issue:nth-child(even) {
-  background-color: #ddd; 
-} 
+.issueContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.issue {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: table;
+  margin: 10px;
+  padding: 8px;
+}
 
 .textBox {
   width: 300px;
@@ -23,10 +38,21 @@
 }
 
 .field {
-  display: inline-block;
+  display: table-row;
   margin: 3px;
 }
 
 .field > label {
   margin-right: 6px;
+}
+
+.label {
+  display: table-cell;
+  text-transform: uppercase;
+  text-align: right;
+  padding-right: 6px;
+}
+
+.id {
+  display: table-cell;
 }

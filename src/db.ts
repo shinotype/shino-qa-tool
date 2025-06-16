@@ -7,9 +7,11 @@ import { isTSImportEqualsDeclaration } from "@babel/types";
 export function init(initContainer: HTMLElement) {
   const container = parseHtml(`
       <div class="container">
-        <textarea class="textBox"></textarea>
-        <button class="runButton">Generate issues</button>
-        <button class="addButton">Add new issue</button>
+        <div class="controls">
+          <textarea class="textBox"></textarea>
+          <button class="runButton">Generate issues</button>
+          <button class="addButton">+</button>
+        </div>
         <div class="issueContainer"></div>
       </div>`);
   initContainer.append(container);
