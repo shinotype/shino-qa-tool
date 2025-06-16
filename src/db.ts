@@ -9,7 +9,6 @@ export function init(initContainer: HTMLElement) {
       <div class="container">
         <div class="controls">
           <textarea class="textBox"></textarea>
-          <button class="runButton">Generate issues</button>
           <button class="addButton">+</button>
         </div>
         <div class="issueContainer"></div>
@@ -18,15 +17,19 @@ export function init(initContainer: HTMLElement) {
 
   const issueContainer = container.querySelector(".issueContainer")!;
   const textBox = container.querySelector(".textBox")!;
+  textBox.addEventListener("click", () => {
+    copyText((textBox as HTMLInputElement).value);
+  });
 
   container.querySelector(".addButton")?.addEventListener("click", () => {
     addNewIssue(issueContainer);
   });
-  container.querySelector(".runButton")?.addEventListener("click", () => {
-    generateIssues(issueContainer, textBox);
-  });
 
   populateIssues(issueContainer);
+
+  issueContainer.addEventListener("change", () => {
+      generateIssues(issueContainer, textBox);
+  });
 }
 
 function populateIssues(container: Element) {
