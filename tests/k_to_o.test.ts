@@ -314,16 +314,16 @@ test("mid-size", () => {
   expectResult(countIssues("mID-sIzE"), issues.mid_size.id);
 });
 
-test("mid-twenties", () => {
-  expectResult(countIssues("mid-TWENties"), issues.mid_twenties.id);
+test("midtwenties", () => {
+  expectResult(countIssues("midTWENties"), issues.midtwenties.id);
 });
 
-test("mid-thirties", () => {
-  expectResult(countIssues("mid-THIRtieS"), issues.mid_thirties.id);
+test("midthirties", () => {
+  expectResult(countIssues("midtHIRtieS"), issues.midthirties.id);
 });
 
-test("mid-forties", () => {
-  expectResult(countIssues("MID-forties"), issues.mid_forties.id);
+test("midforties", () => {
+  expectResult(countIssues("MIDforties"), issues.midforties.id);
 });
 
 test("mini-car", () => {

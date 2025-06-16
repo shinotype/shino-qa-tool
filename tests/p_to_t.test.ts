@@ -710,7 +710,11 @@ test("tipoff", () => {
 });
 
 test("toe-to-toe", () => {
-  expectResult(countIssues("TOE-to-TOE"), issues.toe_to_toe.id);
+  expectResult(countIssues("TOE-to-TOE"), issues.toe_to_toe1.id);
+});
+
+test("toe to toe", () => {
+  expectResult(countIssues("TOE to TOE"), issues.toe_to_toe2.id);
 });
 
 test("top-secret", () => {
