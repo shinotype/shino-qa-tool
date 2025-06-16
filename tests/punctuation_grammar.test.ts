@@ -307,6 +307,42 @@ test("hyphenate numbers between 21 and 99, case insensitive", () => {
   expectResult(countIssues("NINETY NINE"), issues.z_hyphen_numbers.id);
 });
 
+test("no hyphens for big numbers", () => {
+  expectResult(countIssues("one-billion"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("two-hundred"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("three-million"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("four-thousand"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("five-hundred"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("six-billion"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("seven-thousand"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("eight-million"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("nine-hundred"), issues.z_big_numbers_hyphen.id);
+
+  expectResult(countIssues("twenty-thousand"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("thirty-billion"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("forty-million"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("fifty-thousand"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("sixty-billion"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("seventy-million"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("eighty-thousand"), issues.z_big_numbers_hyphen.id);
+  expectResult(countIssues("ninety-billion"), issues.z_big_numbers_hyphen.id);
+});
+
+test("no hyphens for times", () => {
+  expectResult(countIssues("one-ten"), issues.z_open_times.id);
+  expectResult(countIssues("two-fifteen"), issues.z_open_times.id);
+  expectResult(countIssues("three-twenty"), issues.z_open_times.id);
+  expectResult(countIssues("four-thirty"), issues.z_open_times.id);
+  expectResult(countIssues("five-forty"), issues.z_open_times.id);
+  expectResult(countIssues("six-fifty"), issues.z_open_times.id);
+  expectResult(countIssues("seven-ten"), issues.z_open_times.id);
+  expectResult(countIssues("eight-fifteen"), issues.z_open_times.id);
+  expectResult(countIssues("nine-twenty"), issues.z_open_times.id);
+  expectResult(countIssues("ten-thirty"), issues.z_open_times.id);
+  expectResult(countIssues("eleven-forty"), issues.z_open_times.id);
+  expectResult(countIssues("twelve-fifty"), issues.z_open_times.id);
+});
+
 test("less used for countable quantity", () => {
   expectResult(countIssues("less numbers are good"), issues.z_less_plural.id);
 });
