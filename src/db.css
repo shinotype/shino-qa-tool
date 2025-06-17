@@ -23,6 +23,10 @@
   flex-wrap: wrap;
 }
 
+.issue.hidden {
+  display: none;
+}
+
 .issue {
   background-color: #eee;
   border: 1px solid #ccc;

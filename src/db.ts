@@ -9,6 +9,14 @@ export function init(initContainer: HTMLElement) {
       <div class="container">
         <div class="controls">
           <textarea class="textBox"></textarea>
+          <select class="filter">
+            <option>ALL</option>
+            <option>PG</option>
+            <option>SP</option>
+            <option>RW</option>
+            <option>SW</option>
+            <option>SL</option>
+          </select>
           <button class="addButton">+</button>
         </div>
         <div class="issueContainer"></div>
@@ -16,6 +24,7 @@ export function init(initContainer: HTMLElement) {
   initContainer.append(container);
 
   const issueContainer = container.querySelector(".issueContainer")!;
+
   const textBox = container.querySelector(".textBox")!;
   textBox.addEventListener("click", () => {
     copyText((textBox as HTMLInputElement).value);
@@ -29,6 +38,24 @@ export function init(initContainer: HTMLElement) {
 
   issueContainer.addEventListener("change", () => {
       generateIssues(issueContainer, textBox);
+  });
+
+  const filter = (container.querySelector(".filter")! as HTMLSelectElement);
+  filter.addEventListener("change", () => {
+    const selectedType = filter.value;
+    const issues = container.querySelectorAll(".issue");
+
+    if (selectedType == "ALL") {  
+      issues.forEach((el) => {
+        el.classList.remove("hidden");
+      });
+    } else {
+      issues.forEach((el) => {
+        el.classList.contains(selectedType) ? el.classList.remove("hidden") : el.classList.add("hidden");
+      });
+    }
+
+    return false;
   });
 }
 
@@ -49,9 +76,9 @@ function renderIssueFromIssue(issue: Issue) : Element {
 
 function renderNewIssue() : Element {
   const container = renderIssue("", "", "", "", "", "", "");
-  appendSelect(container, "Copy Labels?", "copylabels", ["true", "false"], "true");
-  appendSelect(container, "Type", "issuetype", ["PG", "SP", "RW", "SW", "SL"], "SP");
-  appendCheckbox(container, "Style Guide", "styleguides", ["JNC", "YP"], []);
+  appendCopyLabels(container, "true");
+  appendType(container, "SP");
+  appendStyleGuides(container, []);
   appendIssueButtons(container);
   return container;
 }
@@ -91,7 +118,16 @@ function appendTypeFromIssue(container: Element, issue: Issue) {
 }
 
 function appendType(container: Element, selected: string) {
-  appendSelect(container, "Type", "issuetype", ["PG", "SP", "RW", "SW", "SL"], selected);
+  const select = appendSelect(container, "Type", "issuetype", ["PG", "SP", "RW", "SW", "SL"], selected);
+  updateClassListForSelectedType(container, selected);
+  select?.addEventListener("change", (e) => {
+    updateClassListForSelectedType(container, select.value);
+  });
+}
+
+function updateClassListForSelectedType(container: Element, selected: string) {
+  container.classList.remove("PG", "SP", "RW", "SW", "SL");
+  container.classList.add(selected);
 }
 
 function appendStyleGuidesFromIssue(container: Element, issue: Issue) {
@@ -112,6 +148,8 @@ function appendSelect(container: Element, label: string, inputClass: string, opt
   }
   fieldContainer.appendChild(parseHtml(`<select class="${inputClass}">` + optionHtml + `</select>`));
   container.appendChild(fieldContainer);
+  // Return the selector as we need to update the class list on the container when it changse.
+  return fieldContainer.querySelector("select");
 }
 
 function appendCheckbox(container: Element, label: string, inputClass: string, options: Array<string>, selected: string[]) {
