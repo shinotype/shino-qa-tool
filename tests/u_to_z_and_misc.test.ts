@@ -220,6 +220,15 @@ test("Your majesty", () => {
   expectResult(countIssues("Your majesty"), issues.your_majesty3.id);
 });
 
+test("long string", () => {
+  expectResult(countIssues("hi abcdefghijklmnopqrstuvwxy bye"), issues.long_string.id);
+  expectResult(countIssues("hi abcdefghijklmnopqrstuvwxyzabcd bye"), issues.long_string.id);
+});
+
+test("long string: doesn't flag slightly shorter string", () => {
+  expectNoResult(countIssues("hi abcdefghijklmnopqrstuvwx bye"));
+});
+
 test("amid and amidst", () => {
   const result = countIssues("amid AMID AMIDST AMIDST aMidSt");
   expectContainsResult(result, issues.amid.id, 2);

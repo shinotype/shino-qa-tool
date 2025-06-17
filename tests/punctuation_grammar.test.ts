@@ -151,6 +151,15 @@ test("incorrect stuttering: w-wh", () => {
   expectResult(countIssues("i said w-WHO are you?!"), issues.z_stutter_w_wh.id);
 });
 
+test("subjunctive mood", () => {
+  expectResult(countIssues("It was as if he was there"), issues.z_subjunctive.id);
+  expectResult(countIssues("IT'S AS IF I WAS A REAL BOY"), issues.z_subjunctive.id);
+});
+
+test("subjunctive mood: only looks for one word", () => {
+  expectNoResult(countIssues("It was as if he blah blah blah. Then I was"));
+});
+
 test("'cause (wrong curly quote)", () => {
   expectResult(countIssues("‘cause"), issues.p_pos_cause.id);
 });
