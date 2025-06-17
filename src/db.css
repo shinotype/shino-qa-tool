@@ -55,3 +55,12 @@
 .id {
   display: table-cell;
 }
+
+.issueButtonContainer {
+  display: table-row;
+  text-align: center;
+}
+
+.issueButton {
+  text-transform: uppercase;
+}

@@ -43,6 +43,7 @@ function renderIssueFromIssue(issue: Issue) : Element {
   appendCopyLabelsFromIssue(container, issue);
   appendTypeFromIssue(container, issue);
   appendStyleGuidesFromIssue(container, issue);
+  appendIssueButtons(container);
   return container;
 }
 
@@ -51,6 +52,7 @@ function renderNewIssue() : Element {
   appendSelect(container, "Copy Labels?", "copylabels", ["true", "false"], "true");
   appendSelect(container, "Type", "issuetype", ["PG", "SP", "RW", "SW", "SL"], "SP");
   appendCheckbox(container, "Style Guide", "styleguides", ["JNC", "YP"], []);
+  appendIssueButtons(container);
   return container;
 }
 
@@ -123,6 +125,20 @@ function appendCheckbox(container: Element, label: string, inputClass: string, o
     fieldContainer.append(parseHtml(`<label for="${optionId}">${option}</label>`));
   }
   container.appendChild(fieldContainer);
+}
+
+function appendIssueButtons(container: Element) {
+  const buttonContainer = parseHtml(`<div class="field"></div>`);
+  buttonContainer.appendChild(parseHtml(`<div class="label"></div>`));
+  buttonContainer.append(parseHtml(`<button class="issueButton">Delete</div>`));
+  (buttonContainer.querySelector("button") as HTMLButtonElement)?.addEventListener("click", () => {
+    if (confirm("Are you sure you want to delete this issue?") == true) {
+      const parent = container.parentElement;
+      container.remove();
+      parent?.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  })
+  container.appendChild(buttonContainer);
 }
 
 function generateIssues(issueContainer: Element, textBox: Element) {
