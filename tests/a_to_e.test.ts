@@ -54,6 +54,24 @@ test("air-tight", () => {
   expectResult(countIssues("AIR-tight"), issues.air_tight2.id);
 });
 
+test("AKA", () => {
+  expectResult(countIssues("James Bond, AKA 007"), issues.aka1.id);
+});
+
+test("AKA: case sensitive", () => {
+  expectNoResult(countIssues("James Bond, aka 007"));
+});
+
+test("AKA: respects word boundaries", () => {
+  expectNoResult(countIssues("shakalaka"));
+  expectNoResult(countIssues("SHAKALAKA"));
+});
+
+test("a.k.a.", () => {
+  expectResult(countIssues("James Bond, a.k.a. 007"), issues.aka2.id);
+  expectResult(countIssues("James Bond, A.K.A. 007"), issues.aka2.id);
+});
+
 test("all out", () => {
   expectResult(countIssues("ALL out"), issues.all_out.id);
 });

@@ -79,6 +79,15 @@ test("vocal chord", () => {
   expectResult(countIssues("vocal CHORD"), issues.vocal_chord.id);
 });
 
+test("vs", () => {
+  expectResult(countIssues("man vs man"), issues.vs.id);
+  expectResult(countIssues("man VS man"), issues.vs.id);
+});
+
+test("vs: respects word boundaries", () => {
+  expectNoResult(countIssues("manvsman"));
+})
+
 test("wake up call", () => {
   expectResult(countIssues("wake UP call"), issues.wake_up_call.id);
 });
