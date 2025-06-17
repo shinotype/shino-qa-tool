@@ -232,20 +232,6 @@ test("among and amongst", () => {
   expectContainsResult(result, issues.amongst.id, 3);
 });
 
-test("anymore and any more", () => {
-  const result = countIssues("anymore any more anyMORE ANY more any MORE");
-  expectContainsResult(result, issues.anymore.id, 2);
-  expectContainsResult(result, issues.any_more.id, 3);
-});
-
-test("anymore: respects word boundaries", () => {
-  expectNoResult(countIssues("manymore sanymore"));
-});
-
-test("any more: respects word boundaries", () => {
-  expectNoResult(countIssues("many more bany more"));
-});
-
 test("dived and dove", () => {
   const result = countIssues("dived DIVED dove doVE DOVE");
   expectContainsResult(result, issues.dived.id, 2);

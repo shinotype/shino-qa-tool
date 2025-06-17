@@ -307,6 +307,22 @@ test("hyphenate numbers between 21 and 99, case insensitive", () => {
   expectResult(countIssues("NINETY NINE"), issues.z_hyphen_numbers.id);
 });
 
+test("suggest adding commas to large numbers", () => {
+  expectResult(countIssues("1000"), issues.z_big_numbers_comma.id);
+  expectResult(countIssues("211111"), issues.z_big_numbers_comma.id);
+  expectResult(countIssues("32323"), issues.z_big_numbers_comma.id);
+  expectResult(countIssues("41234"), issues.z_big_numbers_comma.id);
+  expectResult(countIssues("5123456"), issues.z_big_numbers_comma.id);
+  expectResult(countIssues("67890"), issues.z_big_numbers_comma.id);
+  expectResult(countIssues("7890"), issues.z_big_numbers_comma.id);
+  expectResult(countIssues("81111111111"), issues.z_big_numbers_comma.id);
+  expectResult(countIssues("99999"), issues.z_big_numbers_comma.id);
+});
+
+test("don't suggest adding commas for small numbers", () => {
+  expectNoResult(countIssues("100 213 345 45 5 678 71 82 910"));
+});
+
 test("no hyphens for big numbers", () => {
   expectResult(countIssues("one-billion"), issues.z_big_numbers_hyphen.id);
   expectResult(countIssues("two-hundred"), issues.z_big_numbers_hyphen.id);
