@@ -338,6 +338,15 @@ test("mischevious", () => {
   expectResult(countIssues("MISCheviouS"), issues.mischevious.id);
 });
 
+test("mont blanc", () => {
+  expectResult(countIssues("mont blanc"), issues.mont_blanc.id);
+});
+
+test("mont blanc: case sensitive", () => {
+  expectNoResult(countIssues("Mont Blanc"));
+});
+
+
 test("month-long", () => {
   expectResult(countIssues("month-LONG"), issues.month_long.id);
 });

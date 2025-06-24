@@ -497,4 +497,8 @@ test("jungle-like", () => {
   expectResult(countIssues("jungle-LIKE"), issues.jungle_like.id);
 });
 
+test("just desserts", () => {
+  expectResult(countIssues("just deSSERTS"), issues.just_desserts.id);
+});
+
 

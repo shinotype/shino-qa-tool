@@ -315,6 +315,14 @@ test("cafe respects word boundaries", () => {
   expectNoResult(countIssues("nescafe coffee"));
 });
 
+test("camembert", () => {
+  expectResult(countIssues("camembert"), issues.camembert.id);
+});
+
+test("camembert: doesn't detect capitalized", () => {
+  expectNoResult(countIssues("Camembert"));
+});
+
 test("canape", () => {
   expectResult(countIssues("CAnapE"), issues.canape.id);
 });
@@ -445,6 +453,10 @@ test("concensus", () => {
 
 test("cool-headed", () => {
   expectResult(countIssues("COOl-headed"), issues.cool_headed.id);
+});
+
+test("could of", () => {
+  expectResult(countIssues("could OF"), issues.could_of.id);
 });
 
 test("counter attack", () => {
@@ -601,6 +613,18 @@ test("descendent", () => {
 
 test("DINNER time", () => {
   expectResult(countIssues("DINNER time"), issues.dinner_time.id);
+});
+
+test("dialog", () => {
+  expectResult(countIssues("dialog"), issues.dialog.id);
+});
+
+test("dialog: respects word boundaries", () => {
+  expectNoResult(countIssues("dialogue"));
+});
+
+test("dialogue box", () => {
+  expectResult(countIssues("dialogue BOX"), issues.dialogue_box.id);
 });
 
 test("dieing", () => {

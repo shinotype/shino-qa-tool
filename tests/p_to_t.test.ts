@@ -420,6 +420,10 @@ test("side-effect", () => {
   expectResult(countIssues("side-EFFECT"), issues.side_effect.id);
 });
 
+test("signalled", () => {
+  expectResult(countIssues("SIGNAlled"), issues.signalled.id);
+});
+
 test("signalling", () => {
   expectResult(countIssues("SIGNAlling"), issues.signalling.id);
 });
@@ -687,6 +691,10 @@ test("the up and up", () => {
 
 test("three-fold", () => {
   expectResult(countIssues("THREE-fold"), issues.three_fold.id);
+});
+
+test("through the ringer", () => {
+  expectResult(countIssues("through THE ringer"), issues.through_the_ringer.id);
 });
 
 test("thrusted", () => {
