@@ -25,6 +25,14 @@ test("backward and backwards", () => {
   expectContainsResult(result, issues.backward.id, 4);
 });
 
+test("battle royal", () => {
+  expectResult(countIssuesJnc("it's a battle royal!"), issues.battle_royal.id);
+})
+
+test("battle royal: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("go to battle royally!"));
+})
+
 test("blond and blonde", () => {
   const result = countIssuesJnc("blond BLONDE blOND blONDe Blond BLONDE blond");
   expectContainsResult(result, issues.blond.id, 4);
@@ -47,6 +55,23 @@ test("downward and downwards", () => {
   const result = countIssuesJnc("downWARDS downward downWARDs DOWNWard DOWNwards downWARD DOWNward");
   expectContainsResult(result, issues.downwards.id, 3);
   expectContainsResult(result, issues.downward.id, 4);
+});
+
+test("e-book", () => {
+  expectResult(countIssuesJnc("I read an e-book."), issues.e_book.id);
+});
+
+test("e-book: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("I read a she-book."));
+});
+
+
+test("e-mail", () => {
+  expectResult(countIssuesJnc("I sent her an e-mail."), issues.e_mail.id);
+});
+
+test("e-mail: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("I sent her an she-mail."));
 });
 
 test("ellipsis symbol", () => {
@@ -75,10 +100,35 @@ test("hurray", () => {
   expectResult(countIssuesJnc("HurRAY"), issues.hurray.id);
 });
 
+test("Internet", () => {
+  expectResult(countIssuesJnc("I went on the Internet."), issues.internet.id);
+});
+
+test("Internet: case sensitive", () => {
+  expectNoResult(countIssuesJnc("I went on the internet."));
+});
+
 test("inward and inwards", () => {
   const result = countIssuesJnc("inWARDS inward inWARDs INWard INwards inWARD inward");
   expectContainsResult(result, issues.inwards.id, 3);
   expectContainsResult(result, issues.inward.id, 4);
+});
+
+test("jousei", () => {
+  expectResult(countIssuesJnc("I love to read JOUsei!"), issues.jousei.id);
+});
+
+test("kouhai", () => {
+  expectResult(countIssuesJnc("He is my KOUhai!"), issues.kouhai.id);
+});
+
+test("outa", () => {
+  expectResult(countIssuesJnc("We gotta get ouTa dodge!"), issues.outa.id);
+});
+
+test("outa: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("I am abouta go crazy!"));
+  expectNoResult(countIssuesJnc("There is an outage!"));
 });
 
 test("outward and outwards", () => {

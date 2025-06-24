@@ -152,6 +152,7 @@ bare_handed: { regex: /bare-handed/gi, ui: { label: "bare-handed (adj. or adv.)"
 barebones: { regex: /barebones/gi, ui: { label: "barebones", toLabel: "bare-bones", copy: "", paste: "", mw: "bare-bones", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 barehand: { regex: /barehand/gi, ui: { label: "barehand (verb)", toLabel: "", copy: "barehand", paste: "", mw: "barehand", copyLabels: false}, type: IssueType.SP, styleGuides: []}, 
 bathhouse: { regex: /bath house/gi, ui: { label: "bath house", toLabel: "bathhouse", copy: "", paste: "", mw: "bathhouse", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
+battle_royal: { regex: /battle royal\b/gi, ui: { label: "battle royal", toLabel: "battle royale (house style)", copy: "battle royal\\b", paste: "battle royale", mw: "battle royal", copyLabels: false}, type: IssueType.SP, styleGuides: [StyleGuide.JNC]}, 
 bed_time: { regex: /bed time/gi, ui: { label: "bed time", toLabel: "bedtime", copy: "", paste: "", mw: "bedtime", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 best_seller: { regex: /best-seller/gi, ui: { label: "best-seller", toLabel: "bestseller", copy: "", paste: "", mw: "bestseller", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 bite_sized: { regex: /bite-sized/gi, ui: { label: "bite-sized", toLabel: "bite-size", copy: "", paste: "", mw: "bite-size", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
@@ -278,6 +279,8 @@ drop_out: { regex: /drop-out/gi, ui: { label: "drop-out", toLabel: "dropout", co
 dryer: { regex: /dryer/gi, ui: { label: "dryer (appliance)", toLabel: "", copy: "dryer", paste: "", mw: "", copyLabels: false}, type: IssueType.SP, styleGuides: []}, 
 dust_up: { regex: /dust-up/gi, ui: { label: "dust-up", toLabel: "dustup", copy: "", paste: "", mw: "dustup", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 duty_bound: { regex: /duty-bound/gi, ui: { label: "duty-bound", toLabel: "duty bound", copy: "", paste: "", mw: "duty bound", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
+e_book: { regex: /\be-book\b/ig, ui: { label: "e-book", toLabel: "ebook (house style)", copy: "\\be-book\\b", paste: "\\bebook\\b", mw: "", copyLabels: false}, type: IssueType.SP, styleGuides: [StyleGuide.JNC]}, 
+e_mail: { regex: /\be-mail\b/ig, ui: { label: "e-mail", toLabel: "email", copy: "", paste: "", mw: "email", copyLabels: true}, type: IssueType.SP, styleGuides: [StyleGuide.JNC]}, 
 ear_splitting: { regex: /ear-splitting/gi, ui: { label: "ear-splitting", toLabel: "earsplitting", copy: "", paste: "", mw: "earsplitting", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 earth_shaking: { regex: /earth-shaking/gi, ui: { label: "earth-shaking", toLabel: "earthshaking", copy: "", paste: "", mw: "earthshaking", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 elicit: { regex: /elicit/gi, ui: { label: "elicit (verb)", toLabel: "", copy: "elicit", paste: "", mw: "", copyLabels: false}, type: IssueType.SP, styleGuides: []}, 
@@ -416,9 +419,11 @@ ice_cream_cone: { regex: /ice cream cone/gi, ui: { label: "ice cream cone", toLa
 icepack: { regex: /icepack/gi, ui: { label: "icepack", toLabel: "ice pack", copy: "", paste: "", mw: "ice pack", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 illicit: { regex: /illicit/gi, ui: { label: "illicit (adjective)", toLabel: "", copy: "illicit", paste: "", mw: "", copyLabels: false}, type: IssueType.SP, styleGuides: []}, 
 inbox: { regex: /\binbox\b/gi, ui: { label: "inbox", toLabel: "in-box", copy: "", paste: "", mw: "", copyLabels: true}, type: IssueType.SP, styleGuides: [StyleGuide.YP]}, 
+internet: { regex: /Internet/g, ui: { label: "Internet", toLabel: "internet (house style)", copy: "Internet", paste: "internet", mw: "", copyLabels: false}, type: IssueType.SP, styleGuides: [StyleGuide.JNC]}, 
 iron_clad: { regex: /iron-clad/gi, ui: { label: "iron-clad", toLabel: "ironclad", copy: "", paste: "", mw: "ironclad", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 iron_fisted: { regex: /iron-fisted/gi, ui: { label: "iron-fisted", toLabel: "ironfisted", copy: "", paste: "", mw: "ironfisted", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 jeez: { regex: /\bjeez\b/gi, ui: { label: "jeez", toLabel: "geez", copy: "\\bjeez\\b", paste: "geez", mw: "", copyLabels: false}, type: IssueType.SP, styleGuides: [StyleGuide.YP]}, 
+jousei: { regex: /jousei/ig, ui: { label: "jousei", toLabel: "josei (house style)", copy: "jousei", paste: "josei", mw: "", copyLabels: false}, type: IssueType.SP, styleGuides: [StyleGuide.JNC]}, 
 judge: { regex: /judgement/gi, ui: { label: "judgement", toLabel: "judgment", copy: "", paste: "", mw: "judgment", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 jungle_like: { regex: /jungle-like/gi, ui: { label: "jungle-like", toLabel: "junglelike", copy: "", paste: "", mw: "junglelike", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 just_desserts: { regex: /just desserts/gi, ui: { label: "just desserts", toLabel: "just deserts", copy: "", paste: "", mw: "just deserts", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
@@ -430,6 +435,7 @@ knick_knack: { regex: /knick-knack/gi, ui: { label: "knick-knack", toLabel: "kni
 knock_off: { regex: /knock-off/gi, ui: { label: "knock-off", toLabel: "knockoff", copy: "", paste: "", mw: "knockoff", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 knowhow: { regex: /knowhow/gi, ui: { label: "knowhow", toLabel: "know-how", copy: "", paste: "", mw: "know-how", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 kohai: { regex: /kohai/gi, ui: { label: "kohai", toLabel: "kouhai", copy: "", paste: "", mw: "", copyLabels: true}, type: IssueType.SP, styleGuides: [StyleGuide.YP]}, 
+kouhai: { regex: /kouhai/ig, ui: { label: "kouhai", toLabel: "kohai (house style)", copy: "kouhai", paste: "kohai", mw: "", copyLabels: false}, type: IssueType.SP, styleGuides: [StyleGuide.JNC]}, 
 laidback: { regex: /laidback/gi, ui: { label: "laidback", toLabel: "laid-back", copy: "", paste: "", mw: "laid-back", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 landmine: { regex: /landmine/gi, ui: { label: "landmine", toLabel: "land mine", copy: "", paste: "", mw: "land mine", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 last_ditch: { regex: /last ditch/gi, ui: { label: "last ditch (noun)", toLabel: "", copy: "last ditch", paste: "", mw: "last ditch", copyLabels: false}, type: IssueType.SP, styleGuides: []}, 
@@ -573,6 +579,7 @@ one_time: { regex: /one-time/gi, ui: { label: "one-time", toLabel: "onetime", co
 onscreen: { regex: /onscreen/gi, ui: { label: "onscreen", toLabel: "on-screen", copy: "", paste: "", mw: "on-screen", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 oughta: { regex: /\boughta\b/gi, ui: { label: "oughta", toLabel: "oughtta", copy: "", paste: "", mw: "", copyLabels: true}, type: IssueType.SP, styleGuides: [StyleGuide.YP]}, 
 out_bluff: { regex: /out-bluff/gi, ui: { label: "out-bluff", toLabel: "outbluff", copy: "", paste: "", mw: "outbluff", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
+outa: { regex: /\bouta\b/ig, ui: { label: "outa", toLabel: "outta (house style)", copy: "\\bouta\\b", paste: "outta", mw: "", copyLabels: false}, type: IssueType.SP, styleGuides: [StyleGuide.JNC]}, 
 over_excited: { regex: /over-excited/gi, ui: { label: "over-excited", toLabel: "overexcited", copy: "", paste: "", mw: "overexcited", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 over_extend: { regex: /over-extend/gi, ui: { label: "over-extend", toLabel: "overextend", copy: "", paste: "", mw: "overextend", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
 over_familiar: { regex: /over-familiar/gi, ui: { label: "over-familiar", toLabel: "overfamiliar", copy: "", paste: "", mw: "overfamiliar", copyLabels: true}, type: IssueType.SP, styleGuides: []}, 
@@ -879,7 +886,7 @@ upwards2: { regex: /\bupwards\b/gi, ui: { label: "upwards", toLabel: "upward", c
 fuck: { regex: /fuck/gi, ui: { label: "fuck (curse word)", toLabel: "", copy: "fuck", paste: "", mw: "", copyLabels: false}, type: IssueType.SL, styleGuides: []}, 
 retard: { regex: /retard/gi, ui: { label: "retard (slur?)", toLabel: "", copy: "retard", paste: "", mw: "", copyLabels: false}, type: IssueType.SL, styleGuides: []}, 
 spaz: { regex: /\bspaz\b/gi, ui: { label: "spaz (slur?)", toLabel: "", copy: "spaz", paste: "", mw: "", copyLabels: false}, type: IssueType.SL, styleGuides: []}, };
-  
+
 // variable is unused, but forces a type check
 const unusedTypeCheck = idlessIssues as { [key: string]: Omit<Issue, "id"> };
 
