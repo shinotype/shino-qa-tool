@@ -143,6 +143,22 @@ test("double hyphens", () => {
   expectResult(countIssues("wow --no"), issues.p_dash_double.id);
 });
 
+test("e.g.", () => {
+  expectResult(countIssues("Many vegetables e.g. carrots and onions"), issues.p_comma_eg.id);
+});
+
+test("e.g.: passes with comma", () => {
+  expectNoResult(countIssues("Many vegetables e.g., carrots and onions"));
+});
+
+test("i.e.", () => {
+  expectResult(countIssues("Many vegetables i.e. carrots and onions"), issues.p_comma_ie.id);
+});
+
+test("i.e.: passes with comma", () => {
+  expectNoResult(countIssues("Many vegetables i.e., carrots and onions"));
+});
+
 test("incorrect stuttering: t-th", () => {
   expectResult(countIssues("he said T-this is crazy!"), issues.z_stutter_t_th.id);
 });
@@ -411,3 +427,22 @@ test("no space before measurements", () => {
   expectResult(countIssues("it weighed 10kilograms in total"), issues.z_space_before_measurement.id);
 });
 
+test("symbol: ampersand", () => {
+  expectResult(countIssues("me & you"), issues.z_symbol_ampersand.id);
+});
+
+test("symbol: dollar", () => {
+  expectResult(countIssues("it cost five hundred $ and cents"), issues.z_symbol_dollar.id);
+});
+
+test("symbol: hex", () => {
+  expectResult(countIssues("I am # 1"), issues.z_symbol_hex.id);
+});
+
+test("symbol: percent", () => {
+  expectResult(countIssues("it is fifty % more"), issues.z_symbol_percent.id);
+});
+
+test("symbol: tilde", () => {
+  expectResult(countIssues("she said aaa~ I am happy"), issues.z_symbol_tilde.id);
+});
