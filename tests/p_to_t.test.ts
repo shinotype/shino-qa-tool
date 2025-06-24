@@ -420,6 +420,10 @@ test("side-effect", () => {
   expectResult(countIssues("side-EFFECT"), issues.side_effect.id);
 });
 
+test("side note", () => {
+  expectResult(countIssues("Side note: time to go"), issues.side_note.id);
+});
+
 test("signalled", () => {
   expectResult(countIssues("SIGNAlled"), issues.signalled.id);
 });

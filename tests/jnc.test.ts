@@ -1,6 +1,10 @@
 import { issues } from '../src/issues';
 import { expectResult, expectContainsResult, countIssuesJnc, expectNoResult } from './expectations';
 
+test("adzuki", () => {
+  expectResult(countIssuesJnc("AdZuKi beans"), issues.adzuki.id);
+});
+
 test("afterwards and afterward", () => {
   const result = countIssuesJnc("afterWARDS afterward afterWARDs afterWard AFTERwards AFTERWARD afterward");
   expectContainsResult(result, issues.afterwards.id, 3);
@@ -11,12 +15,30 @@ test("ahaha", () => {
   expectContainsResult(countIssuesJnc("ahaha"), issues.ahaha.id, 1);
 })
 
+test("animes", () => {
+  expectResult(countIssuesJnc("My favorite aniMes are"), issues.animes.id);
+});
+
 test("ax", () => {
   expectResult(countIssuesJnc("an AX chops wood"), issues.axe.id);
 });
 
 test("ax respects word boundaries", () => {
   expectNoResult(countIssuesJnc("maximum pax power"));
+});
+
+test("backlines", () => {
+  const result = countIssuesJnc("backLINES of the war");
+  // this triggers the "backline (adjective) rule, so we can't assert there's only one issue
+  expectContainsResult(result, issues.backlines.id, 1);
+});
+
+test("backline", () => {
+  expectResult(countIssuesJnc("backLINE warrior"), issues.backline1.id);
+});
+
+test("back line", () => {
+  expectResult(countIssuesJnc("BACK line"), issues.backline2.id);
 });
 
 test("backward and backwards", () => {
@@ -118,9 +140,18 @@ test("jousei", () => {
   expectResult(countIssuesJnc("I love to read JOUsei!"), issues.jousei.id);
 });
 
+test("kimonos", () => {
+  expectResult(countIssuesJnc("so many KImonos!"), issues.kimonos.id);
+});
+
 test("kouhai", () => {
   expectResult(countIssuesJnc("He is my KOUhai!"), issues.kouhai.id);
 });
+
+test("mangas", () => {
+  expectResult(countIssuesJnc("My favorite manGas are"), issues.mangas.id);
+});
+
 
 test("outa", () => {
   expectResult(countIssuesJnc("We gotta get ouTa dodge!"), issues.outa.id);
@@ -135,6 +166,54 @@ test("outward and outwards", () => {
   const result = countIssuesJnc("outWARDS outward outWARDs OUTWard outwards OUTWARD outward");
   expectContainsResult(result, issues.outwards.id, 3);
   expectContainsResult(result, issues.outward.id, 4);
+});
+
+test("Q & A", () => {
+  expectResult(countIssuesJnc("We will do a Q & A session"), issues.q_and_a.id);
+});
+
+test("Q and A", () => {
+  expectResult(countIssuesJnc("We will do a Q and A session"), issues.q_and_a2.id);
+});
+
+test("R & D", () => {
+  expectResult(countIssuesJnc("We will do a R & D session"), issues.r_and_d.id);
+});
+
+test("saintess", () => {
+  expectResult(countIssuesJnc("she is the saINTess"), issues.saintess.id);
+});
+
+test("sempai", () => {
+  expectResult(countIssuesJnc("he is my SEMPai"), issues.sempai.id);
+});
+
+test("senpais", () => {
+  expectResult(countIssuesJnc("I love all my senpais!"), issues.senpais.id);
+});
+
+test("shoujo", () => {
+  expectResult(countIssuesJnc("I love to read SHOUjo!"), issues.shoujo.id);
+});
+
+test("shounen", () => {
+  expectResult(countIssuesJnc("I love to read shouNEN!"), issues.shounen.id);
+});
+
+test("spell book", () => {
+  expectResult(countIssuesJnc("I read a SPELL book"), issues.spell_book.id);
+});
+
+test("staffs", () => {
+  expectResult(countIssuesJnc("wooden stafFs lined the wall"), issues.staffs.id);
+});
+
+test("Student Council", () => {
+  expectResult(countIssuesJnc("she is Student Council president"), issues.student_council.id);
+});
+
+test("Student Council: case sensitive", () => {
+  expectNoResult(countIssuesJnc("she is student council president"));
 });
 
 test("towards and toward", () => {
@@ -158,6 +237,26 @@ test("twin-tail", () => {
 
 test("twintail", () => {
   expectResult(countIssuesJnc("twinTAIL"), issues.twintail.id);
+});
+
+test("vtuber", () => {
+  expectResult(countIssuesJnc("she is a vtuber!"), issues.vtuber.id);
+});
+
+test("vtuber: case sensitive", () => {
+  expectNoResult(countIssuesJnc("she is a VTuber!"));
+});
+
+test("yookai", () => {
+  expectResult(countIssuesJnc("look at the yōkAi"), issues.yookai.id);
+});
+
+test("youkai", () => {
+  expectResult(countIssuesJnc("look at the youkAi"), issues.youkai.id);
+});
+
+test("yukatas", () => {
+  expectResult(countIssuesJnc("they wore yuKatas to the festival"), issues.yukatas.id);
 });
 
 test("space before period ignores multiple periods", () => {
