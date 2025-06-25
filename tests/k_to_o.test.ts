@@ -103,7 +103,13 @@ test("lily white", () => {
 });
 
 test("lead", () => {
-  expectResult(countIssues("lead away"), issues.lead.id);
+  expectResult(countIssues("He lead me away"), issues.lead.id);
+});
+
+test("lead: doesn't detect valid uses", () => {
+  expectNoResult(countIssues("The lead is good, I have a lead, I could lead you there, I couldn’t lead you there, I would lead you there, I wouldn’t lead you there"));
+  expectNoResult(countIssues("I should lead you there, I shouldn’t lead you there, I can lead you, I can’t lead you, I will lead, I won’t lead, I shall lead, I shan’t lead"));
+  expectNoResult(countIssues("I might lead, I may lead, I did lead, I didn’t lead, to lead me on, I’ll lead you"));
 });
 
 test("let-down", () => {

@@ -317,6 +317,21 @@ test("hyphenated adverbs (ly-) ignores fully-fledged", () => {
   expectNoResult(countIssues("fully-fledged"));
 });
 
+test("numbers under 100", () => {
+  expectResult(countIssues("I have 1 red balloon"), issues.z_numbers_under_hundred.id);
+  expectResult(countIssues("I have 5 red balloons"), issues.z_numbers_under_hundred.id);
+  expectResult(countIssues("I have 10 red balloons"), issues.z_numbers_under_hundred.id);
+  expectResult(countIssues("I have 22 red balloons"), issues.z_numbers_under_hundred.id);
+  expectResult(countIssues("I have 48 red balloons"), issues.z_numbers_under_hundred.id);
+  expectResult(countIssues("I have 99 red balloons"), issues.z_numbers_under_hundred.id);
+});
+
+test("numbers under 100: doesn't detect valid uses", () => {
+  expectNoResult(countIssues("Chapter 5, Part 1, Section 3, Grade 8, Level 9, Tier 22, Class 14, Rank 30"));
+  expectNoResult(countIssues("chapter 5, part 1, section 3, grade 8, level 9, tier 22, class 14, rank 30"));
+  expectNoResult(countIssues("10 LP, 9 HP, 8 MP, 7 XP, 6 coins, 5 gold, 4 points, 3 experience"));
+});
+
 test("hyphenate numbers between 21 and 99", () => {
   expectResult(countIssues("twenty one"), issues.z_hyphen_numbers.id);
   expectResult(countIssues("thirty two"), issues.z_hyphen_numbers.id);
@@ -345,7 +360,8 @@ test("suggest adding commas to large numbers", () => {
 });
 
 test("don't suggest adding commas for small numbers", () => {
-  expectNoResult(countIssues("100 213 345 45 5 678 71 82 910"));
+  // will detect numbers under 100
+  expectContainsResult(countIssues("100 213 345 45 5 678 71 82 910"), issues.z_numbers_under_hundred.id, 2);
 });
 
 test("no hyphens for big numbers", () => {
