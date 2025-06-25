@@ -158,12 +158,20 @@ test("e.g.: passes with comma", () => {
   expectNoResult(countIssues("Many vegetables e.g., carrots and onions"));
 });
 
+test("e.g.: periods should be escaped", () => {
+  expectNoResult(countIssues("potatoes eggs and carrots"));
+});
+
 test("i.e.", () => {
   expectResult(countIssues("Many vegetables i.e. carrots and onions"), issues.p_comma_ie.id);
 });
 
 test("i.e.: passes with comma", () => {
   expectNoResult(countIssues("Many vegetables i.e., carrots and onions"));
+});
+
+test("i.e.: periods should be escaped", () => {
+  expectNoResult(countIssues("cold icey and freezing"));
 });
 
 test("incorrect stuttering: t-th", () => {
