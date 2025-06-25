@@ -25,6 +25,13 @@ test("space before comma", () => {
 
 test("space between punctuation and quote", () => {
   expectContainsResult(countIssues("a. ” b? ” c! ”"), issues.p_space5.id, 3);
+  expectContainsResult(countIssues("a. ’ b? ’ c! ’"), issues.p_space5.id, 3);
+});
+
+test("no space after end sentence punctuation", () => {
+  expectResult(countIssues("Where do we go now?I dunno."), issues.p_space6.id);
+  expectResult(countIssues("Where do we go now.I dunno."), issues.p_space6.id);
+  expectResult(countIssues("Where do we go now!I dunno."), issues.p_space6.id);
 });
 
 test("two periods", () => {
@@ -294,6 +301,16 @@ test("missing end quotes", () => {
   expectResult(countIssues("He said, “Wow. And then I said, “Sure.”"), issues.p_quotes_end.id);
 });
 
+test("punctuation inside single quotes", () => {
+  expectResult(countIssues("“He said, ‘good?’”"), issues.p_quotes_single.id);
+  expectResult(countIssues("“He said, ‘good!’”"), issues.p_quotes_single.id);
+});
+
+test("punctuation inside single quotes: doesn't flag outside", () => {
+  expectNoResult(countIssues("“He said, ‘good’?”"));
+  expectNoResult(countIssues("“He said, ‘good’!”"));
+});
+
 test("missing punctuation after paragraph", () => {
   expectResult(countIssues("hello\nfarewell"), issues.p_punctuation_before_newline.id);
 });
@@ -418,6 +435,10 @@ test("less used for countable quantity respects word boundaries", () => {
 
 test("double possessive", () => {
   expectResult(countIssues("Jim’s and Bob’s stuff"), issues.p_possessive_double.id);
+});
+
+test("shared possessive", () => {
+  expectResult(countIssues("Jim and Bob’s stuff"), issues.p_possessive_shared.id);
 });
 
 test("reason why", () => {
