@@ -211,10 +211,6 @@ test("best-seller", () => {
   expectResult(countIssues("best-SELLER"), issues.best_seller.id);
 });
 
-test("bite-sized", () => {
-  expectResult(countIssues("BITE-sized"), issues.bite_sized.id);
-});
-
 test("black and white", () => {
   expectResult(countIssues("BLACK and WHITE"), issues.black_and_white.id);
 });

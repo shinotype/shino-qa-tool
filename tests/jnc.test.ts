@@ -55,6 +55,15 @@ test("battle royal: respects word boundaries", () => {
   expectNoResult(countIssuesJnc("go to battle royally!"));
 })
 
+test("bite-size", () => {
+  expectResult(countIssuesJnc("BITE-size"), issues.bite_size.id);
+});
+
+test("bite-size: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("BITE-sized"));
+});
+
+
 test("blond and blonde", () => {
   const result = countIssuesJnc("blond BLONDE blOND blONDe Blond BLONDE blond");
   expectContainsResult(result, issues.blond.id, 4);
@@ -144,6 +153,14 @@ test("kimonos", () => {
   expectResult(countIssuesJnc("so many KImonos!"), issues.kimonos.id);
 });
 
+test("live-stream", () => {
+  expectResult(countIssuesJnc("live-STREAM"), issues.live_stream2.id);
+});
+
+test("live stream", () => {
+  expectResult(countIssuesJnc("live STREAM"), issues.live_stream3.id);
+});
+
 test("kouhai", () => {
   expectResult(countIssuesJnc("He is my KOUhai!"), issues.kouhai.id);
 });
@@ -152,6 +169,13 @@ test("mangas", () => {
   expectResult(countIssuesJnc("My favorite manGas are"), issues.mangas.id);
 });
 
+test("midsize", () => {
+  expectResult(countIssuesJnc("a midSIze dog"), issues.midsize.id);
+});
+
+test("midsize: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("a midSIzed dog"));
+});
 
 test("outa", () => {
   expectResult(countIssuesJnc("We gotta get ouTa dodge!"), issues.outa.id);
@@ -166,6 +190,14 @@ test("outward and outwards", () => {
   const result = countIssuesJnc("outWARDS outward outWARDs OUTWard outwards OUTWARD outward");
   expectContainsResult(result, issues.outwards.id, 3);
   expectContainsResult(result, issues.outward.id, 4);
+});
+
+test("oversize", () => {
+  expectResult(countIssuesJnc("an overSIze dog"), issues.oversize.id);
+});
+
+test("oversize: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("a overSIzed dog"));
 });
 
 test("Q & A", () => {

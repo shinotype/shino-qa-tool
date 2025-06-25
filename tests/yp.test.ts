@@ -32,6 +32,10 @@ test("backwards", () => {
   expectContainsResult(result, issues.backwards2.id, 3);
 });
 
+test("bite-sized", () => {
+  expectResult(countIssuesYp("BITE-sized"), issues.bite_sized.id);
+});
+
 test("blonde", () => {
   const result = countIssuesYp("blond BLONDE blOND blONDe Blond BLONDE blond");
   expectContainsResult(result, issues.blonde2.id, 3);
@@ -165,12 +169,24 @@ test("kohai", () => {
   expectResult(countIssuesYp("KoHaI"), issues.kohai.id);
 });
 
+test("live-stream", () => {
+  expectResult(countIssuesYp("live-STREAM"), issues.live_stream.id);
+});
+
+test("livestream", () => {
+  expectResult(countIssuesYp("liveSTREAM"), issues.livestream.id);
+});
+
 test("mangaka", () => {
   expectResult(countIssuesYp("maNgaKa"), issues.mangaka.id);
 });
 
 test("manhwaga", () => {
   expectResult(countIssuesYp("MaNHwaGa"), issues.manhwaga.id);
+});
+
+test("mid-size", () => {
+  expectResult(countIssuesYp("mID-sIzE"), issues.mid_size.id);
 });
 
 test("no comma too", () => {

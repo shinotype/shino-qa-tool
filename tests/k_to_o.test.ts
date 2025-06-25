@@ -186,14 +186,6 @@ test("liquified", () => {
   expectResult(countIssues("liquified"), issues.liquif.id);
 });
 
-test("live-stream", () => {
-  expectResult(countIssues("live-STREAM"), issues.live_stream.id);
-});
-
-test("livestream", () => {
-  expectResult(countIssues("liveSTREAM"), issues.livestream.id);
-});
-
 test("longshot", () => {
   expectResult(countIssues("loNGShoT"), issues.longshot.id);
 });
@@ -308,10 +300,6 @@ test("mid-section", () => {
 
 test("mid-sentence", () => {
   expectResult(countIssues("mID-sEnTenCe"), issues.mid_sentence.id);
-});
-
-test("mid-size", () => {
-  expectResult(countIssues("mID-sIzE"), issues.mid_size.id);
 });
 
 test("midtwenties", () => {
