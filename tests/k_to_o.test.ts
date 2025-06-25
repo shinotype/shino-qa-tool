@@ -304,8 +304,8 @@ test("mid-section", () => {
   expectResult(countIssues("mID-SectION"), issues.mid_section.id);
 });
 
-test("mid-sentence", () => {
-  expectResult(countIssues("mID-sEnTenCe"), issues.mid_sentence.id);
+test("midsentence", () => {
+  expectResult(countIssues("mIDsEnTenCe"), issues.midsentence.id);
 });
 
 test("midtwenties", () => {
