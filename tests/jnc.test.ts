@@ -315,6 +315,10 @@ test("period outside single quotes: excludes ellipses", () => {
   expectNoResult(countIssuesJnc("‘wow’... She said"));
 });
 
+test("über", () => {
+  expectResult(countIssuesJnc("an übeRmensch"), issues.uber.id);
+});
+
 test("upward and upwards", () => {
   const result = countIssuesJnc("upWARDS upward upWARDs UPWard upwards upWARD upward");
   expectContainsResult(result, issues.upwards.id, 3);

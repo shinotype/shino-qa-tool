@@ -104,6 +104,14 @@ test("watch tower", () => {
   expectResult(countIssues("watch TOWER"), issues.watch_tower.id);
 });
 
+test("wrack brain", () => {
+  expectResult(countIssues("I wrAck my BRAIN"), issues.wrack_brain.id);
+});
+
+test("wracked brain", () => {
+  expectResult(countIssues("he wrackEd his BRAIn"), issues.wracked_brain.id);
+});
+
 test("week-long", () => {
   expectResult(countIssues("week-long"), issues.week_long.id);
 });

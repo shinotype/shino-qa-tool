@@ -259,6 +259,14 @@ test("bow string", () => {
   expectResult(countIssues("BOw string"), issues.bow_string.id);
 });
 
+test("boys school", () => {
+  expectResult(countIssues("boys SCHOOl"), issues.boys_school1.id);
+});
+
+test("boy's school", () => {
+  expectResult(countIssues("boy’s SCHOOl"), issues.boys_school2.id);
+});
+
 test("braindead", () => {
   expectResult(countIssues("BRAINdead"), issues.braindead.id);
 });

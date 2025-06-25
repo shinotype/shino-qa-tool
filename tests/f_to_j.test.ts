@@ -228,6 +228,14 @@ test("gatling gun NOT case-insensitive", () => {
   expectNoResult(countIssues("fire my GATLING GUN"));
 });
 
+test("girls school", () => {
+  expectResult(countIssues("girls SCHOOl"), issues.girls_school1.id);
+})
+
+test("girl's school", () => {
+  expectResult(countIssues("girl’s SCHOOl"), issues.girls_school2.id);
+});
+
 test("glovebox", () => {
   expectResult(countIssues("gloveBOX"), issues.glovebox.id);
 });
