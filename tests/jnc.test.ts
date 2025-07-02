@@ -47,6 +47,14 @@ test("backward and backwards", () => {
   expectContainsResult(result, issues.backward.id, 4);
 });
 
+test("battle-ax", () => {
+  expectResult(countIssuesJnc("this is my baTTle-ax"), issues.battle_ax.id);
+})
+
+test("battle-ax: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("this is my battle-axe"));
+})
+
 test("battle royal", () => {
   expectResult(countIssuesJnc("it's a battle royal!"), issues.battle_royal.id);
 })
@@ -122,6 +130,14 @@ test("geez", () => {
 test("geez respects word boundaries", () => {
   expectNoResult(countIssuesJnc("geezer"));
 });
+
+test("greatax", () => {
+  expectResult(countIssuesJnc("this is my GREATax"), issues.greatax.id);
+})
+
+test("greatax: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("this is my GREATaxe"));
+})
 
 test("hurrah", () => {
   expectResult(countIssuesJnc("huRRAH"), issues.hurrah.id);
@@ -199,6 +215,22 @@ test("oversize", () => {
 test("oversize: respects word boundaries", () => {
   expectNoResult(countIssuesJnc("a overSIzed dog"));
 });
+
+test("pickax", () => {
+  expectResult(countIssuesJnc("this is my PICKax"), issues.pickax.id);
+})
+
+test("pickax: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("this is my PICKaxe"));
+})
+
+test("poleax", () => {
+  expectResult(countIssuesJnc("this is my POLEax"), issues.poleax.id);
+})
+
+test("poleax: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("this is my POLEaxe"));
+})
 
 test("Q & A", () => {
   expectResult(countIssuesJnc("We will do a Q & A session"), issues.q_and_a.id);

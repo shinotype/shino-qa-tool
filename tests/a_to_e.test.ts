@@ -207,6 +207,14 @@ test("bed time", () => {
   expectResult(countIssues("bed TIME"), issues.bed_time.id);
 });
 
+test("benefitted", () => {
+  expectResult(countIssues("beNEfitted"), issues.benefitted.id);
+});
+
+test("benefitting", () => {
+  expectResult(countIssues("beNEfitting"), issues.benefitting.id);
+});
+
 test("best-seller", () => {
   expectResult(countIssues("best-SELLER"), issues.best_seller.id);
 });

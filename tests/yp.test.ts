@@ -209,6 +209,16 @@ test("off of: respects word boundaries", () => {
   expectNoResult(countIssuesYp("Poff Off"));
 });
 
+test("outa", () => {
+  expectResult(countIssuesYp("We gotta get ouTa dodge!"), issues.outa.id);
+});
+
+test("outa: respects word boundaries", () => {
+  expectNoResult(countIssuesYp("I am abouta go crazy!"));
+  expectNoResult(countIssuesYp("There is an outage!"));
+});
+
+
 test("outside of", () => {
   expectResult(countIssuesYp("ouTside OF"), issues.outside_of.id);
 });

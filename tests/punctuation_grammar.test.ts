@@ -491,3 +491,7 @@ test("symbol: percent", () => {
 test("symbol: tilde", () => {
   expectResult(countIssues("she said aaa~ I am happy"), issues.z_symbol_tilde.id);
 });
+
+test("symbol: mcron", () => {
+  expectContainsResult(countIssues("ā, ē, ī, ō, ū, Ā, Ē, Ī, Ō and Ū"), issues.z_symbol_macron.id, 10);
+});

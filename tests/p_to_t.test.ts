@@ -641,6 +641,14 @@ test("tank-like", () => {
   expectResult(countIssues("tank-LIKE"), issues.tank_like.id);
 });
 
+test("targetted", () => {
+  expectResult(countIssues("taRGetted"), issues.targetted.id);
+});
+
+test("targetting", () => {
+  expectResult(countIssues("taRGetting"), issues.targetting.id);
+});
+
 test("tastebud", () => {
   expectResult(countIssues("tasteBUD"), issues.tastebud.id);
 });

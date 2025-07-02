@@ -10,6 +10,14 @@ test("faint-hearted", () => {
   expectResult(countIssues("faint-HEARTed"), issues.faint_hearted.id);
 });
 
+test("fanbase", () => {
+  expectResult(countIssues("FAnbase"), issues.fanbase.id);
+});
+
+test("fanservice", () => {
+  expectResult(countIssues("FAnService"), issues.fanservice.id);
+});
+
 test("far flung", () => {
   expectResult(countIssues("FAR flung"), issues.far_flung.id);
 });
@@ -495,6 +503,10 @@ test("iron-clad", () => {
 
 test("iron-fisted", () => {
   expectResult(countIssues("iroN-fiSted"), issues.iron_fisted.id);
+});
+
+test("jack of all trades", () => {
+  expectResult(countIssues("jACK of all trades"), issues.jack_of_all_trades.id);
 });
 
 test("judgement", () => {
