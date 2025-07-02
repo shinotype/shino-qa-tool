@@ -431,6 +431,14 @@ test("climatic", () => {
   expectResult(countIssues("CLImatic"), issues.climatic.id);
 });
 
+test("close-quarter combat", () => {
+  expectResult(countIssues("cLOSE-quarter combat"), issues.close_quarter_combat.id);
+});
+
+test("close quarters combat", () => {
+  expectResult(countIssues("cLOSE quarterS combat"), issues.close_quarters_combat.id);
+});
+
 test("closeup", () => {
   expectResult(countIssues("xd cLOseUp xd"), issues.closeup.id);
 });

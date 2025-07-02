@@ -332,6 +332,31 @@ test("mischevious", () => {
   expectResult(countIssues("MISCheviouS"), issues.mischevious.id);
 });
 
+test("mhm", () => {
+  expectResult(countIssues("mHM"), issues.mhm.id);
+});
+
+test("mhm: respects word boundaries", () => {
+  expectNoResult(countIssues("hmhmhm"));
+});
+
+test("m-hm", () => {
+  expectResult(countIssues("m-HM"), issues.m_hm.id);
+});
+
+test("m-hm: respects word boundaries", () => {
+  expectNoResult(countIssues("mm-HMm"));
+});
+
+test("mm-hm", () => {
+  expectResult(countIssues("mm-HM"), issues.mm_hm.id);
+});
+
+test("mm-hm: respects word boundaries", () => {
+  // triggers YP "hm" -> "hmm" rule
+  expectResult(countIssues("mmm-HM"), issues.hm.id);
+});
+
 test("mont blanc", () => {
   expectResult(countIssues("mont blanc"), issues.mont_blanc.id);
 });

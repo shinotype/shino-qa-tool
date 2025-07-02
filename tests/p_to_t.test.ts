@@ -136,6 +136,15 @@ test("pushup", () => {
   expectResult(countIssues("puSHup"), issues.pushup.id);
 });
 
+test("rack", () => {
+  expectResult(countIssues("raCK"), issues.rack.id);
+  expectResult(countIssues("raCKed"), issues.rack.id);
+});
+
+test("rack: respects left-side word boundary", () => {
+  expectNoResult(countIssues("TraCK"));
+});
+
 test("ragdoll", () => {
   expectResult(countIssues("ragDOLL"), issues.ragdoll.id);
 });
@@ -187,6 +196,10 @@ test("re-absorb", () => {
 test("re-categorize", () => {
   expectResult(countIssues("re-categorIZE"), issues.re_categorize.id);
 }); 
+
+test("recreate", () => {
+  expectResult(countIssues("reCReate"), issues.recreate.id);
+});
 
 test("re-enact", () => {
   expectResult(countIssues("RE-enact"), issues.re_enact.id);

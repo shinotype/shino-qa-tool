@@ -301,6 +301,14 @@ test("'twixt (wrong curly quote)", () => {
   expectResult(countIssues("‘twixt"), issues.p_pos_twixt.id);
 });
 
+test("each others'", () => {
+  expectResult(countIssues("each OThers’"), issues.p_pos_each_others.id);
+});
+
+test("one anothers'", () => {
+  expectResult(countIssues("one ANOThers’"), issues.p_pos_one_anothers.id);
+});
+
 test("missing start quotes", () => {
   expectResult(countIssues("He said, “Wow.” And then I said, Sure.”"), issues.p_quotes_start.id);
 });
@@ -492,6 +500,14 @@ test("symbol: tilde", () => {
   expectResult(countIssues("she said aaa~ I am happy"), issues.z_symbol_tilde.id);
 });
 
-test("symbol: mcron", () => {
+test("symbol: macron", () => {
   expectContainsResult(countIssues("ā, ē, ī, ō, ū, Ā, Ē, Ī, Ō and Ū"), issues.z_symbol_macron.id, 10);
+});
+
+test("symbol: greater than", () => {
+  expectResult(countIssues("seven > three"), issues.z_symbol_greater_than.id);
+});
+
+test("symbol: less than", () => {
+  expectResult(countIssues("three < seven"), issues.z_symbol_less_than.id);
 });

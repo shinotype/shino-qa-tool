@@ -441,6 +441,11 @@ test("hitman", () => {
   expectResult(countIssues("hitMAN"), issues.hitman.id);
 });
 
+test("hivemind", () => {
+  expectResult(countIssues("hiVEmind"), issues.hivemind.id);
+});
+
+
 test("hold onto", () => {
   expectResult(countIssues("hold onto"), issues.hold_onto.id);
 });

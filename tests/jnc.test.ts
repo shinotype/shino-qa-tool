@@ -90,10 +90,30 @@ test("comma either", () => {
   expectResult(countIssuesJnc("maybe, eiTHer"), issues.p_comma_either.id);
 });
 
+test("'cos", () => {
+  expectResult(countIssuesJnc("’cos I wanted to"), issues.cos.id);
+});
+
+test("'cos: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("’cosine I wanted to"));
+});
+
+test("'coz", () => {
+  expectResult(countIssuesJnc("’coz I wanted to"), issues.coz.id);
+});
+
+test("'coz: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("’cozing I wanted to"));
+});
+
 test("downward and downwards", () => {
   const result = countIssuesJnc("downWARDS downward downWARDs DOWNWard DOWNwards downWARD DOWNward");
   expectContainsResult(result, issues.downwards.id, 3);
   expectContainsResult(result, issues.downward.id, 4);
+});
+
+test("dungeon-dive", () => {
+  expectResult(countIssuesJnc("dungeon-DIVE"), issues.dungeon_dive.id);
 });
 
 test("e-book", () => {
@@ -145,6 +165,33 @@ test("hurrah", () => {
 
 test("hurray", () => {
   expectResult(countIssuesJnc("HurRAY"), issues.hurray.id);
+});
+
+test("IDs", () => {
+  expectResult(countIssuesJnc("these IDs are mine"), issues.ids.id);
+});
+
+test("IDs: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("these katyDIDs are mine"));
+  expectNoResult(countIssuesJnc("these idso are mine"));
+});
+
+test("IDed", () => {
+  expectResult(countIssuesJnc("he was IDed as the culprit"), issues.ided.id);
+});
+
+test("IDed: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("dided"));
+  expectNoResult(countIssuesJnc("ideded"));
+});
+
+test("IDing", () => {
+  expectResult(countIssuesJnc("he was IDing himself as the culprit"), issues.iding.id);
+});
+
+test("IDing: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("diding"));
+  expectNoResult(countIssuesJnc("idinged"));
 });
 
 test("Internet", () => {
@@ -244,6 +291,10 @@ test("R & D", () => {
   expectResult(countIssuesJnc("We will do a R & D session"), issues.r_and_d.id);
 });
 
+test("rock paper scissors", () => {
+  expectResult(countIssuesJnc("rOCK paper scissors"), issues.rock_paper_scissors.id);
+});
+
 test("saintess", () => {
   expectResult(countIssuesJnc("she is the saINTess"), issues.saintess.id);
 });
@@ -264,12 +315,29 @@ test("shounen", () => {
   expectResult(countIssuesJnc("I love to read shouNEN!"), issues.shounen.id);
 });
 
+test("shousetsuka", () => {
+  expectResult(countIssuesJnc("Shousetsuka ni narou"), issues.shousetsuka.id);
+});
+
+test("-size", () => {
+  expectResult(countIssuesJnc("a big-size drink"), issues._size.id);
+});
+
+test("-size: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("a big-sized drink"));
+});
+
+
 test("spell book", () => {
   expectResult(countIssuesJnc("I read a SPELL book"), issues.spell_book.id);
 });
 
 test("staffs", () => {
   expectResult(countIssuesJnc("wooden stafFs lined the wall"), issues.staffs.id);
+});
+
+test("straight-up", () => {
+  expectResult(countIssuesJnc("STRAIGHT-up"), issues.straight_up.id);
 });
 
 test("Student Council", () => {
@@ -301,6 +369,14 @@ test("twin-tail", () => {
 
 test("twintail", () => {
   expectResult(countIssuesJnc("twinTAIL"), issues.twintail.id);
+});
+
+test("vice-", () => {
+  expectResult(countIssuesJnc("vIcE-presIdent"), issues.vice_.id);
+});
+
+test("vice-: respects word boundaries", () => {
+  expectNoResult(countIssuesJnc("devIcE-presIdent"));
 });
 
 test("vtuber", () => {

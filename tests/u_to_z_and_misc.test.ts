@@ -104,6 +104,15 @@ test("watch tower", () => {
   expectResult(countIssues("watch TOWER"), issues.watch_tower.id);
 });
 
+test("wrack", () => {
+  expectResult(countIssues("WraCK"), issues.wrack.id);
+  expectResult(countIssues("WraCKed"), issues.wrack.id);
+});
+
+test("wrack: respects left-side word boundary", () => {
+  expectNoResult(countIssues("TWraCK"));
+});
+
 test("wrack brain", () => {
   expectResult(countIssues("I wrAck my BRAIN"), issues.wrack_brain.id);
 });
